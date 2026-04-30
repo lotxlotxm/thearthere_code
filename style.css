@@ -116,7 +116,7 @@ svg {
 .notion-block-toggle:hover,
 [class*="notion-toggle"]:hover {
     background-color: transparent !important;
-
+}
 
 /*=========================================
 03📌 태그 글자 및 호버 제어 (수정본)
