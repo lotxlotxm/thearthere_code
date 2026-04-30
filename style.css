@@ -119,39 +119,3 @@ svg {
 
 
 
-   /*01-2📌 상단 커버 노출시
-데이터베이스 h1 숨김=============*/
-/* [1] 커버 이미지 영역과 연결된 최상단 제목 박스만 숨기기 */
-/* 본문의 h1은 보통 별도의 div 안에 위치하므로, 헤더 구조만 직접 타격합니다. */
-.super-content-header h1:first-of-type,
-.super-content-header__content,
-.notion-header__title {
-  display: none !important;
-}
-
-/* [2] 본문(Main Content) 내의 H1은 강제로 다시 살리기 */
-/* 상단 헤더 밖(본문)에 작성된 모든 h1은 다시 보이게 설정합니다. */
-main .super-content h1,
-.notion-page__content h1,
-.notion-header + .notion-page__content h1 {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  height: auto !important;
-}
-
-/* [3] 본문 H1의 글자 크기를 시스템 변수와 동기화 */
-.notion-page__content h1 {
-  font-size: var(--pc-h1) !important; /* 이미 설정하신 변수 사용 */
-  font-weight: var(--h1-weight) !important;
-  line-height: var(--pc-lh-h1) !important;
-}
-
-@media (max-width: 768px) {
-  .notion-page__content h1 {
-    font-size: var(--mb-h1) !important;
-    line-height: var(--mb-lh-h1) !important;
-  }
-}
-
-
