@@ -60,23 +60,14 @@ h3, .notion-h3, h3 * {
   }
 }
 
-/* --- 본문 및 링크 (화살표/아이콘 제외 설정) --- */
+/* --- 본문 및 링크 --- */
 .notion-text, 
 .notion-text *, 
 .notion-list li, 
 .notion-link, 
-p,
-.notion-toggle summary,
-.notion-toggle summary span,
-.notion-toggle__content { 
+p { 
   font-size: var(--pc-body) !important; 
   line-height: var(--pc-lh-body) !important; 
-}
-
-.notion-toggle__icon,
-.notion-header__icon,
-svg {
-  font-size: inherit !important; 
 }
 
 @media (max-width: 768px) {
@@ -84,13 +75,36 @@ svg {
   .notion-text *, 
   .notion-list li, 
   .notion-link, 
-  p,
-  .notion-toggle summary,
-  .notion-toggle summary span,
-  .notion-toggle__content { 
+  p { 
     font-size: var(--mb-body) !important; 
     line-height: var(--mb-lh-body) !important; 
   }
+}
+
+/* --- 노션 토글 컴포넌트 폰트 크기 명시적 제어 --- */
+.notion-toggle,
+.notion-toggle summary,
+.notion-toggle summary span,
+.notion-toggle__content {
+  font-size: var(--pc-body) !important;
+  line-height: var(--pc-lh-body) !important;
+}
+
+@media (max-width: 768px) {
+  .notion-toggle,
+  .notion-toggle summary,
+  .notion-toggle summary span,
+  .notion-toggle__content {
+    font-size: var(--mb-body) !important;
+    line-height: var(--mb-lh-body) !important;
+  }
+}
+
+/* 아이콘 및 SVGs */
+.notion-toggle__icon,
+.notion-header__icon,
+svg {
+  font-size: inherit !important; 
 }
 
 /* --- 캡션 --- */
