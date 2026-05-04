@@ -123,14 +123,17 @@ svg {
 
 
 /*📌===========그레이 콜아웃 내부의 갤러리 그리드 설정 */
-.notion-callout.bg-gray-light .notion-collection-gallery {
-  display: grid;
+/* 1. 클래스명 대신 배경 스타일 속성으로 타겟팅 */
+div[style*="background: rgb(241, 241, 239)"] .notion-collection-gallery,
+div[style*="background: rgba(241, 241, 239)"] .notion-collection-gallery {
+  display: grid !important;
   grid-template-columns: repeat(6, 1fr) !important;
   gap: 8px !important;
 }
 
-/* 갤러리 카드 기본 외형 및 호버 애니메이션 */
-.notion-callout.bg-gray-light .notion-collection-card {
+/* 2. 카드 타겟팅 */
+div[style*="background: rgb(241, 241, 239)"] .notion-collection-card,
+div[style*="background: rgba(241, 241, 239)"] .notion-collection-card {
   position: relative !important;
   overflow: hidden !important;
   border-radius: 8px !important;
