@@ -1,0 +1,82 @@
+/* 1. 메인 배너 컨테이너 */
+.banner-container-wrapper:has(.final-hero-banner) {
+  width: 100% !important;
+  /* 🖥️ [PC 메인 배너 위치] */
+  margin-top: -10px !important;  
+  margin-bottom: -20px !important;
+  padding: 0 !important;
+}
+
+.final-hero-banner {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9; 
+  background-image: url('https://res.cloudinary.com/dwtaoukfu/image/upload/v1768203761/header_banner_untitle_s5zi8q.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 26px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden;
+}
+
+.banner-inner-text {
+  background: transparent !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* [1] 메인타이틀 설정 */
+html body .banner-container-wrapper div.final-hero-banner div.banner-inner-text h2.b-title {
+  font-size: 2rem !important; 
+  font-size: clamp(1.6rem, 4vw, 2.2rem) !important; 
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 10px !important;
+  text-shadow: 2px 2px 25px rgba(0,0,0,0.7), 0px 5px 15px rgba(0,0,0,0.5) !important;
+}
+
+/* [2] 서브 타이틀 스타일 제어 */
+html body .banner-container-wrapper .final-hero-banner .banner-inner-text p.b-subtitle,
+html body .banner-container-wrapper .final-hero-banner .banner-inner-text p.b-subtitle * {
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-size: clamp(0.85rem, 2vw, 1.1rem) !important;
+    max-width: 75% !important;
+    line-height: 1.6 !important;
+    text-shadow: 1px 1px 12px rgba(0,0,0,0.8), 0px 2px 5px rgba(0,0,0,0.6) !important;
+    opacity: 1 !important;
+}
+
+/* [3] 브라우저 강제 크기 조절 방지 */
+.banner-container-wrapper .final-hero-banner {
+    -webkit-text-size-adjust: none !important;
+}
+
+@media (max-width: 768px) {
+  html body .banner-container-wrapper div.final-hero-banner div.banner-inner-text h2.b-title {
+    font-size: 1.3rem !important; 
+    padding: 0 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body .banner-container-wrapper .final-hero-banner .banner-inner-text p.b-subtitle {
+    font-size: 0.75rem !important;
+    max-width: 90% !important;
+    padding: 0 10px !important;
+  }
+  
+  .final-hero-banner {
+    aspect-ratio: 4 / 5 !important;
+  }
+}
