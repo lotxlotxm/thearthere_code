@@ -1,4 +1,4 @@
-<script>
+
   (function() {
     function initButtons() {
       const container = document.getElementById('super-custom-controls');
@@ -121,4 +121,3 @@
       clearInterval(checkTimer);
     }, 12000);
   })();
-</script>
