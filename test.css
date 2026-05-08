@@ -1,136 +1,161 @@
-/*01📌 공통 스타일 설정
-===========================================
-   [목차]
-   [1] 폰트 및 그리드 제어판 (:root 변수)
-   [2] 요소별 스타일(H1~Body, PC/모바일 통합)
-   [3] 전역 레이아웃 제어
--------------------------------------------*/
-/* [1] 폰트 및 그리드 제어판 */
-:root {
-  --font-family: 'Noto Sans KR', -apple-system, sans-serif !important;
-   /* PC 수치 */
-  --pc-h1: 48px; --pc-h2: 28px; --pc-h3: 23px; --pc-body: 16px; --pc-caption: 11px;
-  --pc-lh-h1: 1; --pc-lh-h2: 1.2; --pc-lh-h3:1.3; --pc-lh-body: 1.6; --pc-lh-caption: 1.5; /*무력화-pc블록간격 삭제*/
-/* 모바일 수치 */
-  --mb-h1: 32px; --mb-h2: 20px; --mb-h3: 18px; --mb-body: 13px; --mb-caption: 8px;
-  --mb-lh-h1: 1.2; --mb-lh-h2: 1.5; --mb-lh-h3: 1.2; --mb-lh-body: 1.6; --mb-lh-caption: 1.2; /*무력화-mb블록간격 삭제*/
-/* 공통 설정 */
-  --h1-weight: 900;
-  --h2-weight: 900;
-  --h3-weight: 700;
-  --banner-gap: 20px;
-}
-/* 1. 폰트 기본 설정 */
-* :not(.notion-code-block *) { font-family: var(--font-family) !important; }
-/* 2. 요소별 스타일 제어 (H1 ~ Caption) */
-/* --- H1 제목 --- */
-h1, .notion-h1, .notion-header__title, h1 * { 
-  font-size: var(--pc-h1) !important; font-weight: var(--h1-weight) !important; 
-  line-height: var(--pc-lh-h1) !important; margin-top: var(--pc-h1-mt) !important; margin-bottom: var(--pc-h1-mb) !important; 
+/*==01📌 공통 스타일 설정: 깃허브 사용=====*/
+/*====[기본]토글 글자 크기 제어====*/
+.notion-toggle,
+.notion-toggle summary,
+.notion-toggle summary span,
+.notion-toggle__content {
+  font-size: var(--pc-body) !important;
+  line-height: var(--pc-lh-body) !important;
 }
 @media (max-width: 768px) {
-  h1, .notion-h1, .notion-header__title, h1 * { 
-    font-size: var(--mb-h1) !important; line-height: var(--mb-lh-h1) !important; 
-    margin-top: var(--mb-h1-mt) !important; margin-bottom: var(--mb-h1-mb) !important; 
+  .notion-toggle,
+  .notion-toggle summary,
+  .notion-toggle summary span,
+  .notion-toggle__content {
+    font-size: var(--mb-body) !important;
+    line-height: var(--mb-lh-body) !important;
   }
 }
-/* --- H2 제목 --- */
-h2, .notion-h2, h2 * { 
-  font-size: var(--pc-h2) !important; font-weight: var(--h2-weight) !important; 
-  line-height: var(--pc-lh-h2) !important; margin-top: var(--pc-h2-mt) !important; margin-bottom: var(--pc-h2-mb) !important; 
-}
-@media (max-width: 768px) {
-  h2, .notion-h2, h2 * { 
-    font-size: var(--mb-h2) !important; line-height: var(--mb-lh-h2) !important; 
-    margin-top: var(--mb-h2-mt) !important; margin-bottom: var(--mb-h2-mb) !important; 
-  }
-}
-/* --- H3 제목 --- */
-h3, .notion-h3, h3 * { 
-  font-size: var(--pc-h3) !important; font-weight: var(--h3-weight) !important; 
-  line-height: var(--pc-lh-h3) !important; margin-top: var(--pc-h3-mt) !important; margin-bottom: var(--pc-h3-mb) !important; 
-}
-@media (max-width: 768px) {
-  h3, .notion-h3, h3 * { 
-    font-size: var(--mb-h3) !important; line-height: var(--mb-lh-h3) !important; 
-    margin-top: var(--mb-h3-mt) !important; margin-bottom: var(--mb-h3-mb) !important; 
-  }
-}
-/* --- 본문 및 링크 (화살표/아이콘 제외 설정) --- */
-.notion-text, 
-.notion-text *, 
-.notion-list li, 
-.notion-link, 
-p { 
-  font-size: var(--pc-body) !important; 
-  line-height: var(--pc-lh-body) !important; 
-}
-.notion-toggle > summary span,
+/* 아이콘 및 SVGs */
 .notion-toggle__icon,
 .notion-header__icon,
 svg {
   font-size: inherit !important; 
 }
-@media (max-width: 768px) {
-  .notion-text, 
-  .notion-text *, 
-  .notion-list li, 
-  .notion-link, 
-  p { 
-    font-size: var(--mb-body) !important; 
-    line-height: var(--mb-lh-body) !important; 
-  }
+/*=====02📌 토글 펼치기 숨기기=======*/
+/*[1]토글 펼치기 숨기기 (공통 및 텍스트형)
+/* 1. 기본 콜아웃의 테두리 및 배경 투명화 */
+.notion-callout,
+div.notion-callout {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-width: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
-/* --- 캡션 --- */
-.notion-caption, .notion-image-caption, .notion-caption *, .notion-image-caption * { 
-  font-size: var(--pc-caption) !important; line-height: var(--pc-lh-caption) !important; 
+/* 2. 기본 콜아웃 내부의 노션 세모 화살표 숨기기 */
+.notion-callout .notion-toggle__trigger_icon span,
+.notion-callout .notion-toggle__trigger svg {
+    display: none !important;
 }
-@media (max-width: 768px) {
-  .notion-caption, .notion-image-caption, .notion-caption *, .notion-image-caption * { 
-    font-size: var(--mb-caption) !important; line-height: var(--mb-lh-caption) !important; 
-  }
+/* 3. 닫힌 상태 (기본) : 'View more' 삽입 */
+.notion-callout .notion-toggle:not(.open) .notion-toggle__trigger::before {
+    content: "View more";
+    font-size: 1em;
+    font-weight: 700;
+    display: inline-block;
 }
-/*캡션 글자 정렬 제어*/
-.notion-caption, 
-.notion-image-caption {
-  display: block !important;
-  text-align: left !important;
-  width: 100% !important;
+/* 4. 열린 상태 : 'View less' 삽입 */
+.notion-callout .notion-toggle.open .notion-toggle__trigger::before {
+    content: "View less";
+    font-size: 1em;
+    font-weight: 700;
+    display: inline-block;
 }
-/* 캡션 내 링크 스타일 */
-.notion-caption a, 
-.notion-image-caption a {
-  display: inline !important;
-  text-decoration: underline !important;
-  color: inherit !important;
+/* 5. 좌측 그리드 맞추기 */
+.notion-callout .notion-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    padding-left: 0 !important; 
+    margin-left: 0 !important; 
 }
-/* [2] 전역 레이아웃 제어 */
-.notion-page-content {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  width: 100% !important;
+/* 6. 콘텐츠 영역 */
+.notion-callout .notion-toggle__content {
+    order: 1 !important;
+    margin-bottom: 8px !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
 }
-/* 토글 블록 전체의 호버 배경색 강제 제거 */
-.notion-toggle:hover, 
-.notion-block-toggle:hover,
-[class*="notion-toggle"]:hover {
+/* 7. 트리거(제목) 영역 */
+.notion-callout .notion-toggle__summary {
+    order: 2 !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+}
+/* 8. 트리거 내부 텍스트 우측 이동 설정 */
+.notion-callout .notion-toggle__trigger {
+    padding-left: 2px !important;
+    margin-left: 0 !important;
+}
+/*==========================================
+02📌[2]하단 버튼형 더보기 토글(보라색 콜아웃)*/
+.notion-callout[class*="purple"] {
+    background: transparent !important;
     background-color: transparent !important;
 }
-
-
-
-/*01-2📌 상단 커버 노출시
+.notion-callout[class*="purple"]:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+.notion-callout[class*="purple"] .notion-toggle__summary {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+/* 토글의 모든 모서리 r값 강제 제거 */
+.notion-callout[class*="purple"] .notion-toggle,
+.notion-callout[class*="purple"] .notion-toggle__content {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+/*[3]내부 토글 버튼 디자인 풀와이드*/
+.notion-callout[class*="purple"] .notion-toggle__trigger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important; 
+    min-width: unset !important;  
+    max-width: 100% !important;  
+    width: 100% !important;
+    border-radius: 13px !important; 
+    border: 1px solid #dcdcdc !important; 
+    outline: none !important;
+    background: #f7f7f7 !important; 
+    background-color: #f7f7f7 !important; 
+    margin: 8px 0 0 0 !important;
+    padding: 0 16px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+/* 호버 시 발생하는 보라색 바탕 제거 */
+.notion-callout[class*="purple"] .notion-toggle__trigger:hover {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    cursor: pointer !important;
+}
+/* 텍스트 크기 및 굵기 제어 */
+.notion-callout[class*="purple"] .notion-toggle__trigger::before {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    content: "View more" !important;
+    color: #37352f !important; 
+    font-size: 0.9em !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    height: 100% !important;
+    
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+.notion-callout[class*="purple"] .notion-toggle.open .notion-toggle__trigger::before {
+    content: "View less" !important;
+}
+/*=======03📌 상단 커버 노출시
 데이터베이스 h1 숨김=============*/
-/* [1] 커버 이미지 영역과 연결된 최상단 제목 박스만 숨기기 */
+/* [1] */
 .super-content-header h1:first-of-type,
 .super-content-header__content,
 .notion-header__title {
   display: none !important;
 }
-
 /* [2] 본문(Main Content) 내의 H1은 강제로 다시 살리기 */
-/* 상단 헤더 밖(본문)에 작성된 모든 h1은 다시 보이게 설정합니다. */
 main .super-content h1,
 .notion-page__content h1,
 .notion-header + .notion-page__content h1 {
@@ -139,28 +164,20 @@ main .super-content h1,
   visibility: visible !important;
   height: auto !important;
 }
-
 /* [3] 본문 H1의 글자 크기를 시스템 변수와 동기화 */
 .notion-page__content h1 {
-  font-size: var(--pc-h1) !important; /* 이미 설정하신 변수 사용 */
+  font-size: var(--pc-h1) !important; 
   font-weight: var(--h1-weight) !important;
   line-height: var(--pc-lh-h1) !important;
 }
-
 @media (max-width: 768px) {
   .notion-page__content h1 {
     font-size: var(--mb-h1) !important;
     line-height: var(--mb-lh-h1) !important;
   }
 }
-
 /*==========================================
-02📍 네비 & 레이아웃 제어 
- [목차]
-   ✔️ [1] 네비게이션 바: 상단 바 너비(1150px) 및 중앙 정렬
-   ✔️ [2] 네비 메뉴 버튼 글자 크기 컬러
-   ✔️ [3] 응답형 및 모바일 메뉴 가시성 보장
-------------------------------------------*/
+04📍 네비 & 레이아웃 제어 ----*/
 /* [1] 네비게이션 바 그리드 정렬*/
 .super-navbar__content {
   max-width: 1145px !important; 
@@ -179,7 +196,6 @@ main .super-content h1,
   }
 }
 /* [2] 네비게이션 메뉴 버튼 스타일---- */
-/* 1. PC 메뉴: 폰트 크기 및 블랙 강제 */
 .super-navbar .super-navbar__menu-item, 
 .super-navbar .super-navbar__item,
 .super-navbar .super-navbar__button,
@@ -190,7 +206,6 @@ main .super-content h1,
   font-weight: 700 !important; 
   line-height: 1 !important;
   letter-spacing: -0.02em !important;
-  /* 색상 및 효과 제거 */
   color: #000000 !important; 
   -webkit-text-fill-color: #000000 !important;
   opacity: 1 !important;
@@ -226,14 +241,25 @@ main .super-content h1,
     font-weight: 700 !important;
   }
 }
+
+/* ===========================================
+   [📍]커버 이미지가 지정아닐때 공백 제거 */
+/* 1. 이미지 파일이 아예 안 들었거나, 배경 이미지 주소가 비어있는 헤더는 화면에서 삭제 */
+.notion-header__cover:not(:has(img)),
+.notion-header__cover[style*="background-image: none"],
+.notion-header__cover:empty {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* 2. 상단 여백 보정 */
+.notion-root:not(:has(.notion-header__cover img)) .notion-header {
+  padding-top: 60px !important; /* 커버 없을 때 상단 여백을 편안하게 60px 확보 */
+}
 /*=========================================
-03📌 태그 글자 및 호버 제어
-[목차]
-   ✔️[1]버튼형 태그, 링크 스타일
-   ✔️[2]링크 요소 초기화
-   ✔️[3]호버
-   ✔[4]모바일 최적화
--------------------------------------------*/
+05📌 태그 글자 및 호버 제어-------*/
 /* [1] 버튼형 태그(code) 스타일 및 선명도 복구 */
 code {
   display: inline-block !important;
@@ -247,7 +273,7 @@ code {
   font-size: var(--pc-body) !important; 
   opacity: 1 !important; 
 }
-/* [2] 태그 내부 링크 요소: 밑줄 절대 금지 및 선명도 100% */
+/* [2] 밑줄 절대 금지 및 선명도 100% */
 code a, 
 code span,
 code a span {
@@ -263,17 +289,17 @@ code a span {
 .notion-callout a,
 .notion-column a {
   text-decoration: none !important; 
-  /*opacity: 1 !important;  일반 링크도 선명하게 */
 }
-/* [3] 호버(Hover) 액션*/
-code:has(a):hover {
+
+/* [4] 호버(Hover) 액션 - 📌 주황색 콜아웃 안의 버튼들은 이 호버 대상에서 완전 제외시킴 */
+code:has(a):not(.notion-callout[class*="orange"] code):hover {
   background-color: #000000 !important;
   cursor: pointer !important;
 }
-/* 호버 시 내부 텍스트 색상 강제 변환 */
-code:has(a):hover a,
-code:has(a):hover span,
-code:has(a):hover * {
+/* 호버 시 내부 텍스트 색상 강제 변환 - 📌 역시 주황색 콜아웃 내부 요소는 절대 간섭하지 못하게 격리 */
+code:has(a):not(.notion-callout[class*="orange"] code):hover a,
+code:has(a):not(.notion-callout[class*="orange"] code):hover span,
+code:has(a):not(.notion-callout[class*="orange"] code):hover * {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   text-decoration: none !important;
@@ -284,8 +310,118 @@ code:has(a):hover * {
     font-size: var(--mb-body) !important;
   }
 }
+
+/*=========================================
+05-1📌 [태그-알약 스타일] 주황색 콜아웃+불렛 (Super.so 100% 대응 고정 버전)
+=========================================*/
+
+/* [1] 📌 Super.so 래퍼 계층 구조를 역추적하여 알약을 품은 블록 라인만 스티키로 강제 격리 */
+main,
+.super-content,
+[class*="notion-block-"]:has(.notion-callout[class*="orange"] ul:has(code)) {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;             /* 💡 상단 메뉴바가 존재한다면 top: 60px !important; 로 변경하세요 */
+  z-index: 9999 !important;       /* 본문 글자나 이미지보다 무조건 최상위 레이어 배치 */
+  will-change: transform, top !important;
+}
+
+/* [1-1] 주황색 콜아웃 블록 자체는 화면 최상단 고정 시 투명하게 만들고, 레이아웃을 확장 */
+html body .notion-callout[class*="orange"]:has(ul:has(code)) {
+  background-color: #ffffff !important; /* 고정되었을 때 뒷글씨가 안 보이도록 불투명 흰색 가림막 역할 */
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* 바닥과의 미세한 입체 분리막 구현 */
+  padding: 10px 20px !important;   /* 위아래 정갈한 여백 호흡 부여 */
+  margin: 0 auto !important;
+  max-width: 1200px !important;    /* 포트폴리오 본문 폭 레이아웃과 수치 일치 */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* [1-2] 내부 세부 콘텐츠 및 아이콘 비활성화 */
+html body .notion-callout[class*="orange"]:has(ul:has(code)) .notion-callout__content {
+  margin-left: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+html body .notion-callout[class*="orange"]:has(ul:has(code)) .notion-callout__icon {
+  display: none !important; /* 노션 기본 콜아웃 전구/오렌지 아이콘 소거 */
+}
+
+/* [2] 가로 슬라이더로 강제 리빌딩 */
+ul:has(code) {
+  display: flex !important;
+  flex-wrap: nowrap !important;  /* 줄바꿈 절대 차단 */
+  overflow-x: auto !important;   /* 가로 스크롤 강제 활성화 */
+  gap: 8px !important;          
+  padding: 0 !important;      
+  margin: 0 !important;
+  list-style: none !important;   /* 기본 불렛 점 스타일 제거 */
+  width: 100% !important;
+  
+  /* 시스템 기본 스크롤바 감추기 */
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+ul:has(code)::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* [3] 정렬 및 리스트 불렛 완전 소거 */
+ul:has(code) li {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+ul:has(code) li::before {
+  display: none !important;
+  content: "" !important;
+}
+
+/* [4] 주황색 콜아웃 내부 불렛+code 타겟 (사용자가 정의한 둥근 알약 디자인 복원) */
+html body .notion-callout[class*="orange"] ul:has(code) code {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 8px 18px !important; 
+  border-radius: 50px !important; 
+  background-color: #ffffff !important; 
+  border: 1px solid #e0e0e0 !important; 
+  transition: all 0.25s ease !important;
+  font-size: var(--pc-body) !important; 
+  opacity: 1 !important; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* [5] 내부 링크 및 텍스트 칼라 정밀 고정 */
+html body ul:has(code) code a, 
+html body ul:has(code) code span,
+html body ul:has(code) code a span {
+  font-size: inherit !important;
+  text-decoration: none !important; 
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: #37352f !important; 
+  font-weight: 500 !important;
+  opacity: 1 !important; 
+}
+
+/* [6] 모바일 반응형 압축 */
+@media (max-width: 768px) {
+  [class*="notion-block-"]:has(.notion-callout[class*="orange"] ul:has(code)) {
+    top: 0 !important; /* 모바일 네비게이션 높이에 대응 */
+  }
+  html body .notion-callout[class*="orange"] ul:has(code) code {
+    padding: 6px 14px !important;
+    font-size: var(--mb-body) !important;
+  }
+}
+
 /*==========================================
-04-1📌 인터랙티브 노션 버튼 제어 (기본타입)*/
+06-1📌 인터랙티브 노션 버튼 제어 (기본타입)*/
 /* [1] 버튼 컨테이너: 배경 제거 및 크기 최적화 ----------- */
 .notion-button {
   background-color: transparent !important;
@@ -315,7 +451,7 @@ code:has(a):hover * {
   line-height: 1.2 !important;        
 }
 /*==========================================
-04-2📌 인터랙티브 노션 버튼 (콜아웃타입)
+06-2📌 인터랙티브 노션 버튼 (콜아웃타입)
 [노트] 더보기 버튼 full wide*/
 /* [1] 보라색 콜아웃 외형 초기화 */
 .notion-callout[class*="purple"] {
@@ -369,8 +505,6 @@ code:has(a):hover * {
     font-size: 14px !important;
     font-weight: 400 !important;
 }
-/*==========================================
-모바일 전용 스타일 통합 (768px 이하)*/
 @media (max-width: 768px) {
 /* --- [1] 공통 및 보라색 콜아웃 (더보기 버튼) --- */
   /* 버튼 글자 크기 통합 */
@@ -393,7 +527,7 @@ code:has(a):hover * {
   .notion-callout[class*="purple"] {
     margin: -5px auto !important;
   }
-  /* --- [2] 파란색 콜아웃 (버튼 2단 고정) --- */
+  /* --- [2] 파란색 콜아웃 (버튼 2단 고정)*/
   .notion-callout[class*="blue"] > .notion-callout__content > .notion-column-list {
     display: flex !important;
     flex-direction: row !important; 
@@ -412,8 +546,7 @@ code:has(a):hover * {
   }
 }
 /*==========================================
-05📌 텍스트 컬러별 링크 스타일
-------------------------------------------
+07📌 텍스트 컬러별 링크 스타일
 [목차]
    ✔️ [1] 초록색 글자 블랙화 & 밑줄 적용
    ✔️ [2] 브라운 글자 블랙화 + 호버
@@ -433,7 +566,7 @@ span[class*="green"],
   text-decoration-thickness: 1px !important;
   transition: all 0.2s ease !important;
 }
-/* 2. 호버(Hover) 액션: 포인트 레드 전환 ----------- */
+/* 2. 호버(Hover) 액션: 포인트 레드 전환 */
 .notion-link[class*="green"]:hover,
 .notion-link[class*="green"]:hover *,
 .notion-text-block [class*="green"] a:hover,
@@ -487,10 +620,8 @@ code [class*="brown"]:hover {
   text-decoration: none !important;
   background-color: transparent !important;
 }
-
-
 /*==========================================
-07📌 전체 라인 및 테두리 제어 (Line Detail)
+08📌 전체 라인 및 테두리 제어 (Line Detail)
    [목차]
    ✔️ [1] 구분선(Divider): 투명도 조절
    ✔️ [2] 콜아웃 테두리(기본형)
@@ -541,20 +672,16 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
-    background: #37352f !important; /* 기존 회색 선 */
+    background: #37352f !important;
     box-shadow: none !important;
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    margin-top: 15px !important;
-    margin-bottom: 0px !important;
+    margin-top: 25px !important;
+    margin-bottom: 10px !important;
 }
-/*==========================================
-08📌 [모바일 전용] 불렛 리스트 정렬 제어
-==========================================*/
 @media (max-width: 768px) {
   /* 1. [모바일] 리스트 및 불렛 간격 제어 */
-  /* 불렛의 왼쪽 여백을 줄여 모바일 화면을 더 넓게 활용합니다. */
   .notion-bulleted_list, 
   .notion-numbered_list,
   .notion-list,
@@ -576,12 +703,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
   }
 }
 /*==========================================
-09-1📌 텍스트 콜아웃 제어 (주석용)
-   [목차]
-   ✔️ [1] 박스배경 투명화
-   ✔️ [2] 글자 크기 제어
-   ✔️ [3] 모바일 최적화
-------------------------------------------*/
+09-1📌 텍스트 콜아웃 제어 (주석용)*/
 /* [1] 파란색 콜아웃을 투명화*/
 .notion-callout[class*="blue"] {
   background-color: transparent !important; 
@@ -603,7 +725,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
   font-size: 0.8rem !important;    
   line-height: 1.6 !important;     
 }
-/* 2. 특정 텍스트 블록 강제 타겟팅 */
 [class*="blue"] .notion-text-block,
 [class*="blue"] [contenteditable="false"] {
   font-size: 0.8rem !important;
@@ -632,13 +753,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 }
 /*==========================================
 09-2📌 콜아웃 텍스트 제어 (상세페이지 적용)
-   [목차]
-   ✔️ [1] 화이트 박스형 (Brown/Gray): 뮤지엄 상세페이지 - 입장시간, 꿀팁
-   ✔️ [2] 투명 텍스트형 (Green): 뮤지엄 상세페이지 - 기본 간략 설명
-   [3] h2 선택적숨김(주황색)
-------------------------------------------   [1] 화이트 박스형 (Brown/Gray)
-[NOTE] (Brown: 중앙정렬 / Gray: 좌측정렬)
--------------------------------------------*/
+[1] 화이트 박스형/
 /*--- 1. 콜아웃 박스 컬러 지정---*/
 .notion-callout[class*="brown"],
 .notion-callout[class*="gray"] {
@@ -667,11 +782,8 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 .notion-callout[class*="gray"] .notion-callout__content {
     text-align: left !important;
 }
-
 /*------[2] 투명 텍스트형 (Green)---------*/
-/*[NOTE] 위치: 뮤지엄 상세페이지 - 기본설명
--------------------------------------------*/
-.notion-callout[class*="green"]:not(:has(h4)) {
+/*[NOTE] 위치: 뮤지엄 상세페이지 - 기본설명*/ .notion-callout[class*="green"] {
     background-color: transparent !important;
     border: none !important;
     border-radius: 0px !important;  
@@ -680,23 +792,16 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     padding-bottom: 0px !important; 
     padding-left: 0 !important;
     padding-right: 0 !important;
-    min-height: 0 !important;        
+    min-height: 0 !important;       
 }
-
 /* 초록색 콜아웃 내부 콘텐츠 정렬 */
-.notion-callout[class*="green"]:not(:has(h4)) .notion-callout__content {
+.notion-callout[class*="green"] .notion-callout__content {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
     width: 100% !important;
 }
-
-
-/**/
-
-
-
 /*====[3] h2 선택적숨김(주황색)===*/
 /* 1. 주황색 콜아웃의 외형 투명화 */
 .notion-callout[class*="orange"] {
@@ -713,83 +818,74 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 .notion-callout[class*="orange"] .notion-callout__content > .notion-h-title {
     display: none !important;
 }
-
-/*---[3] 화이트 풀배경 (H1 및 H2 포함)-----------*/
-/* [1] 부모 컨테이너의 가두리(너비 제한) 강제 해제 */
-.notion-page-content, 
-.super-content,
-.notion-column {
-  overflow: visible !important;
+/*---[3] 화이트 풀배경 (H1 및 H2 전용)----*/
+/* [1] 전역 가두리 해제 */
+.notion-page-content {
+    overflow-x: clip !important;
 }
-
-/* [2] 기본 배경 콜아웃 외형 및 외부 간격 (h1, h2 포함) */
-.notion-callout:not([class*="_background"]):has(h1, h2) {
-  width: 100vw !important;
-  max-width: none !important;
-  position: relative !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  background-color: #ffffff !important; 
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  margin-top: -65px !important;
-  margin-bottom: 0px !important; /* [조절 포인트 1] */
-  
-  padding-top: 50px !important;
-  padding-bottom: 0 !important;
+/* [2] 화이트 배경 적용 
+   - 배경색이 이미 지정된 콜아웃 제외 */
+.notion-callout:not([class*="_background"]):not([class*="yellow"]):not([class*="red"]):has(h1, h2) {
+    width: 100vw !important;
+    max-width: none !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-color: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: -65px !important;
+    margin-bottom: 0px !important; 
+    padding-top: 50px !important;
+    padding-bottom: 0 !important;
 }
-
-/* [3] 내부 콘텐츠 중앙 정렬 및 내부 하단 여백 */
-.notion-callout:not([class*="_background"]):has(h1, h2) > .notion-callout__content {
-  max-width: 1150px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin-top: 0 !important;
-  margin-bottom: 0px !important; /* [조절 포인트 2] */
-  
-  display: block !important;
-  padding: 0 20px !important;
+/* [3] 내부 콘텐츠 중앙 정렬 (레드 제외 동일 적용) */
+.notion-callout:not([class*="_background"]):not([class*="yellow"]):not([class*="red"]):has(h1, h2) > .notion-callout__content {
+    max-width: 1150px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    padding: 0 20px !important;
 }
-
-/* [4] 콜아웃 아이콘(이모지 등) 숨김 */
-.notion-callout:not([class*="_background"]):has(h1, h2) > .notion-callout__icon {
-  display: none !important;
+/* [4] 아이콘 숨김 */
+.notion-callout:not([class*="_background"]):not([class*="red"]):has(h1, h2) > .notion-callout__icon {
+    display: none !important;
 }
-
 /* [5] 내부 갤러리/이미지 방어 */
-.notion-callout:not([class*="_background"]):has(h1, h2) .notion-collection-gallery,
-.notion-callout:not([class*="_background"]):has(h1, h2) img {
-  max-width: 100% !important;
+.notion-callout:not([class*="_background"]):not([class*="red"]):has(h1, h2) .notion-collection-gallery,
+.notion-callout:not([class*="_background"]):not([class*="red"]):has(h1, h2) img {
+    max-width: 100% !important;
 }
-
+@media (max-width: 768px) {
+    .notion-callout:not([class*="_background"]):not([class*="red"]):has(h1, h2) > .notion-callout__content {
+        padding-left: 35px !important;
+        padding-right: 32px !important;
+    }
+}
 /*==========================================
-19📌 보라색 콜아웃 텍스트 크기 확대 및 웨이트 제어
+19📌 보라색 콜아웃 텍스트 크기 확대 및 웨이트 제어 (어디에 사용?)
 ------------------------------------------*/
-.notion-callout[class*="purple"] .notion-text,
-.notion-callout[class*="purple"] p,
-.notion-callout[class*="purple"] span {
+.notion-callout[class*="purple"] h2,
+.notion-callout[class*="purple"] .notion-h2,
+.notion-callout[class*="purple"] h2 * {
     font-size: calc(var(--pc-h2) * 2) !important;
-    font-weight: 400 !important; /* 굵기(웨이트) 값 설정 (900 또는 800) */
+    font-weight: 400 !important;
     color: #000000 !important; /* 블랙 글자 강제 유지 */
     line-height: 1.3 !important;
     letter-spacing: -0.02em !important;
 }
-
 @media (max-width: 768px) {
-    .notion-callout[class*="purple"] .notion-text,
-    .notion-callout[class*="purple"] p,
-    .notion-callout[class*="purple"] span {
+    .notion-callout[class*="purple"] h2,
+    .notion-callout[class*="purple"] .notion-h2,
+    .notion-callout[class*="purple"] h2 * {
         font-size: calc(var(--pc-h2) * 1) !important;
-        font-weight: 500 !important; /* 모바일에서의 굵기 별도 지정 */
+        font-weight: 500 !important;
         line-height: 1.3 !important;
     }
 }
-
 /*==========================================
 10📌 도시 버튼 제어 (Gallery Custom)
-   [목차]
    ✔️ [1]도시 버튼 공통 변수 설정 (Root)
    ✔️ [3] 나열형 (Type 2): 줄바꿈 방식 (콜아웃 내부 배치)
    ✔️ [4] 모바일 최적화: 반응형 수치 적용
@@ -834,7 +930,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     box-shadow: none !important;
     border: 1px solid rgba(0,0,0,0.1) !important;
     border-radius: var(--btn-radius) !important;
-    
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -855,14 +950,12 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important; 
 }
-/*모바일 최적화 (본문 비례 제어) */
 @media (max-width: 768px) {
     .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
     .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title,
     .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title * {
         font-size: var(--btn-font-mb) !important;
     }
-    
     .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
         height: var(--btn-height-mb) !important;
         padding: var(--btn-padding-mb) !important;
@@ -904,9 +997,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     overflow-x: auto !important;
     scrollbar-width: none !important;
     gap: 8px !important;
-    
     padding: 10px 0 !important; 
-    
     -webkit-overflow-scrolling: touch;
 }
 /* 2. 슬라이드 텍스트 방지 */
@@ -915,7 +1006,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     white-space: nowrap !important;
     text-overflow: clip !important;
 }
-/* 📍 갤러리를 품은 레드 콜아웃만 타격 (잘림 방지 추가) */
+/* 📍 갤러리를 품은 레드 콜아웃만 타격 */
 .notion-callout[class*="red"]:has(.notion-collection-gallery) {
     background: transparent !important;
     border: none !important;
@@ -923,12 +1014,11 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     width: 100% !important;
     transform: none !important;
     left: 0 !important;
-
     /* 📌 핵심: 양옆 둥근 모서리 및 잘림 현상 제거 */
     border-radius: 0 !important; 
     overflow: visible !important; 
 }
-/* 레드 콜아웃 내부 텍스트 전용 카드 -> 블랙 버튼화 */
+/* 레드 콜아웃 내부 블랙 버튼화 */
 .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
     background-color: #1a1a1a !important; 
     border: none !important;
@@ -936,13 +1026,12 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     display: flex !important;
 }
 /* [3-1] 텍스트 스타일 설정*/
-/* 1. 카드 내부의 모든 텍스트 경로를 정밀 타격 */
 .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
 .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title,
 .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card span,
 .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card div {
     color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important; /* 브라우저 렌더링 강제 */
+    -webkit-text-fill-color: #ffffff !important; 
     opacity: 1 !important;
 }
 /* 2. (추가) 버튼 배경색이 공통 스타일에 밀린다면 여기서 한 번 더 고정 */
@@ -958,7 +1047,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 .notion-callout[class*="red"]:has(.notion-collection-gallery) > div > div > div:not(.notion-collection-gallery) {
     display: none !important;
 }
-/*[4]⚙️모바일 최적화 (도시버튼 공통)*/
 @media (max-width: 768px) {
     .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
         min-width: var(--btn-min-width-mb) !important;
@@ -973,20 +1061,12 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 11📌 Notion 갤러리뷰 통합 커스텀
 [목차]
 0. 📁 공통 베이스 (Common Base)
-   - 화이트 카드 스타일 & 썸네일 초기화
 1. 📁 기본 카드형 (Standard Cards)
    - [G 타입1] 기본 4열 (1:1 정방형)
 2. 📁 커스텀형 (Custom Callout Cards)
-- [2-0]기본 투명 카드 6fr (초록색))
-   - [G 타입3] 슬라이드형 (뮤지엄 작품 / 파란색)
-   [2-2]📌 보라색 콜아웃: 원형 도시 카드 (이미지 1:1 + 제목 센터)
-[2-2][G 타입4/5] 오버랩형(주황색/브라운 통합)
-   - [G 타입6] 히어로 배너 (풀화면 슬라이드 / 노란색)
 3. 📁 전역 속성 제어 (Global Properties)
-   - 텍스트 크기, 관계형 정렬, 아이콘 제거
 ===========================================*/
 /*0. 📁 공통 베이스-------------------------
-[NOTE]
 - 모든 갤러리에 적용되는 화이트 카드 베이스 및 이미지 초기화
 - PC글자 크기: 제목 16 / 설명 12
 - 모바일 글자 크기: 제목 15 / 설명 10
@@ -1010,7 +1090,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 }
 /*-----------------------------------------*/
 /* 전역 속성 제어 (Global Properties) */
-/* [1] 갤러리 카드 제목 (PC 16px / 모바일 13px) */
+/* [1] 제목: PC 16px / 모바일 13px */
 .notion-collection-card__property:first-child,
 .notion-collection-card__property:first-child * {
     font-size: 16px !important;
@@ -1061,12 +1141,11 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     color: inherit !important;
 }
 @media (max-width: 768px) {
-    /* [1] 제목 속성 모바일 크기 (14px) */
+    /* [1] 제목14px/속성10px */
     .notion-collection-card__property:first-child,
     .notion-collection-card__property:first-child * {
         font-size: 14px !important;
     }
-    /* [2] 하단 모든 속성 모바일 크기 (10px) */
     .notion-collection-card__property:not(:first-child),
     .notion-collection-card__property:not(:first-child) *,
     .notion-collection-card__property:not(:first-child) span,
@@ -1084,8 +1163,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 /*1. 📁 기본 카드형 (Standard Cards)
 --------------------------------------------
 [G 타입1] 기본 4열 (1:1 비율) 
-[NOTE]
-- PC 4열 / 모바일 2열
+[NOTE] PC 4열 / 모바일 2열
 -------------------------------------------*/
 .notion-page-content > .notion-collection-gallery:not(.notion-callout *) {
   display: grid !important;
@@ -1123,7 +1201,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
   background: transparent !important;
   padding: 8px 4px !important; 
 }
-/* 속성3(설명) 숨기기: SEO 데이터는 남기고 화면에서만 제거 */
+/* 속성3(설명) 숨기기 */
 .notion-callout[class*="green"] .notion-collection-card__property:nth-child(4) {
   display: none !important;
 }
@@ -1200,7 +1278,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     line-height: 1.2 !important;
     text-transform: uppercase !important;
 }
-/* --- (모바일 스타일 통합 768px 이하) --- */
 @media (max-width: 768px) {
     .notion-callout[class*="orange"] .notion-collection-gallery {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1228,7 +1305,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 [2-1][G 타입3] 슬라이드형 (파란색) 
 [Note] 카드형
 - 설명 글 3줄이상 생략 + 박스 크기 고정
-- pc+모바일 16:9 비율 슬라이드
 - 마지막 속성 윗줄에 구분선
 -------------------------------------------*/
 /*슬라이드 기능*/
@@ -1282,13 +1358,13 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
   border-top: 0px solid #eeeeee !important;
   /*설명 위 구분선*/
   margin-top: 0px !important; 
-  padding-top: 0px !important; /*설명 속성 밑의 카드 끝나는 마진*/
+  padding-top: 0px !important; 
 }
 /*속성 설명 숨기기*/
 /* 이거 지우면 설명 3줄 생략 나타남*/
 .notion-callout[class*="blue"] .notion-collection-card__property:last-child {
   /* 📌 텍스트 숨기기 핵심 코드 */
-  font-size: 0 !important;      /* 글자 크기를 0으로 */
+  font-size: 0 !important;  
   color: transparent !important; 
   min-height: 0px !important;    /* 선이 보일 수 있는 최소 높이 유지 */
   overflow: hidden !important;
@@ -1299,15 +1375,13 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
       flex: 0 0 85% !important; 
       min-width: 85% !important;
   }
-  
   /* 2. 모바일 썸네일 이미지 비율 변경 (세로형) */
   .notion-callout[class*="blue"] .notion-collection-card__cover,
   .notion-callout[class*="blue"] .notion-collection-card__cover > div,
   .notion-callout[class*="blue"] .notion-collection-card__cover img {
-      aspect-ratio: 1 / 1 !important; /* ⭐ 세로 비율 적용 */
+      aspect-ratio: 1 / 1 !important;
       object-fit: cover !important;
   }
-  
   /* 3. 모바일 제목 크기 제어 */
   .notion-callout[class*="blue"] .notion-collection-card__property:first-child,
   .notion-callout[class*="blue"] .notion-collection-card__property:first-child * {
@@ -1331,7 +1405,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 /* 이거 지우면 설명 3줄 생략 나타남*/
 .notion-callout[class*="blue"] .notion-collection-card__property:last-child {
   /* 📌 텍스트 숨기기 핵심 코드 */
-  font-size: 0 !important;      /* 글자 크기를 0으로 */
+  font-size: 0 !important;      
   color: transparent !important; /* 혹시 모를 잔상 방지 */
   min-height: 0px !important;    /* 선이 보일 수 있는 최소 높이 유지 */
   overflow: hidden !important;
@@ -1371,7 +1445,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 /* 제목 (별도 14px 반영) */
 .notion-callout[class*="purple"] .notion-collection-card__property:first-child,
 .notion-callout[class*="purple"] .notion-collection-card__property:first-child * {
-  /* 📌 여백 강제 축소: 패딩을 0으로 하고, 마진에 마이너스 값을 주어 위로 붙임 */
     padding-top: 0px !important; margin-top: -3px !important;
     font-size: 14px !important; font-weight: 600 !important;  text-align: center;
     color: #000000 !important;
@@ -1389,7 +1462,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 /* 2. 카드 본체를 기준점으로 설정 */
 .notion-callout[class*="purple"] .notion-collection-card:not(:has(.notion-collection-card__cover)) {
     position: relative !important;
-    height: 130px !important; /* PC 높이 */
+    height: 130px !important; 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1399,7 +1472,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, 0%) !important; /* 가로세로 정중앙 이동 */
+    transform: translate(-50%, 0%) !important;
     width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
@@ -1412,7 +1485,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     display: block !important;
     width: 100% !important;
 }
-/* [5] 모바일 최적화 (768px 이하) */
 @media (max-width: 768px) {
     .notion-callout[class*="purple"] .notion-collection-card {
         flex: 0 0 100px !important; /* 모바일에서 더 콤팩트하게 */
@@ -1424,7 +1496,6 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 }
 /*------------------------------------------
 [2-3][G 타입4/5] 오버랩형 (브라운)
-[Note]
 - 브라운: PC 2열 / 16:9 비율 (가로형)
 - 호버 이미지 확대 효과 공통 적용
 -----------------------------------------*/
@@ -1445,7 +1516,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 }
 /* 브라운 비율 16:9 */
 .notion-callout[class*="brown"] .notion-collection-card { aspect-ratio: 5 / 2 !important; }
-/* 3. 이미지 기본 설정 및 애니메이션 (공통) */
+/* 3. */
 .notion-callout[class*="brown"] .notion-collection-card__cover,
 .notion-callout[class*="brown"] .notion-collection-card__cover > div,
 .notion-callout[class*="brown"] .notion-collection-card__cover img {
@@ -1521,84 +1592,122 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     }
 }
 /*-------------------------------------------
-[2-4][G 타입6] 히어로 배너(노란색 / 세로형 Full Width----------------
-[목차]
-[1] 전역 레이아웃 제어: 사이트 가로 넘침 방지 및 콜아웃 왼쪽 강제 밀착 정렬
-[2] SEO용 텍스트, 아이콘, 제목(h1) 숨김 처리
-[3] 슬라이드 적용: 가로 스크롤 활성화
-[4] 카드 프레임 사이즈: 550px x 1000px
-[5] 썸네일 이미지 및 호버효과
-[6] 슬라이드 안내 표시 (텍스트)
-[7] PC & 모바일 & 폰트 스타일 통합 제어
+[2-4]히어로 배너(노란색 / 세로형 Full Width
 --------------------------------------------
-[Note] 위치: 큐레이션 상단 히어로 배너
--------------------------------------------*/
-/* [1] 사이트 전체 가로 넘침 방지*/
+/* [1] 전역 레이아웃*/
 body {
-    overflow-x: hidden !important;
+    overflow-x: hidden !important; 
 }
-/* 콜아웃 컨테이너 (왼쪽 끝 강제 밀착 및 오른쪽 확장) */
+.super-content,
+.notion-page-content,
+.notion-column {
+    overflow: visible !important;
+}
+/* [2] 히어로 배너 본체 (화면 꽉 차게 설정) */
 .notion-callout[class*="yellow"] {
     background-color: transparent !important;
     border: none !important;
     padding: 20px 0 !important;
-    /* [핵심] 왼쪽 끝으로 배너를 강제 이동 */
+    margin-top: -170px !important; 
     width: 100vw !important;
     max-width: none !important;
     position: relative !important;
     left: 50% !important;
-    right: 50% !important;
-    margin-left: -48vw !important;
-    margin-right: -50vw !important;
+    transform: translateX(-50%) !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    overflow: visible !important; /* 슬라이드 시 프레임 밖으로 나가야 함 */
 }
-/*-----------------------------------------*/
-/* [2] SEO 텍스트 및 h1 숨김 */
+/* [3] SEO 텍스트 및 h1 숨김 */
 .notion-callout[class*="yellow"] .notion-callout__icon,
 .notion-callout[class*="yellow"] h1,
 .notion-callout[class*="yellow"] .notion-text,
 .notion-callout[class*="yellow"] > .notion-callout__content > div:not([class*="collection"]) {
     display: none !important;
 }
-/*-----------------------------------------*/
-/* [3] 슬라이드 적용 (좌우 여백 없이 꽉 차게) */
+/* [4] 슬라이드 화면 왼쪽 끝 밀착 */
 .notion-callout[class*="yellow"] .notion-collection-gallery {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    width: 100vw !important; 
+    padding-left: 0 !important; 
+    padding-right: 0 !important; 
+    padding-top: 0 !important;
+    padding-bottom: 20px !important; 
+    gap: 10px !important; 
     overflow-x: auto !important;
-    gap: 15px !important;
-    padding: 0 0 20px 0 !important; 
- /* 슬라이드 영역 자체를 화면 끝까지 확보 */
-    width: 97vw !important; 
-    -ms-overflow-style: none !important;
     scrollbar-width: none !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
 }
 .notion-callout[class*="yellow"] .notion-collection-gallery::-webkit-scrollbar {
     display: none !important;
 }
-/*-----------------------------------------*/
-/* [4] 카드 구조 (550px x 1000px) */
+/* [5] 카드 구조 및 첫 번째 카드 그리드 정렬 */
 .notion-callout[class*="yellow"] .notion-collection-card {
     flex: 0 0 550px !important;
+    width: 550px !important;
     min-height: 1000px !important;
     position: relative !important;
+    margin: 0 !important;
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-    margin: 0 !important;
 }
-/*-------[5]썸네일 이미지 및 호버효과-----
-[Note]
-- 배경 이미지를 프레임 전체에 고정 및 하단 그라데이션 적용
-- 첫 번째 카드에만 왼쪽 여백을 주어 정렬 조절 가능 (필요 시)
-- 호버 확대 효과
------------------------------------------*/
+/* 💡 PC 시작점*/
+.notion-callout[class*="yellow"] .notion-collection-card:first-child {
+    margin-left: calc((66vw - 1200px) / 2 + 20px) !important; 
+}
+/* 슬라이드 마지막 여백 */
+.notion-callout[class*="yellow"] .notion-collection-card:last-child {
+    margin-right: 30px !important;
+}
+
+@media (max-width: 768px) {
+    /* [1] 갤러리가 들어있는 노란색 콜아웃만 정밀 타격 (리스트 뷰 간섭 방지) */
+    .notion-callout[class*="yellow"]:has(.notion-collection-gallery) {
+        width: 100vw !important;
+        max-width: none !important;
+        position: relative !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin-top: -120px !important;
+        overflow: visible !important; 
+        padding-bottom: 3px !important;
+    }
+
+    /* [2] 갤러리 내부 구조 (리스트 뷰에는 없는 요소들이라 안전함) */
+    .notion-callout[class*="yellow"] .notion-collection-gallery {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        width: 100vw !important;
+        padding: 0 !important;
+        gap: 10px !important;
+        grid-template-columns: none !important; 
+        grid-auto-columns: none !important;
+    }
+    /* [3] 카드 크기 제어 */
+    .notion-callout[class*="yellow"] .notion-collection-card,
+    .notion-callout[class*="yellow"] .notion-collection-card > a {
+        min-width: 75vw !important; 
+        max-width: 75vw !important;
+        width: 75vw !important;
+        flex: 0 0 75vw !important;
+        min-height: 480px !important; /* 반응 확인을 위해 고정값 권장 */
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    /* [5] 시작점 정렬 */
+    .notion-callout[class*="yellow"] .notion-collection-card:first-child {
+        margin-left: 0px !important;
+    }
+    /* [6] Slide for more 글자: 패딩만 유지 */
+    .notion-callout[class*="yellow"]:has(.notion-collection-gallery) + .notion-text {
+        padding-left: 27px !important; 
+        margin-top: 0px !important;
+    }
+}
+
+/*-------[5]썸네일 이미지 및 호버효과-----*/
 /* 카드 커버 이미지 초기 상태 */
 .notion-callout[class*="yellow"] .notion-collection-card__cover,
 .notion-callout[class*="yellow"] .notion-collection-card__cover img {
@@ -1631,7 +1740,6 @@ body {
     justify-content: flex-end !important;
     pointer-events: none;
 }
-/*-----------------------------------------*/
 /*[6]슬라이드 안내 표시 (텍스트)*/
 /* 1. 노란색 콜아웃 바로 뒤에 오는 텍스트 블록 찾기 */
 .notion-callout[class*="yellow"] + .notion-text {
@@ -1654,9 +1762,7 @@ body {
     text-transform: uppercase !important;
     padding-left: 5px !important;
 }
-/*-----------------------------------------*/
-/* [7] PC & 모바일 & 폰트 스타일 통합 제어 */
-/* --- (PC 스타일) --- */
+/* [7]폰트 스타일 통합 제어 */
 /* 속성1 : 다중선택 버튼 */
 .notion-callout[class*="yellow"] .notion-collection-card__property:nth-child(1) {
     display: flex !important;
@@ -1695,7 +1801,6 @@ body {
 .notion-callout[class*="yellow"] .notion-collection-card__property svg {
     display: none !important;
 }
-/* --- (모바일 스타일 통합) --- */
 @media (max-width: 768px) {
     .notion-callout[class*="yellow"] .notion-collection-card {
         /* [7]번과 [8]번 중복 통합: 화면 너비에 맞추려면 85vw 추천 */
@@ -1727,18 +1832,11 @@ body {
 }
 /*===========================================
 📌13.Notion 리스트뷰 통합 커스텀
-[목차]
 📁리스트뷰 공통 제어
-[1] 리스트뷰 공통 변수(기본 타입)
-[2] 티켓팅 버튼 스타일 (Brown / Orange)
-[3] 리스트뷰 (기본 타입) 모바일 최적화
 📁리스트뷰 콜아웃 제어
-[5] 리스트뷰 (콜아웃 타입) 모바일 최적화
 ---------[리스트뷰 공통 제어]----------
 [1] 리스트뷰 공통 변수 (기본 타입)
-----------------------------------------
-[note]
-- find 티켓버전/ 속성1 글자 좌정렬
+[note] find 티켓버전/ 속성1 글자 좌정렬
 ----------------------------------------*/
 /*PC 레이아웃*/
 :root {
@@ -1789,8 +1887,7 @@ body {
     white-space: pre-wrap !important;
     line-height: 1.5 !important;
 }
-/*----------------------------------------
-[2] 티켓팅 버튼 스타일 (Brown / Orange)*/
+/*[2] 티켓팅 버튼 스타일 (Brown / Orange)*/
 .notion-collection-list__item-property:nth-child(2),
 .notion-collection-list__item-property:nth-child(2) * {
     background-color: transparent !important;
@@ -1802,7 +1899,7 @@ body {
 .notion-collection-list__item-property:nth-child(2) [class*="brown"] {
     background-color: #37352f !important; 
     border-radius: 4px !important;
-    width: var(--ticketing-width) !important; 
+    width: var(--ticketing-width) !important;
     height: 27px !important; 
     display: inline-flex !important;
     align-items: center !important;
@@ -1841,8 +1938,6 @@ body {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
 }
-/*---------------------------------------- 
-[3] 리스트뷰 (기본 타입) 모바일 최적화*/
 @media (max-width: 768px) {
     .notion-collection-list__item {
         padding: 16px 0px !important; 
@@ -1905,14 +2000,12 @@ body {
     .notion-collection-list__item-icon { display: none !important; }
 }
 /*===========================================
-📌14. 검색바 레이아웃, 위치 지정
- 1. 검색바 및 레이아웃 최종 정리 (PC/모바일 개별 제어) */
+📌14. 검색바 레이아웃, 위치 지정 개별 제어*/
 /* 🔍 1. 검색창 전용 여백 설정 */
 :root {
 /* PC용 여백 */
 --pc-search-mt: -25px; 
 --pc-search-mb: -48px; 
-
 /* 2. 모바일용 여백 */
 --mb-search-mt: -20px; 
 --mb-search-mb: -40px;   
@@ -1946,11 +2039,7 @@ margin: 0 !important; padding: 0 !important; border: none !important;
 }
 /*==========================================
 15📌 푸터 제어 (Footer Custom)
-[목차]
-   ✔️ [1] 레이아웃: 푸터 상단 공간 확보 및 중앙 정렬 준비
-   ✔️ [2] 텍스트 제어(Before): 프로젝트 업데이트 안내 (1150px 그리드 일치)
-------------------------------------------*/
-/* [1] 푸터 기본 레이아웃 설정 ----------- */
+/* ---[1] 푸터 기본 레이아웃 설정 ------- */
 .super-footer {
     padding-top: 100px !important;
     position: relative !important;
@@ -1961,18 +2050,17 @@ margin: 0 !important; padding: 0 !important; border: none !important;
 /*-----------------------------------------*/
 /* [2] 푸터 텍스트 컨텐츠 제어
 [✔️Note] - 좌측 정렬 및 본문 폭 고정
-- 02번 섹션에서 설정한 1150px 폭에 맞춰 푸터 텍스트의 시작점을 정렬함*/
 /*1. 첫 번째 문구 (Main Text)*/
 .super-footer::before {
     content: "This project is continuously updated as new art museums, masterpieces, and movements are added.";
     position: absolute;
     top: 30px;
     width: 100%;
-    max-width: 1150px; /* ⭐ 사이트의 1150px 그리드 폭과 일치시킴 */
-    padding: 0 20px; /* 양옆 최소 여백 */
+    max-width: 1150px; 
+    padding: 0 20px;
     box-sizing: border-box;
     text-align: center !important;
-    font-size: 14px; /* 글자 크기 축소 */
+    font-size: 14px; 
     font-weight: 400;
     color: #999999;
     line-height: 1.5;
@@ -1981,13 +2069,13 @@ margin: 0 !important; padding: 0 !important; border: none !important;
 .super-footer::after {
     content: '"A digital archive dedicated to the evolution of modern vision, from Impressionist light to Modernist expression."';
     position: absolute;
-    top: 55px; /* 첫 번째 문구 바로 아래 배치 */
+    top: 55px; 
     width: 100%;
     max-width: 1150px; /* ⭐ 상단 문구와 동일한 폭 */
     padding: 0 20px;
     box-sizing: border-box;
     text-align: center !important; 
-    font-size: 14px; /* 글자 크기 축소 */
+    font-size: 14px; 
     color: #999999;
     font-style: regular;
     line-height: 1.5;
@@ -2008,11 +2096,7 @@ margin: 0 !important; padding: 0 !important; border: none !important;
     }
 }
 /*==========================================
-16📌 광고 레이아웃 제어 (Ads Optimization)
-   [목차]
-   ✔️ [1]AD블록 상하여백 조정
-   ✔️ [2] 컨테이너 최적화
-------------------------------------------*/
+16📌 광고 레이아웃 제어 (Ads Optimization)*/
 /*[1]AD블록 상하여백 조정*/
 .notion-block:has(.ad-container) {
   margin-top: -10px !important;
@@ -2026,10 +2110,8 @@ margin: 0 !important; padding: 0 !important; border: none !important;
   padding: 0 !important;
   line-height: 0 !important;
 }
-/*========================================
-17📌 모바일뷰 칼럼 간격 정리===*/
+/*17📌 ====모바일뷰 칼럼 간격 정리===*/
 @media (max-width: 768px) {
-  /* [1] 모든 컬럼 리스트의 기본 마진 제거 */
   .notion-column-list {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
