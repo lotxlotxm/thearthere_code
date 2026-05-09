@@ -151,31 +151,3 @@ svg {
 
 
 
-/*불렛 글자 제어 미디어쿼리*/
-@media (max-width: 768px) {
-  /* 1. [모바일] 리스트 및 불렛 간격 제어 */
-  .notion-bulleted_list, 
-  .notion-numbered_list,
-  .notion-list,
-  .notion-list-item {
-    padding-left: 3px !important; 
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-  }
-  /* 2. [모바일] 본문 텍스트 크기 및 색상 통일 */
-  .notion-bulleted_list li,
-  .notion-bulleted_list li *,
-  .notion-numbered_list li,
-  .notion-numbered_list li *,
-  .notion-list-item,
-  .notion-list-item * {
-    font-size: var(--mb-body) !important;
-    line-height: var(--mb-lh-body) !important;
-    color: #37352f !important;
-  }
-}
-
-
-
-
-
