@@ -151,9 +151,9 @@ Notion + Super.so optimized
 
 /* =========================
 9. GRAY BUTTON
+완전 단일 배경 버전
 ========================= */
 
-/* 🚨 [class*="orange"] 클래스가 부여된 태그 자체의 노션 기본 배경색과 그림자를 완벽히 초기화하고, 오직 우리의 그레이 백그라운드만 주입 */
 .notion-collection-list__item-property:nth-child(2) [class*="orange"]{
   display:inline-flex!important;
 
@@ -163,41 +163,41 @@ Notion + Super.so optimized
   width:var(--ticket-width)!important;
   height:var(--ticket-height)!important;
 
-  /* 🚨 이중 배경의 주범인 노션 기본 컬러를 강제로 투명하게 밀어버리고 그레이 배경 단일 적용 */
-  background:var(--gray-btn)!important;
-  background-color:var(--gray-btn)!important;
+  background:#e1e1e1!important;
 
-  /* 둥근 테두리 및 그림자 겹침 원천 차단 */
-  border-radius:4px!important;
-  box-shadow:none!important;
   border:none!important;
+  border-radius:4px!important;
+
+  box-shadow:none!important;
+
+  overflow:hidden!important;
 
   flex-shrink:0!important;
 }
 
-/* 🚨 그레이 버튼 내부에 겹쳐서 도는 어떠한 하위 요소(span, a)의 배경색 및 자국도 전부 제거 */
+/* 내부 레이어 전부 초기화 */
 .notion-collection-list__item-property:nth-child(2) [class*="orange"] *,
 .notion-collection-list__item-property:nth-child(2) [class*="orange"] a,
-.notion-collection-list__item-property:nth-child(2) [class*="orange"] span {
-  color:#000000!important;
-  -webkit-text-fill-color:#000000!important;
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] span,
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] div{
 
-  font-size:11px!important;
-  
-  /* 하위 텍스트 레이어 배경색 완전 무력화 */
   background:transparent!important;
   background-color:transparent!important;
-  box-shadow:none!important;
+
   border:none!important;
-  border-radius:0px!important;
+  box-shadow:none!important;
+
+  border-radius:0!important;
+
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+
+  font-size:11px!important;
 }
 
-
-
-
-
-
-
-
-
-
+/* hover 잔상 제거 */
+.notion-collection-list__item-property:nth-child(2) [class*="orange"]:hover,
+.notion-collection-list__item-property:nth-child(2) [class*="orange"]:hover *{
+  background:#e1e1e1!important;
+  background-color:#e1e1e1!important;
+}
