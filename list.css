@@ -162,35 +162,3 @@ Notion + Super.so optimized
   background-color:transparent!important;
 }
 
-/* =========================
-9. GRAY BUTTON
-========================= */
-
-.notion-collection-list__item-property:nth-child(2) [class*="orange"]{
-  display:inline-flex!important;
-
-  align-items:center!important;
-  justify-content:center!important;
-
-  width:var(--ticket-width)!important;
-  height:var(--ticket-height)!important;
-
-  background:var(--gray-btn)!important;
-  background-color:var(--gray-btn)!important; /* 명시적 보정 */
-
-  border-radius:4px!important;
-
-  flex-shrink:0!important;
-}
-
-.notion-collection-list__item-property:nth-child(2) [class*="orange"],
-.notion-collection-list__item-property:nth-child(2) [class*="orange"] *{
-  color:#000!important;
-  -webkit-text-fill-color:#000!important;
-
-  font-size:11px!important;
-  
-  /* 🚨 그레이 버튼 자식 요소(span 등)에 숨겨져 상속되는 둥근 회색 배경을 완전히 증발시킵니다. */
-  background:transparent!important;
-  background-color:transparent!important;
-}
