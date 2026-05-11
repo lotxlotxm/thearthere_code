@@ -189,23 +189,22 @@ Notion + Super.so optimized
 
 
 /* ==========================================
-10. MOBILE (우선순위 강제 극대화 버전)
+10. MOBILE (구조 붕괴 방지 완벽 대피선)
 ========================================== */
 
 @media (max-width: 768px) {
 
-  /* [1] 리스트 아이템 베이스 정렬 강제 */
+  /* [1] 리스트 아이템 내부의 모든 레이아웃 유연화 */
   html body .notion-collection-list__item {
     display: flex !important;
-    flex-direction: column !important; /* 위아래로 제목과 내용 영역 완벽 분리 */
-    gap: 8px !important;
-    padding: 16px 0 !important;
+    flex-direction: column !important; /* 제목과 속성영역을 위아래로 먼저 분리 */
+    gap: 12px !important;
+    padding: 18px 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    background: transparent !important;
   }
 
-  /* [2] 제목 스타일 (모바일 15px 고정 및 너비 확보) */
+  /* [2] 제목 스타일 및 너비 확보 */
   html body .notion-collection-list__item .notion-item-title {
     min-width: 100% !important;
     max-width: 100% !important;
@@ -215,32 +214,28 @@ Notion + Super.so optimized
     margin: 0 !important;
     padding: 0 !important;
   }
-  
-  html body .notion-collection-list__item .notion-item-title a {
-    display: block !important;
-    width: 100% !important;
-  }
 
-  /* [3] 속성 전체 감싸개 (노션 Flex를 완전히 강제 제어하는 좌우 분할) */
-  html body .notion-collection-list__item-properties {
+  /* [3] 🚨 핵심: 하단 속성 그룹을 완전히 초기화하고 수평 정렬 강제 */
+  html body .notion-collection-list__item-properties,
+  html body .notion-collection-list__item > div:not(.notion-item-title) {
     display: flex !important;
-    flex-direction: row !important; /* 좌우 일렬 배치 */
-    align-items: flex-start !important; /* 위쪽 정렬 */
-    justify-content: space-between !important; /* 양끝으로 밀착 */
+    flex-direction: row !important; /* 무조건 가로로 배치 */
+    align-items: flex-start !important; /* 위쪽 정렬 고정 */
+    justify-content: space-between !important; /* 양 끝 정렬 */
     
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
+    gap: 12px !important; /* 텍스트와 버튼 사이 간격 고정 */
   }
 
-  /* [4] 속성 1 (위치 / 시간 텍스트 영역 가변 확장) */
-  html body .notion-collection-list__item-property:nth-child(1) {
+  /* [4] 속성 1 (텍스트 영역: 가변 확장 및 줄바꿈 보장) */
+  html body .notion-collection-list__item-property:nth-child(1),
+  html body .notion-collection-list__item-properties > div:first-child {
     flex: 1 1 0 !important; /* 남은 여백을 유연하게 독점 */
-    min-width: 0 !important; /* 텍스트 튕김 방지 */
-    max-width: calc(100% - 97px) !important; /* 버튼 폭 85px + 간격 12px 제외한 나머지 완전히 보장 */
+    min-width: 0 !important;
+    max-width: calc(100% - 97px) !important; /* 버튼 85px + 간격 12px 제외한 전체 영역 */
     
     margin: 0 !important;
     padding: 0 !important;
@@ -249,19 +244,18 @@ Notion + Super.so optimized
   }
 
   html body .notion-collection-list__item-property:nth-child(1) *,
-  html body .notion-collection-list__item-property:nth-child(1) span {
+  html body .notion-collection-list__item-properties > div:first-child * {
     font-size: 11px !important;
     line-height: 1.45 !important;
     color: var(--text-main) !important;
     white-space: normal !important;
-    word-break: keep-all !important; /* 단어 단위 줄바꿈 */
-    overflow: visible !important;
-    text-overflow: unset !important;
+    word-break: keep-all !important;
   }
 
-  /* [5] 속성 2 (오른쪽 버튼 영역 너비 완벽 잠금) */
-  html body .notion-collection-list__item-property:nth-child(2) {
-    flex: 0 0 85px !important; /* 85px 밑으로 절대 못 찌그러지게 고정 */
+  /* [5] 속성 2 (오른쪽 버튼 영역: 절대 찌그러짐 없는 고정폭) */
+  html body .notion-collection-list__item-property:nth-child(2),
+  html body .notion-collection-list__item-properties > div:nth-child(2) {
+    flex: 0 0 85px !important; /* 85px 너비 절대 고정 */
     width: 85px !important;
     min-width: 85px !important;
     max-width: 85px !important;
@@ -270,13 +264,15 @@ Notion + Super.so optimized
     justify-content: flex-end !important;
     align-items: flex-start !important;
     
-    margin: 0 0 0 12px !important; /* 텍스트와의 확실한 이격거리 */
+    margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* [6] 버튼 크기 절대 고정 및 찌그러짐 차단 */
+  /* [6] 버튼 스타일 완벽 보존 */
   html body .notion-collection-list__item-property:nth-child(2) [class*="brown"],
-  html body .notion-collection-list__item-property:nth-child(2) [class*="orange"] {
+  html body .notion-collection-list__item-property:nth-child(2) [class*="orange"],
+  html body .notion-collection-list__item-properties > div:nth-child(2) [class*="brown"],
+  html body .notion-collection-list__item-properties > div:nth-child(2) [class*="orange"] {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -287,25 +283,17 @@ Notion + Super.so optimized
     min-height: 27px !important;
     
     border-radius: 4px !important;
-    flex-shrink: 0 !important; /* 자식 요소 압박에 의한 수축 완전 차단 */
+    flex-shrink: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* 버튼 내부 글씨 미세 정렬 */
+  /* 버튼 글자 정밀 정렬 */
   html body .notion-collection-list__item-property:nth-child(2) [class*="brown"] *,
-  html body .notion-collection-list__item-property:nth-child(2) [class*="orange"] * {
+  html body .notion-collection-list__item-property:nth-child(2) [class*="orange"] *,
+  html body .notion-collection-list__item-properties > div:nth-child(2) [class*="brown"] *,
+  html body .notion-collection-list__item-properties > div:nth-child(2) [class*="orange"] * {
     font-size: 10px !important;
     line-height: 1 !important;
     white-space: nowrap !important;
-    word-break: keep-all !important;
   }
 }
-
-
-
-
-
-
-
-
-
