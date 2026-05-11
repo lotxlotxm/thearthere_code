@@ -1,0 +1,253 @@
+/* ==========================================
+📌 LIST VIEW SYSTEM
+Notion + Super.so optimized
+========================================== */
+
+/* =========================
+1. ROOT VARIABLES
+========================= */
+
+:root{
+  --prop1-width:220px;
+  --prop-gap-left:40px;
+
+  --ticket-width:85px;
+  --ticket-height:27px;
+
+  --line-color:rgba(0,0,0,.08);
+
+  --title-width:320px;
+
+  --text-main:#777;
+  --black-btn:#37352f;
+  --gray-btn:#e1e1e1;
+}
+
+/* =========================
+2. LIST ITEM BASE
+========================= */
+
+.notion-collection-list__item{
+  display:flex!important;
+  align-items:flex-start!important;
+
+  padding:24px 0!important;
+
+  border:none!important;
+  border-bottom:1px solid var(--line-color)!important;
+
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+.notion-collection-list__item:hover{
+  background:transparent!important;
+}
+
+/* =========================
+3. TITLE
+========================= */
+
+.notion-collection-list__item .notion-item-title{
+  flex:0 0 var(--title-width)!important;
+
+  min-width:var(--title-width)!important;
+  max-width:var(--title-width)!important;
+
+  line-height:1.4!important;
+}
+
+/* =========================
+4. PROPERTY WRAP
+========================= */
+
+.notion-collection-list__item-properties{
+  display:flex!important;
+
+  flex:1!important;
+
+  align-items:flex-start!important;
+
+  padding-top:5px!important;
+  padding-left:var(--prop-gap-left)!important;
+}
+
+/* =========================
+5. PROPERTY COMMON
+========================= */
+
+.notion-collection-list__item-property{
+  font-size:13px!important;
+  color:var(--text-main)!important;
+}
+
+.notion-collection-list__item-property *{
+  color:inherit!important;
+}
+
+/* =========================
+6. PROPERTY 1
+(Location / Time)
+========================= */
+
+.notion-collection-list__item-property:nth-child(1){
+  flex:0 0 var(--prop1-width)!important;
+
+  min-width:var(--prop1-width)!important;
+  max-width:var(--prop1-width)!important;
+
+  line-height:1.5!important;
+
+  white-space:pre-wrap!important;
+}
+
+/* =========================
+7. PROPERTY 2
+(Button Area)
+========================= */
+
+.notion-collection-list__item-property:nth-child(2){
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+
+/* reset */
+
+.notion-collection-list__item-property:nth-child(2),
+.notion-collection-list__item-property:nth-child(2) *{
+  text-decoration:none!important;
+  box-shadow:none!important;
+}
+
+/* =========================
+8. BLACK BUTTON
+========================= */
+
+.notion-collection-list__item-property:nth-child(2) [class*="brown"]{
+  display:inline-flex!important;
+
+  align-items:center!important;
+  justify-content:center!important;
+
+  width:var(--ticket-width)!important;
+  height:var(--ticket-height)!important;
+
+  background:var(--black-btn)!important;
+
+  border-radius:4px!important;
+
+  flex-shrink:0!important;
+}
+
+.notion-collection-list__item-property:nth-child(2) [class*="brown"],
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] *{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+
+  font-size:11px!important;
+}
+
+/* =========================
+9. GRAY BUTTON
+========================= */
+
+.notion-collection-list__item-property:nth-child(2) [class*="orange"]{
+  display:inline-flex!important;
+
+  align-items:center!important;
+  justify-content:center!important;
+
+  width:var(--ticket-width)!important;
+  height:var(--ticket-height)!important;
+
+  background:var(--gray-btn)!important;
+
+  border-radius:4px!important;
+
+  flex-shrink:0!important;
+}
+
+.notion-collection-list__item-property:nth-child(2) [class*="orange"],
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] *{
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+
+  font-size:11px!important;
+}
+
+/* =========================
+10. MOBILE
+========================= */
+
+@media (max-width:768px){
+
+  .notion-collection-list__item{
+    flex-direction:column!important;
+
+    gap:10px!important;
+
+    padding:16px 0!important;
+  }
+
+  /* title */
+
+  .notion-collection-list__item .notion-item-title{
+    flex:none!important;
+
+    min-width:100%!important;
+    max-width:100%!important;
+  }
+
+  /* property wrap */
+
+  .notion-collection-list__item-properties{
+    width:100%!important;
+
+    padding:0!important;
+
+    display:flex!important;
+
+    align-items:center!important;
+    justify-content:space-between!important;
+  }
+
+  /* property 1 */
+
+  .notion-collection-list__item-property:nth-child(1){
+    flex:1 1 auto!important;
+
+    min-width:0!important;
+    max-width:55%!important;
+
+    overflow:hidden!important;
+  }
+
+  .notion-collection-list__item-property:nth-child(1),
+  .notion-collection-list__item-property:nth-child(1) *{
+    font-size:11px!important;
+
+    white-space:nowrap!important;
+    text-overflow:ellipsis!important;
+    overflow:hidden!important;
+  }
+
+  /* property 2 */
+
+  .notion-collection-list__item-property:nth-child(2){
+    flex:0 0 auto!important;
+
+    justify-content:flex-end!important;
+  }
+
+  /* icon remove */
+
+  .notion-collection-list__item-icon{
+    display:none!important;
+  }
+
+  .notion-collection-list__item-property::before{
+    display:none!important;
+  }
+}
