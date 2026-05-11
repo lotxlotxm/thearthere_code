@@ -151,12 +151,11 @@ Notion + Super.so optimized (GitHub Clean Version)
 
 /* =========================
 9. GRAY BUTTON
-GitHub 안정화 버전
+완전 제거 버전
 ========================= */
 
-/* 버튼 wrapper */
 .notion-collection-list__item-property:nth-child(2) .notion-pill.orange{
-    
+
     display:inline-flex!important;
 
     align-items:center!important;
@@ -177,18 +176,44 @@ GitHub 안정화 버전
     overflow:hidden!important;
 
     flex-shrink:0!important;
+
+    /* 🚨 핵심 */
+    opacity:1!important;
+    filter:none!important;
+    backdrop-filter:none!important;
+
+    position:relative!important;
 }
 
-/* 내부 텍스트 */
-.notion-collection-list__item-property:nth-child(2) .notion-pill.orange *{
+/* 내부 전부 초기화 */
+
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange *,
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange a,
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange span,
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange div{
 
     background:transparent!important;
+    background-color:transparent!important;
+
+    border:none!important;
+    box-shadow:none!important;
+
+    filter:none!important;
+    backdrop-filter:none!important;
+
+    opacity:1!important;
 
     color:#000!important;
     -webkit-text-fill-color:#000!important;
 
     font-size:11px!important;
+}
 
-    border:none!important;
-    box-shadow:none!important;
+/* 🚨 pseudo layer 제거 */
+
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange::before,
+.notion-collection-list__item-property:nth-child(2) .notion-pill.orange::after{
+
+    display:none!important;
+    content:none!important;
 }
