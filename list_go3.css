@@ -195,6 +195,18 @@ Notion + Super.so optimized
 }
 
 
+/* ==========================================
+📱 MOBILE GRID FIX (768px 이하 스크린)
+========================================== */
+
+@media (max-width:768px){
+  /* 🚨 모바일에서는 속성1의 가로폭이 늘어나 튀어나가지 않도록 안전한 폭으로 재고정합니다. */
+  .notion-collection-list__item-property:nth-child(1){
+    flex: 0 0 220px !important;
+    min-width: 220px !important;
+    max-width: 220px !important;
+  }
+}
 
 
 
