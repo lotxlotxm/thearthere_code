@@ -121,14 +121,74 @@ Notion + Super.so optimized
   box-shadow:none!important;
 }
 
+/* =========================
+8. BLACK BUTTON
+========================= */
 
+.notion-collection-list__item-property:nth-child(2) [class*="brown"]{
+  display:inline-flex!important;
 
+  align-items:center!important;
+  justify-content:center!important;
 
+  width:var(--ticket-width)!important;
+  height:var(--ticket-height)!important;
 
+  background:var(--black-btn)!important;
 
+  border-radius:4px!important;
 
+  flex-shrink:0!important;
+}
 
+.notion-collection-list__item-property:nth-child(2) [class*="brown"],
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] *{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
 
+  font-size:11px!important;
+}
 
+/* =========================
+9. GRAY BUTTON (단색 100% 투명도 없는 그레이 고정)
+========================= */
 
+.notion-collection-list__item-property:nth-child(2) [class*="orange"]{
+  display:inline-flex!important;
 
+  align-items:center!important;
+  justify-content:center!important;
+
+  width:var(--ticket-width)!important;
+  height:var(--ticket-height)!important;
+
+  /* 🚨 겹침 현상을 막기 위해 노션 고유의 그라데이션 필터를 완전히 무력화 */
+  background-image: none !important;
+
+  /* 🚨 겹치지 않는 100% 불투명한 단색 그레이 배경 적용 */
+  background-color: var(--gray-btn) !important;
+  background: var(--gray-btn) !important;
+
+  border-radius:4px!important;
+  box-shadow: none !important;
+  border: none !important;
+
+  flex-shrink:0!important;
+}
+
+/* 🚨 중요: 버튼 내부 자식 요소들이 이중으로 칠하고 있는 불투명 배경색만 투명하게 지워줍니다. */
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] *,
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] a,
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] span {
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+
+  font-size:11px!important;
+
+  /* 내부 자식들의 둥근 테두리와 배경 그림자 잔상을 완전히 제거 */
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  border: none !important;
+}
