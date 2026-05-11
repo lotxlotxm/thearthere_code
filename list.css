@@ -102,105 +102,94 @@ Notion + Super.so optimized
   white-space:pre-wrap!important;
 }
 
-/* =========================
-7. PROPERTY 2
-(Button Area)
-========================= */
+/* =========================================
+7. PROPERTY 2 (Button Area & Reset)
+🚨 속성 2번 내부의 모든 껍데기 배경 및 레이아웃 강제 초기화
+========================================= */
 
-.notion-collection-list__item-property:nth-child(2){
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-}
-
-/* reset */
-
+/* 속성 2번과 그 하위의 모든 링크(a), 스팬(span)의 노션 기본 배경색 제거 */
 .notion-collection-list__item-property:nth-child(2),
-.notion-collection-list__item-property:nth-child(2) *{
-  text-decoration:none!important;
-  box-shadow:none!important;
-}
-
-/* =========================
-8. BLACK BUTTON
-========================= */
-
-.notion-collection-list__item-property:nth-child(2) [class*="brown"]{
-  display:inline-flex!important;
-
-  align-items:center!important;
-  justify-content:center!important;
-
-  width:var(--ticket-width)!important;
-  height:var(--ticket-height)!important;
-
-  background:var(--black-btn)!important;
-
-  border-radius:4px!important;
-
-  flex-shrink:0!important;
-}
-
-.notion-collection-list__item-property:nth-child(2) [class*="brown"],
-.notion-collection-list__item-property:nth-child(2) [class*="brown"] *{
-  color:#fff!important;
-  -webkit-text-fill-color:#fff!important;
-
-  font-size:11px!important;
-}
-
-/* =========================
-9. GRAY BUTTON (이중 음영 및 부모 레이어 배경 완전 박멸)
-========================= */
-
-/* 🚨 1. 속성 2번 내부의 모든 기본 노션 배경/테두리 스타일을 투명하게 리셋 (가장 중요) */
 .notion-collection-list__item-property:nth-child(2) *,
+.notion-collection-list__item-property:nth-child(2) a,
 .notion-collection-list__item-property:nth-child(2) span,
-.notion-collection-list__item-property:nth-child(2) div,
-.notion-collection-list__item-property:nth-child(2) a {
+.notion-collection-list__item-property:nth-child(2) div {
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
   border-radius: 0px !important;
+  text-decoration: none !important;
 }
 
-/* 🚨 2. 오직 우리가 정의한 오렌지(그레이 버튼) 형태에만 배경색 주입 */
-.notion-collection-list__item-property:nth-child(2) [class*="orange"]{
-  display:inline-flex!important;
-
-  align-items:center!important;
-  justify-content:center!important;
-
-  width:var(--ticket-width)!important;
-  height:var(--ticket-height)!important;
-
-  /* 실제 그리고자 하는 그레이 버튼 배경색 적용 */
-  background:var(--gray-btn)!important;
-  background-color:var(--gray-btn)!important;
-
-  border-radius:4px!important;
-
-  flex-shrink:0!important;
+/* 속성 2번 영역 자체의 기본 정렬만 설정 */
+.notion-collection-list__item-property:nth-child(2){
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
 }
 
-/* 🚨 3. 그레이 버튼 내부의 글자 색상 및 크기 고정 */
+
+/* =========================================
+8. BLACK BUTTON (Brown Type)
+========================================= */
+
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: var(--ticket-width) !important;
+  height: var(--ticket-height) !important;
+
+  /* 실제 그리고자 하는 블랙 배경 주입 */
+  background: var(--black-btn) !important;
+  background-color: var(--black-btn) !important;
+
+  border-radius: 4px !important;
+  flex-shrink: 0 !important;
+}
+
+/* 블랙 버튼 내부 텍스트 색상 고정 및 배경 투명 유지 */
+.notion-collection-list__item-property:nth-child(2) [class*="brown"],
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] *,
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] a,
+.notion-collection-list__item-property:nth-child(2) [class*="brown"] span {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  font-size: 11px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================
+9. GRAY BUTTON (Orange Type)
+========================================= */
+
+.notion-collection-list__item-property:nth-child(2) [class*="orange"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: var(--ticket-width) !important;
+  height: var(--ticket-height) !important;
+
+  /* 실제 그리고자 하는 그레이 배경 주입 */
+  background: var(--gray-btn) !important;
+  background-color: var(--gray-btn) !important;
+
+  border-radius: 4px !important;
+  flex-shrink: 0 !important;
+}
+
+/* 그레이 버튼 내부 텍스트 색상 고정 및 배경 투명 유지 */
+.notion-collection-list__item-property:nth-child(2) [class*="orange"],
 .notion-collection-list__item-property:nth-child(2) [class*="orange"] *,
 .notion-collection-list__item-property:nth-child(2) [class*="orange"] a,
 .notion-collection-list__item-property:nth-child(2) [class*="orange"] span {
-  color:#000!important;
-  -webkit-text-fill-color:#000!important;
-
-  font-size:11px!important;
-  
-  /* 위에서 투명화한 설정이 풀리지 않도록 재강조 */
-  background:transparent !important;
-  background-color:transparent !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  font-size: 11px !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
-
-
-
-
-
-
-
