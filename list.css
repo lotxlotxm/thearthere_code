@@ -102,22 +102,4 @@ Notion + Super.so optimized
   white-space:pre-wrap!important;
 }
 
-/* =========================
-7. PROPERTY 2
-(Button Area)
-========================= */
-
-.notion-collection-list__item-property:nth-child(2){
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-}
-
-/* reset */
-
-.notion-collection-list__item-property:nth-child(2),
-.notion-collection-list__item-property:nth-child(2) *{
-  text-decoration:none!important;
-  box-shadow:none!important;
-}
 
