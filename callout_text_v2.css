@@ -1,155 +1,192 @@
 /*==========================================
- 📌 콜아웃 텍스트 시스템
+✅ 인터렉티브 노션 버튼 : 보라색 콜아웃 바레이션
 ==========================================*/
-/* 공통 */
-.notion-callout {
-    border-radius: 12px !important;
+/* 📌 type1(기본) : 노션 기본 버튼 제어
+========================================== */
+/* 버튼 컨테이너: 배경 제거 및 크기 최적화*/
+.notion-button {
+  background-color: transparent !important;
+  padding: 0 !important;
+  width: fit-content !important;
 }
-/*==========================================
-[1] BLUE : 관리자 주석 / 0.8em + 투명
+/* 버튼 본체: 디자인 및 여백 설정 */
+.notion-button > a {
+  background-color: #37352f !important;
+  color: #ffffff !important;
+  border: none !important; 
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+/* 글자 크기 및 색상 강제 */
+.notion-button > a,
+.notion-button > a * {
+  font-size: 14px !important;   
+  font-weight: 400 !important;        
+  color: #ffffff !important;          
+  -webkit-text-fill-color: #ffffff !important;
+  line-height: 1.2 !important;        
+}
+
+/*========================================== 보라색 콜아웃 트리거 공통 제어
 ==========================================*/
-.notion-callout[class*="blue"] {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    color: #37352f !important;
-}
-/* 아이콘 제거 */
-.notion-callout[class*="blue"] .notion-callout__icon {
-    display: none !important;
-}
-/* 좌측 정렬 보정 */
-.notion-callout[class*="blue"] .notion-callout__content {
-    margin-left: 0 !important;
+/* [0] 보라색 콜아웃 외형 공통 초기화 */
+.notion-callout[class*="purple"] {
+    background-color: transparent !important; 
+    border: none !important; 
+    padding: 0 !important; 
     width: 100% !important;
-}
-/* 텍스트 */
-.notion-callout[class*="blue"] * {
-    font-size: .8rem !important;
-    line-height: 1.6 !important;
-}
-/* 모바일 */
-@media (max-width:768px){
-    .notion-callout[class*="blue"] *{
-        font-size:.75rem !important;
-    }
-    .notion-callout[class*="blue"]{
-        margin-bottom:-15px !important;
-    }
+    max-width: 1300px !important;
+    margin: 20px auto !important; 
+    border-radius: 0px !important;
 }
 
-/*==========================================
-[2] GRAY : 글자 좌정렬 + 화이트 배경 
-==========================================*/
-.notion-callout[class*="gray"]{
-    background:#fff !important;
-    border:none !important;
-    padding:15px 20px 12px 10px !important;
-}
-.notion-callout[class*="gray"] 
-.notion-callout__content{
-    width:100% !important;
-    text-align:left !important;
-}
-
-/*==========================================
-[3] BROWN : 글자 중앙 + 화이트 배경
-==========================================*/
-.notion-callout[class*="brown"]{
-    background:#fff !important;
-    border:none !important;
-    padding:20px !important;
-}
-.notion-callout[class*="brown"] 
-.notion-callout__content{
-    width:100% !important;
-    text-align:center !important;
-}
-
-
-/*==========================================
-[4] GREEN : 간략 설명 / 투명 콜아웃 
-==========================================*/
-.notion-callout[class*="green"]{
-    display: block !important; /* 내부 플렉스 정렬 해제 */
-    background:transparent !important;
-    border:none !important;
-    padding:0 !important;
-    margin:0 !important;
-    min-height:0 !important;
-    width: 100% !important;
-}
-.notion-callout[class*="green"] > div {
-    display: block !important;
-    width: 100% !important;
+/* 그리드 정렬 */
+.notion-callout[class*="purple"] .notion-callout__content {
     padding: 0 !important;
     margin: 0 !important;
-    gap: 0 !important;
+    width: 100% !important;
 }
-.notion-callout[class*="green"] .notion-callout__icon {
+
+/* 콜아웃 내부 아이콘 숨기기 */
+.notion-callout[class*="purple"] .notion-callout__icon {
     display: none !important;
 }
-.notion-callout[class*="green"] 
-.notion-callout__content{
-    margin:0 !important;
-    padding:0 !important;
-    width:100% !important;
+/* 버튼 가로 크기 제어 */
+.notion-callout[class*="purple"] .notion-button {
+    width: 100% !important;
+    max-width: 1300px !important;
+    height: auto !important;       
+    min-height: auto !important;   
+}
+.notion-callout[class*="purple"] .notion-button > a span,
+.notion-callout[class*="purple"] .notion-button > a div {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+/*=========================================
+📌 type2: 보라색 콜아웃 트리거 - full wide 스타일
+==========================================*/
+.notion-callout[class*="purple"]:not(:has(code)) .notion-button > a {
+    width: 100% !important;        
+    min-height: auto !important;   
+    padding: 15px 0px !important;  
+    background-color: #37352f !important; 
+    border-radius: 12px !important;
+    border: none !important;     
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+/*=========================================
+📌 type2: 보라색 콜아웃 + 인라인코드 트리거
+============================================
+/* 인라인코드 트리거 글자 숨김 */
+.notion-callout[class*="purple"]:has(code) code {
+    display: none !important;
+}
+/* 인라인코드가 포함된 공간 삭제 */
+.notion-callout[class*="purple"] :has(> code),
+.notion-callout[class*="purple"] div:has(code):not(.notion-column-list):not(.notion-column):not(.notion-callout__content) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+/* 📌 PC 단리스트 고유 마진/패딩 리셋 및 강제 가로 나열 제어 */
+.notion-callout[class*="purple"]:has(code) .notion-column-list {
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
     max-width: 100% !important;
+    gap: 16px !important; /* 칼럼 간격 */
+    background-color: transparent !important;
 }
 
+/* 그리드 정렬 */
+.notion-callout[class*="purple"]:has(code) .notion-column {
+    flex: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    background-color: transparent !important;
+}
+.notion-callout[class*="purple"]:has(code) .notion-button > a {
+    width: 100% !important;        
+    min-height: auto !important;   
+    padding: 15px 0px !important;  
+    background-color: #37352f !important; 
+    border-radius: 12px !important;
+    border: none !important;     
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 
 /*==========================================
-[5] ORANGE : 텍스트 전부 숨김 장치
+ 📌 모바일 반응형 제어
 ==========================================*/
-.notion-callout[class*="orange"]{
-    background:transparent !important;
-    border:none !important;
-    padding:0 !important;
-    margin:0 !important;
-    box-shadow:none !important;
-}
-.notion-callout[class*="orange"]
-.notion-callout__content > *{
-    display:none !important;
-}
-
-
-/*==========================================
-[6] 기본 콜아웃 : H1/H2 풀배경
-==========================================*/
-/* [1] 전역 가두리 해제 */
-.notion-page-content {
-    overflow-x: clip !important;
-}
-/* [2] 화이트 배경 적용 */
-.notion-callout:not([class*="_background"]):not([class*="yellow"]):not([class*="red"]):not([class*="orange"]):has(h1, h2) {
-    width: 100vw !important;
-    max-width: none !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background-color: #ffffff !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    margin-top: -65px !important;
-    margin-bottom: 0px !important; 
-    padding-top: 50px !important;
-    padding-bottom: 0 !important;
-}
-/* [3] 내부 콘텐츠 중앙 정렬 */
-.notion-callout:not([class*="_background"]):not([class*="yellow"]):not([class*="red"]):not([class*="orange"]):has(h1, h2) > .notion-callout__content {
-    max-width: 1150px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-    padding: 0 20px !important;
-}
 @media (max-width: 768px) {
-    .notion-callout:not([class*="_background"]):not([class*="yellow"]):not([class*="red"]):not([class*="orange"]):has(h1, h2)
-    > .notion-callout__content {
-        max-width: 100% !important;
-        padding-left: 33px !important;
-        padding-right: 33px !important;
-    }
+  /* 버튼 글자 크기 통합 */
+  .notion-button > a,
+  .notion-button > a * {
+    font-size: 13px !important; 
+  }
+  /* 버튼 그리드 정렬 */
+  .notion-callout[class*="purple"] {
+    margin: 0px auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+/*-------------------------------------------
+[모바일]📌 type2: 보라색 콜아웃 + 인라인코드 트리거
+-------------------------------------------*/
+  .notion-callout[class*="purple"]:not(:has(code)) .notion-button > a {
+    width: 100% !important;        
+    min-height: auto !important;   
+    padding: 12px 0px !important;  
+    border-radius: 13px !important; 
+    border: none !important;     
+    outline: none !important;
+    background-color: #222222 !important; 
+  }
+/*-------------------------------------------
+[모바일] 📌 type2: 보라색 콜아웃 + 인라인코드 트리거
+[노트] 인라인코드 삽입시 모바일에서 강제 2칼럼 유지 
+------------------------------------------*/
+  .notion-callout[class*="purple"]:has(code) .notion-button > a {
+    width: 100% !important;        
+    min-height: auto !important;   
+    padding: 12px 0px !important;  
+    border-radius: 13px !important; 
+    border: none !important;     
+    outline: none !important;
+    background-color: #222222 !important; 
+  }
+  /* 그리드 정렬 */
+  .notion-callout[class*="purple"]:has(code) .notion-callout__content > .notion-column-list {
+    display: flex !important;
+    flex-direction: row !important; 
+    flex-wrap: nowrap !important;  
+    gap: 8px !important;           
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important; 
+  }
+  .notion-callout[class*="purple"]:has(code) .notion-column {
+    width: 50% !important;
+    min-width: 40% !important; 
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important; 
+  }
 }
