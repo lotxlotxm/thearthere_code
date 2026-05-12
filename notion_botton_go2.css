@@ -37,7 +37,7 @@
 /*========================================== 
 ✅ 보라색 콜아웃 트리거 공통 제어
 ==========================================*/
-/* 보라색 콜아웃 외형 공통 초기화 */
+/* 보라색 콜아웃 투명화 */
 .notion-callout[class*="purple"] {
     background-color: transparent !important; 
     border: none !important; 
@@ -81,7 +81,7 @@
     min-height: auto !important;   
     padding: 15px 0px !important;  
     background-color: #37352f !important; 
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     border: none !important;     
     display: flex !important;
     align-items: center !important;
@@ -127,7 +127,7 @@
     min-height: auto !important;   
     padding: 15px 0px !important;  
     background-color: #37352f !important; 
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     border: none !important;     
     display: flex !important;
     align-items: center !important;
@@ -149,7 +149,7 @@
   
   /* 버튼 그리드 정렬 */
   .notion-callout[class*="purple"] {
-    margin: 0px auto !important;
+    margin: 10px auto !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -161,10 +161,9 @@
     width: 100% !important;        
     min-height: auto !important;   
     padding: 9px 0px !important;  
-    border-radius: 13px !important; 
+    border-radius: 8px !important; 
     border: none !important;     
     outline: none !important;
-    background-color: #222222 !important; 
   }
 
   /*---------------------------------------
@@ -175,10 +174,9 @@
     width: 100% !important;        
     min-height: auto !important;   
     padding: 9px 0px !important;  
-    border-radius: 13px !important; 
+    border-radius: 8px !important; 
     border: none !important;     
     outline: none !important;
-    background-color: #222222 !important; 
   }
 
   /* 그리드 정렬 */
