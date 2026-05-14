@@ -6,7 +6,7 @@
 .notion-callout[class*="blue"] {
   background-color: transparent !important; 
   border: 0px solid transparent !important;  
-  border-radius: 12px !important;
+  border-radius: 0px !important;
   padding: 0px !important;
   color: #37352f !important;
 }
