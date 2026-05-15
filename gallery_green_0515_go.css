@@ -254,7 +254,7 @@
 }
 
 /*===========================================
-🟩 [타입 B] 녹색 콜아웃 기본형 (6열 - h2 차단막 추가)*/
+🟩 [타입 B] 녹색 콜아웃 기본형 (6열 - h1,h2,h3 차단막 추가)*/
 /* 🚨 :not(:has(h2))를 추가하여 타입 C(h2 트리거)로 스타일이 번지는 것을 원천 차단 */
 .notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)) .notion-collection-gallery {
   display: grid !important;
@@ -262,7 +262,7 @@
   gap: 16px !important;
   background: transparent !important;
 }
-.notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)).notion-collection-card {
+.notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)) .notion-collection-card {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
