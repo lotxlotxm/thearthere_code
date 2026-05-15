@@ -219,20 +219,42 @@
     text-transform: uppercase !important;
 }
 @media (max-width: 768px) {
+    /* 1. 갤러리 전체 컨테이너 설정 */
     .notion-callout[class*="green"]:has(h1) .notion-collection-gallery,
     .notion-callout[class*="green"]:has([class*="h1"]) .notion-collection-gallery {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        grid-template-rows: unset !important;
-        grid-auto-flow: unset !important;
-        gap: 12px !important;
+        display: grid !important;
+        grid-template-columns: none !important; /* 기존 자동 열 계산 무효화 */
+        grid-template-rows: repeat(2, 1fr) !important;
+        grid-auto-flow: column !important;
+        
+        /* 한 화면에 2.3개 노출을 위한 너비 강제 지정 */
+        grid-auto-columns: calc((100% - 30px) / 2.1) !important; 
+        gap: 0px 5px !important;
     }
+
+    /* 2. 모든 카드(첫 번째 카드 포함) 너비 강제 고정 */
     .notion-callout[class*="green"]:has(h1) .notion-collection-card,
     .notion-callout[class*="green"]:has([class*="h1"]) .notion-collection-card {
-        flex: 0 0 calc((100% - 12px) / 2) !important;
-        min-width: calc((100% - 12px) / 2) !important;
-        width: calc((100% - 12px) / 2) !important;
+        /* [핵심] 첫 번째 카드가 커지는 것을 방지 */
+        width: 100% !important; 
+        max-width: 100% !important;
+        min-width: 0 !important; /* 노션 기본 min-width 값을 0으로 초기화 */
+        flex: none !important;
     }
+
+    /* 3. 이미지 커버가 카드 너비에 맞게 축소되도록 설정 */
+    .notion-callout[class*="green"]:has(h1) .notion-collection-card__cover,
+    .notion-callout[class*="green"]:has(h1) .notion-collection-card__cover img {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+    /* 모바일 텍스트 크기 미세 조정 */
+    .notion-callout[class*="green"]:has(h1) .notion-collection-card__property:nth-child(1) *,
+    .notion-callout[class*="green"]:has(h1) .notion-collection-card__property:nth-child(2) * {
+        font-size: 11px !important;
+    }
+}
     /* 모바일 속성 1 간격 및 폰트 대응 */
     .notion-callout[class*="green"]:has(h1) .notion-collection-card__property:nth-child(1),
     .notion-callout[class*="green"]:has(h1) .notion-collection-card__property:nth-child(1) *,
