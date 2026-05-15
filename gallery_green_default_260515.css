@@ -480,3 +480,118 @@
     }
 }
 
+
+/*------------------------------------------
+🟩 [타입 E] 녹색 콜아웃+ H4 트리거
+    -> 오버랩+가로형 : 온라인 전시
+  -----------------------------------------*/
+/* [0] h4 트리거 숨김 */
+.notion-callout[class*="green"]:has(h4) h4,
+.notion-callout[class*="green"]:has([class*="h4"]) [class*="h4"] {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* 1. 그리드 레이아웃 설정 */
+/*PC 2열 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+}
+/* 2. 카드 전체 설정 및 비율 (개별 설정) */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card {
+    position: relative !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+}
+/* 비율 5:2 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card { aspect-ratio: 5 / 2 !important; }
+/* 3. */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__cover,
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__cover > div,
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__cover img {
+    height: 100% !important;
+    width: 100% !important;
+    max-height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover !important;
+    transition: transform 0.4s ease-in-out !important; 
+    will-change: transform;
+}
+/* 4. [호버 효과] 이미지 확대 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card:hover .notion-collection-card__cover img {
+    transform: scale(1.1) !important;
+}
+/* 5. 텍스트 레이어 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__content {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60% !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 0 15px 15px 15px !important;
+    z-index: 10 !important;
+    pointer-events: none;
+    text-align: center !important;
+}
+/* 6. 제목 및 설명 스타일 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__property:first-child,
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__property:first-child * {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    margin-bottom: 4px !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+    display: block !important;
+}
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__property:not(:first-child),
+.notion-callout[class*="green"]:has(h4) .notion-collection-card__property:not(:first-child) * {
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5) !important;
+}
+/* 4.호버 효과*/
+.notion-callout[class*="green"]:has(h4) .notion-collection-card:hover .notion-collection-card__cover,
+.notion-callout[class*="green"]:has(h4) .notion-collection-card:hover .notion-collection-card__cover img {
+    transform: scale(1.1) !important;
+}
+@media (max-width: 768px) {
+    /* 모바일 1열로 변경 */
+.notion-callout[class*="green"]:has(h4) .notion-collection-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    /* 모바일 폰트 크기 조정 */
+    .notion-callout[class*="green"]:has(h4) .notion-collection-card__property:first-child * {
+        font-size: 14px !important; 
+    }
+    .notion-callout[class*="green"]:has(h4) .notion-collection-card__content .notion-collection-card__property:not(:first-child) * {
+        font-size: 11px !important; 
+    }
+    /*1열일 때 모바일 비율 조정 (선택사항) */
+    .notion-callout[class*="green"]:has(h4) .notion-collection-card { 
+        aspect-ratio: 16 / 9 !important; 
+    }
+}
+
+
+
