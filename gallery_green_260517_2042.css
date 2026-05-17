@@ -424,15 +424,16 @@
 
 
 
+
 /*==========================================
 🟩 [타입 D] 녹색 콜아웃 + 글머리 기호(불렛) 트리거 
 (원형 도시 버튼)
 ----------------------------*/
-/* [0] 🚨 불렛 트리거 숨김 */
-.notion-callout[class*="green"]:has([class*="bullet"]) [class*="bullet"],
-.notion-callout[class*="green"]:has([class*="bullet"]) .notion-bulleted_list-block,
-.notion-callout[class*="green"]:has([class*="bullet"]) .notion-list-bullet,
-.notion-callout[class*="green"]:has([class*="bullet"]) .notion-heading {
+/* [0] 🚨 오직 갤러리가 포함된 그린 콜아웃 내부의 불렛 트리거만 정밀 타겟하여 숨김 (요일 코드 보호) */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has([class*="bullet"]) [class*="bullet"],
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has([class*="bullet"]) .notion-bulleted_list-block,
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has([class*="bullet"]) .notion-list-bullet,
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has([class*="bullet"]) .notion-heading {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
@@ -524,6 +525,7 @@
         font-size: 14px !important;
     }
 }
+
 
 /*------------------------------------------
 🟩 [타입 E] 녹색 콜아웃+ 토글 트리거
