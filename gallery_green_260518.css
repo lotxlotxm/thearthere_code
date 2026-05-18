@@ -235,7 +235,7 @@
         grid-template-columns: none !important;
         grid-template-rows: repeat(2, 1fr) !important;
         grid-auto-flow: column !important;
-        grid-auto-columns: calc((100% - 30px) / 2.1) !important; 
+        grid-auto-columns: calc((100% - 10px) / 1.5) !important; 
         gap: 0px 5px !important;
     }
 
@@ -283,7 +283,6 @@
     }  
   
 }
-
 /*===========================================
 🟩 [타입 B] 녹색 콜아웃 기본형 
 (6열 - h1~h4, 인라인코드, 토글, 인용, 불렛 차단막 추가)
