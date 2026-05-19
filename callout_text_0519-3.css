@@ -26,7 +26,14 @@
 
 /* 09-1📌 파란색 콜아웃 모바일 밀착 통합 제어 */
 @media (max-width: 768px) {
-  
+  /* 0. 제목과 바로 뒤에 오는 파란색 콜아웃 사이의 간격 제거 */
+  h1 + .notion-callout[class*="blue"],
+  h2 + .notion-callout[class*="blue"],
+  h3 + .notion-callout[class*="blue"],
+  p + .notion-callout[class*="blue"] {
+    margin-top: -15px !important; /* 필요시 -15px 등으로 조정 */
+  }
+}
   /* 1. 콜아웃 내부 레이아웃 및 블록 간격 통합 제어 */
   .notion-callout[class*="blue"] .notion-column-list,
   .notion-callout[class*="blue"] .notion-column,
