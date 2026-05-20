@@ -20,6 +20,22 @@
   --banner-gap: 20px;
 }
 
+
+/* --- 본문 및 링크 굵기 강제 적용 --- */
+.notion-text, 
+.notion-text *, 
+.notion-list li, 
+.notion-list li *,
+.notion-link, 
+p,
+.notion-toggle,
+.notion-toggle summary,
+.notion-toggle summary span,
+.notion-toggle__content { 
+  font-weight: var(--body-weight) !important; 
+}
+
+
 /* 1. 폰트 기본 설정 */
 * :not(.notion-code-block *) { font-family: var(--font-family) !important; }
 
