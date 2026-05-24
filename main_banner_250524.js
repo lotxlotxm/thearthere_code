@@ -39,12 +39,7 @@ function renderFinalFixedBanner() {
 window.addEventListener('DOMContentLoaded', renderFinalFixedBanner);
 window.addEventListener('load', renderFinalFixedBanner);
 
-// 노션의 비동기적 텍스트 로드를 대기하기 위한 관측 루프 생성
-const bannerObserver = setInterval(() => {
+// 타이머를 파괴하지 않고, 페이지 전환 시 나타나는 트리거 단어를 무한 추적
+setInterval(() => {
   renderFinalFixedBanner();
-  
-  // 배너 빌드가 완료되어 타겟이 화면에 잡히면 브라우저 자원 보호를 위해 감시 타이머 해제
-  if (document.querySelector('.final-hero-banner')) {
-    clearInterval(bannerObserver);
-  }
 }, 500);
