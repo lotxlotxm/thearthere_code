@@ -105,7 +105,7 @@
 .notion-page-content > .notion-collection-gallery:not(.notion-callout *) {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important; 
-  gap: 20px !important;
+  gap: 8px !important;
 }
 /* 썸네일 비율 설정 */
 .notion-collection-gallery:not(.notion-callout *):not([style*="flex"]) :is(.notion-collection-card__cover, img) {
@@ -114,7 +114,7 @@
 @media (max-width: 768px) {
   .notion-collection-gallery:not(.notion-callout *):not([style*="flex"]) {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+    gap: 8px !important;
   }
 }
 
@@ -130,7 +130,7 @@
 .notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)):not(:has(h4)):not(:has(code)):not(:has(.notion-toggle)):not(:has(blockquote)):not(:has(.notion-list-bullet)):not(:has([class*="bullet"])) .notion-collection-gallery {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr) !important; 
-  gap: 16px !important;
+  gap: 8px !important;
   background: transparent !important;
 }
 
@@ -160,7 +160,7 @@ display: none !important;
 @media (max-width: 768px) {
 .notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)):not(:has(h4)):not(:has(code)):not(:has(.notion-toggle)):not(:has(blockquote)):not(:has(.notion-list-bullet)):not(:has([class*="bullet"])) .notion-collection-gallery {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+    gap: 8px !important;
   }
 }
 
@@ -187,7 +187,7 @@ display: none !important;
 .notion-callout[class*="green"]:has(code) .notion-collection-gallery {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important; 
-    gap: 7px !important;
+    gap: 8px !important;
     background: transparent !important;
     overflow-x: visible !important;
 }
@@ -354,7 +354,7 @@ display: none !important;
 .notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-gallery {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important; 
-    gap: 20px !important;
+    gap: 8px !important;
     width: 100% !important;
     background: transparent !important;
     overflow: visible !important;
@@ -417,7 +417,7 @@ display: none !important;
     .notion-callout[class*="green"]:has(blockquote) .notion-collection-gallery,
     .notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-gallery {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
+        gap: 6px !important;
     }
 }
 
@@ -538,7 +538,7 @@ display: none !important;
 .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-gallery {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
+    gap: 10px !important;
 }
 /* 2. 카드 전체 설정 및 비율 */
 .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-card {
@@ -610,7 +610,7 @@ display: none !important;
     /* 모바일 1열로 변경 */
     .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-gallery {
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        gap: 10px !important;
     }
     /* 모바일 폰트 크기 조정 */
     .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-card__property:first-child * {
