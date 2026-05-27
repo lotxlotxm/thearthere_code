@@ -574,7 +574,14 @@ display: none !important;
     will-change: transform;
 }
 
-/* 4.호버 효과*/
+/* 4. 호버 효과 정밀 제어 */
+/* 카드 전체에 호버했을 때 텍스트 레이어(그라데이션)가 유지되도록 함 */
+.notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-card:hover .notion-collection-card__content {
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%) !important;
+}
+
+/* 호버 시 이미지 커짐 효과 유지 */
 .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-card:hover .notion-collection-card__cover,
 .notion-callout[class*="green"]:has(.notion-toggle) .notion-collection-card:hover .notion-collection-card__cover img {
     transform: scale(1.1) !important;
