@@ -43,7 +43,7 @@
   .notion-callout[class*="blue"] li,
   .notion-callout[class*="blue"] strong,
   .notion-callout[class*="blue"] div {
-    font-size: 0.75rem !important; 
+    font-size: 0.7rem !important; 
     line-height: 1.6 !important;
     margin-bottom: 4px !important;
   }
