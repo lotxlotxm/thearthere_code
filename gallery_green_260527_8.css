@@ -528,11 +528,19 @@ display: none !important;
 🟩 [타입 E] 녹색 콜아웃+ 토글 트리거
     -> 오버랩+가로형 : 온라인 전시 (독립형 수정본)
   -----------------------------------------*/
-/* [0] 토글 트리거 내 노션 기본 텍스트와 화살표만 숨김 (영역은 유지하여 View more 활성화) */
-.notion-callout[class*="green"]:has(.notion-toggle) .notion-toggle > div:first-child svg,
-.notion-callout[class*="green"]:has(.notion-toggle) .notion-toggle > div:first-child .notion-toggle__trigger_icon,
-.notion-callout[class*="green"]:has(.notion-toggle) .notion-toggle > div:first-child span {
+/* [0] 🚨 갤러리형 토글의 트리거 텍스트만 박멸 (텍스트형 토글 보존) */
+/* 갤러리 뷰가 포함된 green 콜아웃 안의 '트리거 텍스트'만 숨김 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-toggle__trigger {
     display: none !important;
+}
+
+/* 토글 전체 영역은 남겨두어 기능 유지 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-toggle__summary {
+    display: block !important;
+    height: 0px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
 }
 
 /* 1. 그리드 레이아웃 설정 */
