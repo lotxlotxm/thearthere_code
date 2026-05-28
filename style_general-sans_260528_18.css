@@ -4,41 +4,40 @@
    [2] 요소별 스타일(H1~Body, PC/모바일 통합)
    [3] 전역 레이아웃 제어
 -------------------------------------------*/
-/*==========================================
-   [목차]
-   [1] 폰트 및 그리드 제어판 (:root 변수)
-   [2] 요소별 스타일(H1~Body, PC/모바일 통합)
-   [3] 전역 레이아웃 제어
--------------------------------------------*/
-/* [1] 폰트 및 그리드 제어판 */
+/* [1] 폰트 및 그리드 제어판 수정 */
 :root {
-  --font-family: 'General Sans', -apple-system, sans-serif !important;
+  --font-family: 'General Sans', sans-serif !important;
   
   /* PC 수치 */
   --pc-h1: 42px; --pc-h2: 28px; --pc-h3: 22px; --pc-h4: 19px; --pc-body: 16px; --pc-caption: 11px;
   --pc-lh-h1: 1.2; --pc-lh-h2: 1.2; --pc-lh-h3: 1.3; --pc-lh-body: 1.6; --pc-lh-caption: 1.5;
   
-  /* 레터스페이싱 설정 (추가) */
+  /* 레터스페이싱 */
   --ls-h1: -0.04em; --ls-h2: -0.03em; --ls-h3: -0.02em; --ls-h4: -0.01em; --ls-body: 0em;
 
-  /* 모바일 수치 */
-  --mb-h1: 27px; --mb-h2: 22px; --mb-h3: 18px; --mb-h4: 16px; --mb-body: 14px; --mb-caption: 8px;
-  --mb-lh-h1: 1.2; --mb-lh-h2: 1.5; --mb-lh-h3: 1.2; --mb-lh-body: 1.6; --mb-lh-caption: 1.2;
-  
-  /* 공통 설정 */
+  /* 굵기 설정 */
   --h1-weight: 700; --h2-weight: 600; --h3-weight: 600; --h4-weight: 600; --body-weight: 400;   
   --banner-gap: 20px;
 }
 
-
-/* 추가 */
-/* 제목 태그에 폰트 변수 강제 적용 */
-h1, h2, h3, h4, 
-.notion-h1, .notion-h2, .notion-h3, .notion-h4, 
-.notion-header__title, 
-h1 *, h2 *, h3 *, h4 * {
+/* ★ 핵심 수정: 모든 텍스트 컨테이너에 폰트 강제 적용 */
+html, body, .notion, .notion-app, .notion-page-content, .notion-text, .notion-text *, p, span, a, div, td, th, li {
   font-family: var(--font-family) !important;
 }
+
+/* --- 본문 및 링크 스타일 보강 --- */
+.notion-text, 
+.notion-text *, 
+.notion-list li, 
+.notion-link, 
+p { 
+  font-size: var(--pc-body) !important; 
+  line-height: var(--pc-lh-body) !important; 
+  letter-spacing: var(--ls-body) !important;
+  font-weight: var(--body-weight) !important; /* 본문 굵기 명시 */
+}
+
+/* (나머지 제목 스타일 및 기존 코드는 그대로 유지하세요) */
 
 /* 2. 요소별 스타일 제어에 레터스페이싱 적용 */
 
