@@ -30,6 +30,16 @@
   --banner-gap: 20px;
 }
 
+
+/* 추가 */
+/* 제목 태그에 폰트 변수 강제 적용 */
+h1, h2, h3, h4, 
+.notion-h1, .notion-h2, .notion-h3, .notion-h4, 
+.notion-header__title, 
+h1 *, h2 *, h3 *, h4 * {
+  font-family: var(--font-family) !important;
+}
+
 /* 2. 요소별 스타일 제어에 레터스페이싱 적용 */
 
 /* --- H1 제목 --- */
