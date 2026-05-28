@@ -26,8 +26,18 @@
   --mb-lh-h1: 1.2; --mb-lh-h2: 1.5; --mb-lh-h3: 1.2; --mb-lh-body: 1.6; --mb-lh-caption: 1.2;
   
   /* 공통 설정 */
-  --h1-weight: 700; --h2-weight: 600; --h3-weight: 600; --h4-weight: 600;   
+  --h1-weight: 700; --h2-weight: 600; --h3-weight: 600; --h4-weight: 600; --body-weight: 400;   
   --banner-gap: 20px;
+}
+
+
+/* 추가 */
+/* 제목 태그에 폰트 변수 강제 적용 */
+h1, h2, h3, h4, 
+.notion-h1, .notion-h2, .notion-h3, .notion-h4, 
+.notion-header__title, 
+h1 *, h2 *, h3 *, h4 * {
+  font-family: var(--font-family) !important;
 }
 
 /* 2. 요소별 스타일 제어에 레터스페이싱 적용 */
