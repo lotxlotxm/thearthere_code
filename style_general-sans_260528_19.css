@@ -16,7 +16,7 @@
   --ls-h1: -0.04em; --ls-h2: -0.03em; --ls-h3: -0.02em; --ls-h4: -0.01em; --ls-body: 0em;
 
   /* 굵기 설정 */
-  --h1-weight: 700; --h2-weight: 600; --h3-weight: 600; --h4-weight: 600; --body-weight: 400;   
+  --h1-weight: 700; --h2-weight: 700; --h3-weight: 600; --h4-weight: 600; --body-weight: 400;   
   --banner-gap: 20px;
 }
 
