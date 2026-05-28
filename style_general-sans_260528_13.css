@@ -16,7 +16,8 @@
   --ls-h1: -0.04em; --ls-h2: -0.03em; --ls-h3: -0.02em; --ls-h4: -0.01em; --ls-body: 0em;
 
   /* 굵기 설정 (가변 폰트용: 200~700 사이 수치) */
-  --h1-wght: 700; --h2-wght: 600; --h3-wght: 600; --h4-wght: 600;
+   --body-wght: 400;
+   --h1-wght: 700; --h2-wght: 600; --h3-wght: 600; --h4-wght: 600;
 
   --banner-gap: 20px;
 }
