@@ -4,67 +4,57 @@
    [2] 요소별 스타일(H1~Body, PC/모바일 통합)
    [3] 전역 레이아웃 제어
 -------------------------------------------*/
-/*==========================================
-   [목차]
-   [1] 폰트 및 그리드 제어판 (:root 변수)
-   [2] 요소별 스타일(H1~Body, PC/모바일 통합)
-   [3] 전역 레이아웃 제어
--------------------------------------------*/
 /* [1] 폰트 및 그리드 제어판 */
 :root {
-  --font-family: 'GeneralSans-Variable', -apple-system, sans-serif !important;
+  --font-family: 'General Sans', sans-serif !important;
   
   /* PC 수치 */
   --pc-h1: 42px; --pc-h2: 28px; --pc-h3: 22px; --pc-h4: 19px; --pc-body: 16px; --pc-caption: 11px;
   --pc-lh-h1: 1.2; --pc-lh-h2: 1.2; --pc-lh-h3: 1.3; --pc-lh-body: 1.6; --pc-lh-caption: 1.5;
   
-  /* 레터스페이싱 설정 (추가) */
+  /* 레터스페이싱 설정 */
   --ls-h1: -0.04em; --ls-h2: -0.03em; --ls-h3: -0.02em; --ls-h4: -0.01em; --ls-body: 0em;
 
-  /* 모바일 수치 */
-  --mb-h1: 27px; --mb-h2: 22px; --mb-h3: 18px; --mb-h4: 16px; --mb-body: 14px; --mb-caption: 8px;
-  --mb-lh-h1: 1.2; --mb-lh-h2: 1.5; --mb-lh-h3: 1.2; --mb-lh-body: 1.6; --mb-lh-caption: 1.2;
-  
-  /* 공통 설정 */
-  --h1-weight: 700; --h2-weight: 600; --h3-weight: 600; --h4-weight: 600;   
+  /* 굵기 설정 (가변 폰트용: 200~700 사이 수치) */
+  --h1-wght: 700; --h2-wght: 600; --h3-wght: 600; --h4-wght: 600;
+
   --banner-gap: 20px;
 }
 
-
-/* 추가 */
-/* 제목 태그에 폰트 변수 강제 적용 */
-h1, h2, h3, h4, 
-.notion-h1, .notion-h2, .notion-h3, .notion-h4, 
-.notion-header__title, 
-h1 *, h2 *, h3 *, h4 * {
-  font-family: var(--font-family) !important;
-}
-
-/* 2. 요소별 스타일 제어에 레터스페이싱 적용 */
-
-/* --- H1 제목 --- */
+/* 2. 요소별 스타일 제어 (가변 폰트 설정 적용) */
 h1, .notion-h1, .notion-header__title, h1 * {  
-  font-size: var(--pc-h1) !important; font-weight: var(--h1-weight) !important;  
-  line-height: var(--pc-lh-h1) !important; letter-spacing: var(--ls-h1) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--pc-h1) !important; 
+  font-variation-settings: 'wght' var(--h1-wght) !important;
+  line-height: var(--pc-lh-h1) !important; 
+  letter-spacing: var(--ls-h1) !important;
 }
 
-/* --- H2 제목 --- */
 h2, .notion-h2, h2 * {  
-  font-size: var(--pc-h2) !important; font-weight: var(--h2-weight) !important;  
-  line-height: var(--pc-lh-h2) !important; letter-spacing: var(--ls-h2) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--pc-h2) !important; 
+  font-variation-settings: 'wght' var(--h2-wght) !important;
+  line-height: var(--pc-lh-h2) !important; 
+  letter-spacing: var(--ls-h2) !important;
 }
 
-/* --- H3 제목 --- */
 h3, .notion-h3, h3 * {  
-  font-size: var(--pc-h3) !important; font-weight: var(--h3-weight) !important;  
-  line-height: var(--pc-lh-h3) !important; letter-spacing: var(--ls-h3) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--pc-h3) !important; 
+  font-variation-settings: 'wght' var(--h3-wght) !important;
+  line-height: var(--pc-lh-h3) !important; 
+  letter-spacing: var(--ls-h3) !important;
 }
 
-/* --- H4 제목 --- */
 h4, .notion-h4, h4 * {  
-  font-size: var(--pc-h4) !important; font-weight: var(--h4-weight) !important;  
-  line-height: var(--pc-lh-h4) !important; letter-spacing: var(--ls-h4) !important;
+  font-family: var(--font-family) !important;
+  font-size: var(--pc-h4) !important; 
+  font-variation-settings: 'wght' var(--h4-wght) !important;
+  line-height: var(--pc-lh-h4) !important; 
+  letter-spacing: var(--ls-h4) !important;
 }
+
+/* 나머지 본문 및 캡션 등은 기존 코드와 동일하게 유지하되 font-family만 var(--font-family)로 설정 */
 
 /* --- 본문 및 링크 --- */
 .notion-text, 
