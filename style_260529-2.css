@@ -85,7 +85,6 @@ h4, .notion-h4, h4 * {
 
 /* --- 본문 및 링크 --- */
 .notion-text, 
-.notion-text *, 
 .notion-list li, 
 .notion-link, 
 p { 
@@ -95,7 +94,6 @@ p {
 
 @media (max-width: 768px) {
   .notion-text, 
-  .notion-text *, 
   .notion-list li, 
   .notion-link, 
   p { 
