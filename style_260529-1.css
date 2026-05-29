@@ -187,49 +187,87 @@ svg {
 
 
 /* =========================================
-📌 H제목 내부 링크 폰트 스타일 복구
+📌 H제목 내부 링크 크기 강제 복구 (최종)
 ========================================= */
 
-h1 a, .notion-h1 a, .notion-header__title a,
-h1 a *, .notion-h1 a *, .notion-header__title a * {
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    font-family: inherit !important;
-    color: inherit !important;
-    text-decoration: inherit !important;
+/* H1 */
+h1 a,
+h1 a *,
+.notion-h1 a,
+.notion-h1 a *,
+.notion-header__title a,
+.notion-header__title a * {
+    font-size: var(--pc-h1) !important;
+    font-weight: var(--h1-weight) !important;
+    line-height: var(--pc-lh-h1) !important;
+    font-family: var(--font-family) !important;
 }
 
-h2 a, .notion-h2 a,
-h2 a *, .notion-h2 a * {
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    font-family: inherit !important;
-    color: inherit !important;
-    text-decoration: inherit !important;
+/* H2 */
+h2 a,
+h2 a *,
+.notion-h2 a,
+.notion-h2 a * {
+    font-size: var(--pc-h2) !important;
+    font-weight: var(--h2-weight) !important;
+    line-height: var(--pc-lh-h2) !important;
+    font-family: var(--font-family) !important;
 }
 
-h3 a, .notion-h3 a,
-h3 a *, .notion-h3 a * {
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    font-family: inherit !important;
-    color: inherit !important;
-    text-decoration: inherit !important;
+/* H3 */
+h3 a,
+h3 a *,
+.notion-h3 a,
+.notion-h3 a * {
+    font-size: var(--pc-h3) !important;
+    font-weight: var(--h3-weight) !important;
+    line-height: var(--pc-lh-h3) !important;
+    font-family: var(--font-family) !important;
 }
 
-h4 a, .notion-h4 a,
-h4 a *, .notion-h4 a * {
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    font-family: inherit !important;
-    color: inherit !important;
-    text-decoration: inherit !important;
+/* H4 */
+h4 a,
+h4 a *,
+.notion-h4 a,
+.notion-h4 a * {
+    font-size: var(--pc-h4) !important;
+    font-weight: var(--h4-weight) !important;
+    line-height: var(--pc-lh-h4) !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+
+    h1 a,
+    h1 a *,
+    .notion-h1 a,
+    .notion-h1 a * {
+        font-size: var(--mb-h1) !important;
+        line-height: var(--mb-lh-h1) !important;
+    }
+
+    h2 a,
+    h2 a *,
+    .notion-h2 a,
+    .notion-h2 a * {
+        font-size: var(--mb-h2) !important;
+        line-height: var(--mb-lh-h2) !important;
+    }
+
+    h3 a,
+    h3 a *,
+    .notion-h3 a,
+    .notion-h3 a * {
+        font-size: var(--mb-h3) !important;
+        line-height: var(--mb-lh-h3) !important;
+    }
+
+    h4 a,
+    h4 a *,
+    .notion-h4 a,
+    .notion-h4 a * {
+        font-size: var(--mb-h4) !important;
+        line-height: var(--mb-lh-h4) !important;
+    }
 }
