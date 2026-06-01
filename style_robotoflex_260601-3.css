@@ -17,7 +17,7 @@
   --pc-h4-size: 20px; --pc-h4-weight:   500; --pc-h4-line: 1.4; --pc-h4-letter: -0.01em;
   --mb-h4-size: 17px; --mb-h4-line: 1.45; --mb-h4-letter: -0.01em;
   /* 본문 - PC 스페이스 안됨 */ 
-  --pc-body-size: 16px; --pc-body-weight: 400; --pc-body-line: 1.75; --pc-body-letter: -0.01em;
+  --pc-body-size: 16px; --pc-body-weight: 350; --pc-body-line: 1.75; --pc-body-letter: -0.01em;
   --mb-body-size: 14px; --mb-body-line: 1.7; --mb-body-letter: -0.01em;
 /* 볼드 굵기 변수 추가 (본문 굵기 * 1.2) */
   --pc-bold-weight: 560; 
@@ -234,10 +234,35 @@ blockquote b,
 ========================================= */
 @media (max-width: 768px) {
     /* [1] 헤딩 제어 (변수 사용) */
-    h1, .notion-h1 { font-size: var(--mb-h1-size) !important; line-height: var(--mb-h1-line) !important; letter-spacing: var(--mb-h1-letter) !important; }
-    h2, .notion-h2 { font-size: var(--mb-h2-size) !important; line-height: var(--mb-h2-line) !important; letter-spacing: var(--mb-h2-letter) !important; }
-    h3, .notion-h3 { font-size: var(--mb-h3-size) !important; line-height: var(--mb-h3-line) !important; letter-spacing: var(--mb-h3-letter) !important; }
-    h4, .notion-h4 { font-size: var(--mb-h4-size) !important; line-height: var(--mb-h4-line) !important; letter-spacing: var(--mb-h4-letter) !important; }
+    h1,
+    h1.notion-heading {
+        font-size: var(--mb-h1-size) !important;
+        line-height: var(--mb-h1-line) !important;
+        letter-spacing: var(--mb-h1-letter) !important;
+    }
+
+    h2,
+    h2.notion-heading,
+    .notion-heading.toggle {
+        font-size: var(--mb-h2-size) !important;
+        line-height: var(--mb-h2-line) !important;
+        letter-spacing: var(--mb-h2-letter) !important;
+    }
+
+    h3,
+    h3.notion-heading {
+        font-size: var(--mb-h3-size) !important;
+        line-height: var(--mb-h3-line) !important;
+        letter-spacing: var(--mb-h3-letter) !important;
+    }
+
+    h4,
+    h4.notion-heading {
+        font-size: var(--mb-h4-size) !important;
+        line-height: var(--mb-h4-line) !important;
+        letter-spacing: var(--mb-h4-letter) !important;
+    }
+
 
     /* [2] 본문/토글/인용/리스트/테이블 통합 제어 (Deep Targeting) */
     .notion-page-content *, 
@@ -263,7 +288,16 @@ blockquote b,
         font-size: var(--mb-body-size) !important;
         line-height: var(--mb-body-line) !important;
     }
-    
+
+/* 모바일 표 본문 강제 */
+.notion-table,
+.notion-table *,
+.notion-table .notion-semantic-string,
+.notion-table .notion-semantic-string span {
+    font-size: var(--mb-body-size) !important;
+    line-height: var(--mb-body-line) !important;
+    letter-spacing: var(--mb-body-letter) !important;
+}    
     
     
     /*캡션*/
@@ -278,7 +312,7 @@ blockquote b,
 }    
 
 
-/*=======03📌 상단 커버 노출시 h1 숨김 (수정본) =======*/
+/*=======03📌 상단 커버 노출시 데이터베이스 h1 숨김 =======*/
 /* [1] */
 .super-content-header h1:first-of-type,
 .super-content-header__content,
