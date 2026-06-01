@@ -364,33 +364,39 @@ display: none !important;
 }
 
 /* [커버] R값(border-radius) 0으로 강제 고정 및 비율 최적화 */
-.notion-callout[class*="green"] .notion-collection-card__cover,
-.notion-callout[class*="green"] .notion-collection-card__cover img {
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card__cover,
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card__cover img,
+.notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-card__cover,
+.notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-card__cover img {
     border-radius: 0 !important; /* R값 완벽 제거 */
     width: 100% !important;
     height: auto !important;
     display: block !important;
 }
 
-/* [속성] 텍스트 영역 */
-.notion-callout[class*="green"] .notion-collection-card__content {
-    padding: 12px 0px 0px 0px !important;
-    display: flex !important;
-    flex-direction: column !important;
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card__content,
+.notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-card__content {
+
+    padding: 10px 0 35px 0 !important;
+    margin: 0 !important;
+
 }
 
 /* 속성 1 (제목) */
-.notion-callout[class*="green"] .notion-collection-card__property:nth-child(1) {
-    font-weight: 600 !important;
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card__property:nth-child(1),
+.notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-card__property:nth-child(1) {
+  
+  font-weight: 600 !important;
     line-height: 1.3 !important;
 }
 
-/* 3. 구분선(속성 2 또는 3) 하단 간격 정밀 조정 */
-.notion-callout[class*="green"] .notion-collection-card__property:nth-child(2),
-.notion-callout[class*="green"] .notion-collection-card__property:nth-child(2) {
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card__property:nth-child(2),
+.notion-callout[class*="green"]:has([class*="blockquote"]) .notion-collection-card__property:nth-child(2) {
+
     padding-bottom: 8px !important;
-    margin-bottom: 0px !important; /* 속성 하단 마진을 0으로 만들어 꽉 붙임 */
+    margin-bottom: 0 !important;
     border-bottom: 1px solid #e9e9e6 !important;
+
 }
 
 /* 4. [속성] 텍스트 영역 내부 패딩 최소화 */
