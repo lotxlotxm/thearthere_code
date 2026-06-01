@@ -310,38 +310,3 @@ blockquote b,
         letter-spacing: var(--mb-caption-letter) !important;
     }
 }    
-
-
-/*=======03📌 상단 커버 노출시 데이터베이스 h1 숨김 =======*/
-/* [1] */
-.super-content-header h1:first-of-type,
-.super-content-header__content,
-.notion-header__title {
-  display: none !important;
-}
-
-/* [2] 본문 내의 H1은 강제로 다시 살리기 */
-main .super-content h1,
-.notion-page__content h1,
-.notion-header + .notion-page__content h1 {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  height: auto !important;
-}
-
-/* [3] 본문 H1의 글자 크기를 시스템 변수와 동기화 (변수명 수정) */
-.notion-page__content h1 {
-  font-size: var(--pc-h1-size) !important; 
-  font-weight: var(--pc-h1-weight) !important;
-  line-height: var(--pc-h1-line) !important;
-  letter-spacing: var(--pc-h1-letter) !important;
-}
-
-@media (max-width: 768px) {
-  .notion-page__content h1 {
-    font-size: var(--mb-h1-size) !important;
-    line-height: var(--mb-h1-line) !important;
-    letter-spacing: var(--mb-h1-letter) !important;
-  }
-}
