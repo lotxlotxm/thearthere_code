@@ -1,0 +1,303 @@
+/*=========================================
+05📌 인라인코드*/
+/* [1] 태그형 : 레이아웃 및 형태 정의 */
+code {
+  display: inline-block !important;
+  margin: 4px 2px !important;
+  padding: 4px 8px !important;
+  vertical-align: middle !important;
+  border-radius: 8px !important;
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  opacity: 1 !important; 
+}
+/* 스타일 통일*/
+code,
+code *,
+.notion-text code,
+.notion-text code * {
+  font-family: 'Noto Sans KR' !important; /* 
+  font-size: var(--pc-body) !important; /* 본문 스케일 변수 동기화 */
+  line-height: 1.2 !important;
+  color: inherit !important;
+  -webkit-text-fill-color: currentcolor !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* [2] 일반 본문 텍스트 링크 스타일 제어 */
+.notion-text-block a,
+.notion-callout a,
+.notion-column a {
+  text-decoration: none !important; 
+}
+/* [3] 호버(Hover) 액션 */
+code:has(a):not(.notion-callout[class*="orange"] code):not([class*="blue"]):not(.notion-blue-text code):not([style*="color"] code):hover {
+  background-color: #37352f !important;
+  cursor: pointer !important;
+}
+code:has(a):not(.notion-callout[class*="orange"] code):not([class*="blue"]):not(.notion-blue-text code):not([style*="color"] code):hover a,
+code:has(a):not(.notion-callout[class*="orange"] code):not([class*="blue"]):not(.notion-blue-text code):not([style*="color"] code):hover span,
+code:has(a):not(.notion-callout[class*="orange"] code):not([class*="blue"]):not(.notion-blue-text code):not([style*="color"] code):hover * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+@media (max-width: 768px) {
+  code,
+  code *,
+  .notion-text code,
+  .notion-text code * {
+    font-size: var(--mb-body) !important; 
+  }
+  .notion-callout[class*="blue"] *,
+  .notion-callout[class*="blue"] p,
+  .notion-callout[class*="blue"] span,
+  .notion-callout[class*="blue"] li,
+  .notion-callout[class*="blue"] strong,
+  .notion-callout[class*="blue"] div {
+    font-size: 0.75rem !important; 
+    line-height: 1.6 !important;
+    margin-bottom: 4px !important;
+  }
+  /*주석 규격인 0.75rem으로 동기화 */
+  html body .notion-page-content .notion-callout[class*="blue"] code,
+  html body .notion-page-content .notion-callout[class*="blue"] code * {
+    font-family: monospace !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
+  .notion-callout[class*="blue"] ul, 
+  .notion-callout[class*="blue"] ol {
+    padding-left: 18px !important;
+    margin-top: 8px !important;
+  }
+  .notion-callout[class*="blue"] {
+    padding: 0px !important;
+    margin-bottom: -15px !important; 
+    width: 100% !important;
+  }
+}
+/**/
+/*=========================================
+📌 파란색 인라인코드 전용 바리에이션 0.8em */
+code[class*="blue"],
+span[class*="blue"] code,
+.notion-inline-code[class*="blue"] {
+  /* 타이포 */
+  font-size: 0.8em !important;
+  line-height: 1.2 !important;
+  /* 컬러 */
+  color: #888888 !important;
+  -webkit-text-fill-color: #888888 !important;
+  /* 배경 */
+  background: #ffffff!important;
+/* 형태 (★ 바더 컬러 정밀 이식) */
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  /* 기타 */
+  opacity: 1 !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+/* 2. 내부 span / a / div 강제 동기화
+(노션 내부 wrapper 대응)*/
+code[class*="blue"] *,
+span[class*="blue"] code *,
+.notion-inline-code[class*="blue"] * {
+  font-size: 1em !important;
+  line-height: 1.2 !important;
+  color: #888888 !important;
+  -webkit-text-fill-color:#888888 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* 3. 기존 전역 code span 충돌 제거*/
+code a,
+code span,
+code a span {
+  font-size: 1em !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}
+/*=========================================
+📌 빨간색 인라인코드 전용 바리에이션 1em*/
+code[class*="red"],
+span[class*="red"] code,
+.notion-inline-code[class*="red"] {
+  /* 타이포 */
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  /* 컬러 */
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  /* 배경 */
+  background: #37352f!important;
+/* 형태 */
+  border-radius: 8px !important;
+  padding: 7px 14px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  /* 기타 */
+  opacity: 1 !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+/* [핵심] 여백 정렬 제어 */
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-left: 0 !important;      
+  margin-right: 2px !important;  
+}
+/* 2. 내부 span / a / div 강제 동기화*/
+code[class*="red"] *,
+span[class*="red"] code *,
+.notion-inline-code[class*="red"] * {
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* 3. 기존 전역 code span 충돌 제거*/
+code a,
+code span,
+code a span {
+  font-size: 1em !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}
+/*=========================================
+📌 주황색 인라인코드 전용 바리에이션 full*/
+code[class*="orange"],
+span[class*="orange"] code,
+.notion-inline-code[class*="orange"] {
+  /* 타이포 */
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  text-align: center;
+  /* 컬러 */
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  /* 배경 */
+  background: #37352f!important;
+/* 형태 (★ 바더 컬러 정밀 이식) */
+  border-radius: 10px !important;
+  padding: 15px 14px !important;
+    width: 100% !important;
+  border: 0px solid rgba(0, 0, 0, 0.1) !important;
+  /* 기타 */
+  opacity: 1 !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+/* [핵심] 여백 정렬 제어 */
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-left: 0 !important;      
+  margin-right: 2px !important;   
+}
+/* 2. 내부 span / a / div 강제 동기화*/
+code[class*="orange"] *,
+span[class*="orange"] code *,
+.notion-inline-code[class*="orange"] * {
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* 3. 기존 전역 code span 충돌 제거*/
+code a,
+code span,
+code a span {
+  font-size: 1em !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}
+/* 초록색 콜아웃 내 주황색 버튼 PC/모바일 센터 정렬 통합 */
+.notion-callout[class*="green"] .notion-column-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+.notion-callout[class*="green"] .notion-column {
+    flex: 1 !important;
+    width: 50% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* PC 및 모바일 모두 센터 정렬 강제 */
+.notion-callout[class*="green"] .notion-column code[class*="orange"],
+.notion-callout[class*="green"] .notion-column span[class*="orange"] code,
+.notion-callout[class*="green"] .notion-column .notion-inline-code[class*="orange"] {
+    display: flex !important;           
+    justify-content: center !important; 
+    align-items: center !important;     
+    width: 100% !important;             
+    margin: 0 !important;
+    text-align: center !important;      
+}
+/* 내부 텍스트 span/div까지 센터 강제 */
+.notion-callout[class*="green"] .notion-column code[class*="orange"] *,
+.notion-callout[class*="green"] .notion-column span[class*="orange"] code *,
+.notion-callout[class*="green"] .notion-column .notion-inline-code[class*="orange"] * {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+@media (max-width: 768px) {
+    /* 1. 그린 콜아웃 클래스 타겟 */
+    .notion-callout[class*="green"] .notion-column-list {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important; 
+        gap: 2px !important;
+    }
+    /* 2. 각 컬럼의 너비를 50%로 고정 */
+    .notion-callout[class*="green"] .notion-column {
+        width: 50% !important;
+        min-width: 50% !important;
+        margin: 0 !important;
+    }
+    /* 3. 그 내부의 orange 버튼만 100% 폭으로 확장 */
+    .notion-callout[class*="green"] .notion-column code[class*="orange"],
+    .notion-callout[class*="green"] .notion-column span[class*="orange"] code,
+    .notion-callout[class*="green"] .notion-column .notion-inline-code[class*="orange"] {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+}
