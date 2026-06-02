@@ -1,0 +1,317 @@
+/*==========================================
+01📌 공통 스타일 설정
+===========================================*/
+:root {
+--font-main: 'Roboto Flex', sans-serif;
+  
+/* H1 */
+--pc-h1-size: 52px; --pc-h1-weight: 650; --pc-h1-line: 1.1; --pc-h1-letter: -0.02em;
+--mb-h1-size: 32px; --mb-h1-line: 1.15; --mb-h1-letter: -0.03em;
+
+/* H2 */
+--pc-h2-size: 36px; --pc-h2-weight: 650; --pc-h2-line: 1.2; --pc-h2-letter: -0.02em;
+--mb-h2-size: 26px; --mb-h2-line: 1.25; --mb-h2-letter: -0.02em;
+
+/* H3 */
+--pc-h3-size: 36px; --pc-h3-weight: 650; --pc-h3-line: 1.3; --pc-h3-letter: -0.02em;
+--mb-h3-size: 20px; --mb-h3-line: 1.35; --mb-h3-letter: -0.01em;
+
+/* H4 */
+--pc-h4-size: 20px; --pc-h4-weight: 550; --pc-h4-line: 1.4; --pc-h4-letter: -0.01em;
+--mb-h4-size: 17px; --mb-h4-line: 1.45; --mb-h4-letter: -0.01em;
+
+/* 본문 - PC 스페이스 안됨 */
+--pc-body-size: 16px; --pc-body-weight: 350; --pc-body-line: 1.5; --pc-body-letter: -0.01em;
+--mb-body-size: 14px; --mb-body-line: 1.45; --mb-body-letter: -0.01em;
+
+/* 볼드 굵기 변수 추가 (본문 굵기 * 1.2) */
+--pc-bold-weight: 550;
+
+/* 캡션 */
+--pc-caption-size: 11px; --pc-caption-weight: 420; --pc-caption-line: 1.5; --pc-caption-letter: 0em;
+--mb-caption-size: 10px; --mb-caption-line: 1.5; --mb-caption-letter: 0em;
+}
+
+
+/* =========================================
+1. 공통 및 PC 기본 스타일 (헤딩 서체 적용)
+========================================= */
+
+/* 헤딩 기본 스타일 적용 (font-family 추가) */
+h1,
+.notion-heading h1,
+h1.notion-heading {
+  font-family: var(--font-main) !important;
+  font-size: var(--pc-h1-size) !important;
+  font-weight: var(--pc-h1-weight) !important;
+  line-height: var(--pc-h1-line) !important;
+  letter-spacing: var(--pc-h1-letter) !important;
+}
+
+h2,
+h2.notion-heading {
+  font-family: var(--font-main) !important;
+  font-size: var(--pc-h2-size) !important;
+  font-weight: var(--pc-h2-weight) !important;
+  line-height: var(--pc-h2-line) !important;
+  letter-spacing: var(--pc-h2-letter) !important;
+}
+
+h3,
+h3.notion-heading {
+  font-family: var(--font-main) !important;
+  font-size: var(--pc-h3-size) !important;
+  font-weight: var(--pc-h3-weight) !important;
+  line-height: var(--pc-h3-line) !important;
+  letter-spacing: var(--pc-h3-letter) !important;
+}
+
+h4,
+h4.notion-heading {
+  font-family: var(--font-main) !important;
+  font-size: var(--pc-h4-size) !important;
+  font-weight: var(--pc-h4-weight) !important;
+  line-height: var(--pc-h4-line) !important;
+  letter-spacing: var(--pc-h4-letter) !important;
+}
+
+/* 토글 헤딩 강제 적용 */
+.notion-toggle h1,
+.notion-toggle h2,
+.notion-toggle h3,
+.notion-toggle h4,
+.notion-heading.toggle {
+    font-family: var(--font-main) !important;
+}
+
+.notion-toggle h1,
+.notion-heading.toggle.h1 {
+    font-size: var(--pc-h1-size) !important;
+    font-weight: var(--pc-h1-weight) !important;
+}
+
+.notion-toggle h2,
+.notion-heading.toggle {
+    font-size: var(--pc-h2-size) !important;
+    font-weight: var(--pc-h2-weight) !important;
+    line-height: var(--pc-h2-line) !important;
+    letter-spacing: var(--pc-h2-letter) !important;
+}
+
+.notion-toggle h3 {
+    font-size: var(--pc-h3-size) !important;
+    font-weight: var(--pc-h3-weight) !important;
+}
+
+.notion-toggle h4 {
+    font-size: var(--pc-h4-size) !important;
+    font-weight: var(--pc-h4-weight) !important;
+}
+
+.notion-toggle h1 strong,
+.notion-toggle h2 strong,
+.notion-toggle h3 strong,
+.notion-toggle h4 strong {
+    font-weight: inherit !important;
+}
+
+/* =========================================
+1. 본문 그룹 (인용구 포함)
+========================================= */
+
+/* 일반 본문, 리스트, 토글 본문 */
+.notion-text,
+.notion-list-item,
+.notion-toggle__content {
+    font-family: var(--font-main) !important;
+    font-size: var(--pc-body-size) !important;
+    font-weight: var(--pc-body-weight) !important;
+    line-height: var(--pc-body-line) !important;
+}
+
+/* 일반 토글 제목 */
+.notion-toggle__summary:not(:has(h1, h2, h3, h4)) .notion-semantic-string {
+    font-family: var(--font-main) !important;
+    font-size: var(--pc-body-size) !important;
+    font-weight: var(--pc-body-weight) !important;
+    line-height: var(--pc-body-line) !important;
+}
+
+/* [PC] 인용구 제어 (강력 타겟팅) */
+blockquote,
+blockquote .notion-semantic-string {
+    font-family: var(--font-main) !important;
+    font-size: var(--pc-body-size) !important;
+    font-weight: var(--pc-body-weight) !important;
+    line-height: var(--pc-body-line) !important;
+}
+
+
+/* 볼드 텍스트 강제 제어 */
+.notion-text strong,
+.notion-text b,
+.notion-toggle__content strong,
+.notion-toggle__content b,
+.notion-toggle__summary strong,
+.notion-toggle__summary b,
+blockquote strong,
+blockquote b,
+.notion-caption strong,
+.notion-caption b,
+.notion-asset-caption strong,
+.notion-asset-caption b {
+    font-weight: var(--pc-bold-weight) !important;
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong {
+    font-weight: inherit !important;
+}
+
+
+/* =========================================
+볼드(Bold) 텍스트 전역 강제 제어
+========================================= */
+
+/* 노션의 모든 텍스트 영역 내 strong/b를 타겟팅 */
+.notion-page-content strong,
+.notion-page-content b,
+.notion-list-item strong,
+.notion-list-item b,
+.notion-callout strong,
+.notion-callout b,
+.notion-toggle strong,
+.notion-toggle b,
+blockquote strong,
+blockquote b,
+.notion-caption strong,
+.notion-caption b,
+.notion-asset-caption strong,
+.notion-asset-caption b {
+    font-weight: var(--pc-bold-weight) !important;
+}
+
+/* =========================================
+표(Table) 내부 레귤러 및 볼드 굵기 강제 제어
+========================================= */
+
+/* 1. 표 내부 폰트 사이즈 및 레귤러 굵기 강제 고정 */
+.notion-table,
+.notion-table td,
+.notion-table th,
+.notion-table .notion-semantic-string,
+.notion-table .notion-semantic-string span {
+    font-size: var(--pc-body-size) !important;
+    font-weight: var(--pc-body-weight) !important; /* 레귤러 굵기 강제 적용 */
+    line-height: var(--pc-body-line) !important;
+    font-family: var(--font-main) !important;
+}
+
+/* 2. 표 내부 볼드 텍스트만 560으로 덮어쓰기 */
+.notion-table strong,
+.notion-table b,
+.notion-table span[style*="font-weight: 600"],
+.notion-table span[style*="font-weight: 700"] {
+    font-weight: var(--pc-bold-weight) !important;
+}
+/* =========================================
+캡션 인라인 스타일 강제 파괴 및 제어
+========================================= */
+
+/* 1. PC: 캡션 영역의 모든 내부 인라인 스타일까지 무력화 */
+.notion-caption, 
+.notion-asset-caption,
+.notion-caption [style], 
+.notion-asset-caption [style] {
+    font-size: var(--pc-caption-size) !important;
+    font-weight: var(--pc-caption-weight) !important;
+    line-height: var(--pc-caption-line) !important;
+    letter-spacing: var(--pc-caption-letter) !important;
+    font-family: var(--font-main) !important;
+}
+
+
+
+/* =========================================
+2. 모바일 통합 제어
+========================================= */
+@media (max-width: 768px) {
+    /* [1] 헤딩 제어 (변수 사용) */
+    h1,
+    h1.notion-heading {
+        font-size: var(--mb-h1-size) !important;
+        line-height: var(--mb-h1-line) !important;
+        letter-spacing: var(--mb-h1-letter) !important;
+    }
+
+    h2,
+    h2.notion-heading,
+    .notion-heading.toggle {
+        font-size: var(--mb-h2-size) !important;
+        line-height: var(--mb-h2-line) !important;
+        letter-spacing: var(--mb-h2-letter) !important;
+    }
+
+    h3,
+    h3.notion-heading {
+        font-size: var(--mb-h3-size) !important;
+        line-height: var(--mb-h3-line) !important;
+        letter-spacing: var(--mb-h3-letter) !important;
+    }
+
+    h4,
+    h4.notion-heading {
+        font-size: var(--mb-h4-size) !important;
+        line-height: var(--mb-h4-line) !important;
+        letter-spacing: var(--mb-h4-letter) !important;
+    }
+
+
+    /* [2] 본문/토글/인용/리스트/테이블 통합 제어 (Deep Targeting) */
+    .notion-page-content *, 
+    .notion-collection-item *, 
+    .notion-table td *,
+    .notion-text, 
+    .notion-list-item,
+    .notion-toggle summary *, 
+    .notion-toggle__content *,
+    blockquote,
+    blockquote * {
+        font-size: var(--mb-body-size) !important;
+        line-height: var(--mb-body-line) !important;
+        letter-spacing: var(--mb-body-letter) !important;
+    }
+
+.notion-text,
+    .notion-list-item,
+    .notion-toggle__content,
+    .notion-toggle__summary:not(:has(h1, h2, h3, h4)) .notion-semantic-string,
+    blockquote,
+    blockquote .notion-semantic-string {
+        font-size: var(--mb-body-size) !important;
+        line-height: var(--mb-body-line) !important;
+    }
+
+/* 모바일 표 본문 강제 */
+.notion-table,
+.notion-table *,
+.notion-table .notion-semantic-string,
+.notion-table .notion-semantic-string span {
+    font-size: var(--mb-body-size) !important;
+    line-height: var(--mb-body-line) !important;
+    letter-spacing: var(--mb-body-letter) !important;
+}    
+    
+    
+    /*캡션*/
+.notion-caption, 
+    .notion-asset-caption,
+    .notion-caption [style], 
+    .notion-asset-caption [style] {
+        font-size: var(--mb-caption-size) !important;
+        line-height: var(--mb-caption-line) !important;
+        letter-spacing: var(--mb-caption-letter) !important;
+    }
+}    
