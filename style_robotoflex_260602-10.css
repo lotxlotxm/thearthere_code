@@ -5,31 +5,31 @@
 --font-main: 'Roboto Flex', sans-serif;
   
 /* H1 */
---pc-h1-size: 52px; --pc-h1-weight: 650; --pc-h1-line: 1.1; --pc-h1-letter: -0.02em;
---mb-h1-size: 32px; --mb-h1-line: 1.15; --mb-h1-letter: -0.03em;
+--pc-h1-size: 52px; --pc-h1-weight: 650; --pc-h1-line: 1.1; --pc-h1-letter: -0.01em;
+  --mb-h1-size: 40px; --mb-h1-line: 1.1; --mb-h1-letter: -0.03em;
 
 /* H2 */
 --pc-h2-size: 36px; --pc-h2-weight: 650; --pc-h2-line: 1.2; --pc-h2-letter: -0.02em;
---mb-h2-size: 26px; --mb-h2-line: 1.25; --mb-h2-letter: -0.02em;
+  --mb-h2-size: 32px; --mb-h2-line: 1.25; --mb-h2-letter: -0.02em;
 
 /* H3 */
---pc-h3-size: 36px; --pc-h3-weight: 650; --pc-h3-line: 1.3; --pc-h3-letter: -0.02em;
---mb-h3-size: 20px; --mb-h3-line: 1.35; --mb-h3-letter: -0.01em;
+--pc-h3-size: 36px; --pc-h3-weight: 650; --pc-h3-line: 1.2; --pc-h3-letter: -0.02em;
+  --mb-h3-size: 24px; --mb-h3-line: 2; --mb-h3-letter: -0.01em;
 
 /* H4 */
 --pc-h4-size: 20px; --pc-h4-weight: 550; --pc-h4-line: 1.4; --pc-h4-letter: -0.01em;
---mb-h4-size: 17px; --mb-h4-line: 1.45; --mb-h4-letter: -0.01em;
+  --mb-h4-size: 16px; --mb-h4-line: 1.2; --mb-h4-letter: -0.01em;
 
 /* 본문 - PC 스페이스 안됨 */
---pc-body-size: 16px; --pc-body-weight: 350; --pc-body-line: 1.5; --pc-body-letter: -0.01em;
---mb-body-size: 14px; --mb-body-line: 1.45; --mb-body-letter: -0.01em;
+--pc-body-size: 16px; --pc-body-weight: 350; --pc-body-line: 1.4; --pc-body-letter: -0.01em;
+  --mb-body-size: 13px; --mb-body-line: 1.4; --mb-body-letter: -0.01em;
 
 /* 볼드 굵기 변수 추가 (본문 굵기 * 1.2) */
 --pc-bold-weight: 550;
 
 /* 캡션 */
 --pc-caption-size: 11px; --pc-caption-weight: 420; --pc-caption-line: 1.5; --pc-caption-letter: 0em;
---mb-caption-size: 10px; --mb-caption-line: 1.5; --mb-caption-letter: 0em;
+--mb-caption-size: 8px; --mb-caption-line: 1.5; --mb-caption-letter: 0em;
 }
 
 
