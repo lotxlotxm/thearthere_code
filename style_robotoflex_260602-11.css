@@ -2,7 +2,7 @@
 01📌 공통 스타일 설정
 ===========================================*/
 :root {
---font-main: 'Roboto Flex', sans-serif;
+--font-main: 'Roboto Flex', 'Pretendard', sans-serif;
   
 /* H1 */
 --pc-h1-size: 52px; --pc-h1-weight: 650; --pc-h1-line: 1.1; --pc-h1-letter: -0.01em;
