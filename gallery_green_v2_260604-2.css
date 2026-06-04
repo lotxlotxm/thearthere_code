@@ -451,6 +451,18 @@ display: none !important;
 
 }
 
+/* [모바일 전용] 구분선 위치 미세 조정 */
+  .notion-collection-card__property.property-714d6155 {
+      /* 필요에 따라 -22px 대신 원하는 수치(예: -15px, -18px 등)를 적용하세요 */
+      margin: -22px 0 5px 0 !important; 
+  }
+  
+  .notion-collection-gallery:not(.notion-callout *):not([style*="flex"]) {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  
 }
 
 
