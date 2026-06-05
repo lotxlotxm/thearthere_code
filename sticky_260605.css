@@ -1,0 +1,206 @@
+/* ==========================================
+05 📌 스티키 Section Navigation
+orange = 화이트 버튼
+red = 블랙 버튼
+========================================== */
+/* sticky 전체 컨테이너 - 공통 속성 정의*/
+.notion-callout[class*="orange"]:has(code), 
+.notion-callout[class*="red"]:has(code) {
+    position: sticky !important;
+    top: 64px !important;
+    z-index: 999 !important;
+    backdrop-filter: blur(12px);
+    border-radius: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 12px 0 !important;
+}
+/* -----------------------------------
+🔵 주황색(화이트 버튼)*/
+/*배경*/
+.notion-callout[class*="orange"]:has(code) {
+    background: #f7f7f7 !important;
+}
+/* 구분선 */
+.notion-callout[class*="orange"]:has(code) {
+    border-top: 0px solid #37352f !important;
+    border-bottom: 2px solid #37352f !important;
+}
+/* 내부 정렬 */
+.notion-callout[class*="orange"]:has(code) .notion-callout__content {
+    max-width: 1150px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+/* 아이콘 제거 */
+.notion-callout[class*="orange"]:has(code) .notion-callout__icon {
+    display: none !important;
+}
+/* 메뉴 리스트 */
+.notion-callout[class*="orange"]:has(code) ul {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    scrollbar-width: none !important;
+}
+.notion-callout[class*="orange"]:has(code) ul::-webkit-scrollbar {
+    display: none !important;
+}
+/* li */
+.notion-callout[class*="orange"]:has(code) li,
+.notion-callout[class*="red"]:has(code) li {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+}
+/* 화이트 버튼 - 디자인 */
+.notion-callout[class*="orange"]:has(code) code {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px 16px !important;
+    border-radius: 999px !important;
+    border: 0px solid rgba(0,0,0,.1) !important;
+    transition: all .2s ease !important;
+    
+  /* 여기서 간격을 조정하세요 (오른쪽 여백) */
+    margin-right: 10px !important; 
+    white-space: nowrap !important;  
+}
+/* 화이트 버튼 - 세부 디자인 */
+.notion-callout[class*="orange"]:has(code) code {
+    background: transparent !important;
+}
+.notion-callout[class*="orange"]:has(code) code,
+.notion-callout[class*="orange"]:has(code) code *,
+.notion-callout[class*="orange"]:has(code) code a,
+.notion-callout[class*="orange"]:has(code) code strong {
+
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+/*호버 효과 및 점프 효과 적용 */
+.notion-callout[class*="orange"]:has(code) code {
+    /* inline 요소가 transform을 제대로 인식하도록 변경 */
+    display: inline-block !important; 
+    
+    /* 기존 transition에 추가 */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: translateY(0) !important;
+}
+/* PC 환경 호버 시 효과 */
+@media (min-width: 769px) {
+    .notion-callout[class*="orange"]:has(code) code:hover {
+        transform: translateY(4px) !important; /* 거리 4px로 상향 조정 */
+        box-shadow: 0 0px 0px rgba(0,0,0,0.1) !important;
+        cursor: pointer !important;
+    }
+}
+@media (max-width: 768px) {
+    .notion-callout[class*="orange"]:has(code) .notion-callout__content {
+        padding-left: 22px !important;
+        padding-right: 16px !important;
+    }
+    
+/* Orange(화이트) 버튼 모바일 폰트 조정 */
+    .notion-callout[class*="orange"]:has(code) code,
+    .notion-callout[class*="orange"]:has(code) code *,
+    .notion-callout[class*="orange"]:has(code) code a,
+    .notion-callout[class*="orange"]:has(code) code strong {
+        font-size: 16px !important; /* 14px * 0.8 */
+    } 
+}
+/* -----------------------------------
+🔵 빨간색(블랙 버튼)*/
+/*배경*/
+.notion-callout[class*="red"]:has(code) {
+    background: #f7f7f7 !important;
+}
+/* 구분선 */
+.notion-callout[class*="red"]:has(code) {
+    border-top: 0px solid #d2d2d2 !important;
+    border-bottom: 1px solid #d2d2d2 !important;
+}
+/* 내부 정렬 */
+.notion-callout[class*="red"]:has(code) .notion-callout__content {
+    max-width: 1150px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+/* 아이콘 제거 */
+.notion-callout[class*="red"]:has(code) .notion-callout__icon {
+    display: none !important;
+}
+/* 메뉴 리스트 */
+.notion-callout[class*="red"]:has(code) ul {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    scrollbar-width: none !important;
+}
+.notion-callout[class*="red"]:has(code) ul::-webkit-scrollbar {
+    display: none !important;
+}
+/* li */
+.notion-callout[class*="red"]:has(code) li {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+}
+/* 블랙 버튼 디자인 */
+.notion-callout[class*="red"]:has(code) code {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px 16px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
+    transition: all .2s ease !important;
+    
+  /* 여기서 간격을 조정하세요 (오른쪽 여백) */
+    margin-right: 2px !important; 
+    white-space: nowrap !important;  
+}
+/* 블랙 버튼 - 세부 디자인 */
+.notion-callout[class*="red"]:has(code) code {
+    background: #37352f !important;
+    color: #ffffff !important; 
+}
+.notion-callout[class*="red"]:has(code) code,
+.notion-callout[class*="red"]:has(code) code *,
+.notion-callout[class*="red"]:has(code) code a,
+.notion-callout[class*="red"]:has(code) code strong {
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+}
+@media (max-width: 768px) {
+    .notion-callout[class*="red"]:has(code) .notion-callout__content {
+        padding-left: 22px !important;
+        padding-right: 16px !important;
+    }
+    
+/* Red(블랙) 버튼 모바일 폰트 조정 */
+
+    .notion-callout[class*="red"]:has(code) code,
+    .notion-callout[class*="red"]:has(code) code *,
+    .notion-callout[class*="red"]:has(code) code a,
+    .notion-callout[class*="red"]:has(code) code strong {
+
+        font-size: 14px !important; /* 14px * 0.8 */
+    }    
+}
