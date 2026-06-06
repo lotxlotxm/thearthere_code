@@ -1,0 +1,310 @@
+/*==========================================
+10📌도시버튼
+==========================================*/
+/*[타입A] 나열형 - 그레이콜아웃 + 인용*/
+
+/* 타입 A 전용 변수 */
+.notion-callout[class*="gray"]:has(.notion-quote) {
+    --btn-min-width-pc: 90px;
+    --btn-height-pc: 2.2em;   
+    --btn-font-pc: 0.95em;        
+    --btn-padding-pc: 0 15px; 
+    --btn-radius: 40px;
+    --btn-min-width-mb: 80px;
+    --btn-height-mb: 2.0em;
+    --btn-font-mb: 0.9em;      
+    --btn-padding-mb: 0 10px;
+}
+
+/* [2] 콜아웃 트리거 및 숨김 처리 (선택자 강화) */
+/* style 대신 class 내 gray가 포함된 경우로 타겟팅 */
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important; 
+    overflow: visible !important; 
+}
+
+/* 하위 요소 숨김 */
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) .notion-quote,
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) h1,
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) h2,
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) h3,
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) .notion-text,
+.notion-callout[class*="gray"]:has(.notion-quote):has(.notion-collection-gallery) > div > div > div:not(.notion-collection-gallery) {
+    display: none !important;
+}
+
+/* [4] 카드 기본 스타일 (gray 콜아웃 내부 전용) */
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+    flex: 0 0 auto !important; 
+    width: auto !important; 
+    min-width: var(--btn-min-width-pc) !important;
+    height: var(--btn-height-pc) !important;
+    padding: var(--btn-padding-pc) !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    border-radius: var(--btn-radius) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+}
+
+/* [5] 텍스트 스타일 */
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card span,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card div {
+    color: #37352f !important;
+    -webkit-text-fill-color: #37352f !important; 
+    opacity: 1 !important;
+    font-size: var(--btn-font-pc) !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+}
+
+/* [6] 호버 기능 */
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover {
+    background-color: #37352f !important; 
+    border-color: transparent !important;
+    transition: all 0.2s ease !important;
+}
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-item-title,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-property__title,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover span,
+.notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover div {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; 
+}
+/* [7] 모바일 최적화 수정 */
+@media (max-width: 768px) {
+    /* 1. 갤러리 컨테이너를 그리드로 변경 */
+    .notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 3열 배치 */
+        gap: 5px !important;
+        overflow-x: visible !important; /* 스크롤 해제 */
+    }
+
+    /* 2. 카드 너비 고정 해제 (그리드에 맞게) */
+    .notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+        flex: none !important;
+        width: 100% !important; /* 그리드 셀에 꽉 차게 */
+        min-width: auto !important; 
+        height: var(--btn-height-mb) !important;
+        padding: 0 5px !important; /* 내부 여백 최적화 */
+    }
+
+    /* 3. 폰트 사이즈 조정 */
+    .notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+    .notion-callout[class*="gray"]:has(.notion-quote) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title {
+        font-size: var(--btn-font-mb) !important;
+    }
+}
+
+
+
+/*==========================================
+[타입B] 슬라이드 화이트 - 그레이콜아웃 + 인라인코드
+==========================================*/
+
+/* [1] 타입 B 전용 변수 (화이트 슬라이드 컨셉) */
+.notion-callout[class*="gray"]:has(code) {
+    --btn-min-width-pc: 90px;
+    --btn-height-pc: 2.2em;   
+    --btn-font-pc: 0.95em;        
+    --btn-padding-pc: 0 15px; 
+    --btn-radius: 40px;
+    --btn-min-width-mb: 80px;
+    --btn-height-mb: 2.0em;
+    --btn-font-mb: 0.9em;      
+    --btn-padding-mb: 0 10px;
+}
+
+/* [2] 콜아웃 트리거 및 숨김 처리 */
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important; 
+    overflow: visible !important; 
+}
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) h1,
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) h2,
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) h3,
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) .notion-text,
+.notion-callout[class*="gray"]:has(code):has(.notion-collection-gallery) > div > div > div:not(.notion-collection-gallery) {
+    display: none !important;
+}
+
+/* [3] 슬라이드 레이아웃 */
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding: 10px 0 !important; 
+    -webkit-overflow-scrolling: touch;
+}
+
+/* [4] 카드 기본 스타일 (화이트 배경) */
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+    flex: 0 0 auto !important; 
+    width: auto !important; 
+    min-width: var(--btn-min-width-pc) !important;
+    height: var(--btn-height-pc) !important;
+    padding: var(--btn-padding-pc) !important;
+    background: #ffffff !important; /* 화이트 배경 */
+    border: 1px solid rgba(0,0,0,0.1) !important; /* 화이트 배경일 때 가독성을 위한 미세한 테두리 */
+    border-radius: var(--btn-radius) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+}
+
+/* [5] 텍스트 스타일 */
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card span,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card div {
+    color: #37352f !important; /* 텍스트는 어두운 색상 */
+    -webkit-text-fill-color: #37352f !important; 
+    opacity: 1 !important;
+    font-size: var(--btn-font-pc) !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+}
+
+/* [6] 호버 기능 */
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover {
+    background-color: #37352f !important; /
+    border: 1px solid #37352f !important;
+    transition: all 0.2s ease !important;
+}
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-item-title,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-property__title,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover span,
+.notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover div {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; 
+}
+
+/* [7] 모바일 최적화 */
+@media (max-width: 768px) {
+    .notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+        min-width: var(--btn-min-width-mb) !important;
+        height: var(--btn-height-mb) !important;
+        padding: var(--btn-padding-mb) !important;
+    }
+    .notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+    .notion-callout[class*="gray"]:has(code) .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title {
+        font-size: var(--btn-font-mb) !important;
+    }
+}
+
+/*==========================================
+[타입C] 슬라이드 블랙 - 레드 콜아웃
+==========================================*/
+
+/* 타입 C 전용 변수 */
+.notion-callout[class*="red"] {
+    --btn-min-width-pc: 90px;
+    --btn-height-pc: 2.2em;   
+    --btn-font-pc: 0.95em;        
+    --btn-padding-pc: 0 15px; 
+    --btn-radius: 40px;
+    --btn-min-width-mb: 80px;
+    --btn-height-mb: 2.0em;
+    --btn-font-mb: 0.9em;      
+    --btn-padding-mb: 0 10px;
+}
+
+/* [2] 콜아웃 트리거 및 숨김 처리 */
+.notion-callout[class*="red"]:has(.notion-collection-gallery) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important; 
+    overflow: visible !important; 
+}
+.notion-callout[class*="red"]:has(.notion-collection-gallery) h1,
+.notion-callout[class*="red"]:has(.notion-collection-gallery) h2,
+.notion-callout[class*="red"]:has(.notion-collection-gallery) h3,
+.notion-callout[class*="red"]:has(.notion-collection-gallery) .notion-text,
+.notion-callout[class*="red"]:has(.notion-collection-gallery) > div > div > div:not(.notion-collection-gallery) {
+    display: none !important;
+}
+
+/* [3] 슬라이드 레이아웃 */
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding: 10px 0 !important; 
+    -webkit-overflow-scrolling: touch;
+}
+
+/* [4] 카드 기본 스타일 */
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+    flex: 0 0 auto !important; 
+    width: auto !important; 
+    min-width: var(--btn-min-width-pc) !important;
+    height: var(--btn-height-pc) !important;
+    padding: var(--btn-padding-pc) !important;
+    background: #37352f !important;
+    border: 1px solid #37352f !important;
+    border-radius: var(--btn-radius) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+}
+
+/* [5] 텍스트 스타일 */
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card span,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card div {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; 
+    opacity: 1 !important;
+    font-size: var(--btn-font-pc) !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+}
+
+/* [6] 호버 기능 */
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover {
+    background-color: #ffffff !important; /* 호버 시 약간 어두운 화이트 */
+border: 1px solid #37352f !important;    transition: all 0.2s ease !important;
+}
+
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-item-title,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover .notion-property__title,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover span,
+.notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card:hover div {
+    color: #37352f  !important;
+    -webkit-text-fill-color: #37352f  !important; 
+}
+
+/* [7] 모바일 최적화 */
+@media (max-width: 768px) {
+    .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card {
+        min-width: var(--btn-min-width-mb) !important;
+        height: var(--btn-height-mb) !important;
+        padding: var(--btn-padding-mb) !important;
+    }
+    .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-item-title,
+    .notion-callout[class*="red"] .notion-collection-gallery:not(:has(.notion-collection-card__cover)) .notion-collection-card .notion-property__title {
+        font-size: var(--btn-font-mb) !important;
+    }
+}
