@@ -10,7 +10,7 @@ code {
   vertical-align: middle !important;
   border-radius: 8px !important;
   background-color: rgba(0, 0, 0, 0.07) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0s ease !important;
   border: none !important;
   opacity: 1 !important; 
 }
