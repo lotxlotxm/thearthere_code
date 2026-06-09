@@ -183,3 +183,34 @@ font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
     border-color: #b1b1b1 !important;
     color: #37352f !important;
 }
+
+
+
+
+@media (max-width: 768px) {
+    /* 1. 3번을 제외한 4~10번 속성만 일괄 적용 */
+    .notion-callout[class*="pink"]:has(.notion-quote) .notion-collection-card__content > .notion-property:nth-child(n+4):nth-child(-n+10) {
+        display: fle !important;
+        text-align: left !important;
+        min-height: unset !important;
+        height: auto !important;
+        padding: 7px 0px !important;
+        margin: 0 !important;
+    }
+
+    /* 2. 속성 2번 개별 제어 */
+    .notion-callout[class*="pink"]:has(.notion-quote) .notion-collection-card__content > .notion-property:nth-child(2) {
+        margin: 0 !important;
+        padding: 0px 0px 5px 0px !important;
+        border-bottom: 0px !important;
+    }
+
+    /* 3. 속성 3번 개별 제어 (버튼 스타일 제외) */
+    .notion-callout[class*="pink"]:has(.notion-quote) .notion-collection-card__content > .notion-property:nth-child(3) {
+        margin-top: 5px !important;
+        padding: 0px 0px 5px 0px !important;
+        border-bottom: 0px !important;
+        display: block !important;
+        text-align: right !important;
+    }
+}
