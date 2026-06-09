@@ -184,13 +184,14 @@ font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
     color: #37352f !important;
 }
 
+/*필터디자인*/
 
 
 
 @media (max-width: 768px) {
     /* 1. 3번을 제외한 4~10번 속성만 일괄 적용 */
     .notion-callout[class*="pink"]:has(.notion-quote) .notion-collection-card__content > .notion-property:nth-child(n+4):nth-child(-n+10) {
-        display: fle !important;
+        display: block !important;
         text-align: left !important;
         min-height: unset !important;
         height: auto !important;
