@@ -36,6 +36,20 @@
   font-size: 0.8rem !important;
 }
 
+
+/* [3] 파란색 콜아웃 내부 콘텐츠 좌측 마진/패딩 박멸 */
+.notion-callout[class*="blue"] .notion-callout__content {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* [4] 내부 텍스트 블록의 기본 인덴트(들여쓰기) 무력화 */
+.notion-callout[class*="blue"] .notion-text {
+    padding-left: 10 !important;
+    margin-left: 0 !important;
+}
+
+
 @media (max-width:768px){
 
 
