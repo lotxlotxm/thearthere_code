@@ -68,6 +68,18 @@ code:has(a):not(.notion-callout[class*="orange"] code):not([class*="blue"]):not(
     line-height: 1.6 !important;
     margin-bottom: 4px !important;
   }
+
+  /* 온라인 전시 카드 예외 */
+.notion-callout[class*="blue"]:has(.notion-toggle)
+.notion-collection-card__anchor,
+.notion-callout[class*="blue"]:has(.notion-toggle)
+.notion-collection-card,
+.notion-callout[class*="blue"]:has(.notion-toggle)
+.notion-collection-card * {
+    margin-bottom: 0 !important;
+}
+  
+  
   /*주석 규격인 0.75rem으로 동기화 */
   html body .notion-page-content .notion-callout[class*="blue"] code,
   html body .notion-page-content .notion-callout[class*="blue"] code * {
