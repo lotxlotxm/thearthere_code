@@ -36,7 +36,7 @@ display: none !important;
 .notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)):not(:has(h4)):not(:has(code)):not(:has(.notion-toggle)):not(:has(blockquote)):not(:has(.notion-list-bullet)):not(:has([class*="bullet"])) .notion-collection-card__cover,
 .notion-callout[class*="green"]:not(:has(h1)):not(:has([class*="h1"])):not(:has(h2)):not(:has([class*="h2"])):not(:has(h3)):not(:has(h4)):not(:has(code)):not(:has(.notion-toggle)):not(:has(blockquote)):not(:has(.notion-list-bullet)):not(:has([class*="bullet"])) .notion-collection-card__cover img {
   aspect-ratio: 1 / 1 !important;
-  border-radius: 0px !important; 
+  border-radius: 10px !important; 
 }
 
 @media (max-width: 768px) {
