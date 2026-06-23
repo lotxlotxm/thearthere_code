@@ -371,6 +371,22 @@ code a span {
   color: inherit !important;
   opacity: 1 !important;
 }
+
+
+/*  */
+/* 인라인 코드 레이아웃 고정 */
+code[class*="pink"],
+span[class*="pink"] code,
+.notion-inline-code[class*="pink"] {
+    /* 기존 속성들은 유지하고 아래 내용 추가 */
+    display: inline-block !important; 
+    vertical-align: middle !important;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+    max-width: 100% !important;     /* 컨테이너 너비 제한 */
+    overflow: hidden !important;    /* 넘침 방지 */
+    margin: 0 4px !important;       /* 주변 간격 보정 */
+}
+
 /* 모바일 환경 제어 */
 @media (max-width: 768px) {
   code[class*="pink"],
