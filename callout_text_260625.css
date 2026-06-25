@@ -105,7 +105,7 @@
 }
 
 /* 📌 그레이 콜아웃 상하좌우 여백 */
-.notion-callout[class*="gray"]:not(:has(h1)) {
+.notion-callout[class*="orange"]:not(:has(h1)) {
     padding: 15px 20px 12px 10px !important;
 }
 
