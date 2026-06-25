@@ -88,6 +88,36 @@
 
 
 
+/*==========================================
+09-3📌 콜아웃 텍스트 제어 (상세페이지 적용)
+[1] 화이트 박스형 */
+
+/* 1번 코드의 영향(풀와이드)을 받지 않는 Gray만 지정 */
+.notion-callout[class*="brown"],
+.notion-callout[class*="orange"]:not(:has(h1)) {
+    background-color: #ffffff !important; 
+    border: 0px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    color: #37352f !important; 
+}
+
+/* 📌 오렌지 콜아웃 상하좌우 여백 */
+.notion-callout[class*="orange"]:not(:has(h1)) {
+    padding: 15px 20px 12px 10px !important;
+}
+
+/* 브라운/오렌지 공통: 너비 확보 */
+.notion-callout[class*="brown"] .notion-callout__content,
+.notion-callout[class*="orange"]:not(:has(h1)) .notion-callout__content {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* 오렌지만 좌측 정렬 */
+.notion-callout[class*="orange"]:not(:has(h1)) .notion-callout__content {
+    text-align: left !important;
+}
 
 
 
