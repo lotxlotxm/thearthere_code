@@ -415,11 +415,11 @@ span[class*="pink"] code *,
 
 
 /*=========================================
-#️⃣[알약형] blue
+#️⃣[알약형] 노란색
 ------------------------------------------*/
-code[class*="blue"],
-span[class*="blue"] code,
-.notion-inline-code[class*="blue"] {
+code[class*="yellow"],
+span[class*="yellow"] code,
+.notion-inline-code[class*="yellow"] {
   /* 타이포 *1em !important;
   line-height: 1.2 !important;
   /* 컬러 */
@@ -441,9 +441,9 @@ span[class*="blue"] code,
 }
 /* 2. 내부 span / a / div 강제 동기화
 (노션 내부 wrapper 대응)*/
-code[class*="blue"] *,
-span[class*="blue"] code *,
-.notion-inline-code[class*="blue"] * {
+code[class*="yellow"] *,
+span[class*="yellow"] code *,
+.notion-inline-code[class*="yellow"] * {
   font-size: 1em !important;
   line-height: 1.2 !important;
   color: #ffffff !important;
@@ -466,9 +466,9 @@ code a span {
 }
 
 /* 인라인 코드 레이아웃 고정 */
-code[class*="blue"],
-span[class*="blue"] code,
-.notion-inline-code[class*="blue"] {
+code[class*="yellow"],
+span[class*="yellow"] code,
+.notion-inline-code[class*="yellow"] {
     /* 기존 속성들은 유지하고 아래 내용 추가 */
     display: inline-block !important; 
     vertical-align: middle !important;
@@ -479,9 +479,9 @@ span[class*="blue"] code,
 }
 
 /* 내부 동기화-글자컬러 */
-code[class*="blue"] *,
-span[class*="blue"] code *,
-.notion-inline-code[class*="blue"] * {
+code[class*="yellow"] *,
+span[class*="yellow"] code *,
+.notion-inline-code[class*="yellow"] * {
   font-size: 1em !important;
   line-height: 1.2 !important;
   color: #ffffff !important;
@@ -494,9 +494,9 @@ span[class*="blue"] code *,
 
 /* 모바일 환경 제어 */
 @media (max-width: 768px) {
-  code[class*="blue"],
-  span[class*="blue"] code,
-  .notion-inline-code[class*="blue"] {
+  code[class*="yellow"],
+  span[class*="yellow"] code,
+  .notion-inline-code[class*="yellow"] {
     /* 모바일에서는 패딩을 줄여서 한 줄에 더 많이 들어오게 함 */
     padding: 6px 14px !important; 
     /* 폰트 사이즈를 약간 줄여서 버튼 높이 축소 */
