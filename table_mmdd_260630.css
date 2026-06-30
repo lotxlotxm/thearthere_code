@@ -1,0 +1,119 @@
+/*06📌 요일 표 */
+/*1. TABLE CONTAINER */
+.notion-table-view {
+  width: 100% !important;
+  max-width: 1300px !important;
+  margin: 0 auto !important;
+  overflow-x: visible !important;
+}
+/* 2. TABLE FRAME*/
+.notion-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 0px solid #d2d2d2 !important;
+  border-bottom: 0px solid #d2d2d2  !important;
+}
+/*3. GRID LAYOUT*/
+.notion-table tr {
+  display: grid !important;
+  grid-template-columns: 1fr 3fr 1fr 3fr !important;
+  width: 100% !important;
+  border: none !important;
+  min-height: 0 !important;
+  height: auto !important;
+  align-items: center !important;
+}
+/*4. CELL RESET*/
+.notion-table th,
+.notion-table td {
+  font-size: 1em !important;
+  text-align: left !important;
+  border: none !important;
+  background: transparent !important;
+  box-sizing: border-box !important;
+  min-height: 0 !important;
+  height: auto !important;
+  line-height: 1.3 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+/* 5. NOTION AUTO HEADER BOLD REMOVE */
+.notion-table th,
+.notion-table [role="columnheader"],
+.notion-table [role="rowheader"] {
+}
+/* 내부 wrapper까지 강제 제거 */
+.notion-table th *,
+.notion-table [role="columnheader"] *,
+.notion-table [role="rowheader"] * {
+}
+/*6. USER MANUAL BOLD ONLY ALLOW */
+.notion-table strong,
+.notion-table b {
+}
+/*7. INNER WRAPPER RESET */
+.notion-table td > *,
+.notion-table td span,
+.notion-table td div,
+.notion-table th > *,
+.notion-table th span,
+.notion-table th div {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+}
+@media (max-width: 768px) {
+  /* container */
+  .notion-table-view {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* table */
+  .notion-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+  /* mobile grid */
+  .notion-table tr {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+/* cells */
+  .notion-table td,
+  .notion-table th {
+    font-size: 14px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    padding-right: 6px !important;
+  }
+  /* wrappers */
+  .notion-table td > *,
+  .notion-table td span,
+  .notion-table td div,
+  .notion-table td a,
+  .notion-table th > *,
+  .notion-table th span,
+  .notion-table th div,
+  .notion-table th a {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+}
