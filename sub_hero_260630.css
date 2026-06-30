@@ -1,0 +1,107 @@
+/*========================================== 
+📌 Gray Callout 풀와이드 레이아웃*/
+.notion-callout[class*="gray"]:not(:has(.notion-image)),
+.notion-quote,
+.notion-heading[data-level="h1"] {
+    position: relative !important;
+    background: transparent !important; 
+    border: none !important;
+    /* 상단 밀착 및 하단 확장 */
+    margin-top: -100px !important; 
+    margin-bottom: 0px !important; 
+    padding: 150px 0 70px 0 !important; 
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+}
+/* 2. 인용문이 올 경우 상단 패딩 제거 */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content > .notion-quote:first-child {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+.notion-callout[class*="gray"],
+.notion-quote,
+.notion-heading[data-level="h1"] {
+    border-radius: 0 !important;
+}
+/* 3. 인용트리거 공간 및 블록 자체 숨기기 */
+.notion-quote#block-388d9708b02b8058b513c925889fff37 {
+    display: none !important;
+}
+.notion-quote#block-388d9708b02b80059987d3e6041cd26c {
+    display: none !important;
+}
+.notion-quote#block-388d9708b02b80928836e88d91a63881 {
+    display: none !important;
+}
+.notion-quote#block-389d9708b02b802fa975d1a105cd94c2 {
+    display: none !important;
+}
+.notion-quote#block-389d9708b02b8089a3f8cf47e0bda609 {
+    display: none !important;
+}
+/* 배경 레이어 */
+.notion-callout[class*="gray"]:not(:has(.notion-image))::before,
+.notion-quote::before,
+.notion-heading[data-level="h1"]::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100% !important;
+    background-color: #37352F !important; 
+    z-index: -1 !important;
+}
+/* 내부 콘텐츠 제어 (1150px 중앙 정렬) */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content,
+.notion-quote > .notion-quote__content,
+.notion-heading[data-level="h1"] > .notion-heading__content {
+    max-width: 1150px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+/*기본 글자색을 흰색으로 변경 */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content,
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content *,
+.notion-quote > .notion-quote__content,
+.notion-quote > .notion-quote__content *,
+.notion-heading[data-level="h1"] > .notion-heading__content,
+.notion-heading[data-level="h1"] > .notion-heading__content * {
+    color: #ffffff !important;
+}
+/* 제목(h1, h2) 색상도 흰색지정 */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) h1,
+.notion-callout[class*="gray"]:not(:has(.notion-image)) h2,
+.notion-callout[class*="gray"]:not(:has(.notion-image)) h3,
+.notion-quote h1, .notion-quote h2, .notion-quote h3, .notion-heading[data-level="h1"] {
+    color: #ffffff !important;
+}
+/* 링크가 있을 경우를 대비한 색상 처리 */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) a,
+.notion-quote a,
+.notion-heading[data-level="h1"] a {
+    color: #ffffff !important; 
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content,
+    .notion-quote > .notion-quote__content,
+    .notion-heading[data-level="h1"] > .notion-heading__content {
+        padding-left: 33px !important;
+        padding-right: 33px !important;
+    }
+    body {
+        overflow-x: hidden !important;
+    }
+    /* 그리드 수정 */
+.notion-callout[class*="gray"]:not(:has(.notion-image)) > .notion-callout__content,
+    .notion-quote > .notion-quote__content {
+        padding-left: 31px !important;
+        padding-right: 31px !important;
+    }
+}
