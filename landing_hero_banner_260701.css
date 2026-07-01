@@ -1,0 +1,196 @@
+/*===========================================
+📌 풀와이드 갤러리뷰 히어로 배너*/
+/* 특정 블록 안의 보기 필터 헤더만 숨기기 */
+#block-383d9708b02b808ca33eef850db0b04a .notion-collection__header-wrapper {
+    display: none !important;
+}
+/* [1] 트리거 설정 및 불필요 요소 숨김 (중복 합침) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) {
+    display: block !important;
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: -90px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important;
+}
+/* h1과 불렛을 한 번에 숨김 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) h1,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) [class*="bullet"] {
+    display: none !important;
+}
+/* [2] 갤러리 컨테이너 및 카드 초기화 (구조적 중복 제거) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-gallery,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+/* [2] 갤러리 컨테이너 및 카드 초기화 (비율 제어 방식 변경) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card {
+    display: block !important;
+    width: 100% !important;
+    min-height: 300px !important; 
+    max-height: 1000px !important; 
+    height: 70vh !important;      
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+/* [3] 이미지 영역 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__cover {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+/* [핵심] 컨테이너 폭 확장 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) > .notion-callout__content {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+/* [4] 콘텐츠 및 글자 스타일 수정 (수직/수평 중앙 정렬) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content {
+    position: absolute !important;
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* 핵심: 수직/수평 중앙 정렬 */
+    justify-content: center !important; 
+    align-items: center !important;
+    text-align: center !important;
+    top: 0 !important; 
+    left: 50% !important;        
+    transform: translateX(-50%) !important; 
+    width: 100% !important;
+    max-width: 1150px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 24px !important; 
+    background: transparent !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+/* 제목 속성 스타일 (중앙 정렬 최적화) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-property__title {
+    font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+    font-size: clamp(1.5rem, 4vw, 3.5rem) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px !important; /* 아래 요소와의 간격 */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    /* 중앙 정렬 보장 */
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+/* 속성1 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content
+>.notion-property__text:nth-child(2),
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content
+>.notion-property__text:nth-child(2) *,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content > .notion-property__text:nth-child(2) strong {
+    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    font-size:1rem !important;
+    font-weight:500 !important;
+    line-height:1.1 !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+/* 속성2 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content
+>.notion-property__text:nth-child(3),
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content
+>.notion-property__text:nth-child(3) *,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content > .notion-property__text:nth-child(3) strong {
+    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    font-size: 1rem !important;
+    font-weight:400 !important;
+    line-height:1.4 !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+@media (max-width: 768px){
+/* 모바일은 다시 풀와이드 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card{
+    width:100% !important;
+    margin:0 !important;
+}
+    /* 모바일에서는 비율을 다시 잡거나 높이를 고정 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card {
+        aspect-ratio: 4 / 6 !important; 
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+    }
+    /* 기존 스타일 유지 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content {
+padding: 0 24px !important; 
+        bottom: auto !important; 
+        top: 0 !important; 
+        justify-content: center !important; 
+        align-items: center !important; 
+        text-align: center !important;  
+        height: 100% !important;
+    }
+    /* 모든 텍스트 요소를 가운데로 정렬 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > * {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    /* 제목 폰트 크기 조정 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-property__title {
+        font-size: 2.2rem !important;
+        margin-bottom: 15px !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+/* 4. 속성 1 (SEO 핵심 문구) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(2),
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(2) *,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(2) strong {
+        font-size: 2rem !important;
+        line-height: 1.1 !important;
+    }
+    /* 5. 속성 2 (서브타이틀) - 제어 문제 해결 */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(3),
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(3) *,
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
+.notion-collection-card__content > .notion-property__text:nth-child(3) strong {
+        font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+        font-size: 0.7rem !important;
+        font-weight: 400 !important;
+        line-height: 1.4 !important;
+        color: #fff !important;
+        -webkit-text-fill-color: #fff !important;
+    }
+}
