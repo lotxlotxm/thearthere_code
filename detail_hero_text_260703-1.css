@@ -1,0 +1,84 @@
+/*========================================== 
+📌 커버 이미지 화이트 풀와이드 배경 (인용 블록 트리거)
+=========================================*/
+
+/* 인용 블록(트리거) 숨김 */
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) blockquote {
+    display: none !important;
+}
+
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) {
+    position: relative !important;
+    background: transparent !important;
+    border: none !important;
+    
+    /* 상단 밀착 및 하단 확장용 패딩 */
+    margin-top: 0px !important; 
+    margin-bottom: 0px !important; 
+    padding: 50px 0 0px 0 !important; 
+    
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+}
+
+/* 배경 레이어 */
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote)::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100% !important;
+    background-color: #ffffff !important;
+    z-index: -1 !important;
+}
+
+/* 내부 콘텐츠 제어 */
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) > .notion-callout__content {
+    max-width: 1150px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 내부 컬럼 레이아웃 (1:1 비율) */
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+}
+
+/* [모바일 그리드 정렬 수정] */
+@media (max-width: 768px) {
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) > .notion-callout__content {
+        padding-left: 33px !important;
+        padding-right: 33px !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) {
+        position: relative !important;
+        background: transparent !important;
+        border: none !important;
+        margin-top: -30px !important; 
+        margin-bottom: 0px !important; 
+        padding: 50px 0 0px 0 !important; 
+        width: 100vw !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+    }
+    
+    /* 컬럼 해제 */
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
+        display: block !important;
+    }    
+}
