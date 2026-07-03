@@ -5,7 +5,7 @@
 --font-main: 'Roboto Flex', 'Noto Sans KR', sans-serif;
   
 /* H1 */
---pc-h1-size: 50px; --pc-h1-weight: 650; --pc-h1-line: 1; --pc-h1-letter: -0.01em;
+--pc-h1-size: 60px; --pc-h1-weight: 650; --pc-h1-line: 1; --pc-h1-letter: -0.01em;
   --mb-h1-size: 40px; --mb-h1-line: 1.05; --mb-h1-letter: -0.03em;
 
 /* H2 */
