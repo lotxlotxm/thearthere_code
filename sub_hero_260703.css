@@ -1,3 +1,4 @@
+
 /*========================================== 
 📌 Gray Callout 풀와이드 레이아웃*/
 .notion-callout[class*="gray"]:not(:has(.notion-image)),
@@ -26,22 +27,14 @@
 .notion-heading[data-level="h1"] {
     border-radius: 0 !important;
 }
-/* 3. 인용트리거 공간 및 블록 자체 숨기기 */
-.notion-quote#block-388d9708b02b8058b513c925889fff37 {
-    display: none !important;
+
+/* 내부 Quote 트리거 자동 숨김 */
+.notion-callout[class*="gray"]:not(:has(.notion-image))
+> .notion-callout__content
+> .notion-quote{
+    display:none !important;
 }
-.notion-quote#block-388d9708b02b80059987d3e6041cd26c {
-    display: none !important;
-}
-.notion-quote#block-388d9708b02b80928836e88d91a63881 {
-    display: none !important;
-}
-.notion-quote#block-389d9708b02b802fa975d1a105cd94c2 {
-    display: none !important;
-}
-.notion-quote#block-389d9708b02b8089a3f8cf47e0bda609 {
-    display: none !important;
-}
+
 /* 배경 레이어 */
 .notion-callout[class*="gray"]:not(:has(.notion-image))::before,
 .notion-quote::before,
