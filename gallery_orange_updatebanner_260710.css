@@ -60,7 +60,7 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(0, 0, 0, 0.15) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
     z-index: 5 !important;
     pointer-events: none !important;
 }
@@ -111,7 +111,7 @@
     font-weight: 700 !important;
     right: 550px !important;
         line-height: 1.1 !important;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
 }
 /* 4. 속성 2 (중간) */
 .notion-callout[class*="orange"]:has(.notion-collection-gallery):has(.notion-quote) 
@@ -122,14 +122,14 @@
     line-height: 1.2 !important;
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
 }
-/* 5. 속성 3 (가장 아래) */
+/* 5. 속성 3 (카테고리) */
 .notion-callout[class*="orange"]:has(.notion-collection-gallery):has(.notion-quote) 
 .notion-property__text:nth-of-type(3) {
     top: 32px !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     right: 550px !important;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) !important;
 }
 /* 5. 속성 4 (화살표) */
 .notion-callout[class*="orange"]:has(.notion-collection-gallery):has(.notion-quote) 
@@ -193,6 +193,8 @@ MOBILE UPDATE BANNER*/
     left:24px !important;
     right:24px !important;
     line-height:1.2 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+
 }
 /*제목*/
 .notion-callout[class*="orange"]:has(.notion-collection-gallery):has(.notion-quote)
@@ -203,6 +205,8 @@ MOBILE UPDATE BANNER*/
     left:24px !important;
     right:24px !important;
     line-height:1.05 !important;
+          text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) !important;
+
 }
 /*설명*/
 .notion-callout[class*="orange"]:has(.notion-collection-gallery):has(.notion-quote)
@@ -221,7 +225,6 @@ MOBILE UPDATE BANNER*/
     font-size: 30px !important;
     font-weight: 300 !important;
     left: 24px !important;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
 }
 /*모바일 필터*/
 .notion-callout[class*="orange"]:has(.notion-quote)
