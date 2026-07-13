@@ -1,13 +1,14 @@
 /*========================================== 
 📌 커버 이미지 화이트 풀와이드 배경 (인용 블록 트리거)
+* 그린 콜아웃 & 갤러리 뷰 포함시 제외 적용
 =========================================*/
 
-/* 인용 블록(트리거) 숨김 */
-.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) blockquote {
+/* 인용 블록(트리거) 숨김 (그린+갤러리 조합 제외) */
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) blockquote {
     display: none !important;
 }
 
-.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) {
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) {
     position: relative !important;
     background: transparent !important;
     border: none !important;
@@ -25,7 +26,7 @@
 }
 
 /* 배경 레이어 */
-.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote)::before {
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote)::before {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
@@ -37,7 +38,7 @@
 }
 
 /* 내부 콘텐츠 제어 */
-.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) > .notion-callout__content {
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) > .notion-callout__content {
     max-width: 1150px !important;
     margin: 0 auto !important;
     padding: 0 20px !important;
@@ -46,7 +47,7 @@
 }
 
 /* 내부 컬럼 레이아웃 (1:1 비율) */
-.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
+.notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 20px !important;
@@ -54,7 +55,7 @@
 
 /* [모바일 그리드 정렬 수정] */
 @media (max-width: 768px) {
-    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) > .notion-callout__content {
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) > .notion-callout__content {
         padding-left: 33px !important;
         padding-right: 33px !important;
     }
@@ -63,7 +64,7 @@
         overflow-x: hidden !important;
     }
     
-    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) {
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) {
         position: relative !important;
         background: transparent !important;
         border: none !important;
@@ -78,7 +79,7 @@
     }
     
     /* 컬럼 해제 */
-    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
+    .notion-callout:not(.bg-gray-light):not([class*="orange"]):not([class*="brown"]):not([class*="pink"]):not([class*="blue"]):not(:has(.notion-collection-gallery)):has(blockquote) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
         display: block !important;
     }    
 }
