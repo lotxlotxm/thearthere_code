@@ -510,7 +510,7 @@ display: none !important;
 /* [모바일 전용] 구분선 위치 미세 조정 */
   .notion-collection-card__property.property-714d6155 {
       /* 필요에 따라 -22px 대신 원하는 수치(예: -15px, -18px 등)를 적용하세요 */
-      margin: -8px 0 8px 0 !important; 
+      margin: -29px 0 8px 0 !important; 
   }
   
 /* 🟩 속성 간격 조절*/
