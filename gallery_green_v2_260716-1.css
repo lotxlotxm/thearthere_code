@@ -477,7 +477,7 @@ display: none !important;
 }
 
 /* 2. 메이슨리 렌더링 안정화 (컬럼 분할 방지) */
-.notion-callout[class*="green"] .notion-collection-card {
+.notion-callout[class*="green"]:has(blockquote) .notion-collection-card {
     break-inside: avoid; /* 카드 중간에 줄바꿈 방지 */
     margin-bottom: 15px !important; /* 카드 간 간격 */
     display: inline-block !important; /* 렌더링 속도 향상 */
@@ -485,7 +485,7 @@ display: none !important;
 }
 
 /* 3. 로딩 성능 최적화 */
-.notion-callout[class*="green"] img {
+.notion-callout[class*="green"]:has(blockquote) img {
     will-change: transform; /* 로딩 가속 */
     transition: opacity 0.3s ease-in-out;
 }
