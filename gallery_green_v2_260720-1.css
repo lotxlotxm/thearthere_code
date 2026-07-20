@@ -217,6 +217,7 @@ text-decoration-color: #C9FF6B !important;
 
 
 
+
 /*===========================================
 🟩 [타입 C] 녹색 콜아웃+ 인용 트리거 (메이슨리 정렬형)
 ===========================================*/
@@ -294,7 +295,7 @@ text-decoration-color: #C9FF6B !important;
     border-bottom: 1px solid #e9e9e9 !important;
     
     /* 여기서 margin-top을 음수로 조정하여 공간을 줄입니다 */
-    margin: -29px 0 6px 0 !important;   /* 필요에 따라 -10px을 -5px, -15px 등으로 조절하세요 */
+    margin: -22px 0 2px 0 !important;   /* 필요에 따라 -10px을 -5px, -15px 등으로 조절하세요 */
     
     padding: 0 !important;
     color: transparent !important;
@@ -510,7 +511,7 @@ text-decoration-color: #C9FF6B !important;
 /* [모바일 전용] 구분선 위치 미세 조정 */
   .notion-collection-card__property.property-714d6155 {
       /* 필요에 따라 -22px 대신 원하는 수치(예: -15px, -18px 등)를 적용하세요 */
-      margin: -29px 0 8px 0 !important; 
+      margin: -29px 0 0px 0 !important; 
   }
   
 /* 🟩 속성 간격 조절*/
