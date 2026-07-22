@@ -733,7 +733,7 @@ display:flex !important;    top:auto !important;
 
 /*==========================================
 🟩 [타입 E] 녹색 콜아웃 + 토글 트리거 (갤러리 뷰 전용)
-랜딩-뮤지엄 4칼럼 뷰 - 이건 사용 안함
+상세-뮤지엄 4칼럼 뷰 - 
 ==========================================*/
 
 /* [0] 토글 트리거 및 헤더 숨김 */
@@ -743,7 +743,28 @@ display:flex !important;    top:auto !important;
     display: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    
 }
+
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-callout__content {
+    margin-inline-start: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+    
+    
+}
+
+/* 콜아웃 자체의 패딩 및 여백 제거 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+      border-radius: 0px !important;
+
+}
+
 
 /* 상단 패딩 강제 제거 */
 .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-gallery {
@@ -797,7 +818,7 @@ display:flex !important;    top:auto !important;
 
 .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property {
     color: #37352f !important;
-    font-weight: 400 !important;
+    /*font-weight: 400 !important;*/
     font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
 }
 
@@ -805,17 +826,17 @@ display:flex !important;    top:auto !important;
     display: flex !important;
     top: auto !important;
     order: 2 !important;
-    font-size: 18px !important;
+    /*font-size: 18px !important;*/
     font-weight: 700 !important;
-    line-height: 1.1 !important;
+    /*line-height: 1.1 !important;*/
 }
 
 .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2),
 .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2) * {
     position: static !important;
     order: 1 !important;
-    font-size: 12px !important;
-    line-height: 1.2 !important;
+    /*font-size: 12px !important;*/
+    /*line-height: 1.2 !important;*/
     margin-bottom: -3px !important;
 }
 
@@ -849,13 +870,13 @@ display:flex !important;    top:auto !important;
         min-height: auto !important;
     }
     .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-property__title {
-        font-size: 16px !important;
+        /*font-size: 16px !important;*/
         order: 2 !important;
         margin-top: -2px !important;
     }
     .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2),
     .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2) * {
-        font-size: 10px !important;
+        /*font-size: 10px !important;*/
         order: 1 !important;
         margin-bottom: -3px !important;
     }
