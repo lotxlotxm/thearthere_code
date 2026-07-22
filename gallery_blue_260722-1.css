@@ -58,7 +58,7 @@
 /* --- 속성 1: 제목/강조 --- */
 .notion-callout[class*="blue"]:has(code) .notion-property__title,
 .notion-callout[class*="blue"]:has(code) .notion-property__title {
-    font-size: 18px !important;
+    /* font-size: 18px !important; */
     font-weight: 700 !important;
     line-height: 1.3 !important;
     /*text-align: center;*/
@@ -68,7 +68,7 @@
 /* --- 속성 2: 설명 --- */
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(2),
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(2) * {
-    font-size: 12px !important;
+    /* font-size: 12px !important; */
     /*text-align: center;*/
     font-weight: 400 !important;
     line-height: 1.3 !important;
@@ -79,7 +79,7 @@
 /* --- 속성 3: 설명 --- */
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(3),
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(3) * {
-      font-size: 12px !important;
+      /* font-size: 12px !important; */
     padding: 0 !important;
     font-weight: 400 !important;
     line-height: 1.3 !important;
@@ -91,7 +91,7 @@
 /* --- 속성 4: 설명 --- */
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(4),
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(4) * {
-      font-size: 12px !important;
+      /* font-size: 12px !important; */
     padding: 0 !important;
     font-weight: 400 !important;
     line-height: 1.3 !important;
@@ -100,7 +100,7 @@
 /* --- 속성 6: 관계형 --- */
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(6),
 .notion-callout[class*="blue"]:has(code) .notion-collection-card__property:nth-child(6) * {
-      font-size: 12px !important;
+      /* font-size: 12px !important; */
     padding: 0 !important;
     font-weight: 700 !important;
     line-height: 1.3 !important;
