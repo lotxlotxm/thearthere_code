@@ -117,3 +117,46 @@
     white-space: normal !important;
   }
 }
+
+
+
+
+/*📍입장료 표*/
+.notion-table:has(td code) tr{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    border-bottom:1px solid #d2d2d2 !important;
+}
+.notion-table:has(td code) td{
+    display:block !important;
+    min-width:0 !important;
+    max-width:none !important;
+    width:100% !important;
+    padding:10px 0 !important;
+    box-sizing:border-box !important;
+}
+.notion-table:has(td code) .notion-table__cell{
+    width:100% !important;
+}
+/* 첫 번째 행 내용만 숨기기 */
+.notion-table:has(td code) tr:first-child td{
+    padding:0 !important;
+    height:0 !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+}
+.notion-table:has(td code) tr:first-child .notion-table__cell{
+    display:none !important;
+}
+/* 마지막 행은 구분선 제거 */
+.notion-table:has(td code) tr:last-child td{
+}
+/* 모바일에서 노션 줄바꿈 유지 */
+@media (max-width:768px){
+
+.notion-table:has(td code) .notion-table__cell,
+.notion-table:has(td code) .notion-semantic-string{
+    white-space:pre-line !important;
+    word-break:keep-all !important;
+}
+}
