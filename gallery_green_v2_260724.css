@@ -48,7 +48,23 @@
 /*=========================================
 🟩 [타입 B] 녹색 콜아웃 + 인라인 코드 트리거
 =========================================*/
+/* 기본 padding-top 16px 제거 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) {
+  padding-top: 0 !important;
+}
 
+/* 갤러리 뷰 자체의 상단 margin/padding 추가 제거 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-gallery {
+  margin-top: 0 !important;
+  padding-top: 3px !important;
+}
+
+/* 헤더 영역 완전히 숨기기 및 공간 제거 */
+.notion-collection__header-wrapper {
+  display: none !important;
+}
+
+/*커스텀시작*/
 .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) {
   background-color: transparent !important;
   border: none !important;
@@ -124,7 +140,7 @@
     text-decoration: underline !important;
     text-decoration-color: #C9FF6B !important;
     text-decoration-thickness: 3px !important;
-    text-underline-offset: 0px !important;
+    text-underline-offset: 2px !important;
 }
 
 .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(4),
@@ -174,9 +190,6 @@
         text-underline-offset: 1px !important;
     }
 }
-
-
-
 
 /*===========================================
 🟩 [타입 C] 녹색 콜아웃+ 인용 트리거 (메이슨리 정렬형)
