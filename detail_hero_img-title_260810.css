@@ -1,0 +1,107 @@
+/*==========================================
+🟫 Brown Hero Image Section
+브라운 콜아웃 + Quote 트리거 + 이미지 존재 + 토글 없음
+==========================================*/
+/* 최상단 히어로 위치 보정 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) {
+    margin-top: -120px !important;
+    padding-top: 120px !important;
+    z-index: 0 !important;
+}
+/* 컨테이너 자체 풀와이드 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+}
+/* Quote 트리거 숨김 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-quote {
+    display: none !important;
+}
+/* 이미지 풀와이드 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-image {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+}
+/* 이미지 래퍼 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-image img {
+    width: 100% !important;
+    height: 800px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+}
+@media (max-width: 768px) {
+    .notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-image img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 4 / 6 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+}
+/* [상세]히어로배너 밑의 설명 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) {
+    position: relative !important;
+    margin-top: -200px !important;
+    z-index: 100 !important;
+    max-width: 650px !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+/* 노션 기본 콜아웃 내부 여백 제거 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) > .notion-callout__content {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+}
+/* 히어로 오버레이 텍스트 화이트 (토글이 없을 때만 적용) */
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)),
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) *,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) p,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) span,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) h1,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) h2,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) h3,
+.notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) a {
+    color: #ffffff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3) !important; /* 텍스트 그림자 추가 */
+}
+/* 이미지 하단 블랙 오퍼시티 그라데이션 */
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-image {
+    position: relative !important;
+}
+.notion-callout[class*="brown"]:has(.notion-quote):has(.notion-image):not(:has(.notion-toggle)) .notion-image::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40% !important; /* 그라데이션 높이 조절 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%) !important;
+    pointer-events: none !important; /* 클릭 방해 방지 */
+    z-index: 1 !important;
+}
+/* 📱 브라운 히어로 섹션 모바일 대응 (토글이 없을 때만 적용) */
+@media (max-width: 768px) {
+    .notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) {
+        margin-top: -140px !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;
+    }
+    .notion-callout[class*="brown"]:has(.notion-quote):not(:has(.notion-toggle)) h1 {
+        font-size: 1.8rem !important;
+    }
+}
