@@ -1,0 +1,126 @@
+/*==========================================
+07📌 텍스트 컬러별 링크 스타일*/
+/* [1] 초록색 글자: 블랙 & 언더라인 ---- */
+/* 1. 초록색 텍스트 링크 블랙화 */
+.notion-link[class*="green"],
+.notion-text-block [class*="green"] a,
+span[class*="green"] a,
+span[class*="green"],
+.notion-link[class*="green"] * {
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  opacity: 1 !important;               
+  text-decoration: underline !important; 
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1px !important;
+  transition: all 0.2s ease !important;
+}
+/* Gray 콜아웃 내부 추가 */
+.notion-callout[class*="gray"] .notion-link[class*="green"],
+.notion-callout[class*="gray"] .notion-text-block [class*="green"] a,
+.notion-callout[class*="gray"] span[class*="green"] a,
+.notion-callout[class*="gray"] span[class*="green"] {
+  color: #37352f !important; /* 기본은 블랙 */
+  -webkit-text-fill-color: #37352f !important;
+  opacity: 1 !important;                
+  text-decoration: underline !important; 
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1px !important;
+  transition: all 0.2s ease !important;
+}
+/* Gray 콜아웃 내부 전용: 기본을 흰색으로 강제 */
+.notion-callout[class*="gray"] .notion-link[class*="green"],
+.notion-callout[class*="gray"] .notion-text-block [class*="green"] a,
+.notion-callout[class*="gray"] span[class*="green"] a,
+.notion-callout[class*="gray"] span[class*="green"],
+.notion-callout[class*="gray"] .notion-link[class*="green"] * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+/* Gray 콜아웃 내부 호버 추가 */
+.notion-callout[class*="gray"] .notion-link[class*="green"]:hover,
+.notion-callout[class*="gray"] .notion-link[class*="green"]:hover *,
+.notion-callout[class*="gray"] .notion-text-block [class*="green"] a:hover,
+.notion-callout[class*="gray"] span[class*="green"] a:hover,
+.notion-callout[class*="gray"] span[class*="green"]:hover {
+  color: #D34A45 !important;
+  -webkit-text-fill-color: #D34A45 !important;
+  text-decoration: none !important; 
+  opacity: 1 !important;
+}
+/* 2. 호버(Hover) 액션: 포인트 레드 전환 */
+.notion-link[class*="green"]:hover,
+.notion-link[class*="green"]:hover *,
+.notion-text-block [class*="green"] a:hover,
+span[class*="green"] a:hover,
+span[class*="green"]:hover {
+  color: #D34A45 !important;
+  -webkit-text-fill-color: #D34A45 !important;
+  text-decoration: none !important; 
+  opacity: 1 !important;
+}
+/* [3] 예외 처리 (Exception Handling) ---- */
+code [class*="green"],
+code [class*="green"] *,
+code [class*="green"]:hover {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+/*----[2] 브라운 글자: 블랙 & 호버 ---- */
+.notion-link[class*="brown"],
+.notion-text-block [class*="brown"] a,
+span[class*="brown"] a,
+span[class*="brown"],
+.notion-link[class*="brown"] * {
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  opacity: 1 !important;               
+  text-decoration: none !important; 
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1px !important;
+  transition: all 0.2s ease !important;
+}
+/* 2. 호버(Hover) 액션: 포인트 레드 전환 */
+.notion-link[class*="brown"]:hover,
+.notion-link[class*="brown"]:hover *,
+.notion-text-block [class*="brown"] a:hover,
+span[class*="brown"] a:hover,
+span[class*="brown"]:hover {
+  color: #D34A45 !important;
+  -webkit-text-fill-color: #D34A45 !important;
+  text-decoration: none !important; 
+  opacity: 1 !important;
+}
+/* [3] 예외 처리 (Exception Handling) ---- */
+code [class*="brown"],
+code [class*="brown"] *,
+code [class*="brown"]:hover {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+/* 🟪 보라색 글자: 평소 블랙 */
+/* 1. 기본*/
+.notion-link[class*="purple"],
+.notion-text-block [class*="purple"] a,
+span[class*="purple"] a,
+span[class*="purple"],
+.notion-link[class*="purple"] * {
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  opacity: 1 !important;               
+  text-decoration: none !important; 
+  transition: all 0.2s ease !important;
+}
+/* 3. 예외 처리 (Exception Handling) */
+code [class*="purple"],
+code [class*="purple"] *,
+code [class*="purple"]:hover {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
