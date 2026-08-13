@@ -1,0 +1,210 @@
+/*==========================================
+🟨 Yellow CTA Card
+노랑 콜아웃 + Toggle 트리거 (갤러리/DB 완전 제외)*/
+/* 갤러리/컬렉션 관련 클래스 통합 예외 변수 선택자 정의 */
+:root {
+  --gallery-except: :not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]));
+}
+
+/* Toggle 트리거 숨김 */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+.notion-toggle{
+    display:none !important;
+}
+
+/* 카드 */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])){
+    background:#fff !important;
+
+    border:0px solid #e5e5e5 !important;
+    border-radius:0px !important;
+
+    padding:20px 30px !important;
+    margin:0px 0 !important;
+
+    box-sizing:border-box !important;
+}
+
+/* 내부 여백 제거 */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+>.notion-callout__content{
+    padding:0 !important;
+}
+
+/*==========================
+2열 (2:1)
+==========================*/
+/* 2열(2:1) 레이아웃 강제 고정 */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])) .notion-column-list {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0 !important;
+    margin-top: 24px !important;
+}
+
+/* 각 칼럼 설정 */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])) .notion-column {
+    flex: none !important;
+    width: auto !important;
+}
+
+/* 왼쪽 (텍스트 영역) */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])) .notion-column:first-child {
+    flex: 1 1 auto !important;
+}
+
+/* 오른쪽 (버튼 영역) */
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])) .notion-column:last-child {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding-right: 0 !important;
+}
+/*==========================================
+🟨 Yellow CTA Card - h4 스타일 강조*/
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])) h4 {
+    font-size: 1.7rem !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    margin: 0 0 2px 0 !important;
+    color: #37352f !important;
+}
+/*🟨 Yellow CTA - Pink Inline Code → Lime Pill*/
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+code[class*="pink"],
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+span[class*="pink"] code,
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+.notion-inline-code[class*="pink"]{
+    color:#37352F !important;
+    -webkit-text-fill-color:#37352F !important;
+    background:#C9FF6B !important;
+    border:none !important;
+    border-radius:999px !important;
+    padding:6px 12px !important;
+    font-size:12px !important;
+    font-weight:700 !important;
+    line-height:1.2 !important;
+    display:inline-block !important;
+    white-space:nowrap !important;
+}
+
+
+/*🟨 Yellow CTA - yellow Inline Code → button*/
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+code[class*="yellow"],
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+span[class*="yellow"] code,
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+.notion-inline-code[class*="yellow"]{
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    background:#37352F !important;
+    border:none !important;
+    border-radius:999px !important;
+    padding:10px 16px !important;
+    font-size:15px !important;
+    font-weight:700 !important;
+    line-height:1.2 !important;
+    display:inline-block !important;
+    white-space:nowrap !important;
+}
+
+
+/*🟨 Yellow CTA - 글자 크기만 조절*/
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+code[class*="gray"],
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+span[class*="gray"] code,
+.notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+.notion-inline-code[class*="gray"]{
+    background:transparent!important;
+    border:none !important;
+    border-radius:999px !important;
+    padding:0px 0px !important;
+    font-size:14px !important;
+    font-weight:400 !important;
+    line-height:1.2 !important;
+    display:inline-block !important;
+    white-space:nowrap !important;
+}
+
+
+
+@media (max-width:768px){
+
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])){
+        padding:24px !important;
+    }
+
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-column-list{
+        flex-direction:column !important;
+        gap:20px !important;
+        align-items:stretch !important;
+    }
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-column{
+        width:100% !important;
+        flex:none !important;
+    }
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-column:last-child{
+        justify-content:flex-start !important;
+    }
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-button{
+        width:100% !important;
+    }
+
+/*=======================================
+🟨 Yellow CTA - Pink Inline Code → Lime Pill*/
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    code[class*="pink"],
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    span[class*="pink"] code,
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-inline-code[class*="pink"]{
+        border-radius:999px !important;
+
+        padding:6px 12px !important;
+
+        font-size:10px !important;
+        font-weight:700 !important;
+        line-height:1.2 !important;
+
+        display:inline-block !important;
+        white-space:nowrap !important;
+    }
+
+    /*🟨 Yellow CTA - yellow Inline Code → button*/
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    code[class*="yellow"],
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    span[class*="yellow"] code,
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-inline-code[class*="yellow"]{
+        border-radius:999px !important;
+        padding:8px 20px !important;
+        font-size:14px !important;
+        font-weight:700 !important;
+        line-height:1.2 !important;
+        display:inline-block !important;
+        white-space:nowrap !important;
+    }
+
+    /*🟨 Yellow CTA - 글자 크기만 조절*/
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    code[class*="gray"],
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    span[class*="gray"] code,
+    .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"]))
+    .notion-inline-code[class*="gray"]{
+        background:transparent!important;
+        border:none !important;
+        border-radius:999px !important;
+        padding:0px 0px !important;
+        font-size:11px !important;
+    }
+}
