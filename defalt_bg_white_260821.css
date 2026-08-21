@@ -1,0 +1,24 @@
+/*==========================================
+📌 사이트 전체 화이트 배경 강제 적용
+==========================================*/
+/* [1] 루트 및 기본 바디 배경색 설정 */
+:root {
+    --bg-color: #ffffff !important;
+}
+
+html, 
+body, 
+#super-app, 
+.super-content,
+.notion {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* [2] 노션 기본 페이지 컨테이너 배경 설정 */
+.notion-page,
+.notion-header,
+.notion-topbar {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
