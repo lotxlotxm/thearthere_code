@@ -1,0 +1,91 @@
+/*==========================================
+08📌 전체 라인 및 테두리 제어 (Line Detail)*/
+/* [1] 구분선(Divider) 기본형 색상 변경 */
+.notion-divider {
+    border-bottom: 1px solid #d2d2d2 !important;
+    opacity: 1 !important;
+}
+/* [2] 콜아웃 테두리(기본형) */
+.notion-collection-card, 
+.notion-callout {
+    border: 1px solid #d2d2d2 !important;
+    border-radius: 8px !important; 
+}
+/* [3] 확장 구분선*/
+.notion-callout[class*="red"]:not(:has(.notion-collection-gallery)):not(:has(code)), 
+div[style*="background-color: rgb(253, 235, 236)"]:not(:has(.notion-collection-gallery)):not(:has(code)) {
+    /* 레이아웃 제어 */
+    width: 100vw !important;
+    max-width: none !important;
+    height: 1px !important; 
+    min-height: 1px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    /* 📌 색상 제어 */
+    background-color: #d2d2d2 !important; 
+    opacity: 1 !important; 
+    /* 위치 제어 */
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-top: 15px !important;
+    margin-bottom: 0px !important;
+    overflow: visible !important;
+}
+/* 얇은 선이나 오퍼시티 강제 제거 */
+.notion-callout[class*="red"]:not(:has(.notion-collection-gallery)):not(:has(code))::before,
+div[style*="background-color: rgb(253, 235, 236)"]:not(:has(.notion-collection-gallery)):not(:has(code))::before {
+    display: none !important;
+}
+/* [4] 수정된 블랙 구분선 (핑크 콜아웃) */
+/* 리스트뷰가 없는 경우에만 구분선으로 변환하도록 조건 추가 */
+.notion-callout[class*="pink"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
+div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
+    width: 100% !important;
+    max-width: none !important;
+    height: 2px !important;
+    min-height: 1px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #37352f !important;
+    box-shadow: none !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-top: 25px !important;
+    margin-bottom: 5px !important;
+}
+
+
+
+
+
+
+/* [5] 모듈형 구분선 (옐로우 콜아웃) */
+/* 리스트뷰나 갤러리뷰가 없는 옐로우 콜아웃을 10px 구분선으로 변환 */
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
+div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
+    width: 100% !important;
+    max-width: none !important;
+    height: 8px !important;
+    min-height: 8px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #f5f5f5 !important;
+    box-shadow: none !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-top: 25px !important;
+    margin-bottom: 5px !important;
+}
+
+/* 내부 아이콘 및 콘텐츠 숨김 */
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) .notion-callout__icon,
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) .notion-callout__content {
+    display: none !important;
+}
