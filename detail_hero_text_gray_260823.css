@@ -13,6 +13,7 @@
     background-color: #ffffff !important; /* 메인 컨테이너 배경색 강제 적용 */
     background: #f5f5f5 !important;
     border: none !important;
+    border-radius: 0px !important; /* 모서리 라운드 제거 */
     
     /* 상단 밀착 및 하단 확장용 패딩 */
     margin-top: 0px !important; 
