@@ -89,3 +89,19 @@ div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-g
 .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) .notion-callout__content {
     display: none !important;
 }
+
+
+
+
+/* [모바일 전용 풀와이드 확장] */
+@media (max-width: 768px) {
+    .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
+    div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
+        width: 100vw !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+        transform: none !important;
+    }
+}
