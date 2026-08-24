@@ -26,7 +26,7 @@ blue = 화이트 알약 버튼 (번호 매기기 목록 + 인라인 코드)
     margin: 0 auto !important;
     padding: 0 20px 12px 20px !important;
     border-top: 0px solid #37352f !important;
-    border-bottom: 8px solid #f5f5f5 !important; /* 하단 굵은선 그리드 맞춤 적용 */
+    border-bottom: 0px solid #f5f5f5 !important; /* 하단 굵은선 그리드 맞춤 적용 */
 }
 
 /* 아이콘 제거 */
