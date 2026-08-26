@@ -23,7 +23,7 @@
 }
 /* 구분선 */
 .notion-callout[class*="blue"]:has(code):not(:has(.notion-collection-gallery)) {
-    max-width: 1107px !important;
+    max-width: 1108px !important;
     margin: 0 auto !important;
     border-top: 1px solid #37352f !important;
     border-bottom: 0px solid #37352f !important;
