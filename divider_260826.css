@@ -80,7 +80,7 @@ div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-g
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    margin-top: 25px !important;
+    margin-top: 0 !important;
     margin-bottom: 5px !important;
 }
 
