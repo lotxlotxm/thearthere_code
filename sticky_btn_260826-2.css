@@ -1,7 +1,5 @@
 /* ==========================================
-05 📌 스티키 Section Navigation
-orange = 화이트 버튼
-red = 블랙 버튼
+05 📌 스티키 Section Navigation 상세페이지-버튼형
 ========================================== */
 /* sticky 전체 컨테이너 - 공통 속성 정의*/
 .notion-callout[class*="blue"]:has(code):not(:has(.notion-collection-gallery)) {
@@ -20,7 +18,7 @@ red = 블랙 버튼
 🔵 주황색(화이트 버튼)*/
 /*배경*/
 .notion-callout[class*="blue"]:has(code):not(:has(.notion-collection-gallery)) {
-    background: #f7f7f7 !important;
+    background: #ffffff !important;
     border: none !important; /* 기본 테두리 제거 */
 }
 /* 구분선 */
