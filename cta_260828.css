@@ -14,7 +14,7 @@
 
 /* 카드 */
 .notion-callout[class*="yellow"]:has(.notion-toggle):not(:has(.notion-collection-view)):not(:has(.notion-gallery-view)):not(:has(.notion-collection-view-page)):not(:has([class*="gallery"])){
-    background:#fff !important;
+    background:##F8F9A7 !important;
 
     border:0px solid #e5e5e5 !important;
     border-radius:0px !important;
