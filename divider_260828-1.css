@@ -64,10 +64,11 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
 
 
 
-/* [5] 모듈형 구분선 (옐로우 콜아웃) */
-/* 리스트뷰나 갤러리뷰가 없는 옐로우 콜아웃을 10px 구분선으로 변환 */
-.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
-div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
+/*==========================================
+🟨 [5] 모듈형 구분선 (옐로우 콜아웃)
+리스트뷰, 갤러리뷰, 토글이 모두 없는 옐로우 콜아웃만 8px 구분선으로 변환 */
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)), 
+div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) {
     width: 100% !important;
     max-width: none !important;
     height: 8px !important;
@@ -85,18 +86,15 @@ div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-g
 }
 
 /* 내부 아이콘 및 콘텐츠 숨김 */
-.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) .notion-callout__icon,
-.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) .notion-callout__content {
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) .notion-callout__icon,
+.notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) .notion-callout__content {
     display: none !important;
 }
 
-
-
-
 /* [모바일 전용 풀와이드 확장] */
 @media (max-width: 768px) {
-    .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
-    div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
+    .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)), 
+    div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) {
         width: 100vw !important;
         left: 50% !important;
         right: 50% !important;
