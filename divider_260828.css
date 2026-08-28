@@ -45,7 +45,7 @@ div[style*="background-color: rgb(253, 235, 236)"]:not(:has(.notion-collection-g
 div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
     width: 100% !important;
     max-width: none !important;
-    height: 2px !important;
+    height: 1px !important;
     min-height: 1px !important;
     padding: 0 !important;
     border: none !important;
