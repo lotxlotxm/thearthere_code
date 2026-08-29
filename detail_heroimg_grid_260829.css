@@ -1,0 +1,58 @@
+/*==========================================
+🖼️[상세] 히어로 이미지  [3-1] */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* [3-2] 콜아웃 내부 아이콘 숨김 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-callout__icon {
+    display: none !important;
+}
+
+/* [3-3] 콜아웃 내부 콘텐츠 여백 및 너비 정돈 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) > .notion-callout__content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* [3-4] PC: 콜아웃 범위에 맞추기 및 16:9 비율 적용 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0px !important;
+}
+/* [3-5] 모바일: 화면 좌우 꽉 차게 확장 및 4:6 비율 적용 */
+@media (max-width: 768px) {
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        position: relative !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+    }
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 4 / 6 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0px !important;
+    }
+}
