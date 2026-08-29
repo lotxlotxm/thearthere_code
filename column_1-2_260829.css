@@ -1,0 +1,32 @@
+/*========================================
+ 📍[공통] 컬럼 레이아웃 제어 (2컬럼 & 3컬럼)*/
+/* [1] 2컬럼일 때: 1:2 비율 적용 */
+.notion-column-list:has(> .notion-column:nth-child(2):last-child) {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr !important;
+    gap: 0px !important;
+    --column-spacing: 10px !important;
+}
+/* 2컬럼일 때만 두 번째 칼럼 패딩 제거 */
+.notion-column-list:has(> .notion-column:nth-child(2):last-child) > .notion-column:nth-child(2) {
+    padding-left: 0px !important;
+}
+/* [2] 3컬럼일 때: 1:1:1 비율 적용 */
+.notion-column-list:has(> .notion-column:nth-child(3):last-child) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 20px !important; /* 필요시 간격 조정 */
+    --column-spacing: 0px !important;
+}
+/* 공통: 노션 기본 width 제거 */
+.notion-column {
+    width: auto !important;
+}
+
+/* [3] 모바일 대응: 모든 커스텀 레이아웃 해제 (일렬 배치) */
+@media (max-width: 767px) {
+    .notion-column-list:has(> .notion-column:nth-child(2):last-child),
+    .notion-column-list:has(> .notion-column:nth-child(3):last-child) {
+        display: block !important;
+    }
+}
