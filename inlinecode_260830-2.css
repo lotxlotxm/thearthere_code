@@ -616,3 +616,12 @@ span[class*="pink"] code *,
   box-shadow: none !important;
   opacity: 1 !important;
 }
+
+
+/* 핑크 알약을 포함한 모든 노션 텍스트 블록의 좌우 패딩 자동 제거 */
+p.notion-text:has(code[class*="pink"]),
+p.notion-text:has(span[class*="pink"]),
+.notion-text:has(.color-pink) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
