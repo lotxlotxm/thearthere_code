@@ -56,3 +56,21 @@
         border-radius: 0px !important;
     }
 }
+
+/* [3-5] 태블릿/아이패드 제어 (769px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important; /* 태블릿 전용 비율 (필요 시 3/2, 16/9 등으로 변경 가능) */
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0px !important;
+    }
+}
