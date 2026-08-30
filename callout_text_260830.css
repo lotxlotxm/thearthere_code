@@ -232,6 +232,42 @@
 
 
 
+/*========================================== 
+📌 상세pg-정보요약 카드/ 그레이 콜아웃 260830 추가
+------------------------------------------*/
+/* 1. 기본 배경, 테두리, 내부 여백 및 높이 고정 설정 */
+.notion-callout[class*="gray"]:has(ol),
+.notion-callout[class*="gray"]:has(.notion-numbered-list) {
+    background-color: #f5f5f5 !important;
+    border: none !important;
+    border-radius: 0px !important;  
+    padding: 20px !important; /* 상하좌우 내부 여백 20px */
+    
+    /* 높이 고정 설정 */
+    height: 120px !important; /* 원하는 고정 높이 수치 입력 */
+    box-sizing: border-box !important; /* 패딩 포함 높이 계산 */
+    overflow: auto !important; /* 콘텐츠 넘침 시 스크롤 생성 (필요 시 hidden으로 변경 가능) */
+}
+
+/* 2. 내부 콘텐츠 정렬 및 마진 초기화 */
+.notion-callout[class*="gray"]:has(ol) .notion-callout__content,
+.notion-callout[class*="gray"]:has(.notion-numbered-list) .notion-callout__content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    height: 100% !important; /* 내부 콘텐츠도 고정 높이에 맞춤 */
+}
+
+
+
+
+
+
+
+
+
 /* ==================================================== */
 /* 09-5 🟧 주황색 콜아웃 바레이션 : 텍스트 숨김 전용 🟧 */
 /*====[타입1] 📌 주황색 콜아웃 : h1, h2 숨김 삭제 260612 확인바람===*/
@@ -244,3 +280,10 @@
 
 
 /*==========[#3] 화이트 풀배경 (H1 및 H2 전용) 삭제==========*/
+
+
+
+
+
+
+
