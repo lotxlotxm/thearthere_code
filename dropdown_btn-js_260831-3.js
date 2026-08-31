@@ -27,7 +27,7 @@
           const btn = document.createElement('span');
           btn.className = 'v-arrow-btn';
           btn.innerHTML = `
-            <svg viewBox="0 0 10 6">
+            <svg viewBox="0 0 10 6" width="10" height="10">
               <path d="M1 1L5 5L9 1" stroke="#37352f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           `;
