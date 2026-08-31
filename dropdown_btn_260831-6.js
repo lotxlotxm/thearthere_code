@@ -1,6 +1,6 @@
 (function() {
   /* 이미지 및 스타일 설정 */
-  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788166395/hero_dropdown_btn_ywudft.png';
+  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788167916/hero_dropdown_btn_qzjwo9.svg';
 
   function injectStyle() {
     if (document.getElementById('v-arrow-style')) return;
