@@ -9,8 +9,8 @@
     style.innerHTML = `
       .v-arrow-img {
         display: inline-block !important;
-        width: 40px !important;
-        height: 32px !important;
+        width: 20px !important;
+        height: 16px !important;
         vertical-align: middle !important;
         margin-left: 4px !important;
         cursor: pointer !important;
