@@ -1,8 +1,19 @@
 /*=====02📌 토글 펼치기 숨기기=======*/
 /*[type A]공통 및 텍스트형*/
-/* 1. 기본 콜아웃의 테두리 및 배경 투명화 (인라인 코드, 번호 매기기 목록 제외) */
+/* 1. 기본 콜아웃의 테두리, 배경 투명화 및 좌우 패딩 초기화 (인라인 코드, 번호 매기기 목록 제외) */
+div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)),
 .super-content div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)),
-.super-content div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)):hover,
+.super-content div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)):hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-width: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) div,
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)):hover div,
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) *,
@@ -14,6 +25,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     border-color: transparent !important;
     box-shadow: none !important;
 }
+
 /* 2. 기본 세모 화살표 및 콜아웃 자체 이모지 강제 숨기기 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-callout__icon,
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle__trigger_icon,
@@ -21,6 +33,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle__trigger svg {
     display: none !important;
 }
+
 /* 3. 닫힌 상태 (기본) : 'View more' 삽입 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle:not(.open) .notion-toggle__trigger::before {
     content: "View more +" !important;
@@ -29,6 +42,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     color: #999999 !important;
     display: inline-block !important;
 }
+
 /* 4. 열린 상태 : 'View less' 삽입 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle.open .notion-toggle__trigger::before {
     content: "View less -" !important;
@@ -37,6 +51,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     color: #999999 !important;
     display: inline-block !important;
 }
+
 /* 5. 좌측 그리드 맞추기 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle {
     display: flex !important;
@@ -44,6 +59,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     padding-left: 0 !important; 
     margin-left: 0 !important; 
 }
+
 /* 6. 콜아웃 콘텐츠 및 토글 콘텐츠 영역 여백 초기화 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-callout__content {
     margin-top: 0 !important;
@@ -52,7 +68,9 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
 }
+
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle__content {
     order: 1 !important;
     margin-bottom: 0 !important;
@@ -74,27 +92,29 @@ div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(
     margin-top: 0 !important;
     padding-left: 0 !important;
 }
+
 /* 8. 트리거 내부 텍스트 우측 이동 설정 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-toggle__trigger {
     padding-left: 2px !important;
     margin-left: 0 !important;
 } 
+
 /* 9. 디바이더 강제 노출 설정 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-divider {
     display: block !important;
     visibility: visible !important;
-    border-bottom: 1px solid #e0e0e0 !important; /* 디바이더 선 색상 강제 지정 */
+    border-bottom: 1px solid #e0e0e0 !important;
     opacity: 1 !important;
     width: 100% !important;
     margin: 12px 0 !important;
-    background: transparent !important; /* 배경은 투명 유지 */
+    background: transparent !important;
 }
+
 /* 10. 디바이더 내부 요소가 강제 투명화 되는 것 방지 */
 div.notion-callout[class*="green"]:has(.notion-toggle):not(:has(code)):not(:has(.notion-inline-code)):not(:has(.notion-numbered_list)) .notion-divider * {
     background: transparent !important;
     border: none !important;
 }
-
 
 /*==========================================
 [type B]하단 버튼형 더보기 토글 (안개처리)*/
