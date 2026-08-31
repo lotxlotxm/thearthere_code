@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+.v-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d1d6;
+  border-radius: 4px;
+  padding: 2px 4px;
+  background-color: #ffffff;
+  margin-left: 4px;
+  line-height: 1;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.v-arrow-btn:hover {
+  background-color: #f4f4f5;
+  border-color: #b0b0b5;
+}
+
+.v-arrow-btn svg {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
