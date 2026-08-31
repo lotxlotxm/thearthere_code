@@ -119,10 +119,9 @@
 
 
 
-
-/*------[2] 투명 텍스트형 (Green)---------*/
-/* 토글, 번호 매기기 목록, 아이콘이 모두 없는 일반 초록색 콜아웃에만 적용 */
-.notion-callout[class*="green"]:not(:has(.notion-toggle)):not(:has(.notion-numbered_list)):not(:has(.notion-callout__icon)) {
+/*------[2] 투명 텍스트형 (Green)-260831--------*/
+/* 토글/번호매기기 목록은 없고, 아이콘은 포함된 초록색 콜아웃에만 적용 */
+.notion-callout[class*="green"]:has(.notion-callout__icon):not(:has(.notion-toggle)):not(:has(.notion-numbered_list)) {
     background-color: transparent !important;
     border: none !important;
     border-radius: 0px !important;  
@@ -134,8 +133,8 @@
     min-height: 0 !important;       
 }
 
-/* 초록색 콜아웃 내부 콘텐츠 정렬 (토글, 번호 매기기 목록, 아이콘 제외) */
-.notion-callout[class*="green"]:not(:has(.notion-toggle)):not(:has(.notion-numbered_list)):not(:has(.notion-callout__icon)) .notion-callout__content {
+/* 초록색 콜아웃 내부 콘텐츠 정렬 (아이콘 포함, 토글/번호매기기 목록 제외) */
+.notion-callout[class*="green"]:has(.notion-callout__icon):not(:has(.notion-toggle)):not(:has(.notion-numbered_list)) .notion-callout__content {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-left: 0 !important;
