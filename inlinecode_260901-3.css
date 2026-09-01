@@ -599,6 +599,7 @@ span[class*="pink"] code,
     padding: 12px 24px !important; 
     /* 폰트 사이즈를 약간 줄여서 버튼 높이 축소 */
     font-size: 14px !important; 
+    font-weight: 600 !important;
   }
 }
 
