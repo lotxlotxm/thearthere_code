@@ -22,7 +22,7 @@
         text-decoration: none !important;
       }
       
-      /* 마우스 호버 시 화살표 이미지 교체 (단독 [V] 및 링크 내 [V] 공통) */
+      /* 마우스 호버 시 화살표 이미지 교체 (단독 [↓] 및 링크 내 [↓] 공통) */
       .v-arrow-img:hover,
       a:hover .v-arrow-img {
         content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
@@ -51,7 +51,7 @@
     const nodesToReplace = [];
 
     while (node = walker.nextNode()) {
-      if (node.textContent.includes('[V]') && !node.parentNode.closest('.v-arrow-img')) {
+      if (node.textContent.includes('[↓]') && !node.parentNode.closest('.v-arrow-img')) {
         nodesToReplace.push(node);
       }
     }
@@ -66,7 +66,7 @@
       /* 조건 1: 링크 내부이면서 Admission: 문구가 포함된 경우 */
       if (isInsideLink && rawText.includes('Admission:')) {
         const wrapper = document.createElement('span');
-        const parts = rawText.split('[V]');
+        const parts = rawText.split('[↓]');
         
         // Admission: 은 볼드 처리하고, 전체 텍스트 영역을 하나로 감싸 호버 밑줄 대상 지정
         let formattedText = parts[0].replace(
@@ -86,8 +86,8 @@
         
         parent.replaceChild(wrapper, textNode);
       } else {
-        /* 조건 2: Admission 없는 일반 링크, 또는 [V] 단독 사용 */
-        const parts = rawText.split('[V]');
+        /* 조건 2: Admission 없는 일반 링크, 또는 [↓] 단독 사용 */
+        const parts = rawText.split('[↓]');
         const fragment = document.createDocumentFragment();
 
         parts.forEach((part, index) => {
