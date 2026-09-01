@@ -28,9 +28,13 @@
         content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
       }
 
-      /* admission-text-target 좌측 패딩 제거 추가 */
-      .admission-text-target {
+      /* 노션 기본 스팬 및 생성 스팬의 2px 패딩 강제 제거 */
+      .admission-text-target,
+      a:has(.admission-text-target),
+      a:has(.admission-text-target) span,
+      span:has(> .admission-text-target) {
         padding-left: 0 !important;
+        padding-right: 0 !important;
       }
 
       /* 링크 호버 시 글자 영역에만 밑줄 적용 (버튼 제외) */
