@@ -28,6 +28,11 @@
         content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
       }
 
+      /* admission-text-target 좌측 패딩 제거 추가 */
+      .admission-text-target {
+        padding-left: 0 !important;
+      }
+
       /* 링크 호버 시 글자 영역에만 밑줄 적용 (버튼 제외) */
       a:hover .admission-text-target,
       a:hover {
