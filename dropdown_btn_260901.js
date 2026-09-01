@@ -1,6 +1,11 @@
 (function() {
   /* 이미지 및 스타일 설정 */
-  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788167916/hero_dropdown_btn_qzjwo9.svg';
+  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244032/hero_dropdown_btn_izm3qo.svg';
+  const V_ARROW_HOVER_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244048/hero_dropdown_btn-hover_udv68a.svg';
+
+  /* 호버 이미지 깜빡임 방지를 위한 프리로드 */
+  const preloadHoverImg = new Image();
+  preloadHoverImg.src = V_ARROW_HOVER_IMAGE_URL;
 
   function injectStyle() {
     if (document.getElementById('v-arrow-style')) return;
@@ -15,9 +20,10 @@
         margin-left: 4px !important;
         cursor: pointer !important;
         box-sizing: border-box !important;
+        transition: content 0.15s ease;
       }
       .v-arrow-img:hover {
-        opacity: 0.8 !important;
+        content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
       }
     `;
     document.head.appendChild(style);
