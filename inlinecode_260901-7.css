@@ -635,3 +635,12 @@ p.notion-text:has(span[class*="pink"]),
 }
 
 
+
+/* 3. 두 버튼을 감싸는 부모 레이아웃 줄바꿈 방지 추가 (공통 추가) */
+/* 버튼이 포함된 텍스트 블록 한 줄 유지 및 중앙/좌측 정렬 유지 */
+.notion-text:has(code[class*="pink"]),
+.notion-text:has(.ticket-popup-btn) {
+  white-space: nowrap !important;
+  overflow-x: auto !important; /* 혹시 모를 초과 발생 시 밖으로 튀어나가지 않도록 처리 */
+  -webkit-overflow-scrolling: touch;
+}
