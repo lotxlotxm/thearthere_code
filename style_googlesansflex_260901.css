@@ -25,7 +25,7 @@
   --mb-body-size: 14px; --mb-body-line: 1.5; --mb-body-letter: -0.01em;
 
 /* 볼드 굵기 변수 추가 (본문 굵기 * 1.2) */
---pc-bold-weight: 550;
+--pc-bold-weight: 600;
 
 /* 캡션 */
 --pc-caption-size: 11px; --pc-caption-weight: 420; --pc-caption-line: 1.5; --pc-caption-letter: 0em;
