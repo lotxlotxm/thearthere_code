@@ -22,7 +22,10 @@
         box-sizing: border-box !important;
         transition: content 0.15s ease;
       }
-      .v-arrow-img:hover {
+      /* 이미지 자체에 마우스를 올렸을 때 */
+      .v-arrow-img:hover,
+      /* 이미지를 감싸고 있는 부모 링크(a 태그)에 마우스를 올렸을 때도 화살표 변경 */
+      a:hover .v-arrow-img {
         content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
       }
     `;
