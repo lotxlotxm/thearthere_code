@@ -532,18 +532,18 @@ span[class*="pink"] code,
   /* 서체 정의 */
   font-family: var(--font-main) !important;
   font-size: 1em !important;
-  font-weight: 650 !important;
+  font-weight: 600 !important;
   line-height: 1.2 !important;
   color: #37352f !important;
   -webkit-text-fill-color: #37352f !important;
-    font-weight: 650 !important;
+    font-weight: 600 !important;
 
   /* 배경 */
   background: #ffffff !important;
 /* 형태 (★ 바더 컬러 정밀 이식) */
   border-radius: 32px !important;
   padding: 12px 24px !important;
-  border: 1px solid #d9d9d9 !important;
+  border: 1px solid #37352f !important;
   /* 기타 */
   opacity: 1 !important;
   box-shadow: none !important;
@@ -599,7 +599,7 @@ span[class*="pink"] code,
     /* 모바일에서는 패딩을 줄여서 한 줄에 더 많이 들어오게 함 */
     padding: 12px 24px !important; 
     /* 폰트 사이즈를 약간 줄여서 버튼 높이 축소 */
-    font-size: 1em !important; 
+    font-size: 14px !important; 
   }
 }
 
