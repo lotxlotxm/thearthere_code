@@ -22,13 +22,14 @@
         text-decoration: none !important;
       }
       
-      /* 마우스 호버 시 화살표 이미지 교체 */
+      /* 마우스 호버 시 화살표 이미지 교체 (단독 [V] 및 링크 내 [V] 공통) */
       .v-arrow-img:hover,
       a:hover .v-arrow-img {
         content: url('${V_ARROW_HOVER_IMAGE_URL}') !important;
       }
 
-      /* 부모 링크 호버 시 텍스트 밑줄 추가 */
+      /* 링크 호버 시 글자 영역에만 밑줄 적용 (버튼 제외) */
+      a:hover .admission-text-target,
       a:hover {
         text-decoration: underline !important;
         text-underline-offset: 3px;
@@ -60,20 +61,20 @@
       if (!parent) return;
 
       let rawText = textNode.textContent;
-      
-      /* 링크 내부이면서 Admission: 문구가 포함된 경우만 볼드 태그 추가 */
       const isInsideLink = parent.closest('a') !== null;
 
+      /* 조건 1: 링크 내부이면서 Admission: 문구가 포함된 경우 */
       if (isInsideLink && rawText.includes('Admission:')) {
         const wrapper = document.createElement('span');
         const parts = rawText.split('[V]');
         
+        // Admission: 은 볼드 처리하고, 전체 텍스트 영역을 하나로 감싸 호버 밑줄 대상 지정
         let formattedText = parts[0].replace(
           'Admission:', 
           '<span class="admission-label-bold">Admission:</span>'
         );
         
-        wrapper.innerHTML = formattedText;
+        wrapper.innerHTML = `<span class="admission-text-target">${formattedText}</span>`;
         
         if (parts.length > 1) {
           const img = document.createElement('img');
@@ -85,13 +86,21 @@
         
         parent.replaceChild(wrapper, textNode);
       } else {
-        /* 그 외 일반 [V] 치환 (일반 텍스트 및 Admission 없는 링크) */
+        /* 조건 2: Admission 없는 일반 링크, 또는 [V] 단독 사용 */
         const parts = rawText.split('[V]');
         const fragment = document.createDocumentFragment();
 
         parts.forEach((part, index) => {
           if (part) {
-            fragment.appendChild(document.createTextNode(part));
+            // 글자 부분이 있을 경우 링크 호버 밑줄을 위해 스팬 처리
+            if (isInsideLink) {
+              const textSpan = document.createElement('span');
+              textSpan.className = 'admission-text-target';
+              textSpan.textContent = part;
+              fragment.appendChild(textSpan);
+            } else {
+              fragment.appendChild(document.createTextNode(part));
+            }
           }
 
           if (index < parts.length - 1) {
