@@ -597,9 +597,9 @@ span[class*="pink"] code,
   span[class*="pink"] code,
   .notion-inline-code[class*="pink"] {
     /* 모바일에서는 패딩을 줄여서 한 줄에 더 많이 들어오게 함 */
-    padding: 6px 14px !important; 
+    padding: 12px 24px !important; 
     /* 폰트 사이즈를 약간 줄여서 버튼 높이 축소 */
-    font-size: 0.9em !important; 
+    font-size: 1em !important; 
   }
 }
 
