@@ -19,7 +19,6 @@ code,
 code *,
 .notion-text code,
 .notion-text code * {
-  font-family: 'Roboto Flex' !important;
 
   font-size: var(--pc-body-size) !important;
   font-weight: var(--pc-body-weight) !important;
