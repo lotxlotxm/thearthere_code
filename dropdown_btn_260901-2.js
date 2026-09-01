@@ -1,7 +1,7 @@
 (function() {
   /* 이미지 및 스타일 설정 */
-  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244032/hero_dropdown_btn_izm3qo.svg';
-  const V_ARROW_HOVER_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244048/hero_dropdown_btn-hover_udv68a.svg';
+  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244841/hero_dropdown_btn_ujyo5l.svg';
+  const V_ARROW_HOVER_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788244844/hero_dropdown_btn-hover_nusz1l.svg';
 
   /* 호버 이미지 깜빡임 방지를 위한 프리로드 */
   const preloadHoverImg = new Image();
