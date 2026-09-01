@@ -595,11 +595,19 @@ span[class*="pink"] code,
   code[class*="pink"],
   span[class*="pink"] code,
   .notion-inline-code[class*="pink"] {
-    /* 모바일에서는 패딩을 줄여서 한 줄에 더 많이 들어오게 함 */
-    padding: 12px 24px !important; 
-    /* 폰트 사이즈를 약간 줄여서 버튼 높이 축소 */
-    font-size: 16px !important; 
+    padding: 10px 16px !important; /* 좁은 모바일 대응 패딩 축소 */
+    font-size: 13px !important;    /* 폰트 사이즈 조정 */
     font-weight: 600 !important;
+  }
+}
+
+/* 375px 이하 극소형 모바일 (iPhone SE 등) 대응 */
+@media (max-width: 380px) {
+  code[class*="pink"],
+  span[class*="pink"] code,
+  .notion-inline-code[class*="pink"] {
+    padding: 8px 12px !important; 
+    font-size: 12px !important;
   }
 }
 
@@ -625,3 +633,5 @@ p.notion-text:has(span[class*="pink"]),
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+
+
