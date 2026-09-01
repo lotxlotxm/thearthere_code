@@ -37,7 +37,7 @@
 
       /* Admission 라벨 전용 볼드 스타일 */
       .admission-label-bold {
-        font-weight: 700 !important;
+        font-weight: 600 !important;
       }
     `;
     document.head.appendChild(style);
