@@ -148,8 +148,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
     border-width: 0 !important;
     border-color: transparent !important;
     box-shadow: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+padding: 0 !important; /* 상하좌우 16px 패딩 완전 제거 */
 }
 
 /* 호버 시 디바이더 및 내부 보조 콜아웃 제외 후 배경만 투명화 */
