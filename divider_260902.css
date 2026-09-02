@@ -39,7 +39,7 @@ div[style*="background-color: rgb(253, 235, 236)"]:not(:has(.notion-collection-g
 div[style*="background-color: rgb(253, 235, 236)"]:not(:has(.notion-collection-gallery)):not(:has(code))::before {
     display: none !important;
 }
-/* [4] 수정된 블랙 구분선 (핑크 콜아웃) */
+/* [4] 수정된 블랙 구분선 (핑크 콜아웃)*/
 /* 리스트뷰가 없는 경우에만 구분선으로 변환하도록 조건 추가 */
 .notion-callout[class*="pink"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)), 
 div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)) {
@@ -55,7 +55,7 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    margin-top: 25px !important;
+    margin-top: 5px !important; /* 상단 마진 25px -> 5px 변경 */
     margin-bottom: 5px !important;
 }
 
