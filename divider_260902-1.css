@@ -55,8 +55,8 @@ div[style*="background-color: rgb(255, 226, 236)"]:not(:has(.notion-collection-g
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    margin-top: 5px !important; /* 상단 마진 25px -> 5px 변경 */
-    margin-bottom: 5px !important;
+    margin-top: 0px !important; /* 상단 마진 25px -> 5px 변경 */
+    margin-bottom: 0px !important;
 }
 
 
