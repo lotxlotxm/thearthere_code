@@ -143,7 +143,7 @@
 }
 
 
-/*------[3] 녹색 콜아웃 (불렛 + 인라인코드 조건) - 트리거 숨김 및 18px 적용 260901--------*/
+/*------[3] 녹색 콜아웃 (불렛 + 인라인코드 조건) - 트리거 숨김 및 18px 적용 260902--------*/
 /*---- 사용: 상세페이지 핵심정보 부분 ---- */
 /* 1. 조건에 해당하는 녹색 콜아웃 내부의 불렛 아이콘 및 인라인 코드(트리거) 숨김 */
 .notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-bulleted_list,
@@ -179,7 +179,11 @@
     font-size: 18px !important;
 }
 
-
+@media (max-width: 768px) {
+    .notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-callout__content * {
+        font-size: 16px !important;
+    }
+}
 
 
 /*=========================================
