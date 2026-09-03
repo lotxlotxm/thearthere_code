@@ -3,6 +3,8 @@
 orange = 화이트 버튼
 red = 블랙 버튼
 ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
 /* sticky 전체 컨테이너 - 공통 속성 정의*/
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)), 
 .notion-callout[class*="red"]:has(code) {
@@ -21,7 +23,7 @@ red = 블랙 버튼
 🔵 주황색(화이트 버튼)*/
 /*배경*/
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) {
-    background: #f7f7f7 !important;
+    background: #ffffff !important;
     border: none !important; /* 기본 테두리 제거 */
 }
 /* 구분선 */
