@@ -315,3 +315,32 @@ blockquote b,
         letter-spacing: var(--mb-caption-letter) !important;
     }
 }    
+
+
+
+/* =========================================
+인라인 코드(Inline Code) 본문 스타일 동일 적용
+========================================= */
+
+/* PC 기본 적용 */
+code,
+.notion-inline-code,
+.notion-page-content code,
+.notion-page-content .notion-inline-code {
+    font-family: var(--font-main) !important;
+    font-size: var(--pc-body-size) !important;
+    line-height: var(--pc-body-line) !important;
+    letter-spacing: var(--pc-body-letter) !important;
+}
+
+/* 모바일 전용 적용 (@media (max-width: 768px) 내부에 추가 가능) */
+@media (max-width: 768px) {
+    code,
+    .notion-inline-code,
+    .notion-page-content code,
+    .notion-page-content .notion-inline-code {
+        font-size: var(--mb-body-size) !important;
+        line-height: var(--mb-body-line) !important;
+        letter-spacing: var(--mb-body-letter) !important;
+    }
+}
