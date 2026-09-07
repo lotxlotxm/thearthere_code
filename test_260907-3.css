@@ -1,0 +1,103 @@
+/* ==========================================
+📌 [1] 상단 다크 인트로 (풀와이드 배경 자름 방지 및 완벽 채움)
+트리거: 핑크 콜아웃 + 번호 매기기 목록
+========================================== */
+/* 1. 최외각 콜아웃: overflow: visible로 자름 해제 및 기준점(relative) 설정 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: -100px !important; 
+    margin-bottom: 0px !important; 
+    padding: 120px 0 70px 0 !important;
+    width: 100% !important;
+    overflow: visible !important; /* 📌 상위 잘림 현상 방지 */
+    box-sizing: border-box !important;
+}
+
+/* 2. 화면 전체(100vw)를 채우는 다크 배경 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 100vw !important;
+    margin-left: -50vw !important; /* 📌 뷰포트 왼쪽 끝까지 강제 확장 */
+    background-color: #37352F !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+/* 3. 내부 콘텐츠: 중앙 정렬 유지 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. 맨 위 트리거용 번호매기기 목록 숨김 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+    display: none !important;
+}
+
+/* ------------------------------------------
+🎨 글자색 제어: 커스텀 컬러 유지
+------------------------------------------ */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
+    color: #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* ------------------------------------------
+➕ 인트로 내부 인라인 코드 버튼 스타일
+------------------------------------------ */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
+    text-align: center !important;
+    margin-top: 20px !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+    display: inline-block !important;
+    color: #AD1A72 !important;
+    background-color: #37352f !important;
+    padding: 12px 24px !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    border: 1px solid #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
+    color: #AD1A72 !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+}
