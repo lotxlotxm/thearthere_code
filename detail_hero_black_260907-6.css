@@ -46,19 +46,24 @@
     display: none !important;
 }
 
-/* 인트로 기본 글자색, 제목, 링크 흰색 강제 */
+/* ------------------------------------------
+🎨 글자색 제어: 커스텀 컬러 유지를 위한 선택자 분리
+------------------------------------------ */
+/* 1. 기본 글자색 (별도 색상 지정이 없는 일반 텍스트, 제목 등만 흰색 적용) */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content *,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a {
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
     color: #ffffff !important;
 }
 
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a {
+/* 2. 일반 링크 기본 흰색 + 밑줄 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+    color: #ffffff !important;
     text-decoration: underline;
 }
+
 
 /* ------------------------------------------
 ➕ 인트로 내부 인라인 코드 버튼 스타일 추가
