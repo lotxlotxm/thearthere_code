@@ -116,7 +116,7 @@
 .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]) {
     position: relative !important;
     z-index: 10 !important; /* 인트로(z-index: 1)보다 위에 위치해 위로 덮임 */
-    background-color: #FFD1DC !important; /* 시각 확인용 연분홍 (완료 후 #ffffff) */
+    background-color: #ffffff !important; /* 시각 확인용 연분홍 (완료 후 #ffffff) */
     border: none !important;
     border-radius: 0 !important;
     margin-top: 0 !important;
