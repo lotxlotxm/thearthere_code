@@ -31,7 +31,7 @@
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="pink"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 21 / 10 !important;
+    aspect-ratio: 21 / 9 !important;
     object-fit: cover !important;
     object-position: center center !important;
     border-radius: 0px !important;
