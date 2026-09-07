@@ -143,18 +143,18 @@
 }
 
 
-/*------[3] 녹색 콜아웃 (불렛 + 인라인코드 조건) - 트리거 숨김 및 18px 적용 260902--------*/
+/*------[3] 녹색 콜아웃 (인라인코드 조건) - 첫 번째 인라인코드 p 태그 숨김 및 18px 적용--260907 수정------*/
 /*---- 사용: 상세페이지 핵심정보 부분 ---- */
-/* 1. 조건에 해당하는 녹색 콜아웃 내부의 불렛 아이콘 및 인라인 코드(트리거) 숨김 */
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-bulleted_list,
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) ul,
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-inline-code,
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) code {
+
+/* 1. 조건에 해당하는 녹색 콜아웃 내부의 첫 번째 인라인 코드를 포함한 p 태그 전체 완벽 제거 */
+.notion-callout[class*="green"]:has(code) p:has(code):first-of-type,
+.notion-callout[class*="green"]:has(code) .notion-text:has(code):first-of-type,
+.notion-callout[class*="green"]:has(code) ol:first-of-type {
     display: none !important;
 }
 
-/* 2. 조건에 해당하는 녹색 콜아웃의 기본 투명화 및 여백 리셋 */
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) {
+/* 2. 녹색 콜아웃 기본 투명화 및 여백 리셋 */
+.notion-callout[class*="green"]:has(code) {
     background-color: transparent !important;
     border: none !important;
     border-radius: 0px !important;  
@@ -166,7 +166,7 @@
 }
 
 /* 3. 내부 콘텐츠 영역 여백 리셋 */
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-callout__content {
+.notion-callout[class*="green"]:has(code) .notion-callout__content {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-left: 0 !important;
@@ -175,16 +175,15 @@
 }
 
 /* 4. 내부 텍스트 글자 크기 18px 강제 적용 */
-.notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-callout__content * {
+.notion-callout[class*="green"]:has(code) .notion-callout__content * {
     font-size: 18px !important;
 }
 
 @media (max-width: 768px) {
-    .notion-callout[class*="green"]:is(:has(.notion-bulleted_list), :has(ul)):is(:has(.notion-inline-code), :has(code)) .notion-callout__content * {
+    .notion-callout[class*="green"]:has(code) .notion-callout__content * {
         font-size: 16px !important;
     }
 }
-
 
 /*=========================================
 09-4 ⚪[우측 정렬 트리거] 그레이 콜아웃 + 불렛 리스트
