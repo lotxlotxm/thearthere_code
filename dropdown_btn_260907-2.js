@@ -1,5 +1,5 @@
 (function() {
-  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788758487/hero_dropdown_btn-hover_yqrgg5.sv';
+  const V_ARROW_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788758487/hero_dropdown_btn-hover_yqrgg5.svg';
   const V_ARROW_HOVER_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1788762135/hero_dropdown_btn-hover_yellow_zwgscx.svg';
 
   const preloadHoverImg = new Image();
