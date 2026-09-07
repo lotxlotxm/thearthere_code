@@ -523,11 +523,11 @@ span[class*="yellow"] code *,
 
 
 /*=========================================
-#️⃣[알약형] 핑크색
+#️⃣[알약형] 핑크색 (번호 매기기 목록 제외)
 ------------------------------------------*/
-code[class*="pink"],
-span[class*="pink"] code,
-.notion-inline-code[class*="pink"] {
+code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)),
+span[class*="pink"] code:not(:has(ol)):not(:has(.notion-numbered-list)),
+.notion-inline-code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) {
   /* 서체 정의 */
   font-family: var(--font-main) !important;
   font-size: 1em !important;
@@ -535,11 +535,10 @@ span[class*="pink"] code,
   line-height: 1.2 !important;
   color: #37352f !important;
   -webkit-text-fill-color: #37352f !important;
-    font-weight: 600 !important;
 
   /* 배경 */
   background: #ffffff !important;
-/* 형태 (★ 바더 컬러 정밀 이식) */
+  /* 형태 (★ 바더 컬러 정밀 이식) */
   border-radius: 32px !important;
   padding: 12px 24px !important;
   border: 1px solid #37352f !important;
@@ -549,21 +548,22 @@ span[class*="pink"] code,
   display: inline-block !important;
   vertical-align: middle !important;
 }
-/* 2. 내부 span / a / div 강제 동기화
-(노션 내부 wrapper 대응)*/
-code[class*="pink"] *,
-span[class*="pink"] code *,
-.notion-inline-code[class*="pink"] * {
+
+/* 2. 내부 span / a / div 강제 동기화 (노션 내부 wrapper 대응) */
+code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) *,
+span[class*="pink"] code:not(:has(ol)):not(:has(.notion-numbered-list)) *,
+.notion-inline-code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) * {
   font-size: 1em !important;
   line-height: 1.2 !important;
   color: #37352f !important;
-  -webkit-text-fill-color:#37352f !important;
+  -webkit-text-fill-color: #37352f !important;
   text-decoration: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
   opacity: 1 !important;
 }
-/* 3. 기존 전역 code span 충돌 제거*/
+
+/* 3. 기존 전역 code span 충돌 제거 */
 code a,
 code span,
 code a span {
@@ -575,26 +575,23 @@ code a span {
   opacity: 1 !important;
 }
 
-
-/*  */
 /* 인라인 코드 레이아웃 고정 */
-code[class*="pink"],
-span[class*="pink"] code,
-.notion-inline-code[class*="pink"] {
-    /* 기존 속성들은 유지하고 아래 내용 추가 */
-    display: inline-block !important; 
-    vertical-align: middle !important;
-    white-space: nowrap !important; /* 줄바꿈 방지 */
-    max-width: 100% !important;     /* 컨테이너 너비 제한 */
-    overflow: hidden !important;    /* 넘침 방지 */
-   margin: 0 !important;           /* 양옆 마진 제거 */
+code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)),
+span[class*="pink"] code:not(:has(ol)):not(:has(.notion-numbered-list)),
+.notion-inline-code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) {
+  display: inline-block !important; 
+  vertical-align: middle !important;
+  white-space: nowrap !important; /* 줄바꿈 방지 */
+  max-width: 100% !important;     /* 컨테이너 너비 제한 */
+  overflow: hidden !important;    /* 넘침 방지 */
+  margin: 0 !important;           /* 양옆 마진 제거 */
 }
 
 /* 모바일 환경 제어 */
 @media (max-width: 768px) {
-  code[class*="pink"],
-  span[class*="pink"] code,
-  .notion-inline-code[class*="pink"] {
+  code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)),
+  span[class*="pink"] code:not(:has(ol)):not(:has(.notion-numbered-list)),
+  .notion-inline-code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) {
     padding: 10px 16px !important; /* 좁은 모바일 대응 패딩 축소 */
     font-size: 13px !important;    /* 폰트 사이즈 조정 */
     font-weight: 600 !important;
@@ -603,44 +600,26 @@ span[class*="pink"] code,
 
 /* 375px 이하 극소형 모바일 (iPhone SE 등) 대응 */
 @media (max-width: 380px) {
-  code[class*="pink"],
-  span[class*="pink"] code,
-  .notion-inline-code[class*="pink"] {
+  code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)),
+  span[class*="pink"] code:not(:has(ol)):not(:has(.notion-numbered-list)),
+  .notion-inline-code[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)) {
     padding: 8px 12px !important; 
     font-size: 12px !important;
   }
 }
 
-/* 내부 동기화 */
-code[class*="pink"] *,
-span[class*="pink"] code *,
-.notion-inline-code[class*="pink"] * {
-  font-size: 1em !important;
-  line-height: 1.2 !important;
-  color: #37352f !important;
-  -webkit-text-fill-color: #37352f !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-  opacity: 1 !important;
-}
-
-
-/* 핑크 알약을 포함한 모든 노션 텍스트 블록의 좌우 패딩 자동 제거 */
-p.notion-text:has(code[class*="pink"]),
-p.notion-text:has(span[class*="pink"]),
-.notion-text:has(.color-pink) {
+/* 핑크 알약을 포함한 모든 노션 텍스트 블록의 좌우 패딩 자동 제거 (번호 매기기 목록 제외) */
+p.notion-text:has(code[class*="pink"]):not(:has(ol)):not(:has(.notion-numbered-list)),
+p.notion-text:has(span[class*="pink"]):not(:has(ol)):not(:has(.notion-numbered-list)),
+.notion-text:has(.color-pink):not(:has(ol)):not(:has(.notion-numbered-list)) {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-
-
-/* 3. 두 버튼을 감싸는 부모 레이아웃 줄바꿈 방지 추가 (공통 추가) */
-/* 버튼이 포함된 텍스트 블록 한 줄 유지 및 중앙/좌측 정렬 유지 */
-.notion-text:has(code[class*="pink"]),
-.notion-text:has(.ticket-popup-btn) {
+/* 3. 버튼을 감싸는 부모 레이아웃 줄바꿈 방지 (번호 매기기 목록 제외) */
+.notion-text:has(code[class*="pink"]):not(:has(ol)):not(:has(.notion-numbered-list)),
+.notion-text:has(.ticket-popup-btn):not(:has(ol)):not(:has(.notion-numbered-list)) {
   white-space: nowrap !important;
-  overflow-x: auto !important; /* 혹시 모를 초과 발생 시 밖으로 튀어나가지 않도록 처리 */
+  overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
 }
