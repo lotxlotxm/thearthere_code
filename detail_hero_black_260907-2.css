@@ -87,3 +87,19 @@
     color: #AD1A72 !important;
     text-decoration: none !important;
 }
+
+/* 768px 이하 반응형 규격 맞춤 */
+@media (max-width: 768px) {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        padding: 10px 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* 380px 이하 반응형 규격 맞춤 */
+@media (max-width: 380px) {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+}
