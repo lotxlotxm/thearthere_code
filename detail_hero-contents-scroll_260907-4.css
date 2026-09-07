@@ -96,7 +96,7 @@
 @media (max-width: 768px) {
     /* 모바일 인트로 상단 패딩 50px 축소 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        padding: 50px 0 70px 0 !important;
+        padding: 70px 0 70px 0 !important;
     }
 
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
