@@ -59,3 +59,31 @@
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a {
     text-decoration: underline;
 }
+
+/* ------------------------------------------
+➕ 인트로 내부 인라인 코드 버튼 스타일 추가
+------------------------------------------ */
+/* 인라인 코드가 포함된 블록 감싸개 가운데 정렬 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
+    text-align: center !important;
+    margin-top: 20px !important;
+}
+
+/* 인라인 코드 버튼 자체 디자인 (분홍색 글씨 + 중앙 배치) */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+    display: inline-block !important;
+    color: #AD1A72 !important; /* 분홍색 글씨 */
+    background-color: #37352f !important;
+    padding: 12px 24px !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    border: 1px solid #ffffff !important;
+}
+
+/* 버튼 내부에 링크가 들어있을 경우 글자색 유지 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
+    color: #AD1A72 !important;
+    text-decoration: none !important;
+}
