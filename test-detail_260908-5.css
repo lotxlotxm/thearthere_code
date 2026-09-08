@@ -538,6 +538,15 @@
     }
 }
 
+
+/* --------------------------------------------------------------------------
+    미술관 개요 (녹색 콜아웃 + toggle) 모바일 글자 크기 조절
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content * {
+        font-size: 11px !important; /* 모바일에 맞게 원하시는 크기(예: 11px~12px)로 조절 가능합니다 */
+    }
+
+
 /* ==========================================================================
 📱 [소형 모바일] (380px 이하 전용)
 ========================================================================== */
