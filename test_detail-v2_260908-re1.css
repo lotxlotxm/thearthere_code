@@ -599,3 +599,90 @@ a.notion-link {
 .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]) p {
     text-align: left !important;
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   [PC & 공통] 히어로 이미지 (기본 그리드 유지)
+   ========================================================================== */
+
+/* 1. 콜아웃 기본 마스크 및 배경 초기화 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+    background: transparent !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ff0000 !important; /*테스트선*/
+    border-radius: 0px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+
+}
+
+/* 2. 콜아웃 내부 아이콘 숨김 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-callout__icon {
+    display: none !important;
+}
+
+/* 3. 콜아웃 내부 콘텐츠 여백 및 너비 정돈 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) > .notion-callout__content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* 4. PC: 그리드 폭 맞춤 및 21:9 비율 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 21 / 9 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0px !important;
+}
+
+
+/* ==========================================================================
+   [모바일] 768px 이하 전용 (상위 마스크 해제 & 24px 패딩 상쇄)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. 상위 블록 감싸는 마스크(overflow) 및 레이아웃 제한 해제 */
+    article.notion-root,
+    .notion-page,
+    .notion-header-page,
+    div[class*="super-content"] {
+        overflow: visible !important;
+    }
+
+    /* 2. 콜아웃 요소를 모바일 좌우 패딩(24px)만큼 음수 마진으로 강제 확장 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        width: calc(100% + 48px) !important;
+        max-width: calc(100% + 48px) !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. 이미지 프레임 및 img 태그 풀와이드 적용 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image,
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0px !important;
+    }
+}
