@@ -572,9 +572,10 @@ a.notion-link {
 /* ==========================================================================
 📱 [모바일] 히어로 이미지 제어
 ========================================================================== */
-/* [3-5] 모바일: 화면 좌우 꽉 차게 확장 및 21:9 비율 적용 */
 @media (max-width: 768px) {
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+    /* 1. 콜아웃 최상위 부모 풀와이드 확장 */
+    .notion-callout[class*="pink"]:has(.notion-image),
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):has(.notion-image) {
         position: relative !important;
         width: 100vw !important;
         max-width: 100vw !important;
@@ -582,11 +583,22 @@ a.notion-link {
         right: 50% !important;
         margin-left: -50vw !important;
         margin-right: -50vw !important;
+        padding: 0 !important;
     }
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image img {
+
+    /* 2. 노션 이미지 감싸는 래퍼(.notion-image) 너비 제약 해제 */
+    .notion-callout:has(.notion-image) .notion-image {
         width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 3. 실제 img 태그 비율 및 꽉 차게 설정 */
+    .notion-callout:has(.notion-image) .notion-image img {
+        width: 100vw !important;
+        max-width: 100vw !important;
         height: auto !important;
-        aspect-ratio: 21 / 9 !important;
+        aspect-ratio: 1 / 1 !important;
         object-fit: cover !important;
         object-position: center center !important;
         border-radius: 0px !important;
