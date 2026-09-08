@@ -468,41 +468,41 @@
         border-radius: 0px !important;
     }
 
-    /* --------------------------------------------------------------------------
-    3. 브레드크럼 (파란색 콜아웃) - rem 단위 완전 복구
+   /* --------------------------------------------------------------------------
+    3. 브레드크럼 (파란색 콜아웃) - PC 우선순위 덮어쓰기 수정 완료
     -------------------------------------------------------------------------- */
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-text-block,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) [contenteditable="false"],
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-semantic-string,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-semantic-string span,
-    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-callout__content * {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-text-block,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) [contenteditable="false"],
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-semantic-string,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-semantic-string span,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-callout__content * {
         font-size: 0.7rem !important;
         line-height: 1.6 !important;
     }
 
-    .notion-callout[class*="blue"]:not(:has(code)) .notion-text:first-child,
-    .notion-callout[class*="blue"]:not(:has(code)) p:first-child,
-    .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-text:first-child,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) p:first-child,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
-    .notion-callout[class*="blue"]:not(:has(code)) ul,
-    .notion-callout[class*="blue"]:not(:has(code)) ol {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) ul,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) ol {
         padding-left: 18px !important;
         margin-top: 8px !important;
     }
 
-    .notion-callout[class*="blue"]:not(:has(code)) {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
         display: block !important;
         padding: 0 !important;
         margin-bottom: -15px !important;
