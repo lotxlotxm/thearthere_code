@@ -80,8 +80,8 @@
 /* 1. 콜아웃 기본 마스크 및 배경 초기화 */
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
     background: transparent !important;
-    background-color: #ffffff !important;
-    border: 1px solid #ff0000 !important; /*테스트선*/
+    background-color: transparent !important;
+    border: 0px solid #ff0000 !important; /*테스트선*/
     border-radius: 0px !important;
     padding: 0 !important;
     box-shadow: none !important;
@@ -585,8 +585,79 @@ a.notion-link {
 
 
 /* ==========================================================================
-📱 [모바일] 히어로 이미지 제어
+📱 [MOBILE] 인트로 히어로 이미지
+- PC 영향 없음
+- article의 좌우 24px 그리드 탈출
+- 이미지 전체 풀와이드
+- 모바일 1:1
 ========================================================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. 핑크 인트로 내부 컨텐츠가 자식의 확장을 잘라내지 않도록 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    > .notion-callout__content {
+        overflow: visible !important;
+    }
+
+    /* 2. 히어로 이미지 전용 콜아웃 - article의 좌우 24px padding을 탈출 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    > .notion-callout__content
+    > .notion-callout:has(.notion-image) {
+        width: calc(100% + 48px) !important;
+        max-width: none !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        flex: 0 0 auto !important;
+        align-self: stretch !important;
+    }
+
+    /* 3. Notion 이미지 wrapper (기준점 부여 및 1:1 프레임) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    > .notion-callout__content
+    > .notion-callout:has(.notion-image)
+    .notion-image {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        aspect-ratio: 1 / 1 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. 실제 IMG (절대 좌표로 1:1 프레임 가득 채움) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    > .notion-callout__content
+    > .notion-callout:has(.notion-image)
+    .notion-image img {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        aspect-ratio: auto !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
 
 
 
