@@ -1,0 +1,1103 @@
+/* ==========================================================================
+📌 [PC 전용] 다크 인트로 통합 스타일
+========================================================================== */
+
+/* --------------------------------------------------------------------------
+1. 최외각 부모 다크 인트로 컨테이너 & 레이아웃
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: -100px !important; 
+    margin-bottom: 0px !important; 
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding: 100px 0 70px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+}
+
+/* 1-1. 풀와이드 다크 배경 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 100vw !important;
+    margin-left: -50vw !important;
+    background-color: #37352F !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+/* 1-2. 내부 콘텐츠 영역 초기화 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 1-3. 맨 위 트리거용 번호매기기 목록 숨김 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+    display: none !important;
+}
+
+/* 1-4. 기본 텍스트 및 링크 색상 지정 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
+    color: #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+2. 인트로 내부 히어로 이미지 (21:9 비율)
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 21 / 9 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0px !important;
+}
+
+/* --------------------------------------------------------------------------
+3. 인트로 내부 브레드크럼 (파란색 콜아웃 무력화)
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
+    background-color: transparent !important; 
+    border: 0px solid transparent !important;  
+    border-radius: 0px !important;
+    padding: 0px !important;
+    color: #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b {
+    font-size: 0.8rem !important;    
+    line-height: 1.6 !important;     
+    color: #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-text {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+4. 인트로 내부 h1 제목 여백 리셋
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) {
+    background-color: transparent !important;
+    border: none !important;
+    border-color: transparent !important;
+    border-radius: 0px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) .notion-callout__content,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) h1 {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* --------------------------------------------------------------------------
+5. 인트로 내부 핵심정보 (녹색 콜아웃 + code)
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) p:has(code):first-of-type,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-text:has(code):first-of-type,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) ol:first-of-type {
+    display: none !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;  
+    padding-top: 0px !important;    
+    padding-bottom: 0px !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 0 !important;       
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
+    font-size: 18px !important;
+}
+
+/* --------------------------------------------------------------------------
+6. 인트로 내부 미술관 개요 (녹색 콜아웃 + toggle)
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered_list,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered-list,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) ol,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-inline-code,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) code {
+    display: none !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .super-content div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-width: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .super-content div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) div:not(.notion-divider):not(.notion-callout),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) *:not(.notion-divider):not(.notion-divider *):not(.notion-callout):not(.notion-callout *) {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content * {
+    font-size: 13px !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__icon,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger_icon,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger_icon span,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger svg {
+    display: none !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle:not(.open) .notion-toggle__trigger::before {
+    content: "View more +" !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #999999 !important;
+    display: inline-block !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle.open .notion-toggle__trigger::before {
+    content: "View less -" !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #999999 !important;
+    display: inline-block !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    padding-left: 0 !important; 
+    margin-left: 0 !important; 
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__content {
+    order: 1 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content > *,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__content > *,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__summary {
+    order: 2 !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger {
+    padding-left: 2px !important;
+    margin-left: 0 !important;
+} 
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-divider,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover .notion-divider {
+    display: block !important;
+    visibility: visible !important;
+    border: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin: 12px 0 !important;
+    background: transparent !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-divider *,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover .notion-divider * {
+    background: transparent !important;
+    border: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+7. 인트로 내부 인라인 코드 버튼 (예: 티켓 예매 버튼 등)
+-------------------------------------------------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
+    text-align: center !important;
+    margin-top: 20px !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+    display: inline-block !important;
+    color: #AD1A72 !important;
+    background-color: #37352f !important;
+    padding: 12px 24px !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    border: 1px solid #ffffff !important;
+}
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
+    color: #AD1A72 !important;
+    text-decoration: none !important;
+}
+
+
+/* ==========================================================================
+🟫 [독립 영역] 이미지 오버랩 좋아요 & 쉐어 버튼 (브라운 콜아웃)
+========================================================================== */
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+    --padding-x-pc: 15px;
+    position: relative !important;
+    margin-top: -55px !important;
+    z-index: 100 !important;
+    width: 100% !important;
+    max-width: 1150px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: var(--padding-x-pc) !important;
+    padding-right: var(--padding-x-pc) !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+}
+
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
+    display: none !important;
+}
+
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) > .notion-callout__content {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
+    color: #ffffff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) code,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-inline-code {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #37352f !important;
+    -webkit-text-fill-color: #37352f !important;
+    background: rgba(255, 255, 255, 1) !important; 
+    text-shadow: none !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
+
+
+/* ==========================================================================
+🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
+========================================================================== */
+.notion-callout[class*="blue"]:not(:has(code)) {
+    background-color: transparent !important; 
+    border: 0px solid transparent !important;  
+    border-radius: 0px !important;
+    padding: 0px !important;
+    color: #37352f !important;
+}
+
+.notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b {
+    font-size: 0.8rem !important;    
+    line-height: 1.6 !important;     
+}
+
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-text-block,
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) [contenteditable="false"] {
+    font-size: 0.8rem !important;
+}
+
+.notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
+.notion-callout[class*="blue"]:not(:has(code)) .notion-text {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* ==========================================================================
+📱 [모바일 전용] 다크 인트로 통합 스타일 (순서 재배치 포함)
+========================================================================== */
+@media (max-width: 768px) {
+
+    /* --------------------------------------------------------------------------
+    1. 최외각 부모 다크 인트로 컨테이너 (Flexbox 순서 제어)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+        position: relative !important;
+        top: 0 !important;
+        z-index: 1 !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-top: 0 !important; /* 상단 이미지 완전 밀착 */
+        padding-bottom: 40px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 1-1. 풀와이드 다크 배경 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 100vw !important;
+        margin-left: -50vw !important;
+        background-color: #37352F !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+    }
+
+    /* 1-2. 내부 콘텐츠 Flexbox 설정 (순서 재배치용) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 16px !important; /* 내부 텍스트용 좌우 여백 */
+        box-sizing: border-box !important;
+    }
+
+    /* 1-3. 트리거용 번호매기기 목록 숨김 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+        display: none !important;
+    }
+
+    /* 1-4. 기본 텍스트 및 링크 색상 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+        color: #ffffff !important;
+        text-decoration: underline;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 1] 상단 이미지 (완전 상단 붙이기 + 풀와이드 1:1 비율)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image {
+        order: 1 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important; /* 1:1 비율 지정 */
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0px !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 2] 브레드크럼 (파란색 콜아웃)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
+        order: 2 !important;
+        margin-top: 24px !important;
+        margin-bottom: 8px !important;
+        background-color: transparent !important; 
+        border: 0px solid transparent !important;  
+        border-radius: 0px !important;
+        padding: 0px !important;
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span {
+        font-size: 0.75rem !important;    
+        line-height: 1.5 !important;     
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-text {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 3] h1 제목 영역 (London 포함)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) {
+        order: 3 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 16px !important;
+        min-height: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) h1 {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        font-size: 1.6rem !important; /* 모바일 제목 크기 최적화 */
+        line-height: 1.3 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 4] 요일 등 핵심정보 (녹색 콜아웃 + code)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) p:has(code):first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-text:has(code):first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) ol:first-of-type {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) {
+        order: 4 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 16px !important;
+        min-height: 0 !important;       
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
+        font-size: 15px !important; /* 모바일본문 본문 크기 조절 */
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 5] 미술관 개요 (녹색 콜아웃 + toggle)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) {
+        order: 5 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered_list,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered-list,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) ol,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-inline-code,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) code {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .super-content div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content * {
+        font-size: 13px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__icon,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger_icon,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger svg {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle:not(.open) .notion-toggle__trigger::before {
+        content: "View more +" !important;
+        font-size: 12px !important;
+        color: #999999 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle.open .notion-toggle__trigger::before {
+        content: "View less -" !important;
+        font-size: 12px !important;
+        color: #999999 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-left: 0 !important; 
+        margin-left: 0 !important; 
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__content {
+        order: 1 !important;
+        padding-left: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__summary {
+        order: 2 !important;
+        padding-left: 0 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 6] CTA 버튼 (인라인 코드 버튼)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
+        order: 6 !important;
+        text-align: center !important;
+        margin-top: 10px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        display: block !important; /* 모바일에서 완전한 버튼 형태로 통확장 */
+        width: 100% !important;
+        box-sizing: border-box !important;
+        color: #AD1A72 !important;
+        background-color: #37352f !important;
+        padding: 14px 20px !important;
+        border-radius: 30px !important;
+        font-weight: 600 !important;
+        border: 1px solid #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
+        color: #AD1A72 !important;
+        text-decoration: none !important;
+    }
+
+
+    /* ==========================================================================
+    🟫 [순서 1-1] 이미지 오버랩 좋아요 & 쉐어 버튼 (상단 이미지 세트)
+    ========================================================================== */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+        position: relative !important;
+        margin-top: -45px !important; /* 이미지 우측 하단 위로 오버랩 */
+        z-index: 100 !important;
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        font-size: 13px !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) > .notion-callout__content {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
+        color: #ffffff !important;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) code,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-inline-code {
+        display: inline-block !important;
+        color: #37352f !important;
+        background: rgba(255, 255, 255, 1) !important; 
+        text-shadow: none !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+    }
+}
+
+/* ==========================================================================
+📱 [모바일 전용] 다크 인트로 통합 스타일 (DOM 구조 맞춤 순서 재배치)
+========================================================================== */
+@media (max-width: 768px) {
+
+    /* --------------------------------------------------------------------------
+    1. 최외각 부모 다크 인트로 컨테이너
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+        position: relative !important;
+        top: 0 !important;
+        z-index: 1 !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 40px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 1-1. 풀와이드 다크 배경 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 100vw !important;
+        margin-left: -50vw !important;
+        background-color: #37352F !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+    }
+
+    /* 1-2. 내부 콘텐츠 Flexbox 설정 (주요 순서 제어 탑 레이어) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 1-3. 트리거용 번호매기기 목록 숨김 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+        display: none !important;
+    }
+
+    /* 1-4. 기본 텍스트 및 링크 색상 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+        color: #ffffff !important;
+        text-decoration: underline;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 1] 상단 이미지 (.notion-image) - 1:1 비율 / 풀와이드
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image {
+        order: 1 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-image img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0px !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 2] 브레드크럼 (Find > Museum)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3d1d9708b02b809eaf9fc62b625b975d,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):first-of-type {
+        order: 2 !important;
+        margin-top: 24px !important;
+        margin-bottom: 8px !important;
+        background-color: transparent !important; 
+        border: 0px solid transparent !important;  
+        border-radius: 0px !important;
+        padding: 0px !important;
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"] .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"] * {
+        font-size: 0.75rem !important;    
+        line-height: 1.5 !important;     
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"] .notion-callout__content {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 3] h1 제목 + 위치정보 (The National Gallery / London | UK)
+    -------------------------------------------------------------------------- */
+    /* 3-1. h1 제목 콜아웃 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3cfd9708b02b80568ecce1abe8a03fca,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1) {
+        order: 3 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 4px !important;
+        min-height: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1) h1 {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        font-size: 1.6rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 3-2. London | UK 서브 위치 콜아웃 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3d1d9708b02b80d18c73fa11ecfe42f3 {
+        order: 3 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 4 & 5] 핵심정보 + 미술관 개요 통합 감싸는 컬럼 (.notion-column-list)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-column-list {
+        order: 4 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-column {
+        width: 100% !important;
+        margin-inline-start: 0 !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* [순서 4] 핵심정보 컬럼 내 콜아웃 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ced9708b02b805389c9d1808895f368 {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ced9708b02b805389c9d1808895f368 p:has(code):first-of-type {
+        display: none !important; /* 내부 태그 트리거용 인라인코드 숨김 */
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ced9708b02b805389c9d1808895f368 * {
+        font-size: 15px !important;
+    }
+
+    /* [순서 5] 미술관 개요 컬럼 내 토글 콜아웃 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 ol:first-of-type {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 * {
+        font-size: 13px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle__trigger_icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle:not(.open) .notion-toggle__trigger::before {
+        content: "View more +" !important;
+        font-size: 12px !important;
+        color: #999999 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle.open .notion-toggle__trigger::before {
+        content: "View less -" !important;
+        font-size: 12px !important;
+        color: #999999 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-left: 0 !important; 
+        margin-left: 0 !important; 
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle__content {
+        order: 1 !important;
+        padding-left: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80d6911bf0d4b40d9326 .notion-toggle__summary {
+        order: 2 !important;
+        padding-left: 0 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+    [순서 6] CTA 버튼 (Official Site ↗ / TICKET_POPUP)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80148504f8c5153cc037 {
+        order: 6 !important;
+        text-align: center !important;
+        margin-top: 10px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80148504f8c5153cc037 code {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        color: #AD1A72 !important;
+        background-color: #37352f !important;
+        padding: 14px 20px !important;
+        border-radius: 30px !important;
+        font-weight: 600 !important;
+        border: 1px solid #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) #block-3ccd9708b02b80148504f8c5153cc037 code a {
+        color: #AD1A72 !important;
+        text-decoration: none !important;
+    }
+
+
+    /* ==========================================================================
+    🟫 [순서 1-1] 이미지 오버랩 좋아요 & 쉐어 버튼 (.notion-callout.bg-brown-light)
+    ========================================================================== */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+    #block-334d9708b02b823f9cd6017951c0a938 {
+        position: relative !important;
+        margin-top: -45px !important;
+        z-index: 100 !important;
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        font-size: 13px !important;
+    }
+
+    .notion-callout[class*="brown"] li,
+    .notion-callout[class*="brown"] .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="brown"] > .notion-callout__content {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="brown"] * {
+        color: #ffffff !important;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+}
+
+
+/* ==========================================================================
+🟫 [모바일 전용] 이미지 오버랩 좋아요 & 쉐어 버튼 (순서 지정 및 위치 수정)
+========================================================================== */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+#block-334d9708b02b823f9cd6017951c0a938 {
+    order: 1 !important; /* 이미지 바로 다음 레이어로 순서 지정 */
+    position: relative !important;
+    margin-top: -50px !important; /* 이미지 위로 겹쳐 올라가도록 여백 지정 */
+    z-index: 100 !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    font-size: 13px !important;
+}
+
+.notion-callout[class*="brown"] li,
+.notion-callout[class*="brown"] [class*="bulleted"],
+.notion-callout[class*="brown"] .notion-callout__icon {
+    display: none !important;
+}
+
+.notion-callout[class*="brown"] > .notion-callout__content {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.notion-callout[class*="brown"] *,
+.notion-callout[class*="brown"] p,
+.notion-callout[class*="brown"] span:not(:has(code)) {
+    color: #ffffff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.notion-callout[class*="brown"] code,
+.notion-callout[class*="brown"] .notion-inline-code {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #37352f !important;
+    background: rgba(255, 255, 255, 1) !important; 
+    text-shadow: none !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
