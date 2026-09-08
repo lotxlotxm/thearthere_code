@@ -128,11 +128,11 @@
 /* -----------------------------------
 📍 Location 링크는 노션 지정 색상 그대로 사용
 ----------------------------------- */
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+/* .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
 .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle))
 a.notion-link {
     color: inherit !important;
-}
+} */
 
 
 /* --------------------------------------------------------------------------
@@ -143,7 +143,7 @@ a.notion-link {
     border: none !important;
     border-color: transparent !important;
     border-radius: 0px !important;
-    padding: 0 !important;
+    padding: 0px 0px 15px 0px !important;
     margin: 0 !important;
     min-height: 0 !important;
 }
