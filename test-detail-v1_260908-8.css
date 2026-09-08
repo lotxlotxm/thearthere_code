@@ -116,7 +116,7 @@
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b {
     font-size: 0.8rem !important;    
     line-height: 1.6 !important;     
-    color: #ffffff !important;
+    /* color: #ffffff !important; 원래 노션 컬러 반영 위해 삭제 */ 
 }
 
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
