@@ -87,14 +87,14 @@
 }
 
 /* --------------------------------------------------------------------------
-3. 인트로 내부 브레드크럼 (파란색 콜아웃 무력화)
+3. 인트로 내부 브레드크럼 + 위치 (주석 0.8) (파란색 콜아웃 무력화)
 -------------------------------------------------------------------------- */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
     background-color: transparent !important; 
     border: 0px solid transparent !important;  
     border-radius: 0px !important;
     padding: 0px !important;
-    color: #ffffff !important;
+    /* color: #ffffff !important; */
 }
 
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
@@ -124,6 +124,16 @@
     padding-left: 0 !important;
     margin-left: 0 !important;
 }
+
+/* -----------------------------------
+📍 Location 링크는 노션 지정 색상 그대로 사용
+----------------------------------- */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+.notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle))
+a.notion-link {
+    color: inherit !important;
+}
+
 
 /* --------------------------------------------------------------------------
 4. 인트로 내부 h1 제목 여백 리셋
