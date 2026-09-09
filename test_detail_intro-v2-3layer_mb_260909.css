@@ -1,0 +1,486 @@
+/* ==========================================================================
+📱 [모바일 전용] 3레이어 스티키 구조 + 다크 인트로 통합 CSS (Max-width: 768px)
+========================================================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. 최상위 컨테이너 기준점 */
+    .notion-page-content {
+        position: relative !important;
+    }
+
+
+    /* --------------------------------------------------------------------------
+       1번 레이어: 히어로 이미지 (상단 네비와 겹치는 top: 0px 고정 + 풀와이드 #37352F)
+    -------------------------------------------------------------------------- */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        position: sticky !important;
+        top: 0px !important;
+        z-index: 1 !important;
+        background-color: #37352F !important;
+        border: none !important;
+        border-radius: 0px !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: translateY(-71px) !important;
+        width: calc(100% + 48px) !important;
+        max-width: none !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+    }
+
+    /* 1번 레이어 풀와이드 배경판 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
+        content: "" !important;
+        position: absolute !important;
+        top: -72px !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 100vw !important;
+        margin-left: -50vw !important;
+        background-color: #37352F !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+    }
+
+    /* 히어로 이미지 내부 아이콘 숨김 및 여백 정리 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) > .notion-callout__content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) .notion-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 모바일 전용 4:6 비율 설정 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
+        width: 100% !important;
+        max-height: none !important;
+        aspect-ratio: 4 / 6 !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+        border-radius: 0px !important;
+    }
+
+
+
+    /* ==========================================================================
+    🟫 [독립 영역] 이미지 오버랩 좋아요 & 쉐어 버튼 (브라운 콜아웃)
+    ========================================================================== */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+        --padding-x-mo: 16px;
+        position: absolute !important;
+        top: calc(100vw * (6 / 4) - 50px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        z-index: 100 !important;
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: var(--padding-x-mo) !important;
+        padding-right: var(--padding-x-mo) !important;
+        box-sizing: border-box !important;
+        font-size: 13px !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
+        display: none !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) > .notion-callout__content {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
+        color: #ffffff !important;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) code,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-inline-code {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: #37352f !important;
+        -webkit-text-fill-color: #37352f !important;
+        background: rgba(255, 255, 255, 1) !important; 
+        text-shadow: none !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+    }
+
+
+
+    /* --------------------------------------------------------------------------
+       2번 레이어: 핑크 콜아웃 (모바일 비율 맞춤 위치 지정)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+        position: sticky !important;
+        top: 0px !important;
+        z-index: 5 !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important; 
+        margin-bottom: 0 !important; 
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0px 16px 40px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2-1. 풀와이드 다크 배경판 (#37352F) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 100vw !important;
+        margin-left: -50vw !important;
+        background-color: #37352F !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+    }
+
+    /* 2-2. 내부 콘텐츠 영역 초기화 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
+        position: relative !important;
+        z-index: 12 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2-3. 트리거용 번호매기기 목록 숨김 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+        display: none !important;
+    }
+
+    /* 2-4. 기본 텍스트 및 링크 색상 지정 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
+        color: #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
+        color: #ffffff !important;
+        text-decoration: underline;
+    }
+
+    /* 2-5. 인트로 내부 브레드크럼 + 위치 (파란색 콜아웃 무력화) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
+        background-color: transparent !important; 
+        border: 0px solid transparent !important;  
+        border-radius: 0px !important;
+        padding: 0px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b {
+        font-size: 0.75rem !important;    
+        line-height: 1.5 !important;      
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) .notion-text {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* 2-6. 인트로 내부 h1 제목 여백 리셋 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) {
+        background-color: transparent !important;
+        border: none !important;
+        border-color: transparent !important;
+        border-radius: 0px !important;
+        padding: 0px 0px 10px 0px !important;
+        margin: 0 !important;
+        min-height: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) .notion-callout__content,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) h1 {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 2-7. 인트로 내부 핵심정보 (녹색 콜아웃 + code) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) p:has(code):first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-text:has(code):first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) ol:first-of-type {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) {
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0px !important;  
+        padding-top: 0px !important;    
+        padding-bottom: 0px !important; 
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        min-height: 0 !important;       
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
+        font-size: 15px !important;
+    }
+
+    /* 2-8. 인트로 내부 미술관 개요 (녹색 콜아웃 + toggle) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered_list,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-numbered-list,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) ol,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) .notion-inline-code,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle) code {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .super-content div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-width: 0 !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .super-content div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) div:not(.notion-divider):not(.notion-callout),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) *:not(.notion-divider):not(.notion-divider *):not(.notion-callout):not(.notion-callout *) {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content * {
+        font-size: 12px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__icon,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger_icon,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger_icon span,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger svg {
+        display: none !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle:not(.open) .notion-toggle__trigger::before {
+        content: "View more +" !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #999999 !important;
+        display: inline-block !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle.open .notion-toggle__trigger::before {
+        content: "View less -" !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #999999 !important;
+        display: inline-block !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-left: 0 !important; 
+        margin-left: 0 !important; 
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__content {
+        order: 1 !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content > *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__content > *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) p {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__summary {
+        order: 2 !important;
+        margin-top: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-toggle__trigger {
+        padding-left: 2px !important;
+        margin-left: 0 !important;
+    } 
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-divider,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover .notion-divider {
+        display: block !important;
+        visibility: visible !important;
+        border: none !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+        background: transparent !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-divider *,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)):hover .notion-divider * {
+        background: transparent !important;
+        border: none !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* 2-9. 인트로 내부 인라인 코드 버튼 (티켓 예매 버튼 등) */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
+        text-align: center !important;
+        margin-top: 16px !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        display: inline-block !important;
+        color: #AD1A72 !important;
+        background-color: #37352f !important;
+        padding: 10px 20px !important;
+        border-radius: 30px !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
+        border: 1px solid #ffffff !important;
+    }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
+        color: #AD1A72 !important;
+        text-decoration: none !important;
+    }
+
+
+
+
+    /* ==========================================================================
+    🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
+    ========================================================================== */
+    .notion-callout[class*="blue"]:not(:has(code)) {
+        background-color: transparent !important; 
+        border: 0px solid transparent !important;  
+        border-radius: 0px !important;
+        padding: 0px !important;
+        color: #37352f !important;
+    }
+
+    .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__icon {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::before,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) *::after,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) p,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) div,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) span,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) li,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) strong,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) b {
+        font-size: 0.75rem !important;    
+        line-height: 1.5 !important;      
+    }
+
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) .notion-text-block,
+    .notion-callout[class*="blue"]:not(:has(code)):not(:has(.notion-toggle)) [contenteditable="false"] {
+        font-size: 0.75rem !important;
+    }
+
+    .notion-callout[class*="blue"]:not(:has(code)) .notion-callout__content,
+    .notion-callout[class*="blue"]:not(:has(code)) .notion-text {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+}
