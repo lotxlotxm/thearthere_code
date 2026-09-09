@@ -19,6 +19,7 @@
     border: none !important;
     border-radius: 0px !important;
     padding: 0 !important;
+    margin-top: 0 !important; /* 상단 주황색 여백(2px) 제거 */
     margin-bottom: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
