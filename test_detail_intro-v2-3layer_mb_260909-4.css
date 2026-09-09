@@ -69,7 +69,7 @@
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
         max-height: none !important;
-        aspect-ratio: 4 / 6 !important;
+        aspect-ratio: 4 / 5 !important;
         object-fit: cover !important;
         object-position: center !important;
         display: block !important;
