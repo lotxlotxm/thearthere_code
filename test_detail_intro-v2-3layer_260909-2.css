@@ -118,13 +118,17 @@
 }
 
 /* 2-4. 기본 텍스트 및 링크 색상 지정 */
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) * {
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h3:not([class*="color-"]),
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:not([class*="color-"]) {
     color: #ffffff !important;
 }
 
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a:not(.ticket-popup-btn):not([class*="color-"]) {
     color: #ffffff !important;
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
 /* 2-5. 인트로 내부 브레드크럼 + 위치 (파란색 콜아웃 무력화) */
