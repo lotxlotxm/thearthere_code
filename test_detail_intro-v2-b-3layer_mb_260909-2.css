@@ -380,7 +380,7 @@
         display: inline-block !important;
         color: #AD1A72 !important;
         background-color: #37352f !important;
-        padding: 10px 20px !important;
+        padding: 10px 16px !important;
         border-radius: 30px !important;
         font-weight: 600 !important;
         font-size: 14px !important;
@@ -393,13 +393,21 @@
         text-decoration: none !important;
     }
 
-
+}
+@media (max-width: 380px) {
+ .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+}
 
 
     /* ==========================================================================
     🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
     ========================================================================== */
-    .notion-callout[class*="blue"]:not(:has(code)) {
+@media (max-width: 768px) {
+    
+.notion-callout[class*="blue"]:not(:has(code)) {
         background-color: transparent !important; 
         border: 0px solid transparent !important;  
         border-radius: 0px !important;
