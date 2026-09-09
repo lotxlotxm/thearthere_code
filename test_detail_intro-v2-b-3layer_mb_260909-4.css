@@ -380,7 +380,7 @@
         display: inline-block !important;
         color: #AD1A72 !important;
         background-color: #37352f !important;
-        padding: 10px 16px !important;
+        padding: 10px 20px !important;
         border-radius: 30px !important;
         font-weight: 600 !important;
         font-size: 13px !important;
@@ -394,11 +394,11 @@
         color: #AD1A72 !important;
         text-decoration: none !important;
     }
-
 }
+
 @media (max-width: 380px) {
  .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
-        padding: 8px 12px !important;
+        padding: 8px 16px !important;
         font-size: 12px !important;
     }
 }
