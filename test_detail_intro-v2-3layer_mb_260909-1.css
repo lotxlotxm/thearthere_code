@@ -144,7 +144,7 @@
     -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: sticky !important;
-        top: 0px !important;
+        top: 72px !important;
         z-index: 5 !important;
         background-color: transparent !important;
         border: none !important;
