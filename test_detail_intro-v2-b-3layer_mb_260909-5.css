@@ -1,18 +1,23 @@
-
 /* ==========================================================================
-📱 [모바일 전용] 3레이어 스티키 구조 + 다크 인트로 통합 CSS (Max-width: 768px)
+📱 [모바일 전용] 3레이어 스티키 고정 보정 CSS (Max-width: 768px)
 ========================================================================== */
 
 @media (max-width: 768px) {
 
+    /* 0. 스티키 고정을 방해하는 부모 컨테이너 overflow 해제 */
+    html, body, #__next, .super-content, .notion {
+        overflow: visible !important;
+    }
+
     /* 1. 최상위 컨테이너 기준점 */
     .notion-page-content {
         position: relative !important;
+        overflow: visible !important;
     }
 
 
     /* --------------------------------------------------------------------------
-       1번 레이어: 히어로 이미지 (상단 네비와 겹치는 top: 0px 고정 + 풀와이드 #37352F)
+       1번 레이어: 히어로 이미지 (스티키 고정 완벽 보정)
     -------------------------------------------------------------------------- */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
         position: sticky !important;
@@ -22,17 +27,19 @@
         border: none !important;
         border-radius: 0px !important;
         padding: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
         box-shadow: none !important;
         overflow: visible !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        transform: translateY(-71px) !important;
-        width: calc(100% + 48px) !important;
-        max-width: none !important;
+        
+        /* transform: translateY(-71px) 제거 -> 스티키 해제 원인 차단 */
+        transform: none !important; 
+        
+        /* 마진으로 상단 네비 영역 및 좌우 풀와이드 처리 */
+        margin-top: -71px !important;
+        margin-bottom: 0 !important;
         margin-left: -24px !important;
         margin-right: -24px !important;
+        width: calc(100% + 48px) !important;
+        max-width: none !important;
     }
 
     /* 1번 레이어 풀와이드 배경판 */
@@ -66,7 +73,7 @@
         margin: 0 !important;
     }
 
-    /* 모바일 전용 4:6 비율 설정 */
+    /* 모바일 전용 비율 설정 */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
         max-height: none !important;
@@ -78,25 +85,22 @@
     }
 
 
-
     /* ==========================================================================
-    🟫 [독립 영역] 이미지 오버랩 좋아요 & 쉐어 버튼 (브라운 콜아웃)
+       🟫 [독립 영역] 이미지 오버랩 좋아요 & 쉐어 버튼 (브라운 콜아웃)
     ========================================================================== */
-       .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
         --padding-x-mobile: 0px;
         margin-top: -100px !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
-        padding-left: 24px; !important;
+        padding-left: 24px !important;
         padding-right: var(--padding-x-mobile) !important;
         font-size: 10px !important;
     }
 
 
-
-
     /* --------------------------------------------------------------------------
-       2번 레이어: 핑크 콜아웃 (모바일 비율 맞춤 위치 지정)
+       2번 레이어: 핑크 콜아웃 (스크롤 시 1번 레이어 위로 올라오는 레이어)
     -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: relative !important;
@@ -105,7 +109,7 @@
         background-color: transparent !important;
         border: none !important;
         border-radius: 0 !important;
-        margin-top: -71px !important; 
+        margin-top: 0px !important; 
         margin-bottom: 0 !important; 
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -385,7 +389,7 @@
         font-weight: 600 !important;
         font-size: 13px !important;
         border: 1px solid #ffffff !important;
-                margin: 0 !important;
+        margin: 0 !important;
 
     }
 
@@ -397,19 +401,18 @@
 }
 
 @media (max-width: 380px) {
- .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
         padding: 8px 16px !important;
         font-size: 12px !important;
     }
 }
 
 
-    /* ==========================================================================
-    🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
-    ========================================================================== */
+/* ==========================================================================
+   🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
+========================================================================== */
 @media (max-width: 768px) {
-    
-.notion-callout[class*="blue"]:not(:has(code)) {
+    .notion-callout[class*="blue"]:not(:has(code)) {
         background-color: transparent !important; 
         border: 0px solid transparent !important;  
         border-radius: 0px !important;
@@ -448,5 +451,4 @@
         padding-left: 0 !important;
         margin-left: 0 !important;
     }
-
 }
