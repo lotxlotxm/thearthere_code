@@ -383,8 +383,10 @@
         padding: 10px 16px !important;
         border-radius: 30px !important;
         font-weight: 600 !important;
-        font-size: 14px !important;
+        font-size: 13px !important;
         border: 1px solid #ffffff !important;
+                margin: 0 !important;
+
     }
 
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
