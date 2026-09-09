@@ -109,6 +109,11 @@ red = 블랙 버튼
     }
 }
 @media (max-width: 768px) {
+/* 모바일 버전 상단 마진 제거 */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) {
+        margin-top: 0 !important;
+    }
+    
     .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) .notion-callout__content {
         padding-left: 22px !important;
         padding-right: 16px !important;
@@ -126,7 +131,7 @@ red = 블랙 버튼
 
 
 
-/* ==========================================
+/* =================아마도 안씀=========================
 05 📌 스티키 Section Navigation
 yellow = 화이트 버튼 (260816 추가)
 red = 블랙 버튼
