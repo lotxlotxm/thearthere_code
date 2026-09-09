@@ -555,7 +555,7 @@ a.notion-link {
     -------------------------------------------------------------------------- */
     .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
         --padding-x-mobile: 0px;
-        margin-top: -55px !important;
+        margin-top: -130px !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
         padding-left: var(--padding-x-mobile) !important;
@@ -604,6 +604,7 @@ a.notion-link {
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
     > .notion-callout__content
     > .notion-callout:has(.notion-image) {
+            transform: translateY(-73px) !important;
         width: calc(100% + 48px) !important;
         max-width: none !important;
         margin-left: -24px !important;
