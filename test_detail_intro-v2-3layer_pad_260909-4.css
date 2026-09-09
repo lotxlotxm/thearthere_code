@@ -64,7 +64,7 @@
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
         max-height: 380px !important; /* PC(480px)보다 높이를 축소하여 화면 밸런스 유지 */
-        aspect-ratio: 21 / 9 !important; /* 21:9에서 16:9 비율로 조정 */
+        aspect-ratio: 16 / 9 !important; /* 21:9에서 16:9 비율로 조정 */
         object-fit: cover !important;
         object-position: center !important;
         display: block !important;
@@ -138,7 +138,7 @@
     -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: sticky !important;
-        top: 445px !important; /* 이미지 및 브라운 콜아웃 상향에 따라 top: 545px -> 445px로 수정 */
+        top: 450px !important; /* 이미지 및 브라운 콜아웃 상향에 따라 top: 545px -> 445px로 수정 */
         z-index: 5 !important;
         background-color: transparent !important;
         border: none !important;
