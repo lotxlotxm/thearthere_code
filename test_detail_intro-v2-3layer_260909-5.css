@@ -1,5 +1,5 @@
 /* ==========================================================================
-📌 [PC 전용] 3레이어 구조 + 다크 인트로 통합 전체 CSS
+📌 [PC 전용] 3레이어 스티키 구조 + 다크 인트로 통합 전체 CSS
 ========================================================================== */
 
 /* 1. 최상위 컨테이너 기준점 */
@@ -9,20 +9,36 @@
 
 
 /* --------------------------------------------------------------------------
-   1번 레이어: 히어로 이미지 (상단 top: 0 고정)
+   1번 레이어: 히어로 이미지 (상단 top: 72px 고정 + 상단 네비까지 풀와이드 레드 배경)
 -------------------------------------------------------------------------- */
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
     position: sticky !important;
     top: 72px !important;
-    z-index: 10 !important;
-    background: transparent !important;
-    background-color: transparent !important;
+    z-index: 1 !important;
+    background-color: #ff0000 !important;
     border: none !important;
     border-radius: 0px !important;
     padding: 0 !important;
     margin-bottom: 0 !important;
     box-shadow: none !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* 1번 레이어 풀와이드 빨간색 배경판 (상단 네비 영역 top: 0까지 연장) */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -72px !important; /* 상단 네비게이션 높이만큼 위로 연장하여 화면 맨 위까지 채움 */
+    bottom: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 100vw !important;
+    margin-left: -50vw !important;
+    background-color: #ff0000 !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
 }
 
 /* 히어로 이미지 내부 아이콘 숨김 및 여백 정리 */
@@ -59,18 +75,17 @@
     position: absolute !important;
     bottom: 20px !important;
     right: 20px !important;
-    z-index: 15 !important;
+    z-index: 2 !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-
 /* --------------------------------------------------------------------------
-   2번 레이어: 핑크 콜아웃 (이미지 아래 top: 480px 고정 + 풀 디테일 디자인)
+   2번 레이어: 핑크 콜아웃 (1번 이미지 위로 올라와 top: 72px 고정)
 -------------------------------------------------------------------------- */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
     position: sticky !important;
-    top: 554px !important; /* 히어로 이미지 max-height 수치와 일치 */
+    top: 72px !important;
     z-index: 5 !important;
     background-color: transparent !important;
     border: none !important;
@@ -90,7 +105,7 @@
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
     content: "" !important;
     position: absolute !important;
-    top: -1500px !important;
+    top: 0 !important;
     bottom: 0 !important;
     left: 50% !important;
     right: auto !important;
