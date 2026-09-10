@@ -1,19 +1,13 @@
 /* ==========================================================================
-📱 [패드 전용] 768px ~ 1024px 일반 스크롤 + 오버랩 위치 정밀 교정
+📱 [패드 전용] 768px ~ 1024px 이미지 비율 대응 및 브라운 콜아웃 고정
 ========================================================================== */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-    /* 1. 패드 전용 부모 컨테이너 기준점 (브라운 콜아웃 위치 계산용) */
-    .notion-page-content {
-        position: relative !important;
-    }
-
-
     /* --------------------------------------------------------------------------
-       1번 레이어: 히어로 이미지 (일반 스크롤 + 풀와이드 다크 배경)
+       1번 레이어: 히어로 이미지 (브라운 콜아웃의 직접적인 좌표 기준점 설정)
     -------------------------------------------------------------------------- */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
-        position: relative !important;
+        position: relative !important; /* 브라운 콜아웃이 이 이미지 박스 기준으로만 움직임 */
         top: auto !important;
         z-index: 1 !important;
         background-color: #37352F !important;
@@ -43,7 +37,7 @@
         pointer-events: none !important;
     }
 
-    /* 히어로 이미지 크기/비율 제어 */
+    /* 히어로 이미지 레스폰시브 높이 및 비율 */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
         max-height: 400px !important;
@@ -56,39 +50,45 @@
 
 
     /* --------------------------------------------------------------------------
-   [독립 영역] 좋아요 & 쉐어 버튼
-   → 이미지 하단 오버랩 + 문서 흐름에서 완전 분리
--------------------------------------------------------------------------- */
+       [독립 영역] 좋아요 & 쉐어 버튼 (이미지 좌측 하단 여백 완벽 고정)
+    -------------------------------------------------------------------------- */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+        position: absolute !important;
+        /* absolute 기준이 1번 히어로 이미지 박스로 고정됨 */
+        bottom: 20px !important; /* 이미지 하단으로부터 고정 여백 */
+        left: 20px !important;   /* 이미지 좌측으로부터 고정 여백 */
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        
+        margin: 0 !important;
+        z-index: 10 !important;
+        width: auto !important;
+        max-width: calc(100% - 40px) !important;
+        box-sizing: border-box !important;
+        
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        font-size: 14px !important;
+    }
 
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-    position: absolute !important;
-    top: 335px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-
-    margin: 0 !important;
-
-    z-index: 100 !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-
-    box-sizing: border-box !important;
-    font-size: 14px !important;
-}
+    /* 브라운 콜아웃 내부 텍스트 흰색 + 텍스트 그림자 유지 */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
+        color: #ffffff !important;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
+    }
 
 
     /* --------------------------------------------------------------------------
-       2번 레이어: 핑크 콜아웃 (일반 스크롤 + 이미지 바로 밑 밀착)
+       2번 레이어: 핑크 콜아웃 (이미지 직후 밀착 배치 / 흰 공간 제거)
     -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: relative !important;
@@ -101,7 +101,7 @@
         margin-bottom: 0 !important; 
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding: 24px 0 60px 0 !important; /* 이미지와 간격이 벌어지지 않도록 상단 패딩 조절 */
+        padding: 30px 0 60px 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         overflow: visible !important;
