@@ -56,44 +56,35 @@
 
 
     /* --------------------------------------------------------------------------
-       [독립 영역] 좋아요 & 쉐어 버튼 (브라운 콜아웃: 이미지 하단 오버랩 정밀 고정)
-    -------------------------------------------------------------------------- */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        position: absolute !important;
-        /* absolute 위치를 top 대신 이미지 하단 기준(bottom)으로 결합하여 항상 이미지 하단 표출 */
-        top: auto !important;
-        bottom: 15px !important; 
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        z-index: 100 !important;
-        
-        /* 패드 화면 좌우 여백 및 본문 최대 너비 고정 */
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        padding-left: 24px !important; /* 이미지 좌우 패딩과 일치하도록 조정 */
-        padding-right: 24px !important;
-        font-size: 14px !important;
-    }
+   [독립 영역] 좋아요 & 쉐어 버튼
+   → 이미지 하단 오버랩 + 문서 흐름에서 완전 분리
+-------------------------------------------------------------------------- */
 
-    /* 브라운 콜아웃 내부 텍스트 흰색 + 텍스트 그림자 유지 */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
-        color: #ffffff !important;
-        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
-    }
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+    position: absolute !important;
+    top: 335px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    margin: 0 !important;
+
+    z-index: 100 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+}
 
 
     /* --------------------------------------------------------------------------
