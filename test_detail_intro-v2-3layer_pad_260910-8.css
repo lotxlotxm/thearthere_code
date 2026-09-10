@@ -50,41 +50,57 @@
 
 
     /* --------------------------------------------------------------------------
-       [독립 영역] 좋아요 & 쉐어 버튼 (이미지 좌측 하단 여백 완벽 고정)
-    -------------------------------------------------------------------------- */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        position: absolute !important;
-        /* absolute 기준이 1번 히어로 이미지 박스로 고정됨 */
-        bottom: 20px !important; /* 이미지 하단으로부터 고정 여백 */
-        left: 20px !important;   /* 이미지 좌측으로부터 고정 여백 */
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        
-        margin: 0 !important;
-        z-index: 10 !important;
-        width: auto !important;
-        max-width: calc(100% - 40px) !important;
-        box-sizing: border-box !important;
-        
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        font-size: 14px !important;
-    }
+   [독립 영역] 좋아요 & 쉐어 버튼
+   → 이미지 하단에 일정량 오버랩
+   → 이미지 크기/비율과 무관하게 동일 위치 유지
+-------------------------------------------------------------------------- */
 
-    /* 브라운 콜아웃 내부 텍스트 흰색 + 텍스트 그림자 유지 */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
-        color: #ffffff !important;
-        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
-    }
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+    position: relative !important;
+
+    /* 이미지 바로 다음에 붙인 뒤, 버튼 높이만큼 이미지 쪽으로 끌어올림 */
+    margin-top: -38px !important;
+    margin-bottom: 0 !important;
+
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    z-index: 100 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+    padding: 0 15px !important;
+
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+}
+
+/* Brown 내부 자체 여백 제거 */
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"]))
+> .notion-callout__content {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* 불필요한 원래 콘텐츠 숨김 */
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
+    display: none !important;
+}
+
+/* 버튼 영역 자체가 이미지 하단에 붙어 있도록 */
+.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 
     /* --------------------------------------------------------------------------
