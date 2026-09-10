@@ -561,23 +561,3 @@ main.notion,
     }
 }
 
-/* --------------------------------------------------------------------------
-   📱 [모바일 (767px 이하)]
-   화면 전체 사용 (100%)
--------------------------------------------------------------------------- */
-@media screen and (max-width: 767px) {
-    .super-content,
-    main.notion,
-    .notion-page,
-    .notion-page-content {
-        max-width: 100% !important;
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image),
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        max-width: 100% !important;
-    }
-}
