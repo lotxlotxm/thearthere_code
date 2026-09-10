@@ -2,8 +2,9 @@
 📱 [모바일 전용] 3레이어 스티키 고정 보정 CSS (Max-width: 768px)
 ========================================================================== */
 
-@media (max-width: 768px),
-screen and (min-width: 769px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+@media
+(max-width: 768px),
+screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
 
     /* 0. 스티키 고정을 방해하는 부모 컨테이너 overflow 해제 */
     html, body, #__next, .super-content, .notion {
@@ -412,9 +413,12 @@ screen and (min-width: 769px) and (max-width: 1366px) and (hover: none) and (poi
 /* ==========================================================================
    🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
 ========================================================================== */
-@media (max-width: 768px),
-screen and (min-width: 769px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
-.notion-callout[class*="blue"]:not(:has(code)) {
+@media
+(max-width: 768px),
+screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .notion-callout[class*="blue"]:not(:has(code)) {
+    
+    .notion-callout[class*="blue"]:not(:has(code)) {
         background-color: transparent !important; 
         border: 0px solid transparent !important;  
         border-radius: 0px !important;
