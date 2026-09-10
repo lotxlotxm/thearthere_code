@@ -1,16 +1,16 @@
 /* ==========================================================================
-📱 [패드 전용] 768px ~ 1024px 일반 스크롤 + PC 다크 스타일 유지 미디어 쿼리
+📱 [패드 전용] 768px ~ 1024px 일반 스크롤 + 오버랩 위치 정밀 교정
 ========================================================================== */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-    /* 1. 최상위 컨테이너 기준점 초기화 */
+    /* 1. 패드 전용 부모 컨테이너 기준점 (브라운 콜아웃 위치 계산용) */
     .notion-page-content {
-        position: static !important;
+        position: relative !important;
     }
 
 
     /* --------------------------------------------------------------------------
-       1번 레이어: 히어로 이미지 (일반 스크롤 + 풀와이드 다크 배경 유지)
+       1번 레이어: 히어로 이미지 (일반 스크롤 + 풀와이드 다크 배경)
     -------------------------------------------------------------------------- */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
         position: relative !important;
@@ -28,7 +28,7 @@
         max-width: 100% !important;
     }
 
-    /* 1번 레이어 풀와이드 다크 배경판 (#37352F) 패드 유지 */
+    /* 1번 레이어 풀와이드 다크 배경판 (#37352F) */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
         content: "" !important;
         position: absolute !important;
@@ -56,25 +56,30 @@
 
 
     /* --------------------------------------------------------------------------
-       [독립 영역] 좋아요 & 쉐어 버튼 (브라운 콜아웃: 절대좌표 해제 후 일반 배치)
+       [독립 영역] 좋아요 & 쉐어 버튼 (브라운 콜아웃: 이미지 하단 오버랩 정밀 고정)
     -------------------------------------------------------------------------- */
     .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        position: relative !important;
+        position: absolute !important;
+        /* absolute 위치를 top 대신 이미지 하단 기준(bottom)으로 결합하여 항상 이미지 하단 표출 */
         top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin: 20px auto !important;
-        z-index: 10 !important;
+        bottom: 15px !important; 
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        z-index: 100 !important;
+        
+        /* 패드 화면 좌우 여백 및 본문 최대 너비 고정 */
         width: 100% !important;
         max-width: 100% !important;
+        box-sizing: border-box !important;
+        
         background: transparent !important;
         border: none !important;
         border-radius: 0 !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        box-sizing: border-box !important;
+        padding-left: 24px !important; /* 이미지 좌우 패딩과 일치하도록 조정 */
+        padding-right: 24px !important;
         font-size: 14px !important;
     }
 
@@ -92,7 +97,7 @@
 
 
     /* --------------------------------------------------------------------------
-       2번 레이어: 핑크 콜아웃 (일반 스크롤 + 풀와이드 다크 배경 유지)
+       2번 레이어: 핑크 콜아웃 (일반 스크롤 + 이미지 바로 밑 밀착)
     -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: relative !important;
@@ -105,14 +110,14 @@
         margin-bottom: 0 !important; 
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding: 40px 0 60px 0 !important;
+        padding: 24px 0 60px 0 !important; /* 이미지와 간격이 벌어지지 않도록 상단 패딩 조절 */
         width: 100% !important;
         max-width: 100% !important;
         overflow: visible !important;
         box-sizing: border-box !important;
     }
 
-    /* 핑크 콜아웃 풀와이드 다크 배경판 (#37352F) 패드 유지 */
+    /* 핑크 콜아웃 풀와이드 다크 배경판 (#37352F) */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
         content: "" !important;
         position: absolute !important;
