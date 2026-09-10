@@ -484,22 +484,6 @@
 
 
 
-/* ==========================================================================
-📐 [Super 전용 그리드 강제 제어] 태블릿/모바일 PC 비율 유지 세팅
-========================================================================== */
-
-/* 1. Super 전체 상위 컨테이너 중앙 정렬 및 최댓값 제한 */
-.super-content,
-main.notion,
-.notion-page,
-.notion-page-content {
-    max-width: 1150px !important; /* PC 기준 기본 그리드 폭 */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-}
-
-
 
 
 
