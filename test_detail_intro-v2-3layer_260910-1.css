@@ -483,28 +483,3 @@
 
 
 
-/* ==========================================================================
-📱 [iPad 가로 전용] PC 구조 유지 + 그리드 축소
-========================================================================== */
-
-@media screen
-and (min-width: 769px)
-and (max-width: 1366px)
-and (orientation: landscape)
-and (hover: none)
-and (pointer: coarse) {
-
-    /* 전체 콘텐츠 그리드 축소 */
-    .notion-page-content {
-        width: 84vw !important;
-        max-width: 1150px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* 좋아요 & 쉐어 영역도 축소된 그리드에 맞춤 */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        width: 84vw !important;
-        max-width: 1150px !important;
-    }
-}
