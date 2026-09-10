@@ -499,65 +499,56 @@ main.notion,
     box-sizing: border-box !important;
 }
 
+
+
+
+
+
+
+
+
+/* ==========================================================================
+📱 [태블릿/모바일 전용] PC 화면(1025px 이상)은 100% 무풍지대로 유지하고
+   1024px 이하 화면에서만 그리드 폭을 줄여 PC 레이아웃 비율을 유지하는 세팅
+========================================================================== */
+
 /* --------------------------------------------------------------------------
-   📱 [태블릿 가로 / 일반 태블릿 (1025px ~ 1280px)] 
-   그리드 폭을 960px로 강제 축소하여 PC 레이아웃 그대로 유지
+   📱 1. [태블릿 세로 & 가로 일부 (768px ~ 1024px)]
+   - PC 화면은 건드리지 않고 1024px 이하에서만 그리드 폭을 720px로 강제 축소
 -------------------------------------------------------------------------- */
-@media screen and (max-width: 1280px) {
-    /* 전체 메인 프레임 축소 */
+@media screen and (max-width: 1024px) {
+
+    /* 상위 컨테이너 그리드 축소 */
     .super-content,
     main.notion,
     .notion-page,
     .notion-page-content {
-        max-width: 960px !important;
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+        max-width: 720px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box !important;
     }
 
-    /* 1번 히어로 이미지 너비를 축소된 그리드에 맞춤 */
+    /* 1번 히어로 이미지 너비 및 중앙정렬 */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
-        max-width: 960px !important;
+        max-width: 720px !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
 
     /* 브라운 콜아웃(좋아요/공유) 너비 축소 */
     .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        max-width: 960px !important;
+        max-width: 720px !important;
     }
 
-    /* 2번 핑크 콜아웃 너비 축소 */
+    /* 2번 핑크 콜아웃 너비 및 중앙정렬 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        max-width: 960px !important;
+        max-width: 720px !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
 }
 
-/* --------------------------------------------------------------------------
-   📱 [태블릿 세로 (768px ~ 1024px)]
-   그리드 폭을 720px로 강제 축소
--------------------------------------------------------------------------- */
-@media screen and (max-width: 1024px) {
-    .super-content,
-    main.notion,
-    .notion-page,
-    .notion-page-content {
-        max-width: 720px !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-    }
-
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
-        max-width: 720px !important;
-    }
-
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        max-width: 720px !important;
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        max-width: 720px !important;
-    }
-}
 
