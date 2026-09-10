@@ -1,13 +1,17 @@
 /* ==========================================================================
-📱 [태블릿 세로] PC 스타일: 1+2레이어 고정 / 3레이어 독립 스크롤
+📱 [태블릿 세로 전용] PC 스타일: 1+2 레이어 고정 & 3 레이어 독립 스크롤
+   (적용 범위: 768px ~ 1024px, Portrait 방향)
 ========================================================================== */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
+    /* 1. 최상위 컨테이너 기준점 지정 */
     .notion-page-content {
         position: relative !important;
     }
 
-    /* 1번 레이어: 히어로 이미지 고정 */
+    /* --------------------------------------------------------------------------
+       1번 레이어: 히어로 이미지 (상단 top: 70px 고정)
+    -------------------------------------------------------------------------- */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
         position: sticky !important;
         top: 70px !important;
@@ -24,6 +28,7 @@
         max-width: 100% !important;
     }
 
+    /* 1번 레이어 풀와이드 배경판 */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
         content: "" !important;
         position: absolute !important;
@@ -54,21 +59,24 @@
         margin: 0 !important;
     }
 
+    /* 히어로 이미지 크기/비율 (태블릿 화각에 맞게 최적화) */
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
-        height: 320px !important;
+        height: 360px !important; /* 태블릿 세로 비율에 맞춘 이미지 높이 */
         object-fit: cover !important;
         object-position: center !important;
         display: block !important;
         border-radius: 0px !important;
     }
 
-    /* 🟫 브라운 콜아웃: 이미지 하단 상대 위치 (bottom: 16px) */
+
+    /* --------------------------------------------------------------------------
+       🟫 브라운 콜아웃: 이미지 하단 오버랩 (1번 이미지 상단 기준 계산)
+    -------------------------------------------------------------------------- */
     .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        --padding-x-tablet: 24px;
+        --padding-x-tablet: 20px;
         position: absolute !important;
-        top: auto !important;
-        bottom: 16px !important;
+        top: 310px !important; /* 이미지 하단 부근 배치 (70px + 360px - 여백) */
         left: 50% !important;
         transform: translateX(-50%) !important;
         margin: 0 !important;
@@ -122,10 +130,13 @@
         border-radius: 4px !important;
     }
 
-    /* 2번 레이어: 핑크 콜아웃 (이미지 하단에 상단 고정) */
+
+    /* --------------------------------------------------------------------------
+       2번 레이어: 핑크 콜아웃 (스티키 고정 위치 지정)
+    -------------------------------------------------------------------------- */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
         position: sticky !important;
-        top: 390px !important; /* Header 70px + Image 320px */
+        top: 430px !important; /* 70px (네비) + 360px (이미지 높이) 로 딱 맞춰 연결 */
         z-index: 5 !important;
         background-color: transparent !important;
         border: none !important;
@@ -134,13 +145,14 @@
         margin-bottom: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding: 0px 0px 30px 0px !important;
+        padding: 0px 0 40px 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         overflow: visible !important;
         box-sizing: border-box !important;
     }
 
+    /* 2-1. 풀와이드 배경판 (#37352F) */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
         content: "" !important;
         position: absolute !important;
@@ -155,6 +167,7 @@
         pointer-events: none !important;
     }
 
+    /* 2-2. 콘텐츠 영역 초기화 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content {
         position: relative !important;
         z-index: 12 !important;
@@ -164,11 +177,13 @@
         box-sizing: border-box !important;
     }
 
+    /* 2-3. 트리거용 번호매기기 목록 숨김 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
         display: none !important;
     }
 
+    /* 2-4. 텍스트/링크 색상 설정 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) > .notion-callout__content,
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h1:not([class*="color-"]),
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) h2:not([class*="color-"]),
@@ -182,7 +197,7 @@
         text-decoration: underline;
     }
 
-    /* 내부 요소 정밀 스타일 */
+    /* 2-5. 내부 파란색 콜아웃 초기화 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="blue"]:not(:has(code)) {
         background-color: transparent !important;
         border: 0px solid transparent !important;
@@ -194,10 +209,11 @@
         display: none !important;
     }
 
+    /* 2-6. 인트로 제목/요약 여백 조정 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(h1):not(:has(p, h2, h3, ul, ol, .notion-bulleted_list)) {
         background-color: transparent !important;
         border: none !important;
-        padding: 0px 0px 15px 0px !important;
+        padding: 0px 0px 10px 0px !important;
         margin: 0 !important;
     }
 
@@ -207,88 +223,21 @@
         padding: 0 !important;
     }
 
+    /* 2-7. 버튼 요소 디자인 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
         display: inline-block !important;
         color: #AD1A72 !important;
         background-color: #37352f !important;
-        padding: 12px 24px !important;
+        padding: 10px 20px !important;
         border-radius: 30px !important;
         font-weight: 600 !important;
         border: 1px solid #ffffff !important;
-        margin: 0px !important;
+        margin: 0 !important;
     }
 
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
         color: #AD1A72 !important;
         text-decoration: none !important;
-    }
-}
-
-
-/* ==========================================================================
-📱 [태블릿 가로] 모바일 스타일: 순차 스크롤 흐름
-========================================================================== */
-@media screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
-
-    .notion-page-content {
-        position: relative !important;
-    }
-
-    /* 1번 레이어: 히어로 이미지 */
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
-        position: relative !important;
-        z-index: 1 !important;
-        background-color: #37352F !important;
-        border: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-    }
-
-    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
-        width: 100% !important;
-        height: 300px !important;
-        object-fit: cover !important;
-        display: block !important;
-    }
-
-    /* 🟫 브라운 콜아웃: 이미지 하단 상대 위치 (bottom: 16px) */
-    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-        position: absolute !important;
-        top: auto !important;
-        bottom: 16px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        z-index: 100 !important;
-        width: 100% !important;
-        padding: 0 24px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 2번 레이어: 핑크 콜아웃 (자연스럽게 밑으로 이어짐) */
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        position: relative !important;
-        top: 0 !important;
-        z-index: 5 !important;
-        background-color: #37352F !important;
-        border: none !important;
-        padding: 20px 24px 30px 24px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
-        content: "" !important;
-        position: absolute !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: 50% !important;
-        width: 100vw !important;
-        margin-left: -50vw !important;
-        background-color: #37352F !important;
-        z-index: -1 !important;
     }
 }
