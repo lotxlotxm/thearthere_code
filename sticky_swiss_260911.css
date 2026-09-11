@@ -254,8 +254,8 @@ red = 블랙 버튼
 }
 @media (max-width: 768px) {
     .notion-callout[class*="yellow"]:has(code):not(:has(.notion-collection-gallery)):not(:has(.notion-toggle)) .notion-callout__content {
-        padding-left: 22px !important;
-        padding-right: 16px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
     }
     
 /* Yellow(화이트) 버튼 모바일 폰트 조정 */
@@ -265,4 +265,14 @@ red = 블랙 버튼
     .notion-callout[class*="yellow"]:has(code):not(:has(.notion-collection-gallery)):not(:has(.notion-toggle)) code strong {
         font-size: 16px !important; /* 14px * 0.8 */
     } 
+}
+
+
+
+/* 📱 [태블릿 구간] (768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .notion-callout[class*="yellow"]:has(code):not(:has(.notion-collection-gallery)):not(:has(.notion-toggle)) .notion-callout__content {
+        padding-left: 96px !important;
+        padding-right: 96px !important;
+    }
 }
