@@ -57,3 +57,28 @@
 .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]) p {
     text-align: left !important;
 }
+
+
+
+
+
+
+/* ==========================================
+📌 내부 콘텐츠 좌우 여백 (해상도별 설정)
+========================================== */
+
+/* 📱 [태블릿 구간] (768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]) > .notion-callout__content {
+        padding-left: 96px !important;
+        padding-right: 96px !important;
+    }
+}
+
+/* 📱 [모바일 구간] (767px 이하) */
+@media screen and (max-width: 767px) {
+    .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]) > .notion-callout__content {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+}
