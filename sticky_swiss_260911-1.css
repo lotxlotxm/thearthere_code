@@ -115,8 +115,8 @@ red = 블랙 버튼
     }
     
     .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) .notion-callout__content {
-        padding-left: 22px !important;
-        padding-right: 16px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
     }
     
 /* Orange(화이트) 버튼 모바일 폰트 조정 */
@@ -128,7 +128,18 @@ red = 블랙 버튼
     } 
 }
 
-
+/* 📱 [태블릿 구간] (768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* 태블릿 버전 상단 마진 제거 */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) {
+        margin-top: 0 !important;
+    }
+    
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) .notion-callout__content {
+        padding-left: 96px !important;
+        padding-right: 96px !important;
+    }
+}
 
 
 /* =================아마도 안씀=========================
