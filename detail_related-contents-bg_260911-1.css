@@ -71,13 +71,30 @@
         margin-right: -50vw !important;
     }
 
-    /* .notion-callout[class*="brown"]:has(blockquote):has(.notion-collection-gallery):has(code, .notion-inline-code) > .notion-callout__content { */
-        /* padding-left: 22px !important; */
-        /* padding-right: 22px !important; */
-    /* } */
+    .notion-callout[class*="brown"]:has(blockquote):has(.notion-collection-gallery):has(code, .notion-inline-code) > .notion-callout__content {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
 
     /* 모바일 컬럼 해제 */
     .notion-callout[class*="brown"]:has(blockquote):has(.notion-collection-gallery):has(code, .notion-inline-code) .notion-column-list:has(> .notion-column:nth-child(2):last-child) {
         display: block !important;
     } 
+}
+
+
+
+
+
+
+/* ==========================================
+📌 콘텐츠 하단 관심콘텐츠 내부 여백 (해상도별 설정)
+========================================== */
+
+/* 📱 [태블릿 구간] (768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .notion-callout[class*="brown"]:has(blockquote):has(.notion-collection-gallery):has(code, .notion-inline-code) > .notion-callout__content {
+        padding-left: 96px !important;
+        padding-right: 96px !important;
+    }
 }
