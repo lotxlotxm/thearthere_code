@@ -176,7 +176,7 @@
 
 /* 4. 내부 텍스트 글자 크기 18px 강제 적용 */
 .notion-callout[class*="green"]:has(code) .notion-callout__content * {
-    font-size: 18px !important;
+    font-size: 16px !important;
 }
 
 @media (max-width: 768px) {
