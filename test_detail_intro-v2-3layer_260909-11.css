@@ -280,7 +280,7 @@
 }
 
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
-    font-size: 18px !important;
+    font-size: 16px !important;
 }
 
 /* 2-8. 인트로 내부 미술관 개요 (녹색 콜아웃 + toggle) */
