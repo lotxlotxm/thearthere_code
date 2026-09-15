@@ -408,30 +408,7 @@
     opacity: 1 !important;
 }
 
-/* 2-9. 인트로 내부 인라인 코드 버튼 (티켓 예매 버튼 등) */
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
-    text-align: center !important;
-    margin-top: 20px !important;
-}
 
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
-    display: inline-block !important;
-    color: #AD1A72 !important;
-    background-color: #37352f !important;
-    padding: 12px 24px !important;
-    border-radius: 30px !important;
-    font-weight: 600 !important;
-    border: 1px solid #ffffff !important;
-                    margin: 0 !important;
-
-}
-
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
-    color: #AD1A72 !important;
-    text-decoration: none !important;
-}
 
 
 
@@ -862,32 +839,7 @@
         opacity: 1 !important;
     }
 
-    /* 2-9. 인트로 내부 인라인 코드 버튼 (티켓 예매 버튼 등) */
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
-        text-align: center !important;
-        margin-top: 16px !important;
-    }
 
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
-        display: inline-block !important;
-        color: #AD1A72 !important;
-        background-color: #37352f !important;
-        padding: 10px 20px !important;
-        border-radius: 30px !important;
-        font-weight: 600 !important;
-        font-size: 13px !important;
-        border: 1px solid #ffffff !important;
-        margin: 0 !important;
-
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
-        color: #AD1A72 !important;
-        text-decoration: none !important;
-    }
-}
 
 @media (max-width: 380px) {
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
@@ -1302,29 +1254,7 @@
         opacity: 1 !important;
     }
 
-    /* 2-9. 인트로 내부 인라인 코드 버튼 */
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-text:has(code),
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) p:has(code) {
-        text-align: center !important;
-        margin-top: 20px !important;
-    }
 
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
-        display: inline-block !important;
-        color: #AD1A72 !important;
-        background-color: #37352f !important;
-        padding: 12px 24px !important;
-        border-radius: 30px !important;
-        font-weight: 600 !important;
-        border: 1px solid #ffffff !important;
-        margin: 0px !important;
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code a,
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) a code {
-        color: #AD1A72 !important;
-        text-decoration: none !important;
-    }
 
 
     /* ==========================================================================
