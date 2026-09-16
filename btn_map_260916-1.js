@@ -23,12 +23,6 @@
         object-fit: contain !important;
         text-decoration: none !important;
       }
-
-      /* 링크 호버시 텍스트 영역 밑줄 스타일 */
-      a:has(.map-pin-img):hover .map-pin-text-target {
-        text-decoration: underline !important;
-        text-underline-offset: 3px;
-      }
     `;
     document.head.appendChild(style);
   }
