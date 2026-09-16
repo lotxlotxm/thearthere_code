@@ -1,0 +1,90 @@
+(function() {
+  const MAP_PIN_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1789535980/map-pin_owrby8.svg';
+
+  // 스타일 주입
+  function injectStyle() {
+    if (document.getElementById('map-pin-style')) return;
+    const style = document.createElement('style');
+    style.id = 'map-pin-style';
+    style.innerHTML = `
+      .map-pin-img {
+        display: inline-block !important;
+        width: 24px !important;
+        height: 24px !important;
+        vertical-align: middle !important;
+        margin-left: 4px !important;
+        margin-top: -2px !important; /* 텍스트와의 수직 라인 정렬 보정 */
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+        text-decoration: none !important;
+      }
+
+      /* 링크 내부 이미지가 포함된 경우 텍스트 밑줄 유지를 위한 처리 */
+      a:has(.map-pin-img) {
+        text-decoration: none !important;
+      }
+      
+      a:has(.map-pin-img):hover .map-pin-text-target {
+        text-decoration: underline !important;
+        text-underline-offset: 3px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // [MAP] 텍스트 치환 함수
+  function renderMapPinWidgets() {
+    injectStyle();
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    const nodesToReplace = [];
+
+    // [MAP] 이 포함된 텍스트 노드 탐색 (이미 치환된 요소 제외)
+    while (node = walker.nextNode()) {
+      if (node.textContent.includes('[MAP]') && !node.parentNode.closest('.map-pin-img')) {
+        nodesToReplace.push(node);
+      }
+    }
+
+    nodesToReplace.forEach(textNode => {
+      const parent = textNode.parentNode;
+      if (!parent) return;
+
+      const rawText = textNode.textContent;
+      const isInsideLink = parent.closest('a') !== null;
+
+      const parts = rawText.split('[MAP]');
+      const fragment = document.createDocumentFragment();
+
+      parts.forEach((part, index) => {
+        if (part) {
+          if (isInsideLink) {
+            // 링크 내부일 경우 텍스트에만 호버 밑줄을 주기 위해 span으로 처리
+            const textSpan = document.createElement('span');
+            textSpan.className = 'map-pin-text-target';
+            textSpan.textContent = part;
+            fragment.appendChild(textSpan);
+          } else {
+            fragment.appendChild(document.createTextNode(part));
+          }
+        }
+
+        // [MAP] 이 있던 자리에 이미지 삽입
+        if (index < parts.length - 1) {
+          const img = document.createElement('img');
+          img.src = MAP_PIN_IMAGE_URL;
+          img.alt = 'map-pin';
+          img.className = 'map-pin-img';
+          fragment.appendChild(img);
+        }
+      });
+
+      parent.replaceChild(fragment, textNode);
+    });
+  }
+
+  // 초기 실행 및 동적 노션 로딩 대응
+  document.addEventListener('DOMContentLoaded', renderMapPinWidgets);
+  setInterval(renderMapPinWidgets, 500);
+})();
