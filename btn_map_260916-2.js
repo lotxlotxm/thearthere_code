@@ -1,5 +1,5 @@
 (function() {
-  const MAP_PIN_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1789535980/map-pin_owrby8.svg';
+  const MAP_PIN_IMAGE_URL = 'https://res.cloudinary.com/dwtaoukfu/image/upload/v1789541855/map-pin_mtjnwr.svg';
 
   // 스타일 주입
   function injectStyle() {
