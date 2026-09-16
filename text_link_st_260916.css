@@ -69,11 +69,11 @@ code [class*="green"]:hover {
   background-color: transparent !important;
 }
 /*----[2] 브라운 글자: 블랙 & 호버 ---- */
-.notion-link[class*="brown"],
-.notion-text-block [class*="brown"] a,
-span[class*="brown"] a,
-span[class*="brown"],
-.notion-link[class*="brown"] * {
+.notion-link[class*="brown"]:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+.notion-text-block [class*="brown"] a:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+span[class*="brown"] a:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+span[class*="brown"]:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+.notion-link[class*="brown"] *:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *) {
   color: #37352f !important;
   -webkit-text-fill-color: #37352f !important;
   opacity: 1 !important;               
@@ -82,17 +82,19 @@ span[class*="brown"],
   text-decoration-thickness: 1px !important;
   transition: all 0.2s ease !important;
 }
+
 /* 2. 호버(Hover) 액션: 포인트 레드 전환 */
-.notion-link[class*="brown"]:hover,
-.notion-link[class*="brown"]:hover *,
-.notion-text-block [class*="brown"] a:hover,
-span[class*="brown"] a:hover,
-span[class*="brown"]:hover {
+.notion-link[class*="brown"]:hover:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+.notion-link[class*="brown"]:hover *:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+.notion-text-block [class*="brown"] a:hover:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+span[class*="brown"] a:hover:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *),
+span[class*="brown"]:hover:not(.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) *) {
   color: #D34A45 !important;
   -webkit-text-fill-color: #D34A45 !important;
   text-decoration: none !important; 
   opacity: 1 !important;
 }
+
 /* [3] 예외 처리 (Exception Handling) ---- */
 code [class*="brown"],
 code [class*="brown"] *,
