@@ -1,0 +1,145 @@
+/* ==========================================================================
+💜 [보라색 콜아웃 하단 CTA - fixed 적용 및 패딩 완전 제거 버전]
+========================================================================== */
+
+/* 1. 최상단 고정 및 프레임 패딩 완전 초기화 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important;
+    
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important; /* 콜아웃 자체 패딩 제거 */
+    box-sizing: border-box !important;
+}
+
+/* 2. 풀와이드 배경판 (#37352f) */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code))::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background-color: #37352f !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+/* 3. 내부 콘텐츠 영역 패딩 초기화 (#37352f) */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) > .notion-callout__content {
+    position: relative !important;
+    z-index: 12 !important;
+    
+    width: 100% !important;
+    max-width: var(--notion-max-width, var(--super-max-width, 1110px)) !important;
+    margin: 0 auto !important;
+    
+    background-color: #37352f !important;
+    box-sizing: border-box !important;
+    
+    
+/* 🔴 상하 패딩으로 높이 지정 (예: 위아래 16px 여백 -> 전체 높이 약 60~70px 형성) */
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+}
+
+/* 4. 맨 위 구조체 제어용 트리거 요소 숨김 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) blockquote,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) ol:first-of-type,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-numbered-list:first-of-type,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-callout__icon {
+    display: none !important;
+}
+
+/* 5. 외부 1:2 컬럼 무력화 및 내부 컬럼/Row 정렬 오버라이드 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-column-list {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    grid-template-columns: none !important; /* 외부 1:2 그리드 스타일 무력화 */
+    gap: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-column {
+    display: flex !important;
+    align-items: center !important;
+    width: auto !important;
+    padding: 0 !important; /* 외부 2번째 컬럼 padding-left 0px 오버라이드 포함 */
+    margin: 0 !important;
+}
+
+/* 6. 내부 텍스트 블록 상하 여백 및 패딩 완전 제거 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    
+}
+
+
+/* 7. 버튼 타겟팅 & 폰트 스타일 제어 (좌/우 조건별 분기) */
+
+/* 공통: 인라인 코드 감싸는 박스 스타일 초기화 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) code {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    
+}
+
+/* 기본 일반 텍스트(Span 등) 화이트 적용 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-semantic-string,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-semantic-string * {
+    color: #666666 !important;
+}
+
+/* [좌측 버튼] 인라인 코드 + 갈색 글씨 영역 내 링크 -> 녹색 글자 노출 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .color-brown code a,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .color-brown_background code a {
+    color: #ffffff !important; /* 녹색 */
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+/* [우측 버튼] 인라인 코드 + 레드 글씨 영역 내 링크 -> 노션 블랙 글자 노출 */
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .color-red code a,
+.notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .color-red_background code a {
+    color: #F8F9A7 !important; /* 노션 기본 블랙 */
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+
+
+/* 모바일 화면 (768px 이하) 대응 */
+@media (max-width: 768px) {
+    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) > .notion-callout__content {
+        /* 모바일 액정 양끝 단차 방지용 최소 좌우 여백 (보통 16px~20px) */
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+}
