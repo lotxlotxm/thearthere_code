@@ -142,4 +142,19 @@
         padding-left: 24px !important;
         padding-right: 24px !important;
     }
+
+/* 모바일 컬럼 수직 정렬 방지 및 좌우 배치 유지 */
+    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-column-list,
+    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-row {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)):has(:is(code, .notion-inline-code)) .notion-column {
+        width: auto !important;
+    }
+
+
 }
