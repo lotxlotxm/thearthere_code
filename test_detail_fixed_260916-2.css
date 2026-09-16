@@ -28,7 +28,7 @@
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    background-color: #37352f !important;
+    background-color: #000000 !important;
     z-index: -1 !important;
     pointer-events: none !important;
 }
@@ -42,7 +42,7 @@
     max-width: var(--notion-max-width, var(--super-max-width, 1110px)) !important;
     margin: 0 auto !important;
     
-    background-color: #37352f !important;
+    background-color: #000000 !important;
     box-sizing: border-box !important;
     
     
