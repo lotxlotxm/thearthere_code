@@ -540,26 +540,6 @@
 
 
 
-/* 모바일 전용: 핑크 콜아웃 내부 구분선 뷰포트 기준 풀와이드 확장 */
-@media (max-width: 768px) {
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
-        overflow: visible !important;
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout__content {
-        overflow: visible !important;
-    }
-
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-divider {
-        position: relative !important;
-        left: 50% !important;
-        right: auto !important;
-        width: 100vw !important;
-        margin-left: -50vw !important;
-        box-sizing: border-box !important;
-    }
-}
-
 
 /* ==========================================================================
 🌐 [전역 영역] 인트로 외부 일반 파란색 콜아웃 (주석/브레드크럼)
