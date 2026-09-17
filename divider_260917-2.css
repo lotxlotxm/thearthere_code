@@ -91,15 +91,32 @@ div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-g
     display: none !important;
 }
 
-/* [모바일 전용 풀와이드 확장] */
+/* ==========================================
+🟨 [모바일 전용] 노란 구분선 상위 패딩 강제 탈출
+========================================== */
 @media (max-width: 768px) {
+    /* 1. 노란 콜아웃을 감싸는 직계 parent block의 overflow 및 box 제한 해제 */
+    .notion-block:has(.notion-callout[class*="yellow"]),
+    div:has(> .notion-callout[class*="yellow"]) {
+        overflow: visible !important;
+        width: 100% !important;
+    }
+
+    /* 2. 구분선 본체를 article 패딩(24px) 밖으로 직접 음수 확장 */
     .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)), 
     div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) {
-        width: 100vw !important;
-        left: 50% !important;
-        right: 50% !important;
-        margin-left: -50vw !important;
-        margin-right: -50vw !important;
+        width: calc(100% + 48px) !important;
+        max-width: calc(100% + 48px) !important;
+        min-width: calc(100% + 48px) !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: #f5f5f5 !important;
+        box-shadow: none !important;
+        position: relative !important;
+        left: 0 !important;
         transform: none !important;
     }
 }
