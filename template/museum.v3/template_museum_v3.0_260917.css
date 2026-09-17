@@ -1,0 +1,10 @@
+/* 뮤지엄 상세 템플릿 3.0*/
+/* 1. 인트로 레이어 PC, 모바일, 패드 */
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/template/museum.v3/detail_v3.2_intro_layer_v3.2_pc-mb_260917.css");
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/template/museum.v3/detail_v3.2_intro_layer_v3.2_pad_260917.css");
+
+/* 2. 화이트 콘텐츠 레이어 */
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/template/museum.v3/detail_v3.0_contents_layer_260917.css");
+
+/* 3. 하단 CTA 픽스바 레이어 */
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/template/museum.v3/detail_v3.0_fixed_260916-2.css");
