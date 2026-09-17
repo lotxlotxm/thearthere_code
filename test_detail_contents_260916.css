@@ -1,0 +1,69 @@
+/* ==========================================
+📌 [2] 화이트 콘텐츠 시트 레이어 (인트로 위로 덮고 올라가는 영역)
+========================================== */
+/* 1. 최상단 레이어 및 기본 프레임 설정 */
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) {
+    position: relative !important;
+    z-index: 10 !important; /* 인트로보다 위에 위치해 위로 덮임 */
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+
+    /* 그림자 효과로 시트 느낌 강조 */
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 2. 풀와이드 화이트 배경판 */
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"])::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 100vw !important;
+    margin-left: -50vw !important;
+    background-color: #ffffff !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+/* 3. 내부 트리거 숨김 */
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) > .notion-callout__content > ol:first-of-type,
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) > .notion-callout__content > .notion-numbered-list:first-of-type,
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) .notion-callout__icon {
+    display: none !important;
+}
+
+/* 4. 내부 콘텐츠 영역 (노션/슈퍼 기본 그리드 자동 동기화) */
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) > .notion-callout__content {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: var(--notion-max-width, var(--super-max-width, 1110px)) !important;
+    margin: 0 auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 80px !important;
+    /*padding-left: var(--notion-page-padding, 20px) !important;*/
+    /*padding-right: var(--notion-page-padding, 20px) !important;*/
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+}
+
+/* 5. 텍스트 좌측 정렬 지정 */
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) h1,
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) h2,
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) h3,
+.notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) p {
+    text-align: left !important;
+}
