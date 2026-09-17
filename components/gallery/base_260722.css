@@ -31,7 +31,7 @@
 /* [1] 제목: PC 16px / 모바일 13px */
 .notion-collection-card__property:first-child,
 .notion-collection-card__property:first-child * {
-    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    /* font-family:'Roboto Flex','Noto Sans KR',sans-serif !important; */
     font-size: 18px !important;
     color: #37352f !important;
     font-weight: 700 !important;
@@ -43,7 +43,7 @@
 .notion-collection-card__property:not(:first-child) span,
 .notion-collection-card__property:not(:first-child) div,
 .notion-collection-card__property:not(:first-child) :is(b, strong, [style*="700"], [style*="bold"]) {
-    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    /* font-family:'Roboto Flex','Noto Sans KR',sans-serif !important; */
     font-size: 12px !important; 
     color: #37352f !important;
     text-decoration: none !important;
@@ -97,7 +97,7 @@
     .notion-collection-card__property:not(:first-child) span,
     .notion-collection-card__property:not(:first-child) div,
     .notion-collection-card__property:not(:first-child) :is(b, strong, [style*="700"], [style*="bold"]) {
-        font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+        /* font-family:'Roboto Flex','Noto Sans KR',sans-serif !important; */
         font-size: 10px !important;
         color: #37352f !important;
         text-decoration: none !important;
