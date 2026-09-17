@@ -8,6 +8,24 @@
 }
 
 
+/* ==========================================================================
+📌 [태블릿 여백 해결] 1번 히어로 레이어 하단 다크 연장선
+========================================================================== */
+
+/* 1번 히어로 콜아웃 하단에 다크 배경 연장판 추가 */
+.notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 100% !important; /* 1번 레이어 바로 아래부터 시작 */
+    left: 50% !important;
+    width: 100vw !important;
+    height: 300px !important; /* 태블릿 스티키 벌어짐을 메우는 하단 연장 높이 */
+    margin-left: -50vw !important;
+    background-color: #37352F !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
 /* --------------------------------------------------------------------------
    1번 레이어: 히어로 이미지 (상단 top: 72px 고정 + 상단 네비까지 풀와이드 #37352F)
 -------------------------------------------------------------------------- */
