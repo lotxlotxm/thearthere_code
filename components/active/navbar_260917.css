@@ -1,0 +1,105 @@
+/*==========================================
+04📍 네비 & 레이아웃 제어 ----*/
+/* [1] 네비게이션 바 전체 배경 투명 처리 */
+.super-navbar {
+  background-color: transparent !important; 
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-bottom: 0px  !important;
+}
+/* 네비게이션 컨텐츠 배경도 투명 처리 */
+.super-navbar__content,
+.super-navbar__menu {
+  background-color: transparent !important;
+}
+/* [1] 네비게이션 바 그리드 정렬*/
+.super-navbar__content {
+  max-width: 1145px !important; 
+  margin: 0 auto !important;     
+  padding: 0 !important;         
+  width: 100% !important;
+  display: flex !important;
+}
+.super-navbar {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+/* 💡 [라인 추가] */
+  border-bottom: 0px solid #37352F !important;
+} 
+/*메가 메뉴 펼치면 네비바 컬러 전환*/
+.super-navbar:has([aria-expanded="true"]) {
+  background: #37352F !important;
+}
+@media (max-width: 1250px) {
+  .super-navbar__content {
+    max-width: calc(100% - 40px) !important;
+  }
+}
+/* [2] 네비게이션 메뉴 버튼 스타일 (서브메뉴 전환 완벽 매칭)---- */
+.super-navbar .super-navbar__menu-item, 
+.super-navbar .super-navbar__item,
+.super-navbar .super-navbar__button,
+.super-navbar .super-navbar__menu-item > a,
+.super-navbar .super-navbar__menu-item span,
+.super-navbar .super-navbar__list {
+  /* 폰트 스타일 */
+  font-size: 24px !important;  
+  font-weight: 700 !important; 
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transition: all 0.2s ease !important;
+}
+/*스크롤시 컬러 변경 - 기본 상태 (투명) */
+.super-navbar {
+  background-color: transparent!important;
+  transition: background-color 0.3s ease !important;
+}
+/* 스크롤 시 상태 (#37352F 컬러) */
+.super-navbar.scrolled {
+  background-color: #ffffff !important;
+}
+/* 스크롤 시 내부 글자색을 흰색으로 변경 */
+.super-navbar.scrolled .super-navbar__menu-item, 
+.super-navbar.scrolled .super-navbar__menu-item > a,
+.super-navbar.scrolled .super-navbar__menu-item span,
+.super-navbar.scrolled .super-navbar__list {
+  color: #37352F!important;
+  -webkit-text-fill-color: #37352F !important;
+}
+/* [3] 응답형 및 모바일 메뉴 가시성 보장 */
+/* 1. 태블릿 (1024px 이하) */
+@media (max-width: 1024px) {
+  .super-navbar .super-navbar__menu-item, 
+  .super-navbar .super-navbar__menu-item a,
+  div[class*="super-navbar__menu"] a,
+  .super-navbar .super-navbar__list { /* 💡 [추가] 태블릿 해상도 매칭 */
+    font-size: 20px !important; /* 화면이 작아지면 가독성을 위해 살짝 조절 */
+    color: #37352F !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+  }
+  .super-navbar__menu {
+    background-color: #f7f7f7 !important;
+  }
+  body:has(.super-navbar__menu-wrapper)
+  .super-navbar{
+      background:#37352F !important;
+      transition:none !important;
+  }
+}
+/* 2. 모바일 최종 (768px 이하) */
+@media (max-width: 768px) {
+  .super-navbar .super-navbar__menu-item,
+  .super-navbar .super-navbar__menu-item a,
+  .super-navbar .super-navbar__list { /* 💡 [추가] 모바일 최종 해상도 매칭 */
+    font-size: 18px !important; 
+    font-weight: 700 !important;
+  }
+  body:has(.super-navbar__menu-wrapper)
+  .super-navbar{
+      background:#37352F !important;
+      transition:none !important;
+  }
+}
