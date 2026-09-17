@@ -1,0 +1,319 @@
+/* ==========================================================================
+📱 [PAD / TABLET 전용] 3레이어 → 일반 스크롤 버전
+769px ~ 1199px
+========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+
+    /* ==========================================================================
+    0. 최상위 페이지 컨테이너
+    ========================================================================== */
+
+    .notion-page-content {
+        position: relative !important;
+        background-color: #ffffff !important;
+    }
+
+
+  /* ==========================================================================
+    1번 레이어: HERO (태블릿 풀와이드 다크 배경 적용)
+    ========================================================================== */
+
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        position: relative !important;
+        top: auto !important;
+        z-index: 1 !important;
+        background-color: #37352F !important;
+        border: none !important;
+        border-radius: 0px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+/* ==========================================================================
+    1-5. HERO 태블릿 전용 좌우 및 상단 네비바 연장 다크 배경판
+    ========================================================================== */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: -120px !important; /* 상단 네비게이션 바 영역까지 음수로 확장 */
+        bottom: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: 100vw !important;
+        margin-left: -50vw !important;
+        background-color: #37352F !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+    }
+
+    /* 하단 스티키 벌어짐 메움용 가상 요소 제거 유지 */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::after {
+        content: none !important;
+        display: none !important;
+    }
+
+
+    /* ==========================================================================
+    2번 레이어: BROWN
+    - absolute 해제
+    - 일반 문서 흐름
+    - 이미지 위 겹침 효과 제거
+    ========================================================================== */
+
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
+
+        --padding-x-pc: 15px;
+
+        position: relative !important;
+
+        top: auto !important;
+
+        left: auto !important;
+
+        transform: none !important;
+
+        margin-top: 0 !important;
+
+        margin-bottom: 0 !important;
+
+        margin-left: auto !important;
+
+        margin-right: auto !important;
+
+        z-index: 100 !important;
+
+        width: 100% !important;
+
+        max-width: 1150px !important;
+
+        background: transparent !important;
+
+        border: none !important;
+
+        border-radius: 0 !important;
+
+        padding-top: 0 !important;
+
+        padding-bottom: 0 !important;
+
+        padding-left: var(--padding-x-pc) !important;
+
+        padding-right: var(--padding-x-pc) !important;
+
+        box-sizing: border-box !important;
+
+        font-size: 14px !important;
+    }
+
+
+    /* Brown 내부 콘텐츠 */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"]))
+    > .notion-callout__content {
+
+        padding: 0 !important;
+
+        margin: 0 !important;
+
+        width: 100% !important;
+    }
+
+
+    /* Brown 트리거/아이콘 제거 */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
+
+        display: none !important;
+    }
+
+
+    /* Brown 기본 텍스트 */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
+
+        color: #ffffff !important;
+
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
+    }
+
+
+    /* Brown 인라인 코드 */
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) code,
+    .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-inline-code {
+
+        display: inline-block !important;
+
+        visibility: visible !important;
+
+        opacity: 1 !important;
+
+        color: #37352f !important;
+
+        -webkit-text-fill-color: #37352f !important;
+
+        background: rgba(255, 255, 255, 1) !important;
+
+        text-shadow: none !important;
+
+        padding: 2px 6px !important;
+
+        border-radius: 4px !important;
+    }
+
+
+    /* ==========================================================================
+    3번 레이어: PINK
+    - sticky 해제
+    - top:545 해제
+    - 일반 문서 흐름
+    - 다크 인트로 유지
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+
+        position: relative !important;
+
+        top: auto !important;
+
+        z-index: 5 !important;
+
+        background-color: transparent !important;
+
+        border: none !important;
+
+        border-radius: 0 !important;
+
+        margin-top: 0 !important;
+
+        margin-bottom: 0 !important;
+
+        margin-left: 0 !important;
+
+        margin-right: 0 !important;
+
+        padding: 0px 0 30px 0 !important;
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        overflow: visible !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    /* ==========================================================================
+    3-1. PINK 다크 배경
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
+
+        content: "" !important;
+
+        position: absolute !important;
+
+        top: 0 !important;
+
+        bottom: 0 !important;
+
+        left: 50% !important;
+
+        right: auto !important;
+
+        width: 100vw !important;
+
+        margin-left: -50vw !important;
+
+        background-color: #37352F !important;
+
+        z-index: -1 !important;
+
+        pointer-events: none !important;
+    }
+
+
+    /* ==========================================================================
+    3-2. PINK 내부 콘텐츠
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    > .notion-callout__content {
+
+        position: relative !important;
+
+        z-index: 12 !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+
+        background-color: transparent !important;
+    }
+
+
+    /* ==========================================================================
+    3-3. PINK 트리거 번호목록 숨김
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) ol:first-of-type,
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-numbered-list:first-of-type {
+
+        display: none !important;
+    }
+
+
+    /* ==========================================================================
+    4. 태블릿에서 Pink 이후 WHITE CONTENT 시작
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    ~ * {
+
+        background-color: #ffffff !important;
+    }
+
+
+    /* ==========================================================================
+    5. TABLET 전용 Brown/Pink 내부 divider
+    - 기존 PC 스타일 유지
+    ========================================================================== */
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    .notion-divider {
+
+        border: none !important;
+
+        border-bottom: 1px solid #000000 !important;
+
+        background: transparent !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        opacity: 1 !important;
+
+        visibility: visible !important;
+    }
+
+}
