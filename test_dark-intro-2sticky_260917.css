@@ -517,14 +517,22 @@
     text-decoration: none !important;
 }
 
+/* 우측 버튼 알약 형태로 수정 */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout:is([class*="gray"], .bg-gray-light):not(:has(ul)):not(:has(.notion-bulleted-list)):not(:has(.notion-list-view)):has(.notion-to-do):has(:is(code, .notion-inline-code)) .color-red code a,
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout:is([class*="gray"], .bg-gray-light):not(:has(ul)):not(:has(.notion-bulleted-list)):not(:has(.notion-list-view)):has(.notion-to-do):has(:is(code, .notion-inline-code)) .color-red_background code a {
-    color: #F8F9A7 !important;
-    font-size: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #F8F9A7 !important;
+    color: #37352F !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
+    padding: 12px 18px !important;
+    border-radius: 9999px !important;
     text-decoration: none !important;
+    line-height: 1 !important;
+    transition: all 0.2s ease !important;
 }
-
 
 
 /* 2-10. 핑크 콜아웃 내부 구분선 스타일 추가 */
