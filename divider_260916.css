@@ -92,14 +92,14 @@ div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-g
 }
 
 /* [모바일 전용 풀와이드 확장] */
-/* @media (max-width: 768px) { */
-    /* .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)),  */
-    /* div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) { */
-        /* width: 100vw !important; */
-        /* left: 50% !important; */
-        /* right: 50% !important; */
-        /* margin-left: -50vw !important; */
-        /* margin-right: -50vw !important; */
-        /* transform: none !important; */
-    /* } */
-/* } */
+@media (max-width: 768px) {
+    .notion-callout[class*="yellow"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)), 
+    div[style*="background-color: rgb(251, 243, 219)"]:not(:has(.notion-collection-gallery)):not(:has(.notion-collection-list)):not(:has(.notion-toggle)) {
+        width: 100vw !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+        transform: none !important;
+    }
+}
