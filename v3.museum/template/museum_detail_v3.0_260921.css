@@ -1,4 +1,14 @@
 /* 뮤지엄 상세 템플릿 3.0*/
+
+/* =================
+⚠️ 메모 
+===================
+개별 독립 링크 리스트
+------------------
+- 스티키 점프바
+- 관심 콘텐츠 
+------------------*/
+
 /* 1. 인트로 레이어 PC, 모바일, 패드 */
 @import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/v3.museum/components/detail_v3.2_intro_layer_v3.2_pc-mb_260917.css");
 @import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/v3.museum/components/detail_v3.2_intro_layer_v3.2_pad_260917.css");
@@ -14,11 +24,4 @@
 @import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/components/callout.text/blue_text.st_small.text_260921.css
 ");
 
-/* =================
-⚠️ 메모 
-===================
-개별 독립 링크 리스트
-------------------
-- 스티키 점프바
-- 관심 콘텐츠 
-------------------*/
+
