@@ -1,0 +1,43 @@
+/*------[3] 녹색 콜아웃 (인라인코드 조건) - 첫 번째 인라인코드 p 태그 숨김 및 16px 적용--260907 수정------*/
+/*---- 사용: v3-상세페이지 시간 등 핵심정보 부분 ---- */
+/*---- 메모: 기존거 사용중으로 아이콘 뺀 경우로 사용중 -----*/
+
+/* 1. 조건에 해당하는 녹색 콜아웃 내부의 첫 번째 인라인 코드를 포함한 p 태그 전체 완벽 제거 */
+.notion-callout[class*="green"]:has(code) p:has(code):first-of-type,
+.notion-callout[class*="green"]:has(code) .notion-text:has(code):first-of-type,
+.notion-callout[class*="green"]:has(code) ol:first-of-type {
+    display: none !important;
+}
+
+/* 2. 녹색 콜아웃 기본 투명화 및 여백 리셋 */
+.notion-callout[class*="green"]:has(code) {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;  
+    padding-top: 0px !important;    
+    padding-bottom: 0px !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 0 !important;       
+}
+
+/* 3. 내부 콘텐츠 영역 여백 리셋 */
+.notion-callout[class*="green"]:has(code) .notion-callout__content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+}
+
+/* 4. 내부 텍스트 글자 크기 18px 강제 적용 */
+.notion-callout[class*="green"]:has(code) .notion-callout__content * {
+    font-size: 16px !important;
+}
+
+@media (max-width: 768px) {
+    .notion-callout[class*="green"]:has(code) .notion-callout__content * {
+        font-size: 14px !important;
+      /* line-height: 1.3 !important; /* 줄간격 타이트하게 */ */
+    }
+}
