@@ -1,0 +1,24 @@
+/* v2 상세페이지 인트로 핵심 정보 영역 */
+
+/*------[2] 투명 텍스트형 (Green)-260831--------*/
+/* 토글/번호매기기 목록은 없고, 아이콘은 포함된 초록색 콜아웃에만 적용 */
+.notion-callout[class*="green"]:has(.notion-callout__icon):not(:has(.notion-toggle)):not(:has(.notion-numbered_list)) {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;  
+    /* 위아래 마진(여백) 조절 */
+    padding-top: 0px !important;    
+    padding-bottom: 0px !important; 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 0 !important;       
+}
+
+/* 초록색 콜아웃 내부 콘텐츠 정렬 (아이콘 포함, 토글/번호매기기 목록 제외) */
+.notion-callout[class*="green"]:has(.notion-callout__icon):not(:has(.notion-toggle)):not(:has(.notion-numbered_list)) .notion-callout__content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+}
