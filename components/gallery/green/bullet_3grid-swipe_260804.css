@@ -1,5 +1,5 @@
 /* 그린콜아웃 + 불렛 트리거 + 갤러리 */
-/* PC: 4그리드 / 모바일: 스와이프 */
+/* PC: 3그리드 / 모바일: 스와이프 */
 /* 랜딩페이지 : must visit museum */
 
 /*==========================================
@@ -29,7 +29,7 @@
 /* [1] PC 버전: 3열 격자 그리드로 아래로 펼쳐지는 구조 */
 .notion-callout[class*="green"]:has(.notion-collection-gallery):has([class*="bullet"]) .notion-collection-gallery {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important; /* PC 기준 무조건 4열 고정 */
+    grid-template-columns: repeat(3, 1fr) !important; /* PC 기준 무조건 4열 고정 */
     grid-template-rows: unset !important; /* 기존 세로 2줄 강제 제어 해제 */
     grid-auto-flow: unset !important; /* 가로 누적 흐름 해제하여 아래로 쌓이게 변경 */
     gap: 10px !important;
