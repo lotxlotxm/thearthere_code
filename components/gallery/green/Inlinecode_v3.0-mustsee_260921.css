@@ -1,0 +1,226 @@
+/* 초록색 / 인라인코드 트리거 */
+/* 상세 must-see 갤러리뷰 */
+
+/*=========================================
+🟩 [타입 G] 초록색 콜아웃 + 인라인코드 트리거*/
+/* 기본 여백 제거 및 투명화 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+/* 콜아웃 내부 콘텐츠 좌측 8px 여백제거 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) > .notion-callout__content {
+  margin-inline-start: 0 !important;
+  margin-left: 0 !important;
+}
+/* 갤러리 뷰 상단 여백 제거 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-gallery {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  background: transparent !important;
+  overflow-x: visible !important;
+}
+/* 인라인 코드 트리거 텍스트 숨김 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) > .notion-callout__content > .notion-text:has(code),
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) > .notion-callout__content > code {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+/* 갤러리 전체 그리드 시스템 (4열유지) */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; 
+  gap: 8px !important;
+}
+/* 카드 기본 스타일 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card {
+  position: relative !important;
+  width: 100% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+/*-----------------------------------------
+1. 첫 번째 카드 (16:9 비율 + 4열 전체 차지 + 텍스트 오버레이)*/
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) {
+  grid-column: 1 / -1 !important;
+  margin-bottom: 8px !important;
+  position: relative !important;
+  overflow: hidden !important; /* 이미지 영역 밖으로 삐져나가는 그라데이션 차단 */
+  aspect-ratio: 16 / 9 !important;
+}
+/* 카드 프레임 크기에 정확히 1:1 일치 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) span[data-full-size],
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__cover {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__cover img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+/* 텍스트 오버레이 및 그라데이션 시작점을 이미지 썸네일 바닥에 정밀 고정 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__content {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important; /* 텍스트 영역 높이에 맞춤 */
+  max-height: 100% !important;
+  padding: 32px 16px 16px 16px !important; /* 그라데이션 여백 확보 및 하단 정렬 */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  box-sizing: border-box !important;
+  -webkit-text-fill-color: #ffffff !important;
+  pointer-events: none !important;
+}
+/* 첫 번째 카드 오버레이 내부 텍스트 색상 흰색 고정 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__property * {
+  color: #ffffff !important;
+}
+/*-----------------------------------------
+2. 나머지 카드들 (2번째부터 원래 1:1 스타일 유지)*/
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:not(:nth-child(1)) .notion-collection-card__cover,
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:not(:nth-child(1)) .notion-collection-card__cover > div,
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:not(:nth-child(1)) .notion-collection-card__cover img {
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+}
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:not(:nth-child(1)) .notion-collection-card__content {
+  background: transparent !important;
+  padding: 10px 4px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+/* 아이콘 숨김 */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property svg {
+  display: none !important;
+}
+/* 속성 타이포그래피 (기존 타이밍/스타일 계승) */
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(1),
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(1) * {
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 2px !important;
+}
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(2),
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(2) * {
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+}
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(3),
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(3) * {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: -3px !important;
+  text-decoration: underline !important;
+  text-decoration-color: #F8F9A7 !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 2px !important;
+}
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(4),
+.notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(4) * {
+  padding: 0 !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+/*📱 모바일 대응 (반응형)*/
+@media (max-width: 768px) {
+  /* 갤러리 전체 가로 스크롤 그리드 전환 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-gallery {
+    display: grid !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: calc((100% - 10px) / 1.5) !important; 
+    gap: 6px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-gallery::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* 모바일 공통 카드 설정 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card {
+    width: 100% !important; 
+    max-width: 100% !important;
+    min-width: unset !important;
+    flex: none !important;
+    scroll-snap-align: start !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 첫 번째 카드: PC 전용 16:9 및 오버레이 완벽 초기화 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) {
+    grid-column: auto !important;
+    aspect-ratio: unset !important;
+    overflow: visible !important;
+  }
+  
+  /* 첫 번째 카드 내부 프레임 및 높이 강제 고정 해제 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) span[data-full-size] {
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* 모든 카드의 썸네일 커버 영역을 1:1 정사각형으로 리셋 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card .notion-collection-card__cover,
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card .notion-collection-card__cover > div,
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card .notion-collection-card__cover img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+  }
+
+  /* 첫 번째 카드의 절대위치 오버레이 제거 및 배치 일반화 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__content {
+    position: static !important;
+    background: transparent !important;
+    color: inherit !important;
+    -webkit-text-fill-color: initial !important;
+    padding: 8px 0px !important;
+    max-height: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* 첫 번째 카드 내부 텍스트 색상 해제 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card:nth-child(1) .notion-collection-card__property * {
+    color: inherit !important;
+  }
+
+  /* 모든 카드 하단 콘텐츠 패딩 통일 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card .notion-collection-card__content {
+    width: 100% !important;
+    padding: 8px 0px !important;
+  }
+
+  /* 모바일 세번째 프로퍼티 타이포 스타일 통일 */
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(3),
+  .notion-callout[class*="green"]:has(.notion-collection-gallery):has(code) .notion-collection-card__property:nth-child(3) * {
+    font-size: 10px !important;
+    margin-bottom: -7px !important;
+    text-decoration: underline !important;
+    text-decoration-color: #F8F9A7 !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 1px !important;
+  }
+}
