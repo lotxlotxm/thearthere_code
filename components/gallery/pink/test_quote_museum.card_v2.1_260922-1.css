@@ -29,6 +29,26 @@
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* [2-1] 썸네일(커버) 이미지 보이기 처리 */
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-card__cover {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    overflow: hidden !important;
+    margin-bottom: 10px !important;
+    border-radius: 0 !important;
+}
+
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-card__cover img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 /* [3] 그리드 레이아웃 설정(속성 2칼럼) */
@@ -40,9 +60,9 @@
     width: 100% !important;
 }
 .notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-card__content > .notion-property {
-    width:100% !important;
-    max-width:100% !important;
-    box-sizing:border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* [4] 속성별 배치 및 구분선 제어 */
