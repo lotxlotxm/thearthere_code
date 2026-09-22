@@ -35,12 +35,34 @@
     margin-top: 0 !important;
 }
 
-/* [3] 리스트 아이템 레이아웃 및 구분선 제어 */
+/*==========================================
+📌 [뮤지엄 리스트뷰 스타일 수정 - Gap 제거 추가]
+==========================================*/
+
+/* [3-1] 🌟 리스트 부모 컨테이너의 flex gap 제거 (밀림 현상 근본 원인 해결) */
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list {
+    row-gap: 0px !important;
+    column-gap: 0px !important;
+    gap: 0px !important;
+}
+
+/* [3-2] 리스트 아이템 레이아웃 및 구분선 제어 */
 .notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item {
     display: flex !important;
-    align-items: left !important;
+    align-items: center !important;
     padding: 25px 0 !important;
     border-bottom: 1.5px solid #37352f !important;
+    
+    /* 상하단 마진 및 갭 초기화 */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    
+    transition: background-color 0.2s ease !important;
+}
+
+/* [3-3] 호버 효과 */
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item:hover {
+    background-color: #F8F9A7 !important;
 }
 
 
