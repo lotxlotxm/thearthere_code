@@ -1,0 +1,156 @@
+/* 그린콜아웃 + 토글 트리거 */
+/* PC: 4그리드 / 모바일: 좌우 그리드 리스트  */
+/* 상세페이지 > 연관 뮤지엄 리스트 */
+
+
+
+/*==========================================
+🟩 [타입 E] 녹색 콜아웃 + 토글 트리거 (갤러리 뷰 전용)
+상세-뮤지엄 4칼럼 뷰 - 
+==========================================*/
+
+/* [0] 토글 트리거 및 헤더 숨김 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-toggle__summary,
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection__header-wrapper,
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-toggle__content {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    
+}
+
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-callout__content {
+    margin-inline-start: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+    
+    
+}
+
+/* 콜아웃 자체의 패딩 및 여백 제거 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+      border-radius: 0px !important;
+
+}
+
+
+/* 상단 패딩 강제 제거 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-gallery {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    background: transparent !important;
+}
+
+/* [1] PC 버전: 4열 그리드 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; 
+    grid-template-rows: unset !important; 
+    grid-auto-flow: unset !important;
+    gap: 10px !important;
+    overflow-x: visible !important; 
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-gallery::-webkit-scrollbar {
+    display: none !important;
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card {
+    width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: relative !important;
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__content {
+    background: transparent !important;
+    padding: 10px 0px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 80px !important;
+}
+
+/* [2] 썸네일 6:4 고정 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__cover,
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__cover img {
+    aspect-ratio: 6 / 4 !important;
+    border-radius: 0px !important;
+    object-fit: cover !important;
+}
+
+/* [3] 속성 스타일 */
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property svg {
+    display: none !important;
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property {
+    color: #37352f !important;
+    /*font-weight: 400 !important;*/
+    font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-property__title {
+    display: flex !important;
+    top: auto !important;
+    order: 2 !important;
+    /*font-size: 18px !important;*/
+    font-weight: 700 !important;
+    /*line-height: 1.1 !important;*/
+}
+
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2),
+.notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2) * {
+    position: static !important;
+    order: 1 !important;
+    /*font-size: 12px !important;*/
+    /*line-height: 1.2 !important;*/
+    margin-bottom: -3px !important;
+}
+
+/* 모바일 가로형 배치 */
+@media (max-width: 768px) {
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-gallery {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0px !important;
+        background: #ffffff !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__cover {
+        flex: 0 0 125px !important;
+        height: 100px !important;
+        aspect-ratio: unset !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__cover img {
+        width: 100px !important;
+        height: 75px !important;
+        object-fit: cover !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__content {
+        flex: 1 !important;
+        padding: 0 12px !important;
+        min-height: auto !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-property__title {
+        /*font-size: 16px !important;*/
+        order: 2 !important;
+        margin-top: -2px !important;
+    }
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2),
+    .notion-callout[class*="green"]:has(.notion-toggle):has(.notion-collection-gallery) .notion-collection-card__property:nth-child(2) * {
+        /*font-size: 10px !important;*/
+        order: 1 !important;
+        margin-bottom: -3px !important;
+    }
+}
