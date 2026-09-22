@@ -43,6 +43,20 @@
     border-bottom: 1.5px solid #37352f !important;
 }
 
+
+/* 🌟 [추가] 리스트 아이템 호버 효과 (배경색 변경 & 글자색 유지) */
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item:hover {
+    background-color: #F8F9A7 !important;
+}
+
+/* 🌟 [추가] 호버 시에도 글자색 유지되도록 설정 */
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item:hover .notion-property__title,
+.notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item:hover .notion-property {
+    color: #37352f !important;
+}
+
+
+
 .notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-list__item:first-child {
     border-top: 1.5px solid #37352f !important;
 }
