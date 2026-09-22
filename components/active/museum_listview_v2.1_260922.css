@@ -71,7 +71,7 @@
     font-size: 14px !important;
     font-weight: 700 !important;
     color: #37352f !important;
-    font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+    /* font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important; */
     line-height: 1.2 !important;
 }
 
@@ -100,7 +100,7 @@
     font-size: 22px !important;
     font-weight: 600 !important;
     color: #37352f !important;
-    font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+    /* font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important; */
     flex: 2 !important;
 }
 
