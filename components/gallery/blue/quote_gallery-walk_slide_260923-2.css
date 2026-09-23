@@ -126,7 +126,7 @@ body, #notion-app, .notion-frame {
 .notion-callout[class*="blue"]:has(blockquote) .notion-collection-card__property.title,
 .notion-callout[class*="blue"]:has(blockquote) .notion-property.notion-property__title,
 .notion-callout[class*="blue"]:has(blockquote) .notion-property.notion-property__title .notion-semantic-string {
-    /* font-family: 'Roboto Flex', sans-serif !important; /* 제목은 Roboto Flex */ */
+    /* font-family: 'Roboto Flex', sans-serif !important; 제목은 Roboto Flex */
     font-size: 14px !important;
     font-weight: 700 !important;
     color: #37352f !important;
@@ -147,7 +147,7 @@ body, #notion-app, .notion-frame {
 .notion-callout[class*="blue"]:has(blockquote) .notion-semantic-string * {
     /* font-family: 'Roboto Flex', sans-serif !important; */
     font-size: 11px !important;
-    font-weight: 300 !important;
+    font-weight: 400 !important;
     color: #37352f !important;
     line-height: 1.4 !important;
     background: transparent !important; /* 하이라이트 배경 강제 제거 */
@@ -158,7 +158,7 @@ body, #notion-app, .notion-frame {
 .notion-callout[class*="blue"]:has(blockquote) .notion-property-text strong,
 .notion-callout[class*="blue"]:has(blockquote) .notion-collection-card__property strong {
     color: #37352f !important; /* 위에서 설정한 텍스트 색상과 동일하게 */
-    font-weight: 600 !important; /* 굵기는 유지 */
+    font-weight: 700 !important; /* 굵기는 유지 */
 }
 
 /* 속성 2번(index 2)과 3번(index 3) 사이 간격 강제 확장 */
