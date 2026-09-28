@@ -51,6 +51,25 @@
     line-height: 1.5 !important;
     white-space: nowrap !important;
     -webkit-font-smoothing: antialiased !important;
+    
+    
+/* 🎯 호버 트랜지션 효과 제거 */
+    transition: none !important;
+}
+
+/* 🎯 호버 상태 시 배경/테두리/텍스트 변화 완전 차단 */
+.notion-dropdown__option:hover {
+    background: transparent !important;
+    color: #37352f !important;
+    border-color: #37352f !important;
+    opacity: 1 !important;
+}
+
+/* 🎯 활성화(Active) 상태인 버튼에 마우스를 올려도 활성화 스타일 유지 */
+.notion-dropdown__option.active:hover {
+    background: #37352f !important;
+    color: #ffffff !important;
+    border-color: #37352f !important;
 }
 
 /* 텍스트 컨테이너 내의 모든 요소를 강제 설정 */
@@ -75,6 +94,9 @@
 .notion-dropdown__option-icon {
     display: none !important;
 }
+
+
+
 
 
 /* [6] 클릭 이벤트 활성화 및 우선순위 강제 */
