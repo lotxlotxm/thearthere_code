@@ -147,8 +147,7 @@
         width: 100% !important;
         background: transparent !important;
       gap: 10px 5px !important; 
-      margin-bottom: 10px !important; /* 이 수치를 조절하여 갤러리와의 간격을 맞추세요 */
-    }
+      margin-bottom: 3px !important; /* 이 수치를 조절하여 갤러리와의 간격을 맞추세요 */
     }
 
     /* 2. 드롭다운 버튼 숨김 */
@@ -174,12 +173,5 @@
     .notion-dropdown__button-title {
         display: none !important;
     }
-    
-    /*[8] [필터 하단 여백 추가*/
-.notion-dropdown__menu-wrapper,
-.notion-dropdown__menu {
-      margin-top: 10px !important; /* 이 수치를 조절하여 여백을 늘리세요 */
-
-    margin-bottom: 0px !important; /* 이 수치를 조절하여 여백을 늘리세요 */
     
 }
