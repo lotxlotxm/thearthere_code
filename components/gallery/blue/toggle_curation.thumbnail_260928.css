@@ -27,9 +27,17 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
+    
+  /* 🎯 녹색 패딩 상단 0으로 초기화 */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    
 }
 
-
+/* 컬렉션 헤더 영역 완전 숨김 */
+.notion-callout[class*="blue"]:has(.notion-toggle) .notion-collection__header-wrapper {
+    display: none !important;
+}
 
 
 
@@ -166,6 +174,29 @@
         font-size: 30px !important; /* 모바일 속성 크기 */
         line-height: 1.2 !important;
     }
+    
+    /*마진 제거*/
+    /* 1. 토글 요약(Collections 헤더) 완전 비노출 */
+    .notion-callout[class*="blue"]:has(.notion-toggle) .notion-toggle__summary {
+        display: none !important;
+    }
+
+    /* 2. 콜아웃 상단 불필요한 empty span 텍스트 영역 제거 */
+    .notion-callout[class*="blue"]:has(.notion-toggle) .notion-callout__content > span.notion-semantic-string:first-child {
+        display: none !important;
+    }
+
+    /* 3. 콜아웃 내부 상단 패딩 및 여백 초기화 */
+    .notion-callout[class*="blue"]:has(.notion-toggle) .notion-callout__content {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+.notion-callout[class*="blue"]:has(.notion-toggle) .notion-toggle,
+    .notion-callout[class*="blue"]:has(.notion-toggle) .notion-toggle__summary,
+    .notion-callout[class*="blue"]:has(.notion-toggle) h4.notion-heading {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }    
+    
 }
-    
-    
