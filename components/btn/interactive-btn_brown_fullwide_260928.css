@@ -1,0 +1,135 @@
+/*==========================================
+06 ✅ 인터랙티브 노션 버튼 (브라운 콜아웃) - 풀와이드
+==========================================*/
+/* 📌type2 -브라운 콜아웃 : 버튼 full wide */
+/* 콜아웃 투명화 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(.notion-button) {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 1300px !important;
+    margin: 10px auto !important; 
+    border-radius: 0px !important;
+}
+/* 브라운 콜아웃은 하얀 박스 유지 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):not(:has(.notion-button)) {
+    background-color: #ffffff !important; 
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    color: #37352f !important; 
+    display: block !important;
+}
+
+/* 🎯 [마진 8px 제거] 콜아웃 내부 콘텐츠 및 버튼 기본 외부 마진 전체 초기화 */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__content,
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button {
+    margin: 0 !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+}
+
+/* 콜아웃 내부 아이콘 숨기기 (공통, 토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__icon {
+    display: none !important;
+}
+/* 여백 정밀 교정*/
+/* [1] 주석용 인라인 코드 숨김 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) code:not([class*="blue"] *) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+}
+/* [2] 버튼 위 노션 빈 단락(p) 공백 삭제 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__content > p:has(+ .notion-button),
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__content > p:has(+ .notion-column-list) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__content > div:empty:has(+ .notion-button),
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-callout__content > div:empty:has(+ .notion-column-list) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+/* [3] 2컬럼 버튼 칼럼 간격 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) > .notion-callout__content > .notion-column-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important; 
+    width: 100% !important;
+}
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) .notion-column {
+    width: 50% !important;
+    min-width: 45% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* [4] 콜아웃 내부의 버튼을 확장 및 디자인 통일 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button {
+    width: 100% !important;
+    max-width: 1300px !important;
+}
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a {
+    width: 100% !important;
+    padding: 15px 0px !important; 
+    min-height: auto !important; 
+    background-color: #37352f !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+/* [5] 버튼 글자 스타일 강제 적용 (토글, 불렛 없을 때만) */
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a span,
+.notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a div {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+@media (max-width: 768px) {
+  .notion-button > a,
+  .notion-button > a *,
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a span,
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a div {
+    font-size: 13px !important; 
+  }
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) .notion-button > a {
+    min-height: 40px !important; 
+    border-radius: 8px !important; 
+    padding: 0 20px !important; 
+    border: none !important;        
+    outline: none !important;
+    background-color: #37352f !important;
+  }
+  /* 모바일 위아래 여백 */
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])) {
+    margin-top: 10px !important;     
+    margin-bottom: 5px !important; 
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* 모바일 버튼 2칼럼 간격 좁히기 */
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) > .notion-callout__content > .notion-column-list {
+    gap: 8px !important;            
+  }
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) .notion-column {
+    width: 50% !important;
+    min-width: 40% !important; 
+  }
+  /* 보라색 콜아웃 내부 좌우 여백 최적화 */
+  .notion-callout[class*="brown"]:not(:has(blockquote)):not(:has(.notion-toggle)):not(:has(li)):not(:has([class*="bulleted"])):has(code) {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
