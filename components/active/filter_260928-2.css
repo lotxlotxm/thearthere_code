@@ -174,4 +174,12 @@
     .notion-dropdown__button-title {
         display: none !important;
     }
+    
+    /*[8] [필터 하단 여백 추가*/
+.notion-dropdown__menu-wrapper,
+.notion-dropdown__menu {
+      margin-top: 10px !important; /* 이 수치를 조절하여 여백을 늘리세요 */
+
+    margin-bottom: 0px !important; /* 이 수치를 조절하여 여백을 늘리세요 */
+    
 }
