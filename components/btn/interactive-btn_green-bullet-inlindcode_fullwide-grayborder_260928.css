@@ -1,0 +1,116 @@
+/* 인터랙티브 버튼 - 회색 테두리 - 풀와이드 */
+/* 그린 콜아웃 + 불렛 + 인라인코드 */
+/* 사용: 구글 선호 매체 스타일*/
+
+/*==========================================
+🟩 초록색 콜아웃 + 불렛리스트 + 인라인 코드 전용 풀와이드 노션 버튼 - 회색 테두리 버튼 260831
+(번호 매기기 목록 제외)
+========================================== */
+
+/* 🎯 [겉 콜아웃 투명화 및 아이콘/여백 제거] (번호 매기기 목록 제외) */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code),
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* 초록색 콜아웃 내부 아이콘 및 외부 마진/패딩 제거 */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-callout__icon,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-callout__icon {
+  display: none !important;
+}
+
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-callout__content,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-callout__content {
+  margin: 0 !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* [트리거 요소 숨김] 불렛 리스트 및 인라인 코드 화면 비노출 (번호 매기기 목록 제외) */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) ul,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) code,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-bulleted-list,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) code {
+  display: none !important;
+}
+
+/* [1] 컨테이너: 그리드 너비 100% 채움 */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+  display: block !important;
+  
+  /* 버튼 너비를 페이지 그리드 전체로 확장 */
+  width: 100% !important; 
+  max-width: 100% !important;
+}
+
+/* [2] 버튼 본체: 흰색 배경, 연한 회색 테두리, 100% 풀와이드 */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button > a,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button > a {
+  background-color: #ffffff !important; /* 흰색 배경 */
+  border: 1px solid #d2d2d2 !important; /* 연한 회색 테두리 */
+  border-radius: 10px !important;
+  
+  /* 양옆 크기를 꽉 채우도록 설정 */
+  width: 100% !important;
+  box-sizing: border-box !important;
+  
+  /* [버튼 상하 높이/패딩 조절 위치] */
+  padding: 15px 15px !important; 
+  
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important; /* 밑줄 제거 */
+  transition: all 0.2s ease !important;
+}
+
+/* [3] 글자 색상: #d1d1d1 지정 및 밑줄 제거 */
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button > a,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button > a *,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button > a,
+.notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button > a * {
+  font-size: 14px !important;   
+  /*font-weight: 500 !important;          */
+  color: #707070 !important; /* 요청하신 #d1d1d1 적용 */
+  -webkit-text-fill-color:#707070 !important;
+  fill: #707070 !important; /* SVG 아이콘 색상 대처 */
+  text-decoration: none !important; /* 밑줄 제거 */
+  line-height: 1.2 !important;        
+  text-align: center !important;
+}
+
+/* [4] 호버 효과 (PC) */
+@media (min-width: 769px) {
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button > a:hover,
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button > a:hover {
+    background-color: #f5f5f5 !important; /* 호버 시 연회색 배경 */
+    border-color: #d2d2d2 !important;
+    cursor: pointer !important;
+  }
+}
+
+/* [5] 모바일 패딩 및 여백 대응 */
+@media (max-width: 768px) {
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button,
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button {
+    margin: 16px 0 6px 0 !important;
+  }
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(ul):has(code) .notion-button > a,
+  .notion-callout[class*="green"]:not(:has(.notion-numbered_list)):not(:has(ol)):has(.notion-bulleted-list):has(code) .notion-button > a {
+    min-height: 40px !important; 
+    border-radius: 8px !important; 
+    padding: 0px 20px !important; 
+  }
+}
