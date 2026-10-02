@@ -1,9 +1,7 @@
-
-
+/* 이미지 풀와이드 버전 - 백업 */
 
 /*===========================================
 📌 풀와이드 갤러리뷰 히어로 배너*/
-
 /* [1] 트리거 설정 및 불필요 요소 숨김 */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) {
     display: block !important;
@@ -74,14 +72,20 @@
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
 }
-/* [4] 콘텐츠 및 글자 스타일 수정 (absolute 좌표 정렬) */
+
+/* [4] 콘텐츠 및 글자 스타일 수정 (노션/슈퍼 기본 그리드 좌정렬) */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-collection-card__content {
     position: absolute !important;
     inset: 0 !important;
-    padding: 30px 32px !important;
+    width: 100% !important;
+    max-width: 1150px !important; /* 슈퍼/노션 기본 그리드 폭 */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 30px 24px !important; /* 내부 기본 패딩 */
     background: transparent !important;
     z-index: 10 !important;
     pointer-events: none !important;
+    box-sizing: border-box !important;
 }
 
 /* 원래 제목 숨기기 (속성1로 대체할 경우) */
@@ -89,33 +93,66 @@
     display: none !important;
 }
 
-/* 공통 속성 스타일 초기화 */
+/* 공통 속성 스타일 초기화 (그리드 패딩 선에 딱 맞게 정렬) */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-property__text {
     position: absolute !important;
     color: #ffffff !important;
     font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
     z-index: 20 !important;
     pointer-events: none !important;
-    text-align: center !important;
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin: 0 auto !important;
+    text-align: left !important;
+    left: 24px !important;  
+    right: 24px !important;
+    width: auto !important;
+    margin: 0 !important;
 }
 
-/* 속성 3 (가장 위 - 카테고리/태그) */
+/* 속성 3 (카테고리/태그: 다중 선택) 위치 및 레이아웃 */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
-.notion-collection-card__content > .notion-property__text:nth-of-type(3) {
-    bottom: 220px !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) !important;
+.notion-collection-card__content [class*="notion-property__"][class*="select"] {
+    position: absolute !important;
+    top: 220px !important;
+    /*top: auto !important;*/
+    left: 24px !important;
+    right: 24px !important;
+    z-index: 20 !important;
+    pointer-events: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 다중 선택 내부 개별 태그(배지) 디자인 적용 */
+.notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
+.notion-collection-card__content [class*="notion-property__"][class*="select"] .notion-pill,
+.notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
+.notion-collection-card__content [class*="notion-property__"][class*="select"] [class*="pill"],
+.notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
+.notion-collection-card__content [class*="notion-property__"][class*="select"] span {
+    display: inline-flex !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    color: # !important;
+    -webkit-text-fill-color: #37352f !important;
+    background-color: #C9FF6B !important;
+    backdrop-filter: blur(4px) !important;
+    border: 0px solid #C9FF6B !important;
+    border-radius: 99px !important;
+    padding: 5px 15px !important;
+    margin: 0 !important;
+    /*text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;*/
+    /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;*/
 }
 
 /* 속성 1 (제목 대체 - 상단 두 번째) */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-of-type(1) {
-    bottom: 140px !important;
+    top: 260px !important;
     font-size: clamp(1.5rem, 4vw, 3.5rem) !important;
     font-weight: 700 !important;
     line-height: 1.1 !important;
@@ -125,7 +162,7 @@
 /* 속성 2 (중간/하단) */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-of-type(2) {
-    bottom: 80px !important;
+    top: 340px !important;
     font-size: 14px !important;
     line-height: 1.2 !important;
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
@@ -140,7 +177,6 @@
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4) !important;
 }
 /* [5] 필터 보기 탭 오버랩 및 점(Dot) / 바(Bar) 스타일화 설정 */
-
 /* 1. 상위 필터 컨테이너들을 화면 중앙 하단 영역으로 재배치 */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-collection__header,
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-collection-header,
@@ -189,13 +225,11 @@
     box-shadow: none !important;
     pointer-events: auto !important;
 }
-
 /* 3. 불필요한 드롭다운 헤더/토글 버튼만 은폐 */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-dropdown__menu-header,
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-dropdown__initial-state {
     display: none !important;
 }
-
 /* 4. 옵션 리스트 수평 정렬 */
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-dropdown__option-list {
     display: flex !important;
@@ -316,7 +350,6 @@
         color: #fff !important;
         -webkit-text-fill-color: #fff !important;
     }
-
     /* 모바일 환경 점 위치 조정 */
     .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block)) .notion-collection__header-wrapper {
         bottom: 16px !important;
