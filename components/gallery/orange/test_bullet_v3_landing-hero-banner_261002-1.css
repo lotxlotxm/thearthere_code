@@ -163,7 +163,7 @@
 .notion-callout[class*="orange"]:has([class*="bullet"]):has(.notion-collection-gallery):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-of-type(1) {
     top: 260px !important;
-    font-size: clamp(1.5rem, 4vw, 3.5rem) !important;
+    font-size: clamp(1.5rem, 4vw, 3rem) !important;
     font-weight: 700 !important;
     line-height: 1.1 !important;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3) !important;
