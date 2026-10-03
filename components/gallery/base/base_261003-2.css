@@ -29,8 +29,8 @@
 
 /* 📌 [PC 전용] 카드 간격(Gap) 제어 */
 .notion-collection-gallery {
-  gap: 20px !important;      /* 기본 PC 카드 간격 */
-  grid-gap: 20px !important; /* 구형 브라우저 호환성 */
+  gap: 15px !important;      /* 기본 PC 카드 간격 */
+  grid-gap: 15px !important; /* 구형 브라우저 호환성 */
 }
 
 /*-----------------------------------------*/
@@ -128,6 +128,12 @@
         font-weight: 700 !important;
         line-height: 1.2 !important;
     }
+    
+    /* 📌 [모바일 전용] 카드 간격(Gap) 제어 */
+  .notion-collection-gallery {
+    gap: 10px !important;      /* 모바일 카드 간격 */
+    grid-gap: 10px !important;
+  }
     
     .notion-collection-card__property:not(:first-child),
     .notion-collection-card__property:not(:first-child) *,
