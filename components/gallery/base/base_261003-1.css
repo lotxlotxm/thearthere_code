@@ -26,6 +26,13 @@
   border: 0px solid rgba(0,0,0,0.06) !important;
   overflow: hidden !important;
 }
+
+/* 📌 [PC 전용] 카드 간격(Gap) 제어 */
+.notion-collection-gallery {
+  gap: 20px !important;      /* 기본 PC 카드 간격 */
+  grid-gap: 20px !important; /* 구형 브라우저 호환성 */
+}
+
 /*-----------------------------------------*/
 /* 전역 속성 제어 (Global Properties) */
 /* [1] 제목: PC 16px / 모바일 13px */
