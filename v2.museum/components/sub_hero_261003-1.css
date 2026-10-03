@@ -1,8 +1,6 @@
 /*========================================== 
 📌 Gray Callout 풀와이드 레이아웃*/
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)),
-.notion-quote,
-.notion-heading[data-level="h1"] {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) {
     position: relative !important;
     background-color: #37352F !important; /* 배경색 직접 지정 */
     border: none !important;
@@ -21,9 +19,7 @@
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
-.notion-callout[class*="gray"]:not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)),
-.notion-quote,
-.notion-heading[data-level="h1"] {
+.notion-callout[class*="gray"]:not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) {
     border-radius: 0 !important;
 }
 
@@ -35,9 +31,7 @@
 }
 
 /* 배경 레이어 (보완 처리) */
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do))::before,
-.notion-quote::before,
-.notion-heading[data-level="h1"]::before {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do))::before {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
@@ -48,9 +42,7 @@
     z-index: 0 !important;
 }
 /* 내부 콘텐츠 제어 (1150px 중앙 정렬) */
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content,
-.notion-quote > .notion-quote__content,
-.notion-heading[data-level="h1"] > .notion-heading__content {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content {
     position: relative !important;
     z-index: 1 !important; /* 배경보다 위에 위치하도록 지정 */
     max-width: 1150px !important;
@@ -61,31 +53,22 @@
 }
 /*기본 글자색을 흰색으로 변경 */
 .notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content,
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content *,
-.notion-quote > .notion-quote__content,
-.notion-quote > .notion-quote__content *,
-.notion-heading[data-level="h1"] > .notion-heading__content,
-.notion-heading[data-level="h1"] > .notion-heading__content * {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content * {
     color: #ffffff !important;
 }
 /* 제목(h1, h2) 색상도 흰색지정 */
 .notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) h1,
 .notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) h2,
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) h3,
-.notion-quote h1, .notion-quote h2, .notion-quote h3, .notion-heading[data-level="h1"] {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) h3 {
     color: #ffffff !important;
 }
 /* 링크가 있을 경우를 대비한 색상 처리 */
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) a,
-.notion-quote a,
-.notion-heading[data-level="h1"] a {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) a {
     color: #ffffff !important; 
     text-decoration: underline;
 }
 @media (max-width: 768px) {
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content,
-    .notion-quote > .notion-quote__content,
-    .notion-heading[data-level="h1"] > .notion-heading__content {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content {
         padding-left: 33px !important;
         padding-right: 33px !important;
     }
@@ -93,8 +76,7 @@
         overflow-x: hidden !important;
     }
     /* 그리드 수정 */
-.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content,
-    .notion-quote > .notion-quote__content {
+.notion-callout[class*="gray"]:not(:has(.notion-image)):not(:has(ol)):not(:has(.notion-numbered-list)):not(:has(.notion-to-do)) > .notion-callout__content {
         padding-left: 31px !important;
         padding-right: 31px !important;
     }
