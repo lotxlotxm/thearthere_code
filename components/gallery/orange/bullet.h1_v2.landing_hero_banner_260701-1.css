@@ -89,7 +89,7 @@
 }
 /* 제목 속성 스타일 (중앙 정렬 최적화) */
 .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-property__title {
-    font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+    /* font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important; */
     font-size: clamp(1.5rem, 4vw, 3.5rem) !important;
     color: #ffffff !important;
     font-weight: 700 !important;
@@ -110,7 +110,7 @@
 >.notion-property__text:nth-child(2) *,
 .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-child(2) strong {
-    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    /* font-family:'Roboto Flex','Noto Sans KR',sans-serif !important; */
     font-size:1rem !important;
     font-weight:500 !important;
     line-height:1.1 !important;
@@ -127,7 +127,7 @@
 >.notion-property__text:nth-child(3) *,
 .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-child(3) strong {
-    font-family:'Roboto Flex','Noto Sans KR',sans-serif !important;
+    /* font-family:'Roboto Flex','Noto Sans KR',sans-serif !important; */
     font-size: 1rem !important;
     font-weight:400 !important;
     line-height:1.4 !important;
@@ -186,7 +186,7 @@ padding: 0 24px !important;
 .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)) .notion-collection-card__content > .notion-property__text:nth-child(3) *,
 .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block))
 .notion-collection-card__content > .notion-property__text:nth-child(3) strong {
-        font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important;
+        /* font-family: 'Roboto Flex', 'Noto Sans KR', sans-serif !important; */
         font-size: 0.7rem !important;
         font-weight: 400 !important;
         line-height: 1.4 !important;
