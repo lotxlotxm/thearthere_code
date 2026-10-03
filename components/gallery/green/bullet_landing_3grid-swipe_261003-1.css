@@ -34,7 +34,7 @@
   grid-template-columns: repeat(3, 1fr) !important;
   grid-template-rows: unset !important;
   grid-auto-flow: unset !important;
-  gap: 10px !important;
+  /* gap: 10px !important; */
   background: transparent !important;
   overflow-x: visible !important; 
   padding-top: 0px !important;
@@ -107,7 +107,7 @@
     grid-template-rows: none !important;
     grid-auto-flow: column !important;
     grid-auto-columns: calc((100% - 10px) / 1.1) !important; 
-    gap: 8px !important;
+    /* gap: 8px !important; */
     overflow-x: auto !important;
     scrollbar-width: none !important;
     scroll-snap-type: x mandatory !important;
