@@ -1,0 +1,76 @@
+/* =========================================
+#️⃣[버튼형] 파란색 글씨 -> 우정렬, 더보기 링크 
+-----------------------------------------*/
+code[class*="blue"],
+span[class*="blue"] code,
+.notion-inline-code[class*="blue"] {
+  /* 타이포 */
+  /*font-size: 0.8em !important;*/
+  line-height: 1.2 !important;
+  /* 컬러 */
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  /* 배경 및 테두리 제거 (박스 제거) */
+  background: transparent !important;
+  border-radius: 0px !important;
+  padding: 0px !important;
+  border: none !important;
+  /* 기타 및 우정렬 설정 */
+  opacity: 1 !important;
+  box-shadow: none !important;
+  display: block !important; /* 오른쪽 정렬을 적용하기 위해 block으로 변경 */
+  margin-left: auto !important; /* 우정렬 */
+  text-align: right !important; /* 내부 텍스트 우정렬 */
+  vertical-align: middle !important;
+}
+
+/* 2. 내부 span / a / div 강제 동기화 (노션 내부 wrapper 대응) */
+code[class*="blue"] *,
+span[class*="blue"] code *,
+.notion-inline-code[class*="blue"] * {
+  font-size: 1em !important;
+  line-height: 1.2 !important;
+  color: #37352f !important;
+  -webkit-text-fill-color: #37352f !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* 🔗 2-1. 링크일 때 기본 상태 (#37352f 밑줄 추가) */
+code[class*="blue"] a,
+span[class*="blue"] code a,
+.notion-inline-code[class*="blue"] a,
+code[class*="blue"] a *,
+span[class*="blue"] code a *,
+.notion-inline-code[class*="blue"] a * {
+  text-decoration: underline !important;
+  text-decoration-color: #37352f !important;
+  border-bottom: none !important;
+}
+
+/* 🖱️ 2-2. 호버 상태 (컬러 #D34A45 + 밑줄 제거) */
+code[class*="blue"]:hover,
+code[class*="blue"]:hover *,
+span[class*="blue"] code:hover,
+span[class*="blue"] code:hover *,
+.notion-inline-code[class*="blue"]:hover,
+.notion-inline-code[class*="blue"]:hover * {
+  color: #D34A45 !important;
+  -webkit-text-fill-color: #D34A45 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* 3. 기존 전역 code span 충돌 제거 */
+code a,
+code span,
+code a span {
+  font-size: 1em !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}
