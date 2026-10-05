@@ -240,7 +240,7 @@ code a span {
 code[class*="purple"],
 span[class*="purple"] code,
 .notion-inline-code[class*="purple"] {
-  /* 타이포 *1em !important;
+  /* 타이포 */ 1em !important;
   line-height: 1.2 !important;
   /* 컬러 */
   color: #37352f !important;
@@ -333,7 +333,7 @@ span[class*="purple"] code *,
 code[class*="yellow"],
 span[class*="yellow"] code,
 .notion-inline-code[class*="yellow"] {
-  /* 타이포 *1em !important;
+  /* 타이포 */ 1em !important;
   line-height: 1.2 !important;
   /* 컬러 */
   color: #ffffff !important;
