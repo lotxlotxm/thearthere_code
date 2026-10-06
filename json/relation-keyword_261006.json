@@ -4,21 +4,21 @@
     "location": "Paris | France",
     "artwork_name": "Mona Lisa",
     "artist_name": "Leonardo da Vinci",
-    "path": "/louvre-museum"
+    "path": "/art-museums/louvre-museum"
   },
   {
     "museum_name": "Musée d'Orsay",
     "location": "Paris | France",
     "artwork_name": "Dance at Le Moulin de la Galette",
     "artist_name": "Pierre-Auguste Renoir",
-    "path": "/mus-dorsay"
+    "path": "/art-museums/muse-dorsay"
   },
   {
     "museum_name": "Musée de l'Orangerie",
     "location": "Paris | France",
     "artwork_name": "Water Lilies",
     "artist_name": "Claude Monet",
-    "path": "/mus-de-lorangerie"
+    "path": "/art-museums/muse-de-lorangerie"
   },
   {
     "museum_name": "Centre Pompidou",
@@ -109,7 +109,7 @@
     "location": "Amsterdam | Netherlands",
     "artwork_name": "Almond Blossoms",
     "artist_name": "Vincent van Gogh",
-    "path": "/van-gogh-museum"
+    "path": "/art-museums/van-gogh-museum"
   },
   {
     "museum_name": "Prado Museum",
