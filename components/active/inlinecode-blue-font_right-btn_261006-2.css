@@ -76,6 +76,70 @@ code a span {
 }
 
 
+/* =========================================
+📱 모바일: 파란색 더보기 링크 글자 크기만 축소
+(선택자·디자인은 위 기본 코드와 동일)
+-----------------------------------------*/
+@media (max-width: 768px) {
 
+  /* 바깥 code: 크기 지정 (html body로 우선순위를 높여 전역 모바일 code 규칙을 이김) */
+  html body code[class*="blue"],
+  html body span[class*="blue"] code,
+  html body .notion-inline-code[class*="blue"] {
+    font-size: 12px !important;
+  }
+
+  /* 내부 span / a / div: 바깥 code 크기를 그대로 따라가게 */
+  html body code[class*="blue"] *,
+  html body span[class*="blue"] code *,
+  html body .notion-inline-code[class*="blue"] *,
+  html body code[class*="blue"] a,
+  html body span[class*="blue"] code a,
+  html body .notion-inline-code[class*="blue"] a,
+  html body code[class*="blue"] a *,
+  html body span[class*="blue"] code a *,
+  html body .notion-inline-code[class*="blue"] a * {
+    font-size: inherit !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* 파란 더보기 링크가 들어 있는 2칼럼: 모바일에서도 한 줄 유지 */
+  .notion-column-list.notion-column-list.notion-column-list:is(
+    :has(code[class*="blue"]),
+    :has([class*="blue"] code),
+    :has(.notion-inline-code[class*="blue"])
+  ) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: end !important;
+    column-gap: 12px !important;
+  }
+
+  /* 칼럼 공통: 노션 인라인 width/margin 초기화 */
+  .notion-column-list.notion-column-list.notion-column-list:is(
+    :has(code[class*="blue"]),
+    :has([class*="blue"] code),
+    :has(.notion-inline-code[class*="blue"])
+  ) > .notion-column {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 링크 칼럼(마지막 칼럼): 오른쪽 끝, 제목 글자 기준선에 맞춰 아래로 */
+  .notion-column-list.notion-column-list.notion-column-list:is(
+    :has(code[class*="blue"]),
+    :has([class*="blue"] code),
+    :has(.notion-inline-code[class*="blue"])
+  ) > .notion-column:last-child {
+    justify-self: end !important;
+    padding-bottom: 0 !important;
+    margin-bottom: -1px !important;  /* 값이 클수록 링크가 더 아래로 내려감 */
+  }
 
 
