@@ -254,7 +254,7 @@
 
 
 
-/* 📌 [마지막 속성(9번/last-child) 숨김 처리] */
+/* 📌 [마지막 속성(9번/last-child) 작품 관계형 속성 숨김 처리] */
 .notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-card__content > .notion-property:last-child,
 .notion-callout[class*="pink"]:not(:has(ol)):not(:has(.notion-numbered-list)):has(.notion-quote) .notion-collection-card__content > .notion-property:nth-child(10) {
     display: none !important;
