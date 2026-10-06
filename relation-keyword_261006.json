@@ -1,0 +1,128 @@
+[
+  {
+    "museum_name": "Louvre Museum",
+    "location": "Paris | France",
+    "artwork_name": "Mona Lisa",
+    "artist_name": "Leonardo da Vinci",
+    "path": "/louvre-museum"
+  },
+  {
+    "museum_name": "Musée d'Orsay",
+    "location": "Paris | France",
+    "artwork_name": "Dance at Le Moulin de la Galette",
+    "artist_name": "Pierre-Auguste Renoir",
+    "path": "/mus-dorsay"
+  },
+  {
+    "museum_name": "Musée de l'Orangerie",
+    "location": "Paris | France",
+    "artwork_name": "Water Lilies",
+    "artist_name": "Claude Monet",
+    "path": "/mus-de-lorangerie"
+  },
+  {
+    "museum_name": "Centre Pompidou",
+    "location": "Paris | France",
+    "artwork_name": "Fountain",
+    "artist_name": "Marcel Duchamp",
+    "path": "/centre-pompidou"
+  },
+  {
+    "museum_name": "The Metropolitan Museum of Art",
+    "location": "New York | United States",
+    "artwork_name": "Washington Crossing the Delaware",
+    "artist_name": "Emanuel Leutze",
+    "path": "/the-metropolitan-museum-of-art"
+  },
+  {
+    "museum_name": "Museum of Modern Art",
+    "location": "New York | United States",
+    "artwork_name": "The Starry Night",
+    "artist_name": "Vincent van Gogh",
+    "path": "/museum-of-modern-art"
+  },
+  {
+    "museum_name": "Solomon R. Guggenheim Museum",
+    "location": "New York | United States",
+    "artwork_name": "Composition VIII",
+    "artist_name": "Wassily Kandinsky",
+    "path": "/solomon-r-guggenheim-museum"
+  },
+  {
+    "museum_name": "Whitney Museum of American Art",
+    "location": "New York | United States",
+    "artwork_name": "Early Sunday Morning",
+    "artist_name": "Edward Hopper",
+    "path": "/whitney-museum-of-american-art"
+  },
+  {
+    "museum_name": "National Gallery",
+    "location": "London | United Kingdom",
+    "artwork_name": "Sunflowers",
+    "artist_name": "Vincent van Gogh",
+    "path": "/national-gallery"
+  },
+  {
+    "museum_name": "Tate Modern",
+    "location": "London | United Kingdom",
+    "artwork_name": "Seagram Murals",
+    "artist_name": "Mark Rothko",
+    "path": "/tate-modern"
+  },
+  {
+    "museum_name": "British Museum",
+    "location": "London | United Kingdom",
+    "artwork_name": "Rosetta Stone",
+    "artist_name": "Unknown",
+    "path": "/british-museum"
+  },
+  {
+    "museum_name": "Uffizi Gallery",
+    "location": "Florence | Italy",
+    "artwork_name": "The Birth of Venus",
+    "artist_name": "Sandro Botticelli",
+    "path": "/uffizi-gallery"
+  },
+  {
+    "museum_name": "Galleria dell'Accademia",
+    "location": "Florence | Italy",
+    "artwork_name": "David",
+    "artist_name": "Michelangelo",
+    "path": "/galleria-dellaccademia"
+  },
+  {
+    "museum_name": "Vatican Museums",
+    "location": "Vatican City | Vatican City",
+    "artwork_name": "The School of Athens",
+    "artist_name": "Raphael",
+    "path": "/vatican-museums"
+  },
+  {
+    "museum_name": "Rijksmuseum",
+    "location": "Amsterdam | Netherlands",
+    "artwork_name": "The Night Watch",
+    "artist_name": "Rembrandt van Rijn",
+    "path": "/rijksmuseum"
+  },
+  {
+    "museum_name": "Van Gogh Museum",
+    "location": "Amsterdam | Netherlands",
+    "artwork_name": "Almond Blossoms",
+    "artist_name": "Vincent van Gogh",
+    "path": "/van-gogh-museum"
+  },
+  {
+    "museum_name": "Prado Museum",
+    "location": "Madrid | Spain",
+    "artwork_name": "Las Meninas",
+    "artist_name": "Diego Velázquez",
+    "path": "/prado-museum"
+  },
+  {
+    "museum_name": "Museo Reina Sofía",
+    "location": "Madrid | Spain",
+    "artwork_name": "Guernica",
+    "artist_name": "Pablo Picasso",
+    "path": "/museo-reina-sofa"
+  }
+]
