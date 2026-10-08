@@ -1,0 +1,597 @@
+[
+  {
+    "title": "Kröller-Müller Museum",
+    "sub": "Otterlo | Netherlands",
+    "path": "/art-museums/kroller-muller-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Composition with Grid 6: Lozenge, Composition with Colours",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/piet-mondrian-composition-with-grid-6-lozenge-1919",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Composition with Red, Yellow and Blue",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/composition-with-red-yellow-and-blue",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Monet's Studio-Boat",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/monets-studio-boat",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Chahut",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/chahut",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Self-Portrait",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/van-gogh-self-portrait-1887",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Terrace of a Café at Night (Place du Forum)",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/terrace-of-a-caf-at-night-place-du-forum",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Bridge at Arles (Pont de Langlois)",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/bridge-at-arles-pont-de-langlois",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "Four Sunflowers Gone to Seed",
+    "sub": "Otterlo | Netherlands",
+    "path": "/artworks/four-sunflowers-gone-to-seed",
+    "type": "Artwork",
+    "museum": "Kröller-Müller Museum"
+  },
+  {
+    "title": "The ALBERTINA Museum",
+    "sub": "Vienna | Austria",
+    "path": "/art-museums/albertina-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Venice, The Pink Cloud",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/venice-the-pink-cloud",
+    "type": "Artwork",
+    "museum": "The ALBERTINA Museum"
+  },
+  {
+    "title": "Two Dancers",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/two-dancers",
+    "type": "Artwork",
+    "museum": "The ALBERTINA Museum"
+  },
+  {
+    "title": "View of Vétheuil",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/view-of-vtheuil",
+    "type": "Artwork",
+    "museum": "The ALBERTINA Museum"
+  },
+  {
+    "title": "The Water Lily Pond",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/the-water-lily-pond",
+    "type": "Artwork",
+    "museum": "The ALBERTINA Museum"
+  },
+  {
+    "title": "Petit Palais",
+    "sub": "Paris | France",
+    "path": "/art-museums/petit-palais",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Portrait of Sarah Bernhardt",
+    "sub": "Paris | France",
+    "path": "/artworks/portrait-of-sarah-bernhardt",
+    "type": "Artwork",
+    "museum": "Petit Palais"
+  },
+  {
+    "title": "Young Ladies on the Banks of the Seine (Summer)",
+    "sub": "Paris | France",
+    "path": "/artworks/young-ladies-on-the-banks-of-the-seine-summer",
+    "type": "Artwork",
+    "museum": "Petit Palais"
+  },
+  {
+    "title": "Portrait of Ambroise Vollard",
+    "sub": "Paris | France",
+    "path": "/artworks/portrait-of-ambroise-vollard",
+    "type": "Artwork",
+    "museum": "Petit Palais"
+  },
+  {
+    "title": "Sunset on the Seine at Lavacourt, Winter Effect",
+    "sub": "Paris | France",
+    "path": "/artworks/sunset-on-the-seine-at-lavacourt-winter-effect",
+    "type": "Artwork",
+    "museum": "Petit Palais"
+  },
+  {
+    "title": "Marmottan Monet Museum",
+    "sub": "Paris | France",
+    "path": "/art-museums/marmottan-monet-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Rouen Cathedral, Setting Sun, End of Day",
+    "sub": "Paris | France",
+    "path": "/artworks/rouen-cathedral-setting-sun-end-of-day",
+    "type": "Artwork",
+    "museum": "Marmottan Monet Museum"
+  },
+  {
+    "title": "Paris Street; Rainy Day",
+    "sub": "Paris | France",
+    "path": "/artworks/paris-street-rainy-day-study",
+    "type": "Artwork",
+    "museum": "Marmottan Monet Museum"
+  },
+  {
+    "title": "At the Ball",
+    "sub": "Paris | France",
+    "path": "/artworks/at-the-ball",
+    "type": "Artwork",
+    "museum": "Marmottan Monet Museum"
+  },
+  {
+    "title": "Impression, Sunrise",
+    "sub": "Paris | France",
+    "path": "/artworks/impression-sunrise",
+    "type": "Artwork",
+    "museum": "Marmottan Monet Museum"
+  },
+  {
+    "title": "The Belvedere : Upper Belvedere",
+    "sub": "Vienna | Austria",
+    "path": "/art-museums/upper-belvedere",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Squatting Couple (The Family)",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/squatting-couple-the-family",
+    "type": "Artwork",
+    "museum": "The Belvedere : Upper Belvedere"
+  },
+  {
+    "title": "Death and the Maiden",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/schiele-death-and-the-maiden",
+    "type": "Artwork",
+    "museum": "The Belvedere : Upper Belvedere"
+  },
+  {
+    "title": "Judith",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/judith",
+    "type": "Artwork",
+    "museum": "The Belvedere : Upper Belvedere"
+  },
+  {
+    "title": "The Kiss (Lovers)",
+    "sub": "Vienna | Austria",
+    "path": "/artworks/the-kiss-lovers",
+    "type": "Artwork",
+    "museum": "The Belvedere : Upper Belvedere"
+  },
+  {
+    "title": "Orangerie Museum",
+    "sub": "Paris | France",
+    "path": "/art-museums/orangerie-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "The Three Sisters",
+    "sub": "Paris | France",
+    "path": "/artworks/the-three-sisters",
+    "type": "Artwork",
+    "museum": "Orangerie Museum"
+  },
+  {
+    "title": "The Village",
+    "sub": "Paris | France",
+    "path": "/artworks/the-village",
+    "type": "Artwork",
+    "museum": "Orangerie Museum"
+  },
+  {
+    "title": "The Little Pastry Cook",
+    "sub": "Paris | France",
+    "path": "/artworks/the-little-pastry-cook-soutine",
+    "type": "Artwork",
+    "museum": "Orangerie Museum"
+  },
+  {
+    "title": "The Water Lilies",
+    "sub": "Paris | France",
+    "path": "/artworks/water-lilies",
+    "type": "Artwork",
+    "museum": "Orangerie Museum"
+  },
+  {
+    "title": "Musée d'Orsay",
+    "sub": "Paris | France",
+    "path": "/art-museums/muse-d-orsay",
+    "type": "Art Museum"
+  },
+  {
+    "title": "La Cathédrale de Rouen. Le Portail vu de face",
+    "sub": "Paris | France",
+    "path": "/artworks/claude-monet-rouen-cathedral-portal-front-view-1892",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "La Cathédrale de Rouen. Le Portail, soleil matinal",
+    "sub": "Paris | France",
+    "path": "/artworks/claude-monet-rouen-cathedral-morning-sunlight-1893",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Rouen Cathedral: The Portal and the Tour Saint-Romain, Full Sunlight",
+    "sub": "Paris | France",
+    "path": "/artworks/rouen-cathedral-the-portal-and-the-tour-saint-romain-full-sunlight",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Van Gogh's Bedroom in Arles",
+    "sub": "Paris | France",
+    "path": "/artworks/van-goghs-bedroom-in-arles",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Apples and Oranges",
+    "sub": "Paris | France",
+    "path": "/artworks/apples-and-oranges",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Young Girls at the Piano",
+    "sub": "Paris | France",
+    "path": "/artworks/young-girls-at-the-piano-renoir",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Luncheon on the Grass",
+    "sub": "Paris | France",
+    "path": "/artworks/luncheon-on-the-grass",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Starry Night",
+    "sub": "Paris | France",
+    "path": "/artworks/starry-night",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "The Gleaners",
+    "sub": "Paris | France",
+    "path": "/artworks/the-gleaners",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Self-Portrait",
+    "sub": "Paris | France",
+    "path": "/artworks/van-gogh-self-portrait-1889",
+    "type": "Artwork",
+    "museum": "Musée d'Orsay"
+  },
+  {
+    "title": "Louvre Museum",
+    "sub": "Paris | France",
+    "path": "/art-museums/louvre-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "The Coronation of the Emperor Napoleon I and the Empress Josephine in the Notre-Dame Cathedral of Paris, December 2, 1804.",
+    "sub": "Paris | France",
+    "path": "/artworks/the-coronation-of-napoleon",
+    "type": "Artwork",
+    "museum": "Louvre Museum"
+  },
+  {
+    "title": "Winged Victory of Samothrace",
+    "sub": "Paris | France",
+    "path": "/artworks/winged-victory-of-samothrace",
+    "type": "Artwork",
+    "museum": "Louvre Museum"
+  },
+  {
+    "title": "Vénus de Milo",
+    "sub": "Paris | France",
+    "path": "/artworks/venus-de-milo",
+    "type": "Artwork",
+    "museum": "Louvre Museum"
+  },
+  {
+    "title": "Mona Lisa",
+    "sub": "Paris | France",
+    "path": "/artworks/mona-lisa",
+    "type": "Artwork",
+    "museum": "Louvre Museum"
+  },
+  {
+    "title": "Van Gogh Museum",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/art-museums/van-gogh-museum",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Wheatfield with Crows",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/wheatfield-with-crows",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "The Yellow House (The Street)",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/the-yellow-house-the-street",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "Self-Portrait with Felt Hat",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/self-portrait-with-felt-hat",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "Self-Portrait with Grey Felt Hat",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/self-portrait-with-grey-felt-hat",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "The Potato Eaters",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/the-potato-eaters",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "Almond Blossom",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/almond-blossom",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "Sunflowers",
+    "sub": "Amsterdam | Netherlands",
+    "path": "/artworks/sunflowers",
+    "type": "Artwork",
+    "museum": "Van Gogh Museum"
+  },
+  {
+    "title": "Museo Del Prado",
+    "sub": "Madrid | Spain",
+    "path": "/art-museums/museo-del-prado",
+    "type": "Art Museum"
+  },
+  {
+    "title": "And They Still Say Fish Is Expensive!",
+    "sub": "Madrid | Spain",
+    "path": "/artworks/and-they-still-say-fish-is-expensive",
+    "type": "Artwork",
+    "museum": "Museo Del Prado"
+  },
+  {
+    "title": "Boys on the Beach",
+    "sub": "Madrid | Spain",
+    "path": "/artworks/boys-on-the-beach",
+    "type": "Artwork",
+    "museum": "Museo Del Prado"
+  },
+  {
+    "title": "MoMA",
+    "sub": "New York | USA",
+    "path": "/art-museums/moma",
+    "type": "Art Museum"
+  },
+  {
+    "title": "The Starry Night",
+    "sub": "New York | USA",
+    "path": "/artworks/the-starry-night",
+    "type": "Artwork",
+    "museum": "MoMA"
+  },
+  {
+    "title": "Self-Portrait with Two Flowers in Her Raised Left Hand",
+    "sub": "New York | USA",
+    "path": "/artworks/self-portrait-with-two-flowers-in-her-raised-left-hand",
+    "type": "Artwork",
+    "museum": "MoMA"
+  },
+  {
+    "title": "The Metropolitan Museum of Art",
+    "sub": "New York | USA",
+    "path": "/art-museums/the-metropolitan-museum-of-art",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Wheat Field with Cypresses",
+    "sub": "New York | USA",
+    "path": "/artworks/wheat-field-with-cypresses",
+    "type": "Artwork",
+    "museum": "The Metropolitan Museum of Art"
+  },
+  {
+    "title": "Study of a Young Woman",
+    "sub": "New York | USA",
+    "path": "/artworks/study-of-a-young-woman",
+    "type": "Artwork",
+    "museum": "The Metropolitan Museum of Art"
+  },
+  {
+    "title": "The Dance Class",
+    "sub": "New York | USA",
+    "path": "/artworks/the-dance-class",
+    "type": "Artwork",
+    "museum": "The Metropolitan Museum of Art"
+  },
+  {
+    "title": "Self-Portrait with a Straw Hat (obverse: The Potato Peeler)",
+    "sub": "New York | USA",
+    "path": "/artworks/self-portrait-with-a-straw-hat-obverse-the-potato-peeler",
+    "type": "Artwork",
+    "museum": "The Metropolitan Museum of Art"
+  },
+  {
+    "title": "National Gallery of Art",
+    "sub": "Washington, D.C. | USA",
+    "path": "/art-museums/national-gallery-of-art",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Plum Brandy",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/plum-brandy",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "The Dance Class",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/degas-the-dance-class-1873",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "Roses",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/roses",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "The Railway",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/the-railway",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "The Artist's Garden at Vétheuil",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/the-artists-garden-at-vtheuil",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "Rouen Cathedral, West Façade",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/rouen-cathedral-west-facade",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "Woman with a Parasol - Madame Monet and Her Son",
+    "sub": "Washington, D.C. | USA",
+    "path": "/artworks/woman-with-a-parasol-madame-monet-and-her-son",
+    "type": "Artwork",
+    "museum": "National Gallery of Art"
+  },
+  {
+    "title": "Art Institute of Chicago",
+    "sub": "Chicago | USA",
+    "path": "/art-museums/art-institute-of-chicago",
+    "type": "Art Museum"
+  },
+  {
+    "title": "Stacks of Wheat (End of Summer)",
+    "sub": "Chicago | USA",
+    "path": "/artworks/stacks-of-wheat-end-of-summer",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "Self-Portrait",
+    "sub": "Chicago | USA",
+    "path": "/artworks/gogh-self-portrait-1887-chicago",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "The Millinery Shop",
+    "sub": "Chicago | USA",
+    "path": "/artworks/the-millinery-shop",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "The Child’s Bath",
+    "sub": "Chicago | USA",
+    "path": "/artworks/the-childs-bath",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "Two Sisters (On the Terrace)",
+    "sub": "Chicago | USA",
+    "path": "/artworks/two-sisters-on-the-terrace",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "The Bedroom",
+    "sub": "Chicago | USA",
+    "path": "/artworks/the-bedroom",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "Paris Street; Rainy Day",
+    "sub": "Chicago | USA",
+    "path": "/artworks/paris-street-rainy-day",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "Water Lilies",
+    "sub": "Chicago | USA",
+    "path": "/artworks/monet-water-lilies-1906",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  },
+  {
+    "title": "A Sunday on La Grande Jatte — 1884",
+    "sub": "Chicago | USA",
+    "path": "/artworks/seurat-a-sunday-on-la-grande-jatte-1884",
+    "type": "Artwork",
+    "museum": "Art Institute of Chicago"
+  }
+]
