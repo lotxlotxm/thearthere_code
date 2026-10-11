@@ -74,7 +74,7 @@
             background: transparent; cursor: pointer; align-items: center; justify-content: center; opacity: .85;
         }
         .clear.show { display: flex; }
-        .label { margin: 28px 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #b9b6a8; }
+        .label { margin: 28px 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #888888; }
         .sug { display: flex; flex-wrap: wrap; gap: 4px 28px; }
         .sug button {
             all: unset; cursor: pointer; padding: 4px 0;
@@ -88,8 +88,8 @@
         }
         .row:hover, .row.active { background: rgba(255,255,255,.06); }
         .t { font-size: 18px; font-weight: 600; line-height: 1.3; }
-        .s { margin-top: 4px; font-size: 13px; color: #b9b6a8; line-height: 1.3; }
-        .arrow { color: #b9b6a8; font-size: 20px; }
+        .s { margin-top: 4px; font-size: 13px; color: #ff0000; line-height: 1.3; }
+        .arrow { color: #888888; font-size: 20px; }
         .more { display: inline-block; margin-top: 22px; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: underline; cursor: pointer; }
         .empty { padding: 20px 0 4px; font-size: 15px; color: #b9b6a8; }
         @media (max-width: 768px) {
