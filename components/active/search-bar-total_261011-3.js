@@ -318,8 +318,8 @@
         top:50%;
         transform:translateY(-50%);
         background:rgba(255, 255, 255, 0.25);
-        border:none;
-        border-radius:50%;
+border:1.5px solid #ffffff;
+border-radius:50%;
         cursor:pointer;
         width:18px;
         height:18px;
