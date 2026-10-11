@@ -1,12 +1,103 @@
-<!-------- 랜딩 통합 검색바 (JSON 연관검색어 + X 버튼 + 메가메뉴 자동 숨김) -------->
-<script>
+/* -------- 랜딩 통합 검색바 (JSON 연관검색어 + X 버튼 + 메가메뉴 자동 숨김) -------- */
 (function() {
-    // 1. JSON 데이터 URL
+    // 1. CSS 스타일 동적 주입
+    const cssContent = `
+        /* 히어로 배너 카드 기준점 설정 */
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-card {
+            position: relative !important;
+        }
+
+        /* 부모 컨테이너 overflow 해제 (드롭다운 가림 방지) */
+        .search-wrapper,
+        .notion-callout[class*="orange"],
+        .notion-collection-card {
+            overflow: visible !important;
+        }
+
+        /* 🔎 [통합검색] 드롭다운 크롭 방지 */
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) :has(.autocomplete-dropdown[style*="display: block"]),
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-callout__content:has(.autocomplete-dropdown[style*="display: block"]),
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection:has(.autocomplete-dropdown[style*="display: block"]),
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-gallery:has(.autocomplete-dropdown[style*="display: block"]),
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-card:has(.autocomplete-dropdown[style*="display: block"]) {
+            overflow: visible !important;
+        }
+
+        /* 검색 결과가 히어로 배너 아래 콘텐츠에 가려지지 않도록 */
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-gallery:has(.autocomplete-dropdown[style*="display: block"]) {
+            position: relative !important;
+            z-index: 99998 !important;
+        }
+
+        /* 검색바가 들어 있는 카드의 레이어 우선순위 */
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-card:has(.autocomplete-dropdown[style*="display: block"]) {
+            position: relative !important;
+            z-index: 99999 !important;
+        }
+
+        /* 🔎 [스크롤바] 네이티브 스크롤바 숨김 */
+        .autocomplete-dropdown {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        .autocomplete-dropdown::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+        /* 오른쪽 스크롤 트랙 */
+        .autocomplete-scroll-indicator {
+            display: none;
+            position: absolute;
+            right: 4px;
+            width: 5px;
+            background: #eeeeee;
+            border-radius: 999px;
+            z-index: 1000000;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+
+        /* 움직이는 스크롤 핸들 */
+        .autocomplete-scroll-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background: #b8b8b8;
+            border-radius: 999px;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .search-wrapper {
+                width: calc(100vw - 48px) !important;
+                box-sizing: border-box !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                bottom: 220px !important;
+            }
+
+            .my-link-search {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                font-size: 13px !important;
+            }
+        }
+    `;
+
+    const styleEl = document.createElement('style');
+    styleEl.innerHTML = cssContent;
+    document.head.appendChild(styleEl);
+
+    // 2. JSON 데이터 URL
     const JSON_URL = "https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/json/relation-keyword_261009.json";
     let searchData = [];
     let searchTimer;
 
-    // JSON 데이터 비동기 로드
     fetch(JSON_URL)
         .then(res => {
             if (!res.ok) throw new Error("네트워크 응답 오류");
@@ -23,7 +114,6 @@
                 .catch(e => console.error("JSON 로드 최종 실패:", e));
         });
 
-    // 연관검색어 드롭다운 전용 스타일 (Shadow DOM 전용)
     const AC_CSS = `
         .box {
             all: initial;
@@ -79,7 +169,6 @@
         }[c]));
     }
 
-    // 히어로 배너 카드로 검색바 이동
     function attachSearchToHero() {
         const heroContainer = document.querySelector(
             '.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]) .notion-collection-card'
@@ -96,7 +185,6 @@
         }
     }
 
-    // 🛡️ [핵심] 네비 메가 메뉴 열림 상태 감지 및 검색바 숨김 제어
     function checkMegaMenuState() {
         const searchBar = document.querySelector('.search-wrapper');
         if (!searchBar) return;
@@ -219,7 +307,6 @@
                                 "
                             >
 
-                            <!-- ✖️ 검색어 삭제 버튼 (검색어 있을 때만 노출) -->
                             <button
                                 type="button"
                                 class="search-clear-btn"
@@ -280,7 +367,6 @@
                                 "
                             ></div>
 
-                            <!-- 오른쪽 스크롤 트랙 -->
                             <div
                                 class="autocomplete-scroll-indicator"
                                 aria-hidden="true"
@@ -294,7 +380,6 @@
                     const clearBtn = el.querySelector('.search-clear-btn');
                     const dropdown = el.querySelector('.autocomplete-dropdown');
 
-                    // X 버튼 노출 제어
                     const updateClearButtonVisibility = () => {
                         if (input.value.length > 0) {
                             clearBtn.style.display = 'flex';
@@ -303,7 +388,6 @@
                         }
                     };
 
-                    // X 버튼 클릭 시 초기화
                     clearBtn.addEventListener('click', () => {
                         input.value = '';
                         updateClearButtonVisibility();
@@ -469,13 +553,13 @@
         const observer = new MutationObserver(() => {
             injectLinkSearch();
             attachSearchToHero();
-            checkMegaMenuState(); // DOM 변화 감지 시 메가메뉴 상태 체크
+            checkMegaMenuState();
         });
 
         observer.observe(document.body, {
             childList: true,
             subtree: true,
-            attributes: true // 속성 변경 감지 추가
+            attributes: true
         });
 
         window.addEventListener('resize', () => {
@@ -499,110 +583,3 @@
         startLinkSearchSystem();
     }
 })();
-</script>
-
-<style>
-/* 히어로 배너 카드 기준점 설정 */
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection-card {
-    position: relative !important;
-}
-
-/* 부모 컨테이너 overflow 해제 (드롭다운 가림 방지) */
-.search-wrapper,
-.notion-callout[class*="orange"],
-.notion-collection-card {
-    overflow: visible !important;
-}
-
-/* =========================================================
-🔎 [통합검색] 드롭다운 크롭 방지
-========================================================= */
-
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-:has(.autocomplete-dropdown[style*="display: block"]),
-
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-callout__content:has(.autocomplete-dropdown[style*="display: block"]),
-
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection:has(.autocomplete-dropdown[style*="display: block"]),
-
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection-gallery:has(.autocomplete-dropdown[style*="display: block"]),
-
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection-card:has(.autocomplete-dropdown[style*="display: block"]) {
-    overflow: visible !important;
-}
-
-/* 검색 결과가 히어로 배너 아래 콘텐츠에 가려지지 않도록 */
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection-gallery:has(.autocomplete-dropdown[style*="display: block"]) {
-    position: relative !important;
-    z-index: 99998 !important;
-}
-
-/* 검색바가 들어 있는 카드의 레이어 우선순위 */
-.notion-callout[class*="orange"]:has(h1):has([class*="bullet"])
-.notion-collection-card:has(.autocomplete-dropdown[style*="display: block"]) {
-    position: relative !important;
-    z-index: 99999 !important;
-}
-
-/* =========================================================
-🔎 [스크롤바] 네이티브 스크롤바 숨김
-========================================================= */
-
-.autocomplete-dropdown {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-}
-
-.autocomplete-dropdown::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* 오른쪽 스크롤 트랙 */
-.autocomplete-scroll-indicator {
-    display: none;
-    position: absolute;
-    right: 4px;
-    width: 5px;
-    background: #eeeeee;
-    border-radius: 999px;
-    z-index: 1000000;
-    pointer-events: none;
-    box-sizing: border-box;
-}
-
-/* 움직이는 스크롤 핸들 */
-.autocomplete-scroll-thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 24px;
-    background: #b8b8b8;
-    border-radius: 999px;
-    transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-    .search-wrapper {
-        width: calc(100vw - 48px) !important;
-        box-sizing: border-box !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        bottom: 220px !important;
-    }
-
-    .my-link-search {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        font-size: 13px !important;
-    }
-}
-</style>
