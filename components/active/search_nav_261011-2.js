@@ -88,10 +88,10 @@
         }
         .row:hover, .row.active { background: rgba(255,255,255,.06); }
         .t { font-size: 18px; font-weight: 600; line-height: 1.3; }
-        .s { margin-top: 4px; font-size: 13px; color: #ff0000; line-height: 1.3; }
-        .arrow { color: #888888; font-size: 20px; }
+        .s { margin-top: 4px; font-size: 13px; color: #888888; line-height: 1.3; }
+        .arrow { color: #ffffff; font-size: 20px; }
         .more { display: inline-block; margin-top: 22px; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: underline; cursor: pointer; }
-        .empty { padding: 20px 0 4px; font-size: 15px; color: #b9b6a8; }
+        .empty { padding: 20px 0 4px; font-size: 15px; color: #F8F9A7; }
         @media (max-width: 768px) {
             .inner { padding: 18px 0 28px; }
             .q { font-size: 16px; }        /* 16px 미만이면 아이폰이 입력 시 화면을 확대함 */
