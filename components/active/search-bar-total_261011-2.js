@@ -307,32 +307,35 @@
                                 "
                             >
 
-                            <button
-                                type="button"
-                                class="search-clear-btn"
-                                style="
-                                    display:none;
-                                    position:absolute;
-                                    right:36px;
-                                    top:50%;
-                                    transform:translateY(-50%);
-                                    background:transparent;
-                                    border:none;
-                                    cursor:pointer;
-                                    width:24px;
-                                    height:24px;
-                                    padding:0;
-                                    align-items:center;
-                                    justify-content:center;
-                                    opacity:0.8;
-                                    z-index:10;
-                                "
-                                title="검색어 지우기"
-                            >
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L13 13M1 13L13 1" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                                </svg>
-                            </button>
+<!-- 원형 X(초기화) 버튼 -->
+<button
+    type="button"
+    class="search-clear-btn"
+    style="
+        display:none;
+        position:absolute;
+        right:36px;
+        top:50%;
+        transform:translateY(-50%);
+        background:rgba(255, 255, 255, 0.25);
+        border:none;
+        border-radius:50%;
+        cursor:pointer;
+        width:18px;
+        height:18px;
+        padding:0;
+        align-items:center;
+        justify-content:center;
+        opacity:0.85;
+        transition:opacity 0.2s ease, background 0.2s ease;
+        z-index:10;
+    "
+    title="검색어 지우기"
+>
+    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L7 7M1 7L7 1" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+</button>
 
                             <img
                                 src="https://res.cloudinary.com/dwtaoukfu/image/upload/v1788758564/icon_search_wh_num0y9.png"
