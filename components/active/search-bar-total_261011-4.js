@@ -317,7 +317,7 @@
         right:36px;
         top:50%;
         transform:translateY(-50%);
-        background:rgba(255, 255, 255, 0.25);
+        background:transparent;
 border:1.5px solid #ffffff;
 border-radius:50%;
         cursor:pointer;
