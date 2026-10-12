@@ -1,5 +1,5 @@
 /* ==========================================================================
-📌 [통합] 3레이어 스티키 구조 + 화이트 콘텐츠 레이어 전체 CSS (v3.4)
+📌 [통합] 3레이어 스티키 구조 + 화이트 콘텐츠 레이어 전체 CSS (v3.5)
 ========================================================================== */
 
 /* 1. 최상위 컨테이너 기준점 */
@@ -13,7 +13,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 📌 [태블릿 여백 해결] 1번 히어로 레이어 하단 다크 연장선
 ========================================================================== */
 
-/* 1번 히어로 콜아웃 하단에 다크 배경 연장판 추가 */
+/* 1번 히어로 콜아웃 하단에 배경 연장판 추가 */
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::after {
     content: "" !important;
     position: absolute !important;
@@ -28,7 +28,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 }
 
 /* --------------------------------------------------------------------------
-   1번 레이어: 히어로 이미지 (상단 top: 70px 고정 + 풀와이드 #ffffff)
+   1번 레이어: 히어로 이미지 (상단 top: 70px 고정 + 풀와이드 #ffffff) - z-index: 1
 -------------------------------------------------------------------------- */
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
     position: sticky !important;
@@ -38,7 +38,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
     border: none !important;
     border-radius: 0px !important;
     padding: 0 !important;
-    margin-top: 0 !important; /* 상단 여백 제거 */
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
@@ -50,7 +50,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image)::before {
     content: "" !important;
     position: absolute !important;
-    top: -72px !important; /* 상단 네비게이션 높이만큼 위로 연장 */
+    top: -72px !important;
     bottom: 0 !important;
     left: 50% !important;
     right: auto !important;
@@ -97,10 +97,10 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 .notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
     --padding-x-pc: 15px;
     position: absolute !important;
-    top: 425px !important; /* margin-top 대신 top으로 오프셋 고정 */
-    left: 50% !important; /* 중앙 정렬 기준축 */
-    transform: translateX(-50%) !important; /* 부모 너비 중앙 정렬 */
-    margin: 0 !important; /* 기존 마진 제거하여 충돌 방지 */
+    top: 425px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
     z-index: 100 !important;
     width: 100% !important;
     max-width: 1150px !important;
@@ -154,7 +154,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 
 
 /* --------------------------------------------------------------------------
-   2번 레이어: 핑크 콜아웃 (1번 이미지 위로 올라와 top: 545px 고정)
+   2번 레이어: 핑크 콜아웃 (1번 이미지 위로 올라와 top: 545px 고정) - z-index: 5
 -------------------------------------------------------------------------- */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
     position: sticky !important;
@@ -562,11 +562,13 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 
 
 /* ==========================================================================
-📌 [3번 레이어] 화이트 콘텐츠 시트 레이어 (1·2번 인트로 위로 완전히 덮고 올라가는 영역)
+📌 [3번 레이어] 화이트 콘텐츠 시트 레이어 (z-index: 10으로 안전 재조정)
+   - 1번(z: 1), 2번(z: 5) 인트로 레이어보다는 위에 배치되어 덮고 올라감
+   - 네비 스티키바(z: 999)보다는 아래에 위치하여 스티키바가 정상 노출됨
 ========================================================================== */
 body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) {
     position: relative !important;
-    z-index: 9000 !important; /* 1, 2번 레이어(z-index: 1, 5)보다 높은 최상위 레이어 */
+    z-index: 10 !important; /* 🔥 9000에서 10으로 변경 (네비바 999보다 아래로 지정) */
     background-color: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -581,7 +583,7 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
     box-sizing: border-box !important;
 
     /* 그림자 효과로 시트 느낌 강조 */
-    /* box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important; */
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* 3번 레이어 풀와이드 화이트 배경판 */
@@ -816,7 +818,7 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
 
     /* 3번 레이어 모바일 */
     body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not([class*="green"]):not([class*="blue"]):not([class*="brown"]):not([class*="purple"]) {
-        z-index: 9000 !important;
+        z-index: 10 !important;
     }
 
     /* 모바일 CTA 및 구분선 숨김 */
