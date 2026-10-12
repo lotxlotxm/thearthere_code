@@ -624,7 +624,48 @@
 
 
 
+/* ==========================================================================
+🌓 3레이어가 덮일 때 1·2레이어가 어두워지는 효과
+========================================================================== */
+:root {
+    --dim-distance: 420px;   /* 이만큼 스크롤하면 최대로 어두워짐 */
+    --dim-brightness: 0.8;   /* 1 = 변화 없음, 0.8 = 20% 어둡게 */
+}
 
+@keyframes layer-dim {
+    from { filter: brightness(1); }
+    to   { filter: brightness(var(--dim-brightness)); }
+}
+
+/* 기본값 (JS 대체 코드가 --dim-p 값을 채워줌. 평소에는 0이라 변화 없음) */
+:is(
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image),
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+) {
+    filter: brightness(calc(1 - (1 - var(--dim-brightness)) * var(--dim-p, 0)));
+}
+
+/* 스크롤 연동 애니메이션을 지원하는 브라우저 */
+@supports (animation-timeline: scroll()) {
+    :is(
+        .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image),
+        .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+    ) {
+        animation: layer-dim 1s linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0px var(--dim-distance);
+    }
+}
+
+/* 모바일: 2번 레이어는 고정이 아니라 함께 올라가는 덮개이므로 1번(이미지)만 어둡게 */
+@media (max-width: 768px) {
+    :root { --dim-distance: 320px; }
+
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+        animation: none !important;
+        filter: none !important;
+    }
+}
 
 
 
