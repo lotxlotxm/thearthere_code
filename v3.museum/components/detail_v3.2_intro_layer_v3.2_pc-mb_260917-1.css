@@ -1003,8 +1003,7 @@
         visibility: visible !important;
         opacity: 1 !important;
     }
-
-
+}
 
 @media (max-width: 380px) {
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
