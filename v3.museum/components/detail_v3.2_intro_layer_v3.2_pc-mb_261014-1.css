@@ -451,7 +451,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    background-color: #ffffff !important;
+    background-color: #37352f !important;
     z-index: -1 !important;
     pointer-events: none !important;
 }
@@ -463,7 +463,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
     width: 100% !important;
     max-width: var(--notion-max-width, var(--super-max-width, 1110px)) !important;
     margin: 0 auto !important;
-    background-color: #ffffff !important;
+    background-color: #37352f !important;
     box-sizing: border-box !important;
     padding-top: 16px !important;
     padding-bottom: 16px !important;
