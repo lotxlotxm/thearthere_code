@@ -29,7 +29,7 @@ const X_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' 
 const styleEl = document.createElement('style');
 
 styleEl.textContent = `
-    /* 기본: 검은색 검색 아이콘 */
+    /* 기본: #37352f 검색 아이콘 */
     ${SELECTOR} {
         display: inline-block !important;
         width: 44px !important;
@@ -41,8 +41,13 @@ styleEl.textContent = `
         color: transparent !important;
         -webkit-text-fill-color: transparent !important;
         text-decoration: none !important;
-        background: url("${ICON_SEARCH}") center / 22px 22px no-repeat !important;
-        filter: brightness(0) !important;
+
+        background-color: #37352f !important;
+        background-image: none !important;
+
+        -webkit-mask: url("${ICON_SEARCH}") center / 22px 22px no-repeat !important;
+        mask: url("${ICON_SEARCH}") center / 22px 22px no-repeat !important;
+
         cursor: pointer !important;
     }
 
