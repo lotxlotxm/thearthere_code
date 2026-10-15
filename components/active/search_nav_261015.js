@@ -23,13 +23,14 @@
         { label: "Artists", terms: ["Claude Monet", "Vincent van Gogh", "Edgar Degas"] }
     ];
 
+```javascript
 // ===== 1. 네비 검색 아이콘 색상 및 스타일 =====
 const X_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'><path d='M4 4L18 18M18 4L4 18' stroke='white' stroke-width='2' stroke-linecap='round'/></svg>";
 
 const styleEl = document.createElement('style');
 
 styleEl.textContent = `
-    /* 기본: #37352f 검색 아이콘 */
+    /* 기본: #37352F 검색 아이콘 */
     ${SELECTOR} {
         display: inline-block !important;
         width: 44px !important;
@@ -42,37 +43,54 @@ styleEl.textContent = `
         -webkit-text-fill-color: transparent !important;
         text-decoration: none !important;
 
-        background-color: #37352f !important;
         background-image: none !important;
+        background-color: #37352F !important;
 
-        -webkit-mask: url("${ICON_SEARCH}") center / 22px 22px no-repeat !important;
-        mask: url("${ICON_SEARCH}") center / 22px 22px no-repeat !important;
+        -webkit-mask-image: url("${ICON_SEARCH}") !important;
+        mask-image: url("${ICON_SEARCH}") !important;
+        -webkit-mask-position: center !important;
+        mask-position: center !important;
+        -webkit-mask-repeat: no-repeat !important;
+        mask-repeat: no-repeat !important;
+        -webkit-mask-size: 22px 22px !important;
+        mask-size: 22px 22px !important;
 
         cursor: pointer !important;
     }
 
-    /* 링크 안의 Search 텍스트 숨김 */
+    /* Search 텍스트 숨김 */
     ${SELECTOR} * {
         display: none !important;
     }
 
-    /* 홈 및 뮤지엄 상세 페이지 상단: 흰색 아이콘 */
+    /* 홈 및 뮤지엄 상세 상단: 흰색 아이콘 */
     .super-navbar.hero-nav-target:not(.scrolled) ${SELECTOR} {
-        filter: none !important;
+        background-color: #FFFFFF !important;
     }
 
-    /* 스크롤 이후: 검은색 아이콘 */
+    /* 스크롤 이후: #37352F 아이콘 */
     .super-navbar.scrolled ${SELECTOR} {
-        filter: brightness(0) !important;
+        background-color: #37352F !important;
     }
 
-    /* 검색 패널이 열렸을 때: X 아이콘 */
+    /* 검색 패널 열림: 흰색 X 아이콘 */
     ${SELECTOR}.is-search-open {
         background-image: url("${X_ICON}") !important;
+        background-color: transparent !important;
+        -webkit-mask: none !important;
+        mask: none !important;
+    }
+
+    /* 상단 흰색 아이콘 규칙보다 X 상태를 우선 적용 */
+    .super-navbar.hero-nav-target:not(.scrolled) ${SELECTOR}.is-search-open,
+    .super-navbar.scrolled ${SELECTOR}.is-search-open {
+        background-color: transparent !important;
     }
 `;
 
 document.head.appendChild(styleEl);
+```
+
 
     // ===== 2. 패널 스타일 (Shadow DOM 안에서만 적용) =====
     const PANEL_CSS = `
