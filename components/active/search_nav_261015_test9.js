@@ -55,8 +55,8 @@ styleEl.textContent = `
         mask-position: center !important;
         -webkit-mask-repeat: no-repeat !important;
         mask-repeat: no-repeat !important;
-        -webkit-mask-size: 22px 22px !important;
-        mask-size: 22px 22px !important;
+        -webkit-mask-size: 18px 18px !important;
+        mask-size: 18px 18px !important;
 
         cursor: pointer !important;
     }
