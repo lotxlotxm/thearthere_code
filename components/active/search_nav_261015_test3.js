@@ -113,38 +113,39 @@ styleEl.textContent = `
     html[data-search-open] .super-navbar.super-navbar.super-navbar img[alt="Logo"] {
         filter: brightness(0) invert(1) !important;
     }
-`;
-
-    /* 모바일: 햄버거 왼쪽에 검색 아이콘 버튼 (데스크톱에서는 숨김) */
-    html body .super-navbar a.nav-search-mobile {
-        display: none !important;
-    }
-
+`
+       /* ===== 모바일 네비: 검색 아이콘을 햄버거(X) 왼쪽에 ===== */
+    /* 메뉴 목록 안의 원래 검색 링크는 모바일에서 숨김 (아래 .nav-search-mobile 로 대체) */
     @media (max-width: 768px) {
-        html body .super-navbar a.nav-search-mobile {
-            display: inline-block !important;
-            flex: none !important;
-            margin: 0 4px 0 auto !important;   /* auto: 로고와 떨어져 오른쪽 끝으로 밀어줌 */
-            vertical-align: middle !important;
-        }
-
-        /* 접힌 메뉴 안의 원래 검색 링크는 숨김 (중복 방지) */
-        html body .super-navbar a[href$="#search"]:not(.nav-search-mobile) {
+        html body .super-navbar a[href$="#search"] {
             display: none !important;
         }
-
-        /* 검색 아이콘과 햄버거를 한 줄에 세로 중앙 정렬 */
-        .super-navbar :has(> a.nav-search-mobile) {
-            display: flex !important;
-            align-items: center !important;
-        }
     }
 
-    /* 메뉴가 펼쳐져 어두운 배경일 때(모바일 햄버거, 데스크톱 메가메뉴) 검색 아이콘 흰색 */
-    html .super-navbar:has([aria-expanded="true"]) a[href$="#search"]:not(.is-search-open) {
+    /* 햄버거 옆에 띄우는 검색 아이콘 (위치는 JS가 잡음) */
+    html body a.nav-search-mobile {
+        position: fixed !important;
+        z-index: 2147483001 !important;
+        margin: 0 !important;
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+
+    /* 메뉴가 열려 배경이 어두울 때 흰색 */
+    html:has(.super-navbar__menu-wrapper) a.nav-search-mobile:not(.is-search-open),
+    html:has(.super-navbar [aria-expanded="true"]) a.nav-search-mobile:not(.is-search-open) {
         background-color: #FFFFFF !important;
     }
+
+    /* 메뉴·검색 패널이 열리면 랜딩의 검색 바를 숨김 */
+    html:has(.super-navbar__menu-wrapper) [data-hide-when-menu],
+    html:has(.super-navbar [aria-expanded="true"]) [data-hide-when-menu],
+    html[data-search-open] [data-hide-when-menu] {
+        visibility: hidden !important;
+    }
    
+   ;
 
 document.head.appendChild(styleEl);
 
@@ -182,35 +183,79 @@ window.addEventListener('popstate', updateIconTone);
     };
 });
 
-   
-updateIconTone();
+// ===== 1-3. 모바일 네비: 검색 아이콘을 햄버거(X) 왼쪽에 배치 + 랜딩 검색 바 표시 =====
+const MOBILE_MAX = 768;
+let mobileBtn = null;
 
-// ===== 1-3. 모바일 네비: 햄버거 왼쪽에 검색 아이콘 버튼 추가 =====
-function ensureMobileSearchButton() {
-    const bar = document.querySelector('.super-navbar');
-    if (!bar || bar.querySelector('a.nav-search-mobile')) return;
+function getNavBar() { return document.querySelector('.super-navbar'); }
 
-    // 햄버거 버튼 찾기 (네비 CSS에서 .super-navbar__button 이 햄버거로 쓰이고 있음)
-    const burger = bar.querySelector('.super-navbar__button') || bar.querySelector('.super-navbar__menu-open');
-    if (!burger || !burger.parentNode) return;
-
-    const a = document.createElement('a');
-    a.className = 'nav-search-mobile';
-    a.href = '#search';
-    a.setAttribute('aria-label', 'Search');
-    a.textContent = 'Search';                  // 글자는 스타일에서 숨겨지고 마스크 아이콘만 보임
-    burger.parentNode.insertBefore(a, burger);
+// 메뉴 패널 안이 아닌, 바 오른쪽 끝에 보이는 버튼 = 햄버거(또는 X)
+function findBurger(bar) {
+    let best = null, bestRight = -1;
+    bar.querySelectorAll('button, [role="button"], .super-navbar__button, .super-navbar__menu-open').forEach(el => {
+        if (el.closest('.super-navbar__menu-wrapper, .super-navbar__viewport')) return;
+        const r = el.getBoundingClientRect();
+        if (r.width < 16 || r.height < 16 || r.top > 120) return;
+        if (r.right > bestRight) { best = el; bestRight = r.right; }
+    });
+    return best;
 }
 
-// Super가 네비를 다시 그려도 버튼이 없어지면 다시 만듦
-let mobileBtnTimer = null;
-new MutationObserver(() => {
-    clearTimeout(mobileBtnTimer);
-    mobileBtnTimer = setTimeout(ensureMobileSearchButton, 100);
-}).observe(document.documentElement, { childList: true, subtree: true });
+function placeMobileSearch() {
+    const bar = getNavBar();
+    if (!bar) return;
+    if (window.innerWidth > MOBILE_MAX) {
+        if (mobileBtn) mobileBtn.style.setProperty('display', 'none', 'important');
+        return;
+    }
+    const burger = findBurger(bar);
+    if (!burger) return;
 
-ensureMobileSearchButton();
+    if (!mobileBtn || !mobileBtn.isConnected) {
+        mobileBtn = document.createElement('a');
+        mobileBtn.className = 'nav-search-mobile';
+        mobileBtn.href = '#search';
+        mobileBtn.setAttribute('aria-label', 'Search');
+        mobileBtn.textContent = 'Search';          // 글자는 스타일에서 숨겨지고 마스크 아이콘만 보임
+        document.body.appendChild(mobileBtn);
+    }
+    const r = burger.getBoundingClientRect();
+    const size = 44;                                // 아이콘 영역 크기
+    mobileBtn.style.setProperty('display', 'inline-block', 'important');
+    mobileBtn.style.setProperty('left', Math.round(r.left - size - 2) + 'px', 'important');   // -2: 햄버거와의 간격
+    mobileBtn.style.setProperty('top', Math.round(r.top + (r.height - size) / 2) + 'px', 'important');
+}
+
+// 랜딩의 검색 바(placeholder 로 찾음)에 '메뉴 열리면 숨김' 표시
+function markLandingSearch() {
+    const input = document.querySelector('input[placeholder^="Search for cities"]');
+    if (!input || input.closest('[data-hide-when-menu]')) return;
+    let target = null, el = input;
+    for (let i = 0; el && el !== document.body && i < 8; i++, el = el.parentElement) {
+        const pos = getComputedStyle(el).position;
+        if (pos === 'fixed' || pos === 'sticky') target = el;     // 화면에 떠 있는 가장 바깥 요소
+    }
+    if (target) { target.setAttribute('data-hide-when-menu', ''); return; }
+    const p = input.parentElement, g = p && p.parentElement;      // 못 찾으면 부모·조부모
+    if (p) p.setAttribute('data-hide-when-menu', '');
+    if (g && g !== document.body) g.setAttribute('data-hide-when-menu', '');
+}
+
+let extraTick = false;
+function refreshNavExtras() {
+    if (extraTick) return;
+    extraTick = true;
+    requestAnimationFrame(() => { placeMobileSearch(); markLandingSearch(); extraTick = false; });
+}
+window.addEventListener('resize', refreshNavExtras);
+window.addEventListener('orientationchange', refreshNavExtras);
+window.addEventListener('scroll', refreshNavExtras, { passive: true });
+document.addEventListener('click', () => setTimeout(refreshNavExtras, 60), true);   // 햄버거 열고 닫을 때
+new MutationObserver(refreshNavExtras).observe(document.documentElement, { childList: true, subtree: true });
+setInterval(refreshNavExtras, 600);
+refreshNavExtras();
    
+updateIconTone();
 
 
     // ===== 2. 패널 스타일 (Shadow DOM 안에서만 적용) =====
