@@ -583,7 +583,7 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
     box-sizing: border-box !important;
 
     /* 그림자 효과로 시트 느낌 강조 */
-    /* box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important; */
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* 3번 레이어 풀와이드 화이트 배경판 */
