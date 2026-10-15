@@ -68,12 +68,42 @@ styleEl.textContent = `
         background-color: #FFFFFF !important;
     }
 
-    /* 검색 패널 열림: 흰색 X 아이콘 (위의 색상 규칙보다 항상 우선) */
+    /* 검색 패널 열림: 흰색 X 아이콘 1개 (위의 색상 규칙보다 항상 우선) */
     html[data-nav-search] ${SELECTOR}.is-search-open {
         background-image: url("${X_ICON}") !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: 22px 22px !important;
         background-color: transparent !important;
         -webkit-mask: none !important;
         mask: none !important;
+    }
+
+    /* 검색 패널 열림: 상단 네비 전체를 #37352F 배경 + 흰색 요소로 (사이트 공통) */
+    html[data-search-open] .super-navbar.super-navbar.super-navbar {
+        background-color: #37352F !important;
+        transition: none !important;
+    }
+
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__menu-item,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__item,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__button,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__menu-item > a,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__menu-item span,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__list {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__button svg,
+    html[data-search-open] .super-navbar.super-navbar.super-navbar .super-navbar__button svg * {
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    html[data-search-open] .super-navbar.super-navbar.super-navbar img[alt="Logo"] {
+        filter: brightness(0) invert(1) !important;
     }
 `;
 
@@ -352,8 +382,10 @@ updateIconTone();
         }
     }
 
-    function setTriggerState(on) {
+      function setTriggerState(on) {
         document.querySelectorAll(SELECTOR).forEach(a => a.classList.toggle('is-search-open', on));
+        if (on) document.documentElement.setAttribute('data-search-open', '');
+        else document.documentElement.removeAttribute('data-search-open');
     }
 
     function open(trigger) {
