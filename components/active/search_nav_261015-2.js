@@ -81,7 +81,7 @@ document.head.appendChild(styleEl);
 
 // ===== 1-2. 아이콘 색상 전환 (랜딩, 미술관 상세만 흰색 → 스크롤하면 #37352F) =====
 const HERO_PATHS       = [/^\/$/, /^\/art-museums\/[^/]+$/];   // 흰색 아이콘을 쓰는 페이지
-const SCROLL_THRESHOLD = 8;                                    // 이 값(px)보다 내려가면 '스크롤됨'. 네비 배경이 바뀌는 시점에 맞춰 조정
+const SCROLL_THRESHOLD = 100;                                    // 이 값(px)보다 내려가면 '스크롤됨'. 네비 배경이 바뀌는 시점에 맞춰 조정
 
 function isHeroPage() {
     const p = location.pathname.replace(/\/+$/, '') || '/';
