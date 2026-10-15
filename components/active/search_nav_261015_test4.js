@@ -486,11 +486,13 @@ updateIconTone();
 
     // ===== 4. 열기 / 닫기 =====
     function closeOtherMenus() {
-        // Super 메가메뉴·모바일 메뉴가 열려 있으면 닫기 시도 (구조를 몰라 best-effort)
         try { document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); } catch (e) {}
-        if (window.innerWidth <= 768) {
-            const t = document.querySelector('[aria-expanded="true"][aria-label*="menu" i]');
-            if (t) t.click();
+        // 모바일 햄버거 메뉴가 열려 있으면 햄버거(X)를 눌러 닫기
+        const bar = getNavBar();
+        if (window.innerWidth <= MOBILE_MAX && bar &&
+            document.querySelector('.super-navbar__menu-wrapper, .super-navbar [aria-expanded="true"]')) {
+            const burger = findBurger(bar);
+            if (burger) burger.click();
         }
     }
 
