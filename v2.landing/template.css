@@ -1,16 +1,18 @@
-/* 뮤지엄 상세 템플릿 3.0*/
+/* 랜딩 v2 템플릿*/
 
 /* =================
 ⚠️ 메모 
 ===================
-개별 독립 링크 리스트
-------------------
-- 스티키 점프바
-- 관심 콘텐츠 
 ------------------*/
 
-/* 1. 인트로 레이어 PC, 모바일, 패드 */
-@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/v3.museum/components/detail_v3.3_intro-white_layer_pc-mb_261012-2.css");
-@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/v3.museum/components/detail_v3.2_intro_layer_v3.2_pad_260917.css");
+/* 1. 랜딩 히어로 이미지 + 오버랩 검색바
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/components/gallery/orange/bullet.h1_v2.landing_hero_banner_260701-1.css");
 
-/* 2. 화이트 콘텐츠 레이어 */
+/* 2. 랜딩 작품 스와이프 */
+/* <!--📌 [갤러리 PC 모바일 스와이프] 그린+토글 체크 트리거.css--> */
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/components/gallery/green/bullet-check_landing_swipe_261009.css");
+
+
+/* 3. 랜딩 - 주요 미술관 리스트 */
+/* <!--📌 [갤러리 랜딩 3그리드 & 모바일 스와이프] 그린+불렛 트리거.css--> */
+@import url("https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/components/gallery/green/bullet_landing_3grid-swipe_261005.css");
