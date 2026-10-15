@@ -61,6 +61,21 @@ styleEl.textContent = `
         cursor: pointer !important;
     }
 
+
+    @media (max-width: 768px) {
+        html body .super-navbar a[href$="#search"] {
+            display: none !important;
+        }
+
+        /* 모바일 검색 아이콘 크기: 18px (22 → 18). 숫자만 바꾸면 됨 */
+        html body a.nav-search-mobile {
+            -webkit-mask-size: 18px 18px !important;
+            mask-size: 18px 18px !important;
+            background-size: 18px 18px !important;   /* X 아이콘(검색 패널 열림)도 같이 줄임 */
+        }
+    }
+
+
     /* 부동: 네비 공통 'transition: all' 이 아이콘 위치·크기를 움직이지 않도록 완전히 끔 */
     html body .super-navbar ${SELECTOR},
     html body .super-navbar ${SELECTOR}.is-search-open {
