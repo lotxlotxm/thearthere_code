@@ -113,8 +113,8 @@ styleEl.textContent = `
     html[data-search-open] .super-navbar.super-navbar.super-navbar img[alt="Logo"] {
         filter: brightness(0) invert(1) !important;
     }
-`
-       /* ===== 모바일 네비: 검색 아이콘을 햄버거(X) 왼쪽에 ===== */
+
+    /* ===== 모바일 네비: 검색 아이콘을 햄버거(X) 왼쪽에 ===== */
     /* 메뉴 목록 안의 원래 검색 링크는 모바일에서 숨김 (아래 .nav-search-mobile 로 대체) */
     @media (max-width: 768px) {
         html body .super-navbar a[href$="#search"] {
@@ -138,14 +138,14 @@ styleEl.textContent = `
         background-color: #FFFFFF !important;
     }
 
-    /* 메뉴·검색 패널이 열리면 랜딩의 검색 바를 숨김 */
+    /* 메뉴·검색 패널이 열리면 랜딩의 검색 바를 숨김 (뒤로 보냄) */
     html:has(.super-navbar__menu-wrapper) [data-hide-when-menu],
     html:has(.super-navbar [aria-expanded="true"]) [data-hide-when-menu],
     html[data-search-open] [data-hide-when-menu] {
         visibility: hidden !important;
+        z-index: 0 !important;
     }
-   
-   ;
+`;
 
 document.head.appendChild(styleEl);
 
@@ -183,9 +183,12 @@ window.addEventListener('popstate', updateIconTone);
     };
 });
 
+updateIconTone();
+
 // ===== 1-3. 모바일 네비: 검색 아이콘을 햄버거(X) 왼쪽에 배치 + 랜딩 검색 바 표시 =====
 const MOBILE_MAX = 768;
 let mobileBtn = null;
+let landingEl = null;
 
 function getNavBar() { return document.querySelector('.super-navbar'); }
 
@@ -208,8 +211,6 @@ function placeMobileSearch() {
         if (mobileBtn) mobileBtn.style.setProperty('display', 'none', 'important');
         return;
     }
-    const burger = findBurger(bar);
-    if (!burger) return;
 
     if (!mobileBtn || !mobileBtn.isConnected) {
         mobileBtn = document.createElement('a');
@@ -219,33 +220,61 @@ function placeMobileSearch() {
         mobileBtn.textContent = 'Search';          // 글자는 스타일에서 숨겨지고 마스크 아이콘만 보임
         document.body.appendChild(mobileBtn);
     }
-    const r = burger.getBoundingClientRect();
+
+    // 햄버거를 못 찾으면 바 오른쪽 끝 기준으로 대략 배치 (아이콘이 사라지지 않게)
+    const burger = findBurger(bar);
+    let r;
+    if (burger) {
+        r = burger.getBoundingClientRect();
+    } else {
+        const b = bar.getBoundingClientRect();
+        r = { left: window.innerWidth - 64, top: b.top, height: b.height || 64 };
+    }
+
     const size = 44;                                // 아이콘 영역 크기
     mobileBtn.style.setProperty('display', 'inline-block', 'important');
     mobileBtn.style.setProperty('left', Math.round(r.left - size - 2) + 'px', 'important');   // -2: 햄버거와의 간격
     mobileBtn.style.setProperty('top', Math.round(r.top + (r.height - size) / 2) + 'px', 'important');
 }
 
-// 랜딩의 검색 바(placeholder 로 찾음)에 '메뉴 열리면 숨김' 표시
+// 랜딩의 검색 바를 찾아 '메뉴 열리면 숨김' 표시 (입력창 placeholder → 글자 순서로 찾음)
 function markLandingSearch() {
-    const input = document.querySelector('input[placeholder^="Search for cities"]');
-    if (!input || input.closest('[data-hide-when-menu]')) return;
-    let target = null, el = input;
+    if (landingEl && landingEl.isConnected) return;
+    if (location.pathname !== '/') return;                         // 랜딩에서만
+
+    let found = document.querySelector('input[placeholder^="Search for cities"], textarea[placeholder^="Search for cities"]');
+    if (!found) {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: n => /^\s*Search for cities/i.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+        });
+        const node = walker.nextNode();
+        if (node) found = node.parentElement;
+    }
+    if (!found) return;
+
+    let target = null, el = found;
     for (let i = 0; el && el !== document.body && i < 8; i++, el = el.parentElement) {
         const pos = getComputedStyle(el).position;
-        if (pos === 'fixed' || pos === 'sticky') target = el;     // 화면에 떠 있는 가장 바깥 요소
+        if (pos === 'fixed' || pos === 'sticky') target = el;      // 화면에 떠 있는 가장 바깥 요소
     }
-    if (target) { target.setAttribute('data-hide-when-menu', ''); return; }
-    const p = input.parentElement, g = p && p.parentElement;      // 못 찾으면 부모·조부모
-    if (p) p.setAttribute('data-hide-when-menu', '');
-    if (g && g !== document.body) g.setAttribute('data-hide-when-menu', '');
+    if (target) {
+        target.setAttribute('data-hide-when-menu', '');
+    } else {                                                       // 못 찾으면 부모·조부모
+        const p = found.parentElement, g = p && p.parentElement;
+        if (p) p.setAttribute('data-hide-when-menu', '');
+        if (g && g !== document.body) g.setAttribute('data-hide-when-menu', '');
+    }
+    landingEl = found;
 }
 
 let extraTick = false;
 function refreshNavExtras() {
     if (extraTick) return;
     extraTick = true;
-    requestAnimationFrame(() => { placeMobileSearch(); markLandingSearch(); extraTick = false; });
+    requestAnimationFrame(() => {
+        try { placeMobileSearch(); markLandingSearch(); } catch (e) {}
+        extraTick = false;
+    });
 }
 window.addEventListener('resize', refreshNavExtras);
 window.addEventListener('orientationchange', refreshNavExtras);
@@ -254,8 +283,6 @@ document.addEventListener('click', () => setTimeout(refreshNavExtras, 60), true)
 new MutationObserver(refreshNavExtras).observe(document.documentElement, { childList: true, subtree: true });
 setInterval(refreshNavExtras, 600);
 refreshNavExtras();
-   
-updateIconTone();
 
 
     // ===== 2. 패널 스타일 (Shadow DOM 안에서만 적용) =====
@@ -347,8 +374,13 @@ updateIconTone();
             .slice(0, MAX_RESULTS);
     }
 
-    // 메인 네비 바로 아래 위치 계산 (검색 링크를 감싼 가장 바깥의 '전체 폭 상단 바'를 찾음)
+    // 메인 네비 바로 아래 위치 계산: 네비 바 자체의 아래쪽을 우선 사용, 못 찾으면 검색 링크를 감싼 '전체 폭 상단 바'를 찾음
     function navBottom() {
+        const bar = getNavBar();
+        if (bar) {
+            const br = bar.getBoundingClientRect();
+            if (br.height > 24 && br.height < 220) return Math.max(0, br.bottom);
+        }
         const t = triggerEl || document.querySelector(SELECTOR);
         let best = null;
         for (let el = t; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
@@ -496,7 +528,7 @@ updateIconTone();
         }
     }
 
-      function setTriggerState(on) {
+    function setTriggerState(on) {
         document.querySelectorAll(SELECTOR).forEach(a => a.classList.toggle('is-search-open', on));
         if (on) document.documentElement.setAttribute('data-search-open', '');
         else document.documentElement.removeAttribute('data-search-open');
