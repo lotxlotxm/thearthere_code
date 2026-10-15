@@ -23,7 +23,7 @@
         { label: "Artists", terms: ["Claude Monet", "Vincent van Gogh", "Edgar Degas"] }
     ];
 
-```javascript
+
 // ===== 1. 네비 검색 아이콘 색상 및 스타일 =====
 const X_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'><path d='M4 4L18 18M18 4L4 18' stroke='white' stroke-width='2' stroke-linecap='round'/></svg>";
 
@@ -63,33 +63,57 @@ styleEl.textContent = `
         display: none !important;
     }
 
-    /* 홈 및 뮤지엄 상세 상단: 흰색 아이콘 */
-    .super-navbar.hero-nav-target:not(.scrolled) ${SELECTOR} {
+    /* 랜딩, /art-museums/슬러그 의 맨 위(스크롤 전): 흰색 아이콘 */
+    html[data-nav-search="light"] ${SELECTOR} {
         background-color: #FFFFFF !important;
     }
 
-    /* 스크롤 이후: #37352F 아이콘 */
-    .super-navbar.scrolled ${SELECTOR} {
-        background-color: #37352F !important;
-    }
-
-    /* 검색 패널 열림: 흰색 X 아이콘 */
-    ${SELECTOR}.is-search-open {
+    /* 검색 패널 열림: 흰색 X 아이콘 (위의 색상 규칙보다 항상 우선) */
+    html[data-nav-search] ${SELECTOR}.is-search-open {
         background-image: url("${X_ICON}") !important;
         background-color: transparent !important;
         -webkit-mask: none !important;
         mask: none !important;
     }
-
-    /* 상단 흰색 아이콘 규칙보다 X 상태를 우선 적용 */
-    .super-navbar.hero-nav-target:not(.scrolled) ${SELECTOR}.is-search-open,
-    .super-navbar.scrolled ${SELECTOR}.is-search-open {
-        background-color: transparent !important;
-    }
 `;
 
 document.head.appendChild(styleEl);
-```
+
+// ===== 1-2. 아이콘 색상 전환 (랜딩, 미술관 상세만 흰색 → 스크롤하면 #37352F) =====
+const HERO_PATHS       = [/^\/$/, /^\/art-museums\/[^/]+$/];   // 흰색 아이콘을 쓰는 페이지
+const SCROLL_THRESHOLD = 8;                                    // 이 값(px)보다 내려가면 '스크롤됨'. 네비 배경이 바뀌는 시점에 맞춰 조정
+
+function isHeroPage() {
+    const p = location.pathname.replace(/\/+$/, '') || '/';
+    return HERO_PATHS.some(re => re.test(p));
+}
+
+function updateIconTone() {
+    const light = isHeroPage() && window.scrollY <= SCROLL_THRESHOLD;
+    document.documentElement.setAttribute('data-nav-search', light ? 'light' : 'dark');
+}
+
+let toneTicking = false;
+window.addEventListener('scroll', () => {
+    if (!toneTicking) {
+        toneTicking = true;
+        requestAnimationFrame(() => { updateIconTone(); toneTicking = false; });
+    }
+}, { passive: true });
+
+window.addEventListener('popstate', updateIconTone);
+
+// Super는 페이지를 새로고침 없이 이동하므로 주소 변경도 감지
+['pushState', 'replaceState'].forEach(fn => {
+    const orig = history[fn];
+    history[fn] = function () {
+        const r = orig.apply(this, arguments);
+        setTimeout(updateIconTone, 0);
+        return r;
+    };
+});
+
+updateIconTone();
 
 
     // ===== 2. 패널 스타일 (Shadow DOM 안에서만 적용) =====
