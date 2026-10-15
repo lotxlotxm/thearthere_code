@@ -45,6 +45,9 @@ styleEl.textContent = `
 
         background-image: none !important;
         background-color: #37352F !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: 22px 22px !important;
 
         -webkit-mask-image: url("${ICON_SEARCH}") !important;
         mask-image: url("${ICON_SEARCH}") !important;
@@ -58,6 +61,14 @@ styleEl.textContent = `
         cursor: pointer !important;
     }
 
+    /* 부동: 네비 공통 'transition: all' 이 아이콘 위치·크기를 움직이지 않도록 완전히 끔 */
+    html body .super-navbar ${SELECTOR},
+    html body .super-navbar ${SELECTOR}.is-search-open {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+
     /* Search 텍스트 숨김 */
     ${SELECTOR} * {
         display: none !important;
@@ -68,15 +79,12 @@ styleEl.textContent = `
         background-color: #FFFFFF !important;
     }
 
-    /* 검색 패널 열림: 흰색 X 아이콘 1개 (위의 색상 규칙보다 항상 우선) */
+    /* 검색 패널 열림: 흰색 X 아이콘 1개 (위치·크기는 그대로 두고 이미지만 바꿈) */
     html[data-nav-search] ${SELECTOR}.is-search-open {
         background-image: url("${X_ICON}") !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
-        background-size: 22px 22px !important;
         background-color: transparent !important;
-        -webkit-mask: none !important;
-        mask: none !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
     }
 
     /* 검색 패널 열림: 상단 네비 전체를 #37352F 배경 + 흰색 요소로 (사이트 공통) */
