@@ -197,3 +197,13 @@ padding: 0 24px !important;
         -webkit-text-fill-color: #fff !important;
     }
 }
+
+
+
+
+
+
+/* 흰 시트가 배너를 완전히 덮은 뒤에는 배너를 숨김 (페이지 맨 아래에서 배너가 비치는 현상 방지) */
+.notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)).hero-covered {
+    visibility: hidden !important;
+}
