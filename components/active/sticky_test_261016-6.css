@@ -49,8 +49,7 @@
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
-    column-gap: 40px !important; /* PC 탭 사이 간격 */
-row-gap: 0 !important;
+    gap: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     list-style: none !important;
@@ -93,7 +92,7 @@ row-gap: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 14px 0px !important; /* 🔥 [PC 탭 간격] 좌우 12px씩 = 탭 사이 24px. 간격 조절은 이 숫자만 바꾸세요 */
+    padding: 14px 20px !important; /* 🔥 [PC 탭 간격] 좌우 12px씩 = 탭 사이 24px. 간격 조절은 이 숫자만 바꾸세요 */
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -157,12 +156,11 @@ row-gap: 0 !important;
     }
 
     .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) ul {
-        column-gap: 20px !important; /* 모바일 탭 사이 간격 */
-row-gap: 0 !important;
+        gap: 0 !important;
     }
 
     .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code {
-        padding: 12px 0px !important; /* 🔥 [모바일 탭 간격] 좌우 10px씩 = 탭 사이 20px */
+        padding: 12px 10px !important; /* 🔥 [모바일 탭 간격] 좌우 10px씩 = 탭 사이 20px */
     } 
     
     .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code,
@@ -185,3 +183,88 @@ row-gap: 0 !important;
 
 /* 앵커 이동 시 스티키 바에 제목이 가려지지 않도록 (바 높이에 맞춰 조정) */
 html { scroll-padding-top: 130px; }
+
+
+/* ==========================================
+📌 스티키 네비 탭 간격 수정
+- 실제 탭을 감싸는 span 사이에서 간격 제어
+- 언더바는 글자 너비 유지
+========================================== */
+
+/* PC */
+@media (min-width: 769px) {
+
+    /* 탭 전체를 담는 실제 레이아웃 부모 */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        column-gap: 40px !important; /* PC 탭 간격 */
+        row-gap: 0 !important;
+        width: max-content !important;
+        max-width: none !important;
+    }
+
+    /* 공백만 담고 있는 span 제거 */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span:not(:has(code)) {
+        display: none !important;
+    }
+
+    /* 실제 탭을 감싸는 span */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span:has(> code) {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        width: max-content !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* code는 글자 너비만 유지 */
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span > code {
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: max-content !important;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        column-gap: 20px !important; /* 모바일 탭 간격 */
+        row-gap: 0 !important;
+        width: max-content !important;
+        max-width: none !important;
+    }
+
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span:not(:has(code)) {
+        display: none !important;
+    }
+
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span:has(> code) {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        width: max-content !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery))
+    .notion-bulleted-list > li > span > code {
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: max-content !important;
+    }
+}
