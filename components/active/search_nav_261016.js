@@ -11,8 +11,8 @@
 
     // ===== 설정 (여기만 바꾸면 됨) =====
     const SELECTOR     = 'a[href$="#search"]';   // Super 네비의 검색 링크
-    const JSON_URL     = "https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/json/relation-keyword_261009.json";
-    const BACKUP_URL   = "https://raw.githubusercontent.com/lotxlotxm/thearthere_code/main/json/relation-keyword_261009.json";
+    const JSON_URL     = "https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/json/relation-keyword_261010.json";
+    const BACKUP_URL   = "https://raw.githubusercontent.com/lotxlotxm/thearthere_code/main/json/relation-keyword_261010.json";
     const TARGET_URL   = "https://thearthere.com/find/art-museums";   // 엔터(선택 항목 없음) / '모두 보기' 이동
     const PLACEHOLDER  = "Search cities, art museums, or artworks...";
     const MAX_RESULTS  = 15;
