@@ -117,7 +117,7 @@
 }
 
 /* -----------------------------------
-🔥 활성화(Active) 탭: 글자 폭 맞춤 언더바
+🔥 활성화(Active) 탭: 컨테이너 하단 경계선 위치로 언더바 이동
 ----------------------------------- */
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active,
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active * {
@@ -125,46 +125,27 @@
     font-weight: 500 !important;
 }
 
-/* code 태그 자체를 인라인 블록으로 두고 내부 텍스트 크기만큼만 영역을 잡도록 설정 */
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active {
     position: relative !important;
-    display: inline-flex !important;
-    width: auto !important;
 }
 
-/* ✨ [핵심] code 내부의 실제 텍스트나 링크(a 태그 또는 span)에 밑줄 라인 생성 */
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active a,
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active span,
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active strong {
-    position: relative !important;
+/* 기존 code 전체에 걸리던 가상 요소 초기화 */
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active::after {
+    display: none !important;
 }
 
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active a::after,
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active span::after,
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active strong::after {
+/* 💡 [핵심] 탭 전체 박스(code 요소)의 하단 경계선 위치에 정확히 겹치도록 선 생성 */
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active::before {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    bottom: -4px !important; /* 글자 바로 아래 간격 */
+    bottom: 0 !important; /* 콜아웃 바닥 경계선에 정확히 밀착 */
     left: 0 !important;
     width: 100% !important;
     height: 2px !important;
     background-color: #37352f !important;
     border-radius: 0 !important;
-}
-
-/* 만약 내부 태그 없이 code 안에 텍스트만 바로 들어있는 경우를 위한 백업 처리 */
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active:not(:has(a)):not(:has(span)):not(:has(strong))::after {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    bottom: 8px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    /* 글자 대략의 폭만큼만 잡히도록 fit-content 유도 */
-    width: calc(100% - 40px) !important; 
-    height: 2px !important;
-    background-color: #37352f !important;
+    z-index: 2 !important; /* 배경선보다 위에 오도록 설정하여 2중선 원천 방지 */
 }
 /* -----------------------------------
 🔥 활성화(Active) 탭: JS가 붙여주는 .is-active 에서만
