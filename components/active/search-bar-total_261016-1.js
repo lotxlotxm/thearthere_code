@@ -35,6 +35,13 @@
             z-index: 99999 !important;
         }
 
+/* 261016 추가 */ 
+        /* 🔝 [핵심] 드롭다운이 열려 있는 동안만 히어로 레이어(z:1)를 3번 레이어(z:10) 위로 올림 */
+        .notion-callout[class*="orange"]:has(h1):has([class*="bullet"]):not(:has(.notion-equation-block)):has(.autocomplete-dropdown[style*="display: block"]) {
+            z-index: 5000 !important;
+        }
+
+
         /* 🔎 [스크롤바] 네이티브 스크롤바 숨김 */
         .autocomplete-dropdown {
             scrollbar-width: none !important;
@@ -574,6 +581,16 @@ border-radius:50%;
                 syncDropdownScrollbar(dropdown);
             }
         });
+
+                // 드롭다운이 열린 채로 스크롤하면 닫기 (히어로가 흰 시트 위로 올라간 상태가 유지되지 않도록)
+        window.addEventListener('scroll', () => {
+            const dd = document.querySelector('.autocomplete-dropdown');
+            if (dd && dd.style.display === 'block' && window.scrollY > 30) {
+                dd.style.display = 'none';
+                syncDropdownScrollbar(dd);
+            }
+        }, { passive: true });
+        // 여기까지
 
         injectLinkSearch();
         attachSearchToHero();
