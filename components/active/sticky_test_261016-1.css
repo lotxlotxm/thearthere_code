@@ -117,7 +117,7 @@
 }
 
 /* -----------------------------------
-🔥 활성화(Active) 탭: 글자 크기만큼만 언더바 생성
+🔥 활성화(Active) 탭: 글자 폭 맞춤 언더바
 ----------------------------------- */
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active,
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active * {
@@ -125,36 +125,46 @@
     font-weight: 500 !important;
 }
 
-/* code 내부의 첫 번째 직계 자식(텍스트 노드 또는 감싸는 태그)을 기준으로 삼음 */
+/* code 태그 자체를 인라인 블록으로 두고 내부 텍스트 크기만큼만 영역을 잡도록 설정 */
 .notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active {
+    position: relative !important;
+    display: inline-flex !important;
+    width: auto !important;
+}
+
+/* ✨ [핵심] code 내부의 실제 텍스트나 링크(a 태그 또는 span)에 밑줄 라인 생성 */
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active a,
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active span,
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active strong {
     position: relative !important;
 }
 
-/* 글자 영역에만 언더바가 생기도록 내부 텍스트 wrapper 혹은 태그에 적용 */
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active > * ,
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active {
-    /* 만약 글자 단위로 딱 맞추려면 아래 pseudo-element를 code의 첫번째 자식이나 텍스트 컨테이너에 걸어줍니다 */
-}
-
-/* ✨ [핵심 수정] 글자 길이만큼만 언더바 표시하기 위해 code 내부의 인라인 콘텐츠에 가상요소 적용 */
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active {
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-/* 언더바를 박스 전체가 아닌 글자 라인 하단에만 밀착시킴 */
-.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active::after {
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active a::after,
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active span::after,
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active strong::after {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    bottom: 10px !important; /* 패딩 공간에 맞춰 위치 조정 */
-    left: 20px !important;  /* code의 좌우 패딩(20px) 만큼 안쪽에서 시작 */
-    right: 20px !important; /* code의 좌우 패딩(20px) 만큼 안쪽에서 끝남 */
+    bottom: -4px !important; /* 글자 바로 아래 간격 */
+    left: 0 !important;
+    width: 100% !important;
     height: 2px !important;
     background-color: #37352f !important;
     border-radius: 0 !important;
-    width: auto !important;
+}
+
+/* 만약 내부 태그 없이 code 안에 텍스트만 바로 들어있는 경우를 위한 백업 처리 */
+.notion-callout[class*="orange"]:has(code):not(:has(.notion-collection-gallery)) code.is-active:not(:has(a)):not(:has(span)):not(:has(strong))::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    bottom: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    /* 글자 대략의 폭만큼만 잡히도록 fit-content 유도 */
+    width: calc(100% - 40px) !important; 
+    height: 2px !important;
+    background-color: #37352f !important;
 }
 /* -----------------------------------
 🔥 활성화(Active) 탭: JS가 붙여주는 .is-active 에서만
