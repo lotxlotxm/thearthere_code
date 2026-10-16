@@ -94,7 +94,7 @@
     document.head.appendChild(styleEl);
 
     // 2. JSON 데이터 URL
-    const JSON_URL = "https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/json/relation-keyword_261009.json";
+    const JSON_URL = "https://cdn.jsdelivr.net/gh/lotxlotxm/thearthere_code@main/json/relation-keyword_261010.json";
     let searchData = [];
     let searchTimer;
 
