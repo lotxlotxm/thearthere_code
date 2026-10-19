@@ -843,17 +843,6 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
         font-size: 0.75rem !important;    
         line-height: 1.5 !important;      
     }
-
-    /* 2-10. 핑크 콜아웃 내부 구분선 스타일 추가 */
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-divider {
-    border: none !important;
-    border-bottom: 1px solid #000000 !important;
-    background: transparent !important;
-    width: 100% !important;
-    margin: 0px 0 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
 }
 
 @media (max-width: 380px) {
