@@ -195,7 +195,7 @@
     }
     .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .notion-semantic-string,
     .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .notion-semantic-string * {
-      color: #666666 !important;
+      color: #F8F9A7 !important;
     }
     .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .color-brown code a,
     .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .color-brown_background code a {
