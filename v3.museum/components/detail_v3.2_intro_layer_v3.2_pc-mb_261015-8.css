@@ -803,7 +803,7 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
         z-index: 5 !important;
         animation: none !important;
         filter: none !important;
-        padding: 0px 0px 20px 0px !important;
+        padding: 0px 0px 0px 0px !important;
     }
 
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)::before {
