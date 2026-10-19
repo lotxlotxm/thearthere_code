@@ -869,28 +869,19 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
 
 /* ==========================================
 📱 모바일 전용
-인트로 상세정보 ↔ 구분선 ↔ CTA
+인트로 상세정보 ↔ 구분선 숨김 ↔ CTA
 ========================================== */
 
 @media (max-width: 768px) {
 
-    /* 1. 상세정보와 CTA 사이 구분선 표시 + 간격 */
+    /* 구분선만 숨김 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
     > .notion-callout__content
     > .notion-divider {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        margin-top: 25px !important;     /* 상세정보 ↔ 선 */
-        margin-bottom: 0px !important;  /* 선 ↔ CTA */
-
-        border: none !important;
-        border-bottom: 1px solid #000000 !important;
-        width: 100% !important;
+        display: none !important;
     }
 
-    /* 2. 모바일에서 기존에 숨겨진 인트로 CTA 다시 표시 */
+    /* 모바일 CTA 표시 유지 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
     .notion-callout:is([class*="gray"], .bg-gray-light)
     :not(:has(ul))
