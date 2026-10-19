@@ -869,27 +869,28 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
 
 /* ==========================================
 📱 모바일 전용
-인트로 상세정보 ↔ 구분선 숨김 ↔ CTA
+인트로 상세정보 ↔ 숨겨진 구분선 공간 ↔ CTA
 ========================================== */
 
 @media (max-width: 768px) {
 
-    /* 구분선만 숨김 */
+    /* 선은 숨기되 레이아웃 공간은 유지 */
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
     > .notion-callout__content
     > .notion-divider {
-        display: none !important;
-    }
-
-    /* 모바일 CTA 표시 유지 */
-    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
-    .notion-callout:is([class*="gray"], .bg-gray-light)
-    :not(:has(ul))
-    :not(:has(.notion-bulleted-list))
-    :not(:has(.notion-list-view))
-    :has(.notion-to-do)
-    :has(:is(code, .notion-inline-code)) {
         display: block !important;
-        visibility: visible !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+
+        margin-top: 25px !important;    /* 상세정보 아래 간격 */
+        margin-bottom: 0 !important;    /* CTA 위쪽 추가 간격 */
+
+        height: 1px !important;
+        min-height: 1px !important;
+        border: none !important;
+        border-bottom: 1px solid transparent !important;
+
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
