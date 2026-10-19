@@ -1,5 +1,5 @@
 (function() {
-  // 1. CSS 스타일 동적 주입
+  // 1. CSS 스타일 동적 주입 (알약 스타일 제거 및 텍스트형 스타일 적용)
   const styleElement = document.createElement('style');
   styleElement.textContent = `
     .affiliate-modal-overlay {
@@ -204,36 +204,27 @@
       font-weight: 700 !important;
       text-decoration: none !important;
     }
-    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .color-red code a,
-    .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) .color-red_background code a {
+    
+    /* 텍스트형 버튼 디자인 적용 */
+    .ticket-popup-fixed-btn {
+      display: inline !important;
+      background: none !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
       color: #F8F9A7 !important;
+      font-family: var(--font-main) !important;
       font-size: 18px !important;
       font-weight: 700 !important;
       text-decoration: none !important;
-    }
-    .ticket-popup-fixed-btn {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      background-color: #F8F9A7 !important;
-      color: #37352F !important;
-      font-family: var(--font-main) !important;
-      font-size: 16px !important;
-      font-weight: 700 !important;
-      padding: 12px 18px !important;
-      border-radius: 9999px !important;
-      border: 1px solid transparent !important;
-      text-decoration: none !important;
-      line-height: 1 !important;
       cursor: pointer !important;
-      transition: all 0.2s ease !important;
-      white-space: nowrap !important;
-      margin: 0 !important;
+      line-height: inherit !important;
+      transition: opacity 0.2s ease !important;
     }
     .ticket-popup-fixed-btn:hover {
-      background-color: #ffffff !important;
-      color: #37352f !important;
+      opacity: 0.8 !important;
     }
+
     @media (max-width: 768px) {
       .notion-callout[class*="purple"]:has(blockquote):is(:has(ol), :has(.notion-numbered-list)) > .notion-callout__content {
         padding-left: 24px !important;
@@ -250,14 +241,12 @@
         width: auto !important;
       }
       .ticket-popup-fixed-btn {
-        padding: 10px 20px !important;
-        font-size: 13px !important;
+        font-size: 16px !important;
       }
     }
     @media (max-width: 380px) {
       .ticket-popup-fixed-btn {
-        padding: 8px 16px !important;
-        font-size: 12px !important;
+        font-size: 14px !important;
       }
     }
   `;
