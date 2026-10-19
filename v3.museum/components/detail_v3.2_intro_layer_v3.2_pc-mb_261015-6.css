@@ -558,6 +558,9 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
     margin: 0px 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
+
+    /* 추가요소 */
+    display: block !important;
 }
 
 
@@ -849,5 +852,16 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
     .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) code {
         padding: 8px 16px !important;
         font-size: 12px !important;
+    }
+}
+
+/* 인트로 CTA 구분선 */
+/* 모바일 화면 (768px 이하)에서 구분선 강제 보장 */
+@media (max-width: 768px) {
+    .notion-callout[class*="pink"] .notion-divider {
+        border-bottom: 1px solid #000000 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
     }
 }
