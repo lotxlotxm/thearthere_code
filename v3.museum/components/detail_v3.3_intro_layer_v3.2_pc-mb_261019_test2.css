@@ -93,67 +93,6 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 
 
 
-/* ==========================================================================
-🟫 [독립 영역] 이미지 오버랩 좋아요 & 쉐어 버튼 (브라운 콜아웃)
-========================================================================== */
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) {
-    --padding-x-pc: 15px;
-    position: absolute !important;
-    top: 425px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    z-index: 100 !important;
-    width: 100% !important;
-    max-width: 1150px !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: var(--padding-x-pc) !important;
-    padding-right: var(--padding-x-pc) !important;
-    box-sizing: border-box !important;
-    font-size: 14px !important;
-}
-
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) li,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) [class*="bulleted"],
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-callout__icon {
-    display: none !important;
-}
-
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) > .notion-callout__content {
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
-}
-
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])),
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) p,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h1,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h2,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) h3,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) a,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) span:not(:has(code)) {
-    color: #ffffff !important;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
-}
-
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) code,
-.notion-callout[class*="brown"]:is(:has(li), :has([class*="bulleted"])) .notion-inline-code {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    background: rgba(255, 255, 255, 1) !important; 
-    text-shadow: none !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
-}
-
-
 
 /* --------------------------------------------------------------------------
    2번 레이어: 핑크 콜아웃 (1번 이미지 위로 올라와 top: 545px 고정) - z-index: 5
