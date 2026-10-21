@@ -1,4 +1,11 @@
-/* 좋아요 버튼 위치 변경 */
+/* 노트: 좋아요 버튼 위치 변경 */
+:root {
+    --nav-h: 70px;     /* 네비 높이 (1레이어 top 값과 같아야 함) */
+    --hero-h: 480px;   /* 히어로 사진 높이 */
+}
+@media (max-width: 1180px) {
+    :root { --hero-h: 400px; }   /* 패드: 사진을 조금 낮게 */
+}
 
 /* ==========================================================================
 📌 [통합] 3레이어 스티키 구조 + 화이트 콘텐츠 레이어 전체 CSS (v3.5)
@@ -83,8 +90,9 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 /* 히어로 이미지 크기/비율 제어 */
 .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
     width: 100% !important;
-    max-height: 480px !important;
-    aspect-ratio: 21 / 9 !important;
+    height: var(--hero-h) !important;      /* 변경: max-height: 480px 대신 */
+        max-height: none !important;
+    aspect-ratio: auto !important;         /* 변경: 21 / 9 대신 */
     object-fit: cover !important;
     object-position: center !important;
     display: block !important;
@@ -99,8 +107,7 @@ html, body, #__next, .super-content, .notion, .notion-page-content {
 -------------------------------------------------------------------------- */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
     position: sticky !important;
-    top: 545px !important;
-    z-index: 5 !important;
+    top: calc(var(--nav-h) + var(--hero-h) - 5px) !important;    z-index: 5 !important;
     background-color: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -701,6 +708,7 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
     .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
         width: 100% !important;
         max-height: none !important;
+        height: auto !important;           /* 추가: 이게 없으면 모바일도 400px로 바뀜 */
         aspect-ratio: 1 / 1 !important;
         object-fit: cover !important;
         object-position: center !important;
@@ -804,4 +812,4 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
         width: 100% !important;
         box-sizing: border-box !important;
     }
-}detail_v3.2_intro_layer_v3.2_pc-mb_261019-3.css
+}
