@@ -851,3 +851,24 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
         margin-top: 0 !important;
     }
 }
+
+
+
+
+/* ==========================================================================
+📌 [태블릿 769~1200px] 1레이어만 고정, 2+3레이어는 함께 스크롤
+   - 모바일(≤768px)은 기존 모바일 규칙 그대로
+   - PC(1201px~)는 기존대로 1+2 고정, 3만 이동
+========================================================================== */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    /* 2레이어: 고정 해제 → 스크롤과 함께 이동 */
+    .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) {
+        position: relative !important;
+        top: auto !important;
+        z-index: 5 !important;
+        animation: none !important;
+        filter: none !important;
+        padding: 0 0 15px 0 !important;   /* 3레이어와의 간격 (모바일과 동일) */
+    }
+}
