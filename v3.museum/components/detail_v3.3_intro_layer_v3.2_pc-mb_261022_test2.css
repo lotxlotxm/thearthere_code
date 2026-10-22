@@ -887,3 +887,24 @@ body .notion-callout:has(ol):has(.notion-numbered-list):not([class*="pink"]):not
         padding: 0 0 15px 0 !important;
     }
 }
+
+
+
+/* ==========================================================================
+📱 [모바일·아이패드 세로(≤768px)] 히어로 이미지를 화면 양끝까지 꽉 채우기
+   - 기존 -24px 여백은 폰 전용 값 → 페이지 여백과 무관하게 100vw로 계산
+========================================================================== */
+@media (max-width: 768px) {
+
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) {
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* 정사각형이 너무 높아지지 않게 화면 높이의 62%로 제한 (폰은 영향 없음) */
+    .notion-callout:not([class*="bg-"]):not([class*="brown"]):not([class*="orange"]):not([class*="blue"]):not([class*="gray"]):not([class*="yellow"]):not(:has(ol)):not(:has([class*="numbered"])):has(.notion-image) img {
+        max-height: 62vh !important;
+    }
+}
