@@ -224,7 +224,7 @@ z-index: 5 !important;
     width: 100% !important;
 }
 
-/* 2-7. 인트로 내부 핵심정보 (녹색 콜아웃 + code) */
+
 /* 2-7. 인트로 내부 핵심정보 (녹색 콜아웃 + code)
    토글이 없는 핵심정보 콜아웃에만 적용 */
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
@@ -257,9 +257,14 @@ z-index: 5 !important;
     width: 100% !important;
 }
 
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
+
+/*글자 크기 기존 내부 폰트 크기 유지 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+div.notion-callout[class*="green"]:has(.highlighted-color.color-red code)
+> .notion-callout__content * {
     font-size: 16px !important;
 }
+
 
 /* ==========================================================================
 2-8. 인트로 내부 미술관 개요 (녹색 콜아웃 + toggle)
@@ -336,12 +341,11 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
     box-shadow: none !important;
 }
 
-
-/* 4. 기존 내부 폰트 크기 유지 */
-.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
-div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_list), :has(.notion-numbered-list), :has(ol), :has(.notion-inline-code), :has(code)) .notion-callout__content * {
+/*4. 글자 크기 기존 내부 폰트 크기 유지 */
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list) .notion-callout[class*="green"]:has(code) .notion-callout__content * {
     font-size: 13px !important;
 }
+
 
 
 /* 5. 기본 아이콘 숨김 */
@@ -495,7 +499,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
     background-color: #37352f !important;
     color: #37352f !important;
     -webkit-text-fill-color: #999999 !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 
 /* 2-8. 인트로 초록색 인라인 코드 태그 테두리 */
