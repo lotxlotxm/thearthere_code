@@ -494,7 +494,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
 .highlighted-color.color-green .notion-inline-code * {
     background-color: #37352f !important;
     color: #37352f !important;
-    -webkit-text-fill-color: #ffffff !important;
+    -webkit-text-fill-color: #999999 !important;
     font-size: 13px !important;
 }
 
@@ -507,7 +507,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
 .notion-callout[class*="green"]
 .highlighted-color.color-green .notion-inline-code {
-    border: 1px solid #ffffff !important;
+    border: 1px solid #999999 !important;
     box-sizing: border-box !important;
 }
 
