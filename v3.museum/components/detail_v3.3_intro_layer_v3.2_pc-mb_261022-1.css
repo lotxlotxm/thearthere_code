@@ -469,7 +469,7 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
 }
 
 /* ==========================================
-2-8. 인트로 주황색 인라인 코드 태그
+2-8. 인트로 초록색 인라인 코드 태그
 - 토글 유무와 관계없이 적용
 - 배경: #F8F9A7
 - 글자: #37352F
@@ -492,10 +492,23 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
 .notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
 .notion-callout[class*="green"]
 .highlighted-color.color-green .notion-inline-code * {
-    background-color: #999999 !important;
-    color: #999999 !important;
-    -webkit-text-fill-color: #37352F !important;
+    background-color: #37352f !important;
+    color: #37352f !important;
+    -webkit-text-fill-color: #ffffff !important;
     font-size: 13px !important;
+}
+
+/* 2-8. 인트로 초록색 인라인 코드 태그 테두리 */
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+.notion-callout[class*="green"]
+.highlighted-color.color-green code.code,
+
+.notion-callout[class*="pink"]:has(ol):has(.notion-numbered-list)
+.notion-callout[class*="green"]
+.highlighted-color.color-green .notion-inline-code {
+    border: 1px solid #ffffff !important;
+    box-sizing: border-box !important;
 }
 
 /* --------------------------------------------------------------------------
