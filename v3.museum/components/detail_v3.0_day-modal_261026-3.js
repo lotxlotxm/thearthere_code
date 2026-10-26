@@ -125,7 +125,7 @@
 }
 .hours-note {
   margin-top: 14px;            /* 요일 표 ↔ NOTE 간격 */
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.6;
   color: #5f5e5b;
   font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -182,7 +182,7 @@
   margin-top: 16px;            /* NOTE(또는 요일 표) ↔ 구분선 간격 */
   padding-top: 12px;           /* 구분선 ↔ Verified 글자 간격 */
   border-top: 1px solid #f0f0f0;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1.5;
   color: #9b9a97;
   font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
