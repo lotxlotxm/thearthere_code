@@ -1,5 +1,5 @@
 /*!
- * 📍 하단 FIXED CTA (v2: 유료/무료 치환 + LABEL 덮어쓰기)
+ * 📍 하단 FIXED CTA (v3: 유료/무료 치환 + LABEL + 글자 세로 가운데 정렬)
  *
  * 노션 사용법 (하단 보라색 콜아웃 안)
  *   [TICKET_PAID_FIXED: 상품ID/vertical/subID]                         → Book Tickets ↗
@@ -272,15 +272,24 @@
       }
     }
 
-    /* ↕ 모바일 전용: CTA 글자를 아이콘 높이에 맞춰 아래로 살짝 내림
-       - 레이아웃은 그대로 두고 글자만 이동 (transform)
-       - 값이 클수록 아래로, 작을수록 위로 (예: 4px, 6px) */
-    :root {
-      --fixed-cta-nudge-mobile: 5px;
+    /* ↕ 하단바 CTA 글자 세로 가운데 정렬 (PC·모바일 공통)
+       - 버튼이 든 문단을 가운데 정렬 박스로
+       - 글자 상자를 대문자 윗선~바닥선으로 잘라서, 글자 몸통이 아이콘과 같은 기준으로 가운데에 오게 함 */
+    .notion-callout[class*="purple"]:has(blockquote) .notion-text:has(.ticket-popup-fixed-btn) {
+      display: flex !important;
+      align-items: center !important;
+      line-height: 1 !important;
     }
-    @media (max-width: 768px) {
+    .notion-callout[class*="purple"]:has(blockquote) .ticket-popup-fixed-btn {
+      text-box: trim-both cap alphabetic;
+    }
+    /* text-box 미지원 브라우저용 보정 (값이 클수록 아래로) */
+    :root {
+      --fixed-cta-fallback-nudge: 2px;
+    }
+    @supports not (text-box: trim-both cap alphabetic) {
       .notion-callout[class*="purple"]:has(blockquote) .ticket-popup-fixed-btn {
-        transform: translateY(var(--fixed-cta-nudge-mobile)) !important;
+        transform: translateY(var(--fixed-cta-fallback-nudge)) !important;
       }
     }
 
@@ -430,7 +439,8 @@
     btn.textContent = label + FIXED_ARROW;
     /* 글자형 고정: 알약 CSS가 어디서 오든 덮어쓰지 못하게 인라인 !important */
     const set = (prop, val) => btn.style.setProperty(prop, val, 'important');
-    set('display', 'inline');
+    set('display', 'inline-block');
+    set('line-height', '1');
     set('background', 'none');
     set('background-color', 'transparent');
     set('border', 'none');
