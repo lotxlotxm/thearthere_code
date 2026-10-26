@@ -513,7 +513,10 @@ div.notion-callout[class*="green"]:has(.notion-toggle):is(:has(.notion-numbered_
 .highlighted-color.color-green .notion-inline-code {
     border: 1px solid #999999 !important;
     box-sizing: border-box !important;
+    margin-left: 0 !important;    /* 양옆 오렌지 마진 제거 */
+    margin-right: 0 !important;
 }
+
 
 /* --------------------------------------------------------------------------
    2-9. 인트로 내부 하단 CTA (좌측: 하트 좋아요, 우측: 티켓 예매 버튼)
