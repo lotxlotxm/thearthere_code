@@ -19,7 +19,7 @@
     PAID: 'Book Tickets',
     FREE: 'Book a Tour'
   };
-  const FIXED_ARROW = ' ↗';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
+  const FIXED_ARROW = '';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
 
   // 1. CSS 스타일 동적 주입 (디자인 변경 없음)
   const styleElement = document.createElement('style');
