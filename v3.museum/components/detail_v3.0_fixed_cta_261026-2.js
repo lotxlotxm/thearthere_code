@@ -21,7 +21,7 @@
   const FIXED_ARROW = '';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
 
   // 1. CSS 스타일 동적 주입 (디자인 변경 없음)
-  const styleElement = document.createElement('style');
+ const styleElement = document.createElement('style');
   styleElement.textContent = `
     .affiliate-modal-overlay {
       position: fixed;
@@ -225,7 +225,7 @@
       font-weight: 700 !important;
       text-decoration: none !important;
     }
-
+    
     /* 텍스트형 버튼 디자인 적용 */
     .ticket-popup-fixed-btn {
       display: inline !important;
@@ -272,7 +272,7 @@
     }
   `;
   document.head.appendChild(styleElement);
-
+  
   // 2. 공통 함수
   function widgetSrc(productId, orientation, subId) {
     return `https://tpwgts.com/content?currency=USD&trs=528770&shmarker=728332.${encodeURIComponent(subId)}&product=${encodeURIComponent(productId)}&language=en&layout=full&orientation=${encodeURIComponent(orientation)}&powered_by=false&campaign_id=89&promo_id=3984`;
