@@ -1,5 +1,5 @@
 /*!
- * 📍 하단 FIXED CTA (v3: 유료/무료 치환 + LABEL + 세로 가운데 정렬)
+ * 📍 하단 FIXED CTA (v2: 유료/무료 치환 + LABEL 덮어쓰기)
  *
  * 노션 사용법 (하단 보라색 콜아웃 안)
  *   [TICKET_PAID_FIXED: 상품ID/vertical/subID]                         → Book Tickets ↗
@@ -272,28 +272,16 @@
       }
     }
 
-    /* ↕ 하단바 버튼 세로 가운데 정렬
-       - 버튼이 든 칸·문단을 하단바 높이에 맞춰 가운데로
-       - --fixed-cta-nudge 로 미세 조정 (+면 아래로, -면 위로) */
+    /* ↕ 모바일 전용: CTA 글자를 아이콘 높이에 맞춰 아래로 살짝 내림
+       - 레이아웃은 그대로 두고 글자만 이동 (transform)
+       - 값이 클수록 아래로, 작을수록 위로 (예: 4px, 6px) */
     :root {
-      --fixed-cta-nudge: 0px;
+      --fixed-cta-nudge-mobile: 5px;
     }
-    .notion-callout[class*="purple"]:has(blockquote) .notion-column:has(.ticket-popup-fixed-btn) {
-      align-self: stretch !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-    .notion-callout[class*="purple"]:has(blockquote) .notion-text:has(.ticket-popup-fixed-btn) {
-      display: flex !important;
-      align-items: center !important;
-      line-height: 1 !important;
-      min-height: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    .notion-callout[class*="purple"]:has(blockquote) .ticket-popup-fixed-btn {
-      position: relative !important;
-      top: var(--fixed-cta-nudge) !important;
+    @media (max-width: 768px) {
+      .notion-callout[class*="purple"]:has(blockquote) .ticket-popup-fixed-btn {
+        transform: translateY(var(--fixed-cta-nudge-mobile)) !important;
+      }
     }
 
     /* 안전장치: 하단바 안에서는 알약 버튼도 글자형으로 표시 (스크립트 교체 전 깜빡임 방지) */
@@ -442,10 +430,7 @@
     btn.textContent = label + FIXED_ARROW;
     /* 글자형 고정: 알약 CSS가 어디서 오든 덮어쓰지 못하게 인라인 !important */
     const set = (prop, val) => btn.style.setProperty(prop, val, 'important');
-    set('display', 'inline-flex');
-    set('align-items', 'center');
-    set('line-height', '1');
-    set('vertical-align', 'middle');
+    set('display', 'inline');
     set('background', 'none');
     set('background-color', 'transparent');
     set('border', 'none');
