@@ -19,7 +19,7 @@
     PAID: 'Book Tickets',
     FREE: 'Book a Tour'
   };
-  const FIXED_ARROW = '';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
+  const FIXED_ARROW = ' ↗';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
 
   // 1. CSS 스타일 동적 주입 (디자인 변경 없음)
   const styleElement = document.createElement('style');
@@ -271,6 +271,18 @@
         font-size: 14px !important;
       }
     }
+
+    /* 안전장치: 하단바 안에서는 알약 버튼도 글자형으로 표시 (스크립트 교체 전 깜빡임 방지) */
+    .notion-callout[class*="purple"]:has(blockquote) .ticket-popup-btn {
+      display: inline !important;
+      background: none !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      color: #F8F9A7 !important;
+      font-size: 18px !important;
+    }
   `;
   document.head.appendChild(styleElement);
 
@@ -404,6 +416,18 @@
     btn.setAttribute('data-title', label);
     btn.setAttribute('data-type', type.toLowerCase());
     btn.textContent = label + FIXED_ARROW;
+    /* 글자형 고정: 알약 CSS가 어디서 오든 덮어쓰지 못하게 인라인 !important */
+    const set = (prop, val) => btn.style.setProperty(prop, val, 'important');
+    set('display', 'inline');
+    set('background', 'none');
+    set('background-color', 'transparent');
+    set('border', 'none');
+    set('border-radius', '0');
+    set('padding', '0');
+    set('margin', '0');
+    set('box-shadow', 'none');
+    set('color', '#F8F9A7');
+    set('-webkit-text-fill-color', '#F8F9A7');
     return btn;
   }
 
@@ -417,7 +441,25 @@
     return !!(bar && bar.querySelector('blockquote'));
   }
 
+  /* 안전장치: 다른 스크립트가 하단바 안에 알약 버튼(.ticket-popup-btn)을 만들었으면
+     텍스트형 버튼(.ticket-popup-fixed-btn)으로 바꿔치기 */
+  function convertStrayPillButtons() {
+    document.querySelectorAll('.ticket-popup-btn').forEach(old => {
+      if (!isInFixedBar(old)) return;
+      const label = old.getAttribute('data-title') || old.textContent.trim() || CTA_LABELS.PAID;
+      const type = (old.getAttribute('data-type') || 'paid').toUpperCase();
+      const btn = makeFixedButton(type === 'FREE' ? 'FREE' : 'PAID', {
+        productId: old.getAttribute('data-product'),
+        orientation: old.getAttribute('data-orientation'),
+        subId: old.getAttribute('data-subid'),
+        label: label
+      });
+      old.replaceWith(btn);
+    });
+  }
+
   function renderFixedTicketButtons() {
+    convertStrayPillButtons();
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     const blocks = new Map();   // block → 이 블록에 쓸 정규식
     let node;
