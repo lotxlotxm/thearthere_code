@@ -126,7 +126,7 @@
 .hours-note {
   margin-top: 14px;            /* 요일 표 ↔ NOTE 간격 */
   font-size: 12px;
-  line-height: 1.6;
+  line-height: 1.4;
   color: #5f5e5b;
   font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
   word-break: keep-all;
