@@ -123,12 +123,8 @@
 .hours-note-wrap.has-note {
   display: block;
 }
-.hours-note-divider {
-  height: 1px;
-  background: #f0f0f0;
-  margin: 16px 0 12px;
-}
 .hours-note {
+  margin-top: 14px;            /* 요일 표 ↔ NOTE 간격 */
   font-size: 13px;
   line-height: 1.6;
   color: #5f5e5b;
@@ -172,7 +168,9 @@
 /* ✨ VERIFIED 확인일 + 출처 (작은 글씨) */
 .hours-verified {
   display: none;
-  margin-top: 12px;
+  margin-top: 16px;            /* NOTE(또는 요일 표) ↔ 구분선 간격 */
+  padding-top: 12px;           /* 구분선 ↔ Verified 글자 간격 */
+  border-top: 1px solid #f0f0f0;
   font-size: 11px;
   line-height: 1.5;
   color: #9b9a97;
@@ -271,7 +269,6 @@
           </div>
           <div class="hours-list" id="hoursListContainer"></div>
           <div class="hours-note-wrap" id="hoursNoteWrap">
-            <div class="hours-note-divider"></div>
             <div class="hours-note" id="hoursNoteContainer"></div>
             <div class="hours-verified" id="hoursVerifiedContainer"></div>
           </div>
@@ -528,8 +525,6 @@
             verifiedContainer.innerHTML = '';
             verifiedContainer.classList.remove('has-verified');
           }
-          /* NOTE 없이 VERIFIED만 있으면 위쪽 여백 없이 */
-          verifiedContainer.style.marginTop = notes.length ? '' : '0';
 
           noteWrap.classList.toggle('has-note', notes.length > 0 || !!verified);
         }
