@@ -154,15 +154,26 @@
   color: #37352f;
 }
 
+/* 모달 안 링크: 평소/호버 밑줄을 똑같이 고정
+   (사이트 전역 a:hover 스타일이 밑줄 간격·두께를 바꾸지 못하게) */
 .hours-note a,
-.hours-verified a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.hours-note a:hover,
+.hours-verified a,
+.hours-verified a:hover {
+  color: inherit !important;
+  text-decoration-line: underline !important;
+  text-decoration-style: solid !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+  text-decoration-color: currentColor !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  padding: 0 !important;
 }
 .hours-note a:hover,
 .hours-verified a:hover {
-  color: #37352f;
+  color: #37352f !important;      /* 호버 시 글자색만 진하게 */
 }
 
 /* ✨ VERIFIED 확인일 + 출처 (작은 글씨) */
