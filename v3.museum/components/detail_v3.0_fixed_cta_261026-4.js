@@ -6,6 +6,7 @@
  *   [TICKET_FREE_FIXED: 상품ID/vertical/subID]                         → Book a Tour ↗
  *   [TICKET_FREE_FIXED: 상품ID/vertical/subID / LABEL: Get Audio Guide] → Get Audio Guide ↗
  *   [TICKET_POPUP_FIXED: ...]  (예전 방식)                              → Book Tickets ↗ 로 계속 동작
+ *   ※ 하단바 안에서는 _FIXED 없이 [TICKET_FREE: ...] 처럼 써도 텍스트형 버튼으로 나옴
  *   ※ 모달 제목 = 버튼 문구 (화살표 제외)
  *   ※ [TICKET_WIDGET: ...] 은 인트로 CTA 스크립트가 처리 (중복 삽입 방지를 위해 여기선 제외)
  */
@@ -21,7 +22,7 @@
   const FIXED_ARROW = '';   // 하단바 버튼 뒤 화살표 (없애려면 '' 로)
 
   // 1. CSS 스타일 동적 주입 (디자인 변경 없음)
- const styleElement = document.createElement('style');
+  const styleElement = document.createElement('style');
   styleElement.textContent = `
     .affiliate-modal-overlay {
       position: fixed;
@@ -225,7 +226,7 @@
       font-weight: 700 !important;
       text-decoration: none !important;
     }
-    
+
     /* 텍스트형 버튼 디자인 적용 */
     .ticket-popup-fixed-btn {
       display: inline !important;
@@ -272,7 +273,7 @@
     }
   `;
   document.head.appendChild(styleElement);
-  
+
   // 2. 공통 함수
   function widgetSrc(productId, orientation, subId) {
     return `https://tpwgts.com/content?currency=USD&trs=528770&shmarker=728332.${encodeURIComponent(subId)}&product=${encodeURIComponent(productId)}&language=en&layout=full&orientation=${encodeURIComponent(orientation)}&powered_by=false&campaign_id=89&promo_id=3984`;
@@ -406,24 +407,34 @@
     return btn;
   }
 
+  /* _FIXED 토큰: 어디서든 하단바 버튼으로 처리
+     일반 토큰([TICKET_FREE: ...] 등): 하단 고정바 안에 있을 때만 하단바 버튼으로 처리 */
   const FIXED_TOKEN_RE = /\[TICKET_(PAID|FREE|POPUP)_FIXED:([^\]]*)\]/;
+  const ANY_TOKEN_RE = /\[TICKET_(PAID|FREE|POPUP)(?:_FIXED)?:([^\]]*)\]/;
+
+  function isInFixedBar(el) {
+    const bar = el.closest('.notion-callout[class*="purple"]');
+    return !!(bar && bar.querySelector('blockquote'));
+  }
 
   function renderFixedTicketButtons() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    const blocks = new Set();
+    const blocks = new Map();   // block → 이 블록에 쓸 정규식
     let node;
     while (node = walker.nextNode()) {
       const el = node.parentElement;
-      if (!el || el.closest('#affiliateModal, .ticket-popup-fixed-btn, script, style')) continue;
-      if (/\[TICKET_(PAID|FREE|POPUP)_FIXED:/.test(node.textContent) || node.textContent.includes('_FIXED:')) {
-        blocks.add(el.closest('.notion-text, p, li') || el);
-      }
+      if (!el || el.closest('#affiliateModal, .ticket-popup-fixed-btn, .ticket-popup-btn, script, style')) continue;
+      const text = node.textContent;
+      if (!text.includes('[TICKET_') && !text.includes('_FIXED:')) continue;
+      const block = el.closest('.notion-text, p, li') || el;
+      if (isInFixedBar(el)) blocks.set(block, ANY_TOKEN_RE);
+      else if (text.includes('_FIXED:') && !blocks.has(block)) blocks.set(block, FIXED_TOKEN_RE);
     }
 
-    blocks.forEach(block => {
+    blocks.forEach((re, block) => {
       let guard = 0;
       let match;
-      while ((match = block.textContent.match(FIXED_TOKEN_RE)) && guard++ < 10) {
+      while ((match = block.textContent.match(re)) && guard++ < 10) {
         const p = parseTicketParams(match[2]);
         const range = makeRangeByOffsets(block, match.index, match.index + match[0].length);
         if (!p || !range) break;
