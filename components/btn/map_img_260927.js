@@ -23,6 +23,17 @@
         object-fit: contain !important;
         text-decoration: none !important;
       }
+      
+      /* 📱 모바일: 맵 핀 크기 축소 (PC 24px) */
+      @media (max-width: 768px) {
+        img.map-pin-img {
+          width: 20px !important;
+          height: 20px !important;
+          min-width: 20px !important;
+          min-height: 20px !important;
+          margin-top: -2px !important;   /* 크기에 맞춰 위치 보정 (PC -3px) */
+        }
+      }
     `;
     document.head.appendChild(style);
   }
